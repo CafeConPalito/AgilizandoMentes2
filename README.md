@@ -7,23 +7,18 @@
 # Reto de Final de Curso de DAM (1ºCurso)
 Repositorio para hacer control del versiones del Reto de final del 1º Curso del Ciclo de DAM(Desarrollo de Aplicaciones Multiplataforma)
 ## Integrantes
-* [Albano Díez de Paulino](https://github.com/TerciodeMarte/DAM/tree/main/DAM-1/BBDD) - Albano Díez de Paulino
-* [Programación](https://github.com/TerciodeMarte/DAM/tree/main/DAM-1/PROGRAMACION) - Programación 
-* [Lenguaje de Marcas](https://github.com/TerciodeMarte/DAM/tree/main/DAM-1/LMSG) - Lenguaje de Marcas y Sistemas de Gestion (LMSG)
-* [Sistemas Informaticos](https://github.com/TerciodeMarte/DAM/tree/main/DAM-1/SI) - Sistemas Informaticos (SI)
-* [Entornos de Desarrollo](https://github.com/TerciodeMarte/DAM/tree/main/DAM-1/ED) - Entornos de Desarrollo (ED)
-* [Mini-Reto Navideño](https://github.com/TerciodeMarte/DAM/tree/main/DAM-1/Reto%20Navidad) - Mini-Reto Navideño
-* [Reto Final de Curso]() - Reto Final de Curso
+* [Albano Díez de Paulino](https://github.com/TerciodeMarte) - Albano Díez de Paulino
+* [Carmen Barrios Fernández](https://github.com/CarmenBarrios) - Carmen Barrios Fernández 
+* [Daniel Espinosa García](https://github.com/Daniel-Espinosa) - Daniel Espinosa García
+* [Ramiro Gutiérrez Valverde](https://github.com/ramirogvalverde) - Ramiro Gutiérrez Valverde
 
 ## Licencia 📄
 
-Este proyecto está bajo la Licencia (Apache License) - mira el archivo [LICENSE.md](LICENSE.md) para detalles
+Este proyecto está bajo la Licencia (Apache License) - mira el archivo [LICENSE](LICENSE) para detalles
 
 ## Expresiones de Gratitud 🎁
 
 * Comenta a otros sobre este proyecto 📢
-* Invita una cerveza 🍺 o un café ☕ a mi profesor. 
+* Invita una cerveza 🍺 o un café ☕ a los integrantes. 
 * Da las gracias públicamente 🤓.
 
----
-⌨️ con ❤️ por [TerciodeMarte](https://github.com/TerciodeMarte) 😊
