@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package AgilizandoMentesII;
+package Alumno;
 //package Images;
 
 import java.awt.*;
@@ -52,7 +52,6 @@ public class Main extends javax.swing.JFrame {
         Cuerpo = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 550));
         setSize(new java.awt.Dimension(800, 500));
 
         BarraLateral.setBackground(new java.awt.Color(0, 153, 153));
