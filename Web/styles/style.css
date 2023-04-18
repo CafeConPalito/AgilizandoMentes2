@@ -1,0 +1,42 @@
+body {
+    margin: 0%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#menu {
+    background-color: rgb(0, 155, 155);
+    display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    align-content: space-between;
+    text-align: right;
+}
+
+#menu header{
+    width: 10%;
+}
+#menu header img {
+    width: 80%;
+
+}
+#menu header nav {
+    width: 90%;
+
+}
+
+#menu nav ul {
+    width: 90%;
+    display: flex;
+    list-style: none;
+}
+#cuerpo{
+    margin-top: 10%;
+    text-align: center;
+}
+#pie{
+    text-align: center;
+}
+#integrantes{
+    display: flex;
+}
