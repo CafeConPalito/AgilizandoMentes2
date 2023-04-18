@@ -18,6 +18,19 @@ public class Estilos {
         return fuenteCuerpo;
     }
 
+    public static Font getFuentePanel() {
+        return fuentePanel;
+    }
+
+    public static void setFuentePanel(Font fuentePanel) {
+        Estilos.fuentePanel = fuentePanel;
+    }
+
+    public static void setFuenteCuerpo(Font fuenteCuerpo) {
+        Estilos.fuenteCuerpo = fuenteCuerpo;
+    }
+    
+
 
 
 

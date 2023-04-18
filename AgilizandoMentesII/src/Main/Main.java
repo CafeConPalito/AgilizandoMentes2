@@ -5,6 +5,7 @@
 package Main;
 //package Images;
 
+import Ajustes.Ajustes;
 import Login.*;
 import java.awt.*;
 import java.net.URL;
@@ -23,21 +24,20 @@ public class Main extends javax.swing.JFrame {
     //int heigtBotones = 200;
     //Font TextoBoton = new Font("Segoe UI Emoji", 0, textoBotones);
     Font fuentePanel = new Font("Segoe UI Emoji", 0, textoBotones);
-    
+
     // para aumentar el tamaño de la fuente poco a poco:
     /*textoBotones += 2;
         Font TextoBoton = new Font("Segoe UI Emoji", 0, textoBotones);
         calculo.setFont(TextoBoton);
-    */
-    
+     */
     /**
      * Creates new form Main
      */
     public Main() {
         initComponents();
         this.setLocationRelativeTo(null);
-        Login l1= new Login();
-        l1.setSize(1070,720);
+        Login l1 = new Login();
+        l1.setSize(1070, 720);
         l1.setLocation(0, 0);
         Cuerpo.removeAll();
         Cuerpo.add(l1);
@@ -307,11 +307,23 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_headerMousePressed
 
     private void UsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuarioMouseClicked
-        // TODO add your handling code here:
+        Login l2 = new Login();
+        l2.setSize(1070, 720);
+        l2.setLocation(0, 0);
+        Cuerpo.removeAll();
+        Cuerpo.add(l2);
+        Cuerpo.revalidate();
+        Cuerpo.repaint();
     }//GEN-LAST:event_UsuarioMouseClicked
 
     private void AjustesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AjustesMouseClicked
-        // TODO add your handling code here:
+        Ajustes A1 = new Ajustes();
+        A1.setSize(1070, 720);
+        A1.setLocation(0, 0);
+        Cuerpo.removeAll();
+        Cuerpo.add(A1,BorderLayout.CENTER);
+        Cuerpo.revalidate();
+        Cuerpo.repaint();
     }//GEN-LAST:event_AjustesMouseClicked
 
     /**
