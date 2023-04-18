@@ -4,9 +4,9 @@
  */
 package Login;
 
-import Alumno.Main;
+import Main.Main;
 import java.awt.Color;
-
+import Ajustes.*;
 /**
  *
  * @author carra
@@ -29,7 +29,9 @@ public class Login extends javax.swing.JPanel {
     private void initComponents() {
 
         background = new javax.swing.JPanel();
-        JLIncio = new javax.swing.JLabel();
+        iniciar = new javax.swing.JLabel();
+        tienes = new javax.swing.JLabel();
+        registra = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         JLContra = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
@@ -46,9 +48,24 @@ public class Login extends javax.swing.JPanel {
         background.setBackground(new java.awt.Color(255, 255, 255));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JLIncio.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        JLIncio.setText("INICIAR SESIÓN");
-        background.add(JLIncio, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 49, -1, -1));
+        iniciar.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        iniciar.setText("INICIAR SESIÓN");
+        background.add(iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 49, -1, -1));
+
+        tienes.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        tienes.setText("¿NO TIENES CUENTA?");
+        background.add(tienes, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
+
+        registra.setFont(Estilos.getFuenteCuerpo());
+        registra.setForeground(new java.awt.Color(0, 153, 255));
+        registra.setText("Registrate aquí.");
+        registra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        registra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                registraMouseEntered(evt);
+            }
+        });
+        background.add(registra, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -181,7 +198,7 @@ public class Login extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 499, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -232,19 +249,25 @@ public class Login extends javax.swing.JPanel {
         
     }//GEN-LAST:event_BotonMouseClicked
 
+    private void registraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registraMouseEntered
+        registra.setFont(Estilos.getFuenteCuerpo());
+    }//GEN-LAST:event_registraMouseEntered
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Boton;
     private javax.swing.JLabel JLContra;
-    private javax.swing.JLabel JLIncio;
     private javax.swing.JLabel JLUsuario;
     private javax.swing.JPasswordField PWF;
     private javax.swing.JTextField TFUsuario;
     private javax.swing.JPanel background;
+    private javax.swing.JLabel iniciar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel registra;
+    private javax.swing.JLabel tienes;
     // End of variables declaration//GEN-END:variables
 }
