@@ -15,18 +15,25 @@ import javax.swing.ImageIcon;
  */
 public class Main extends javax.swing.JFrame {
 
-        int textoBotones = 18;
-        //int whitBotones = 100;
-        //int heigtBotones = 200;
-        //Font TextoBoton = new Font("Segoe UI Emoji", 0, textoBotones);
+    int xMouse, yMouse;
+
+    int textoBotones = 18;
+    //int whitBotones = 100;
+    //int heigtBotones = 200;
+    //Font TextoBoton = new Font("Segoe UI Emoji", 0, textoBotones);
+    
+    // para aumentar el tamaño de la fuente poco a poco:
+    /*textoBotones += 2;
+        Font TextoBoton = new Font("Segoe UI Emoji", 0, textoBotones);
+        calculo.setFont(TextoBoton);
+    */
+    
     /**
      * Creates new form Main
      */
     public Main() {
         initComponents();
         this.setLocationRelativeTo(null);
-
-
 
     }
 
@@ -41,82 +48,239 @@ public class Main extends javax.swing.JFrame {
 
         Fondo = new javax.swing.JPanel();
         BarraLateral = new javax.swing.JPanel();
+        PanelAlumnos = new javax.swing.JPanel();
+        Cálculo = new javax.swing.JPanel();
+        LoginTXT4 = new javax.swing.JLabel();
+        Euclides1 = new javax.swing.JPanel();
+        Euclides = new javax.swing.JLabel();
+        RestoDivision = new javax.swing.JPanel();
+        LoginTXT = new javax.swing.JLabel();
+        Calculadora = new javax.swing.JPanel();
+        LoginTXT3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        euclides = new javax.swing.JButton();
-        salir = new javax.swing.JButton();
-        calculadora = new javax.swing.JButton();
-        calculo = new javax.swing.JButton();
-        restoDivision = new javax.swing.JButton();
-        Ajustes = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
+        Usuario = new javax.swing.JPanel();
+        LoginTXT1 = new javax.swing.JLabel();
+        Usuario1 = new javax.swing.JPanel();
+        LoginTXT2 = new javax.swing.JLabel();
+        header = new javax.swing.JPanel();
+        exit = new javax.swing.JPanel();
+        xtxt = new javax.swing.JLabel();
         Cuerpo = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setSize(new java.awt.Dimension(800, 500));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1280, 720));
+        setSize(new java.awt.Dimension(1280, 720));
 
-        BarraLateral.setBackground(new java.awt.Color(0, 153, 153));
+        Fondo.setPreferredSize(new java.awt.Dimension(1280, 720));
+        Fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BarraLateral.setBackground(new java.awt.Color(0, 155, 155));
+
+        PanelAlumnos.setBackground(new java.awt.Color(0, 155, 155));
+
+        Cálculo.setBackground(new java.awt.Color(0, 155, 155));
+        Cálculo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CálculoMouseClicked(evt);
+            }
+        });
+
+        LoginTXT4.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        LoginTXT4.setForeground(new java.awt.Color(255, 255, 255));
+        LoginTXT4.setText("Cálculo");
+        LoginTXT4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout CálculoLayout = new javax.swing.GroupLayout(Cálculo);
+        Cálculo.setLayout(CálculoLayout);
+        CálculoLayout.setHorizontalGroup(
+            CálculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CálculoLayout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addComponent(LoginTXT4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        CálculoLayout.setVerticalGroup(
+            CálculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CálculoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LoginTXT4, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        Euclides1.setBackground(new java.awt.Color(0, 155, 155));
+        Euclides1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Euclides1MouseClicked(evt);
+            }
+        });
+
+        Euclides.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        Euclides.setForeground(new java.awt.Color(255, 255, 255));
+        Euclides.setText("Euclides");
+        Euclides.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout Euclides1Layout = new javax.swing.GroupLayout(Euclides1);
+        Euclides1.setLayout(Euclides1Layout);
+        Euclides1Layout.setHorizontalGroup(
+            Euclides1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Euclides1Layout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(Euclides)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        Euclides1Layout.setVerticalGroup(
+            Euclides1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Euclides, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+        );
+
+        RestoDivision.setBackground(new java.awt.Color(0, 155, 155));
+        RestoDivision.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RestoDivisionMouseClicked(evt);
+            }
+        });
+
+        LoginTXT.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        LoginTXT.setForeground(new java.awt.Color(255, 255, 255));
+        LoginTXT.setText("Resto división");
+        LoginTXT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout RestoDivisionLayout = new javax.swing.GroupLayout(RestoDivision);
+        RestoDivision.setLayout(RestoDivisionLayout);
+        RestoDivisionLayout.setHorizontalGroup(
+            RestoDivisionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RestoDivisionLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(LoginTXT)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+        RestoDivisionLayout.setVerticalGroup(
+            RestoDivisionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(LoginTXT, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+        );
+
+        Calculadora.setBackground(new java.awt.Color(0, 155, 155));
+        Calculadora.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CalculadoraMouseClicked(evt);
+            }
+        });
+
+        LoginTXT3.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        LoginTXT3.setForeground(new java.awt.Color(255, 255, 255));
+        LoginTXT3.setText("Calculadora ");
+        LoginTXT3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout CalculadoraLayout = new javax.swing.GroupLayout(Calculadora);
+        Calculadora.setLayout(CalculadoraLayout);
+        CalculadoraLayout.setHorizontalGroup(
+            CalculadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CalculadoraLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(LoginTXT3)
+                .addGap(34, 34, 34))
+        );
+        CalculadoraLayout.setVerticalGroup(
+            CalculadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CalculadoraLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LoginTXT3, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout PanelAlumnosLayout = new javax.swing.GroupLayout(PanelAlumnos);
+        PanelAlumnos.setLayout(PanelAlumnosLayout);
+        PanelAlumnosLayout.setHorizontalGroup(
+            PanelAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelAlumnosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PanelAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PanelAlumnosLayout.createSequentialGroup()
+                        .addGroup(PanelAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(PanelAlumnosLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(Cálculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(Euclides1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(7, 7, 7))
+                    .addGroup(PanelAlumnosLayout.createSequentialGroup()
+                        .addComponent(RestoDivision, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
+            .addComponent(Calculadora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        PanelAlumnosLayout.setVerticalGroup(
+            PanelAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanelAlumnosLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(Cálculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(RestoDivision, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Calculadora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(Euclides1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/augusto-logo-peq.png"))); // NOI18N
 
-        euclides.setBackground(new java.awt.Color(204, 204, 204));
-        euclides.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
-        euclides.setForeground(new java.awt.Color(51, 51, 51));
-        euclides.setText("Euclides");
-        euclides.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                euclidesActionPerformed(evt);
+        Usuario.setBackground(new java.awt.Color(0, 155, 155));
+        Usuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                UsuarioMouseClicked(evt);
             }
         });
 
-        salir.setBackground(new java.awt.Color(204, 204, 204));
-        salir.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
-        salir.setForeground(new java.awt.Color(51, 51, 51));
-        salir.setText("Salir");
-        salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salirActionPerformed(evt);
+        LoginTXT1.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        LoginTXT1.setForeground(new java.awt.Color(255, 255, 255));
+        LoginTXT1.setText("Usuario");
+        LoginTXT1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout UsuarioLayout = new javax.swing.GroupLayout(Usuario);
+        Usuario.setLayout(UsuarioLayout);
+        UsuarioLayout.setHorizontalGroup(
+            UsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(UsuarioLayout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(LoginTXT1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        UsuarioLayout.setVerticalGroup(
+            UsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(UsuarioLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LoginTXT1, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        Usuario1.setBackground(new java.awt.Color(0, 155, 155));
+        Usuario1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Usuario1MouseClicked(evt);
             }
         });
 
-        calculadora.setBackground(new java.awt.Color(204, 204, 204));
-        calculadora.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
-        calculadora.setForeground(new java.awt.Color(51, 51, 51));
-        calculadora.setText("Calculadora");
-        calculadora.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                calculadoraActionPerformed(evt);
-            }
-        });
+        LoginTXT2.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        LoginTXT2.setForeground(new java.awt.Color(255, 255, 255));
+        LoginTXT2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ajustesblanco.png"))); // NOI18N
+        LoginTXT2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        calculo.setBackground(new java.awt.Color(204, 204, 204));
-        calculo.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
-        calculo.setForeground(new java.awt.Color(51, 51, 51));
-        calculo.setText("Cálculo");
-        calculo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                calculoActionPerformed(evt);
-            }
-        });
-
-        restoDivision.setBackground(new java.awt.Color(204, 204, 204));
-        restoDivision.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
-        restoDivision.setForeground(new java.awt.Color(51, 51, 51));
-        restoDivision.setText("Resto División");
-        restoDivision.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                restoDivisionActionPerformed(evt);
-            }
-        });
-
-        Ajustes.setBackground(new java.awt.Color(204, 204, 204));
-        Ajustes.setFont(new java.awt.Font("Segoe UI Emoji", 0, 18)); // NOI18N
-        Ajustes.setForeground(new java.awt.Color(51, 51, 51));
-        Ajustes.setText("Ajustes");
-        Ajustes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AjustesActionPerformed(evt);
-            }
-        });
+        javax.swing.GroupLayout Usuario1Layout = new javax.swing.GroupLayout(Usuario1);
+        Usuario1.setLayout(Usuario1Layout);
+        Usuario1Layout.setHorizontalGroup(
+            Usuario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Usuario1Layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(LoginTXT2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        Usuario1Layout.setVerticalGroup(
+            Usuario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Usuario1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(LoginTXT2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout BarraLateralLayout = new javax.swing.GroupLayout(BarraLateral);
         BarraLateral.setLayout(BarraLateralLayout);
@@ -125,21 +289,14 @@ public class Main extends javax.swing.JFrame {
             .addGroup(BarraLateralLayout.createSequentialGroup()
                 .addGroup(BarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BarraLateralLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(BarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(euclides, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(calculadora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(calculo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(restoDivision, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Ajustes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(salir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(BarraLateralLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
+                        .addGap(51, 51, 51)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(Usuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(BarraLateralLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jSeparator1)))
+                        .addComponent(Usuario1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(PanelAlumnos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         BarraLateralLayout.setVerticalGroup(
@@ -148,21 +305,84 @@ public class Main extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(calculo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(calculadora, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(restoDivision, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(euclides, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Ajustes, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+                .addComponent(PanelAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                .addComponent(Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Usuario1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
+
+        Fondo.add(BarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 720));
+
+        header.setBackground(new java.awt.Color(255, 255, 255));
+        header.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+        header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                headerMouseDragged(evt);
+            }
+        });
+        header.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                headerMousePressed(evt);
+            }
+        });
+
+        exit.setBackground(new java.awt.Color(255, 255, 255));
+
+        xtxt.setFont(new java.awt.Font("Roboto Medium", 1, 24)); // NOI18N
+        xtxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        xtxt.setText("X");
+        xtxt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        xtxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                xtxtMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                xtxtMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                xtxtMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout exitLayout = new javax.swing.GroupLayout(exit);
+        exit.setLayout(exitLayout);
+        exitLayout.setHorizontalGroup(
+            exitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 28, Short.MAX_VALUE)
+            .addGroup(exitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(exitLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(xtxt)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        exitLayout.setVerticalGroup(
+            exitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 32, Short.MAX_VALUE)
+            .addGroup(exitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(exitLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(xtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        javax.swing.GroupLayout headerLayout = new javax.swing.GroupLayout(header);
+        header.setLayout(headerLayout);
+        headerLayout.setHorizontalGroup(
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerLayout.createSequentialGroup()
+                .addGap(0, 1252, Short.MAX_VALUE)
+                .addComponent(exit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        headerLayout.setVerticalGroup(
+            headerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerLayout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(exit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        Fondo.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 30));
 
         Cuerpo.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -170,27 +390,14 @@ public class Main extends javax.swing.JFrame {
         Cuerpo.setLayout(CuerpoLayout);
         CuerpoLayout.setHorizontalGroup(
             CuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 637, Short.MAX_VALUE)
+            .addGap(0, 1070, Short.MAX_VALUE)
         );
         CuerpoLayout.setVerticalGroup(
             CuerpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 720, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout FondoLayout = new javax.swing.GroupLayout(Fondo);
-        Fondo.setLayout(FondoLayout);
-        FondoLayout.setHorizontalGroup(
-            FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(FondoLayout.createSequentialGroup()
-                .addComponent(BarraLateral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Cuerpo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        FondoLayout.setVerticalGroup(
-            FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BarraLateral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Cuerpo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        Fondo.add(Cuerpo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 1070, 720));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -206,32 +413,55 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void euclidesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_euclidesActionPerformed
-        //calculo.setSize(50,50);
-        textoBotones += 2;
-        Font TextoBoton = new Font("Segoe UI Emoji", 0, textoBotones);
-        calculo.setFont(TextoBoton);
-    }//GEN-LAST:event_euclidesActionPerformed
-
-    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+    private void xtxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xtxtMouseClicked
         System.exit(0);
-    }//GEN-LAST:event_salirActionPerformed
+    }//GEN-LAST:event_xtxtMouseClicked
 
-    private void calculadoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculadoraActionPerformed
+    private void xtxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xtxtMouseEntered
+        exit.setBackground(Color.red);
+        xtxt.setForeground(Color.white);
+    }//GEN-LAST:event_xtxtMouseEntered
+
+    private void xtxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xtxtMouseExited
+        exit.setBackground(Color.white);
+        xtxt.setForeground(Color.black);
+    }//GEN-LAST:event_xtxtMouseExited
+
+    private void headerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - xMouse, y - yMouse);
+    }//GEN-LAST:event_headerMouseDragged
+
+    private void headerMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMousePressed
+        xMouse = evt.getX();
+        yMouse = evt.getY();
+    }//GEN-LAST:event_headerMousePressed
+
+    private void CalculadoraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CalculadoraMouseClicked
+        
+
+    }//GEN-LAST:event_CalculadoraMouseClicked
+
+    private void UsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuarioMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_calculadoraActionPerformed
+    }//GEN-LAST:event_UsuarioMouseClicked
 
-    private void calculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculoActionPerformed
+    private void Euclides1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Euclides1MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_calculoActionPerformed
+    }//GEN-LAST:event_Euclides1MouseClicked
 
-    private void restoDivisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restoDivisionActionPerformed
+    private void RestoDivisionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RestoDivisionMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_restoDivisionActionPerformed
+    }//GEN-LAST:event_RestoDivisionMouseClicked
 
-    private void AjustesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjustesActionPerformed
+    private void CálculoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CálculoMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CálculoMouseClicked
 
-    }//GEN-LAST:event_AjustesActionPerformed
+    private void Usuario1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Usuario1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Usuario1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -269,16 +499,25 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Ajustes;
     private javax.swing.JPanel BarraLateral;
+    private javax.swing.JPanel Calculadora;
     private javax.swing.JPanel Cuerpo;
+    private javax.swing.JPanel Cálculo;
+    private javax.swing.JLabel Euclides;
+    private javax.swing.JPanel Euclides1;
     private javax.swing.JPanel Fondo;
-    private javax.swing.JButton calculadora;
-    private javax.swing.JButton calculo;
-    private javax.swing.JButton euclides;
+    private javax.swing.JLabel LoginTXT;
+    private javax.swing.JLabel LoginTXT1;
+    private javax.swing.JLabel LoginTXT2;
+    private javax.swing.JLabel LoginTXT3;
+    private javax.swing.JLabel LoginTXT4;
+    private javax.swing.JPanel PanelAlumnos;
+    private javax.swing.JPanel RestoDivision;
+    private javax.swing.JPanel Usuario;
+    private javax.swing.JPanel Usuario1;
+    private javax.swing.JPanel exit;
+    private javax.swing.JPanel header;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JButton restoDivision;
-    private javax.swing.JButton salir;
+    private javax.swing.JLabel xtxt;
     // End of variables declaration//GEN-END:variables
 }
