@@ -87,7 +87,7 @@ public class Register extends javax.swing.JPanel {
 
         tienes.setFont(Estilos.getFuenteCuerpo());
         tienes.setText("¿TIENES CUENTA?");
-        fondoRegistro.add(tienes, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 510, -1, -1));
+        fondoRegistro.add(tienes, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 510, -1, -1));
 
         inicia.setFont(Estilos.getFuenteCuerpo());
         inicia.setForeground(new java.awt.Color(0, 153, 255));
@@ -101,7 +101,7 @@ public class Register extends javax.swing.JPanel {
                 iniciaMousePressed(evt);
             }
         });
-        fondoRegistro.add(inicia, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 510, -1, -1));
+        fondoRegistro.add(inicia, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 510, -1, -1));
 
         Usuario.setBackground(new java.awt.Color(255, 255, 255));
 
