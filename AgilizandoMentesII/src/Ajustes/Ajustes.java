@@ -1,5 +1,6 @@
 package Ajustes;
 
+import Main.Main;
 import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -34,7 +35,7 @@ public class Ajustes extends javax.swing.JPanel {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         background = new javax.swing.JPanel();
-        iniciar = new javax.swing.JLabel();
+        sonido = new javax.swing.JLabel();
         aplicar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         titulo = new javax.swing.JLabel();
@@ -52,14 +53,14 @@ public class Ajustes extends javax.swing.JPanel {
         background.setPreferredSize(new java.awt.Dimension(1070, 720));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        iniciar.setFont(Estilos.getFuenteCuerpo());
-        iniciar.setText("SONIDO");
-        iniciar.addMouseListener(new java.awt.event.MouseAdapter() {
+        sonido.setFont(Estilos.getFuenteCuerpo());
+        sonido.setText("SONIDO");
+        sonido.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                iniciarMouseEntered(evt);
+                sonidoMouseEntered(evt);
             }
         });
-        background.add(iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
+        background.add(sonido, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
 
         aplicar.setBackground(Estilos.getColorPanel());
         aplicar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -216,6 +217,21 @@ public class Ajustes extends javax.swing.JPanel {
 
     private void aplicarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aplicarMouseClicked
         Configuracion.setTamano((byte)texto.getValue());
+        switch (Configuracion.getTamano()) {
+            case 1:
+                Estilos.setSizeCuerpo(12);
+                
+                break;
+            case 2:
+                Estilos.setSizeCuerpo(18);
+              
+                break;
+            case 3:
+                Estilos.setSizeCuerpo(24);
+             
+                break;
+        }
+        
         Configuracion.setIdioma(selectidioma.getSelectedItem().toString());
         if (Si.isSelected()) {
             Configuracion.setSonido(true);
@@ -223,6 +239,14 @@ public class Ajustes extends javax.swing.JPanel {
         } else {
             Configuracion.setSonido(false);
         }
+        
+        Ajustes a1 = new Ajustes();
+        a1.setSize(1070,720);
+        a1.setLocation(0, 0);
+        Main.getCuerpo().removeAll();
+        Main.getCuerpo().add(a1);
+        Main.getCuerpo().revalidate();
+        Main.getCuerpo().repaint();
 
     }//GEN-LAST:event_aplicarMouseClicked
 
@@ -295,7 +319,7 @@ public class Ajustes extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_idiomaMouseEntered
 
-    private void iniciarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarMouseEntered
+    private void sonidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sonidoMouseEntered
         if (Configuracion.isSonido()) {
             try {
                 AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Audios/sonido.wav"));
@@ -312,7 +336,7 @@ public class Ajustes extends javax.swing.JPanel {
                 Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }//GEN-LAST:event_iniciarMouseEntered
+    }//GEN-LAST:event_sonidoMouseEntered
 
     private void SiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SiMouseEntered
         if (Configuracion.isSonido()) {
@@ -360,9 +384,9 @@ public class Ajustes extends javax.swing.JPanel {
     private javax.swing.JPanel background;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel idioma;
-    private javax.swing.JLabel iniciar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JComboBox<String> selectidioma;
+    private javax.swing.JLabel sonido;
     private javax.swing.JLabel tamano;
     private javax.swing.JSlider texto;
     private javax.swing.JLabel titulo;
