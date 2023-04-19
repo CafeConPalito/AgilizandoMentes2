@@ -5,7 +5,7 @@
 package Main;
 //package Images;
 
-import Ajustes.Ajustes;
+import Ajustes.*;
 import Login.*;
 import java.awt.*;
 import java.net.URL;
@@ -100,10 +100,10 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        LoginTXT1.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        LoginTXT1.setFont(Estilos.getFuentePanel());
         LoginTXT1.setForeground(new java.awt.Color(255, 255, 255));
         LoginTXT1.setText("Usuario");
-        LoginTXT1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LoginTXT1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         LoginTXT1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 LoginTXT1MouseClicked(evt);
@@ -117,7 +117,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(UsuarioLayout.createSequentialGroup()
                 .addGap(57, 57, 57)
                 .addComponent(LoginTXT1)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
         UsuarioLayout.setVerticalGroup(
             UsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,7 +137,7 @@ public class Main extends javax.swing.JFrame {
         LoginTXT2.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         LoginTXT2.setForeground(new java.awt.Color(255, 255, 255));
         LoginTXT2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ajustesblanco.png"))); // NOI18N
-        LoginTXT2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LoginTXT2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout AjustesLayout = new javax.swing.GroupLayout(Ajustes);
         Ajustes.setLayout(AjustesLayout);
@@ -190,7 +190,7 @@ public class Main extends javax.swing.JFrame {
         Fondo.add(BarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 720));
 
         header.setBackground(new java.awt.Color(255, 255, 255));
-        header.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+        header.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 headerMouseDragged(evt);
@@ -207,7 +207,7 @@ public class Main extends javax.swing.JFrame {
         xtxt.setFont(new java.awt.Font("Roboto Medium", 1, 24)); // NOI18N
         xtxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         xtxt.setText("X");
-        xtxt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        xtxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         xtxt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 xtxtMouseClicked(evt);
@@ -224,7 +224,7 @@ public class Main extends javax.swing.JFrame {
         exit.setLayout(exitLayout);
         exitLayout.setHorizontalGroup(
             exitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 28, Short.MAX_VALUE)
+            .addGap(0, 31, Short.MAX_VALUE)
             .addGroup(exitLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(exitLayout.createSequentialGroup()
                     .addContainerGap()
