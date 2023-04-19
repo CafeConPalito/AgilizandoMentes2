@@ -29,7 +29,7 @@ public class Principal {
         ConexionBBDD conBD = new ConexionBBDD();
         Connection con = conBD.conectar();
         
-        Usuario user = new Usuario();
+        //Usuario user = new Usuario();
         
         
     }

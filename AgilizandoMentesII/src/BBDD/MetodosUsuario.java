@@ -4,10 +4,7 @@
  */
 package BBDD;
 
-import com.sun.jdi.connect.spi.Connection;
-import java.io.*;
 import java.sql.*;
-import java.util.*;
 
 /**
  *
@@ -17,15 +14,18 @@ public class MetodosUsuario {
 
     public static boolean loginUsuario(Connection con, String usuario) {
 
-    //DEJO COMENTADO PARA QUE NO PETE
-    /*
+        //DEJO COMENTADO PARA QUE NO PETE
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        String selectLogUsuario = "select nombre_usuario from usuario where nombre_usuario = '?'";
         try {
 
-            String selectLogUsuario = "select nombre_usuario from usuario where nombre_usuario = " + usuario;
+            // PENDIENTE DE REVISA
+            ps = con.prepareStatement(selectLogUsuario);
+            ps.setString(1, usuario);
 
-            // PENDIENTE DE REVISAR
-            Statement sentencia = con.createStatement();
-            ResultSet rs = sentencia.executeQuery(selectLogUsuario);
+            rs = ps.executeQuery();
 
             if (usuario.equals(rs.toString())) {
                 return true;
@@ -37,26 +37,26 @@ public class MetodosUsuario {
             System.err.println("ERROR AL LEER");
             return false;
         }
-    */
-    
-    //QUITAR AL ARREGLAR
-    return false;
+
     }
 
+    /**
+     * Comprobar la contraseña 
+     * @param con
+     * @param usuario
+     * @param contrasena
+     * @return
+     */
     public static boolean loginContrasena(Connection con, String usuario, String contrasena) {
 
-    //DEJO COMENTADO PARA QUE NO PETE
-        /*
         try {
-            
+
             //esto busca la contraseña en la BBDD del usuario cifrada en md5
             //Deprecated
             //String selectContUsuario = "select contraseña from usuario where nombre_usuario = '" + usuario + "'";
-            
             //esto devuelve la contraseña pasada como parametro y la devuelve desde la BBDD 
             //Deprecated
             //String selectCifrarContrasena = "select md5('" + contrasena + "')";
-             
             //Select todo en uno
             String selectComprobarContraseña = "select if(md5('" + contrasena + "') = (select contrasena from usuario where nombre_usuario = '" + usuario + "'),true,false)";
 
@@ -74,10 +74,7 @@ public class MetodosUsuario {
             System.err.println("ERROR AL LEER");
             return false;
         }
-        */
-        
-        //QUITAR AL ARREGLAR
-        return false;
+
     }
 
     public static void registrar(Connection con) {
@@ -146,35 +143,35 @@ public class MetodosUsuario {
 
         return false;
     }
-    
+
     //definir condiciones
     public static boolean comprobarEsProfesor() {
 
         return false;
     }
-    
+
     //definir condiciones
     public static boolean compobrarEmail() {
 
         return false;
     }
-    
+
     //definir condiciones
     public static boolean compobrarAlias() {
 
         return false;
     }
-    
+
     //definir condiciones
     public static boolean compobrarNombreUsuario() {
 
         return false;
     }
-    
+
     //definir condiciones
     public static boolean compobrarContrasena() {
 
         return false;
     }
-    
+
 }

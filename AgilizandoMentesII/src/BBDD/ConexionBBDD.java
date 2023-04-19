@@ -4,6 +4,8 @@
  */
 package BBDD;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.sql.*;
 
 
@@ -22,14 +24,16 @@ public class ConexionBBDD {
     static final String DB_URL = "jdbc:mysql://localhost:3306/"+BD+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"; 
        
     
+    /**
+     * Metodo para crear una conexion a la BBDD
+     * @return 
+     */
     public Connection conectar (){
         
         // ESTO NO ESTA BIEN LO DEJO COMO REFERENCIA.
         try {
-            //Esta linea el de pildoras informaticas no la usa y le funciona la conexion y el video es de hace 7 años
-            //Curso Java. Acceso a BBDD. JDBC II. Vídeo 202
-            //https://www.youtube.com/watch?v=TipyOAYGsdc
-            Class.forName(JDBC_DRIVER).newInstance(); 
+
+            Class.forName(JDBC_DRIVER);
             con = DriverManager.getConnection(DB_URL, USER, PASS);
             if (con != null) {
                 System.out.println("coneccion realizada");
@@ -37,7 +41,7 @@ public class ConexionBBDD {
             
             
 
-        } catch (SQLException | InstantiationException | IllegalAccessException ex) {
+        } catch (SQLException ex) {
             System.err.println("problemas de coneccion\n" + ex.toString());
         } catch (ClassNotFoundException e) {
             System.err.println(e.toString());
@@ -47,14 +51,17 @@ public class ConexionBBDD {
         
     }
 
-    //falta desconectar
-    
+    /**
+     * Metodo para desconectar la BBDD
+     */
     public void desconectar(){
         
         try {
             
+            con.close();
 
-        } catch (Exception e) {
+        } catch (SQLException ex) {
+            Logger.getLogger(ConexionBBDD.class.getName()).log(Level.SEVERE,null, ex);
         }
         
     }
