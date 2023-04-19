@@ -14,20 +14,25 @@ public class MetodosUsuario {
 
     public static boolean loginUsuario(Connection con, String usuario) {
 
-        //DEJO COMENTADO PARA QUE NO PETE
         PreparedStatement ps = null;
         ResultSet rs = null;
-
-        String selectLogUsuario = "select nombre_usuario from usuario where nombre_usuario = '?'";
+        
+        // se prepara la sentencia para la BBDD como un String
+        String selectLogUsuario = "select nombre_usuario from usuario where nombre_usuario = ?";
+        
         try {
-
-            // PENDIENTE DE REVISA
+            
+            //se crear el Statement Con la conexion a la BBDD y el String
             ps = con.prepareStatement(selectLogUsuario);
+            //se pasa 
             ps.setString(1, usuario);
 
             rs = ps.executeQuery();
 
-            if (usuario.equals(rs.toString())) {
+            rs.next();
+            System.out.println(rs.getString(1));
+            
+            if (usuario.equals(rs.getString(1))) {
                 return true;
             }
 
@@ -123,7 +128,6 @@ public class MetodosUsuario {
 
     /**
      * Comprueba si el nombre no esta vacio, pasado desde el registro
-     *
      * @param nombre
      * @return boolean
      */
@@ -136,7 +140,6 @@ public class MetodosUsuario {
 
     /**
      * CComprueba si el apellido1 no esta vacio, pasado desde el registro
-     *
      * @param apellido1
      * @return boolean
      */
@@ -149,7 +152,6 @@ public class MetodosUsuario {
 
     /**
      * Comprueba si el apellido2 no esta vacio, pasado desde el registro
-     *
      * @param apellido2
      * @return boolean
      */
@@ -162,10 +164,12 @@ public class MetodosUsuario {
 
     /**
      * Comprueba si el DNI contiene 8 numeros y Una letra mayuscula, pasado desde el registro
+     * y que no existe en la BBDD
+     * @param con
      * @param DNI
      * @return boolean
      */
-    public static boolean comprobarDNI(String DNI) {
+    public static boolean comprobarDNI(Connection con,String DNI) {
         if (DNI.matches("[0-9]{8}[A-Z]")) {
             return true;
         }
@@ -173,32 +177,63 @@ public class MetodosUsuario {
     }
 
     /**
-     * Comprueba si el Email tiene los parametros correctos (caracteres + "@" + dominio + ".", pasado desde el registro
-     * @return boolean 
+     * Comprueba si el Email tiene los parametros correctos (caracteres + "@" +
+     * dominio + ".", pasado desde el registro
+     * y que no existe en la BBDD
+     * @param con
+     * @param email
+     * @return boolean
      */
-    public static boolean compobrarEmail() {
+    public static boolean compobrarEmail(Connection con,String email) {
 
+        if (email.matches("[0-9a-zA-Z]+[@][a-z]+[.][a-z]{2,3}")) {
+            return true;
+        }
         return false;
     }
 
-    //definir condiciones
-    public static boolean compobrarAlias() {
-
+    /**
+     * Comprueba si el alias no esta vacio, pasado desde el registro
+     * y que no existe en la BBDD
+     * @param alias
+     * @param con
+     * @return boolean
+     */
+    public static boolean compobrarAlias(Connection con, String alias) {
+        if (!"".equalsIgnoreCase(alias)) {
+            return true;
+        }
         return false;
     }
 
-    //definir condiciones
-    public static boolean compobrarNombreUsuario() {
-
+    /**
+     * Comprueba que el nombre de usuario no esta vacio, pasado desde el registro
+     * y que no existe en la BBDD
+     * @param con
+     * @param nombreUsuario
+     * @return boolean
+     */
+    public static boolean compobrarNombreUsuario(Connection con, String nombreUsuario) {
+        if (!"".equalsIgnoreCase(nombreUsuario)) {
+            return true;
+        }
         return false;
     }
 
-    //definir condiciones
-    public static boolean compobrarContrasena() {
-
+    /**
+     * Comprueba que el nombre de usuario no esta vacio, pasado desde el registro
+     * @param contrasena
+     * @return boolean
+     */
+    public static boolean compobrarContrasena(String contrasena) {
+        if (!"".equalsIgnoreCase(contrasena) && contrasena.length()>4) {
+            return true;
+        }
         return false;
     }
-
+    
+    
+    //este metodo sobra!
     public static boolean comprobarEsProfesor() {
 
         return false;
