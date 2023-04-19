@@ -45,7 +45,6 @@ public class Login extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1070, 720));
-        setSize(new java.awt.Dimension(1070, 720));
 
         background.setBackground(new java.awt.Color(255, 255, 255));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -56,7 +55,7 @@ public class Login extends javax.swing.JPanel {
 
         tienes.setFont(Estilos.getFuenteCuerpo());
         tienes.setText("¿NO TIENES CUENTA?");
-        background.add(tienes, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 470, -1, -1));
+        background.add(tienes, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 470, -1, -1));
 
         registra.setFont(Estilos.getFuenteCuerpo());
         registra.setForeground(new java.awt.Color(0, 153, 255));
@@ -70,7 +69,7 @@ public class Login extends javax.swing.JPanel {
                 registraMouseEntered(evt);
             }
         });
-        background.add(registra, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 470, -1, -1));
+        background.add(registra, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 470, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
