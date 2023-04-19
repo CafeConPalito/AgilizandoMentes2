@@ -10,6 +10,7 @@ import Login.*;
 import java.awt.*;
 import java.net.URL;
 import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 
 /**
  *
@@ -85,7 +86,7 @@ public class Main extends javax.swing.JFrame {
         PanelVacio.setLayout(PanelVacioLayout);
         PanelVacioLayout.setHorizontalGroup(
             PanelVacioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 204, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         PanelVacioLayout.setVerticalGroup(
             PanelVacioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,6 +104,11 @@ public class Main extends javax.swing.JFrame {
         LoginTXT1.setForeground(new java.awt.Color(255, 255, 255));
         LoginTXT1.setText("Usuario");
         LoginTXT1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LoginTXT1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LoginTXT1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout UsuarioLayout = new javax.swing.GroupLayout(Usuario);
         Usuario.setLayout(UsuarioLayout);
@@ -111,7 +117,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(UsuarioLayout.createSequentialGroup()
                 .addGap(57, 57, 57)
                 .addComponent(LoginTXT1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         UsuarioLayout.setVerticalGroup(
             UsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,9 +169,9 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(Usuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(BarraLateralLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(Ajustes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(PanelVacio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(Ajustes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addComponent(PanelVacio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         BarraLateralLayout.setVerticalGroup(
             BarraLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -326,10 +332,22 @@ public class Main extends javax.swing.JFrame {
         Cuerpo.repaint();
     }//GEN-LAST:event_AjustesMouseClicked
 
+    private void LoginTXT1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginTXT1MouseClicked
+
+        Login l1= new Login();
+        l1.setSize(1070,720);
+        l1.setLocation(0, 0);
+        Cuerpo.removeAll();
+        Cuerpo.add(l1);
+        Cuerpo.revalidate();
+        Cuerpo.repaint();
+    }//GEN-LAST:event_LoginTXT1MouseClicked
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -360,6 +378,16 @@ public class Main extends javax.swing.JFrame {
             }
         });
     }
+
+    public JPanel getCuerpo() {
+        return Cuerpo;
+    }
+
+    public void setCuerpo(JPanel Cuerpo) {
+        this.Cuerpo = Cuerpo;
+    }
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Ajustes;

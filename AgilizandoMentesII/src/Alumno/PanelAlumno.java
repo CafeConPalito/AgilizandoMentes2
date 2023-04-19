@@ -39,9 +39,11 @@ public class PanelAlumno extends javax.swing.JPanel {
         setOpaque(false);
         setPreferredSize(new java.awt.Dimension(210, 330));
         setRequestFocusEnabled(false);
+        setSize(new java.awt.Dimension(210, 330));
 
         PanelAlumnos.setBackground(new java.awt.Color(0, 155, 155));
         PanelAlumnos.setPreferredSize(new java.awt.Dimension(210, 330));
+        PanelAlumnos.setSize(new java.awt.Dimension(210, 330));
 
         Cálculo.setBackground(new java.awt.Color(0, 155, 155));
         Cálculo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -141,7 +143,7 @@ public class PanelAlumno extends javax.swing.JPanel {
         CalculadoraLayout.setHorizontalGroup(
             CalculadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CalculadoraLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(31, Short.MAX_VALUE)
                 .addComponent(LoginTXT3)
                 .addGap(34, 34, 34))
         );
