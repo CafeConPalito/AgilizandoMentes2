@@ -1,16 +1,20 @@
-
 package Ajustes;
 
-import Main.Main;
 import java.awt.Color;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 //REVISAR
 //http://dar10comyr.blogspot.com/2015/06/tips-como-reproducir-sonidos-en-java.html
-
 public class Ajustes extends javax.swing.JPanel {
-
-    boolean audio = false;
 
     /**
      * Creates new form Login
@@ -31,35 +35,43 @@ public class Ajustes extends javax.swing.JPanel {
         buttonGroup1 = new javax.swing.ButtonGroup();
         background = new javax.swing.JPanel();
         iniciar = new javax.swing.JLabel();
-        Boton = new javax.swing.JPanel();
+        aplicar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        iniciar1 = new javax.swing.JLabel();
-        iniciar2 = new javax.swing.JLabel();
-        iniciar3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        titulo = new javax.swing.JLabel();
+        tamano = new javax.swing.JLabel();
+        idioma = new javax.swing.JLabel();
+        selectidioma = new javax.swing.JComboBox<>();
         No = new javax.swing.JRadioButton();
         Si = new javax.swing.JRadioButton();
+        texto = new javax.swing.JSlider();
+        valortexto = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(640, 500));
+        setPreferredSize(new java.awt.Dimension(1070, 720));
 
         background.setBackground(new java.awt.Color(255, 255, 255));
+        background.setPreferredSize(new java.awt.Dimension(1070, 720));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        iniciar.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        iniciar.setFont(Estilos.getFuenteCuerpo());
         iniciar.setText("SONIDO");
+        iniciar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                iniciarMouseEntered(evt);
+            }
+        });
         background.add(iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
 
-        Boton.setBackground(new java.awt.Color(0, 155, 155));
-        Boton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        Boton.addMouseListener(new java.awt.event.MouseAdapter() {
+        aplicar.setBackground(Estilos.getColorPanel());
+        aplicar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        aplicar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BotonMouseClicked(evt);
+                aplicarMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                BotonMouseEntered(evt);
+                aplicarMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                BotonMouseExited(evt);
+                aplicarMouseExited(evt);
             }
         });
 
@@ -69,43 +81,65 @@ public class Ajustes extends javax.swing.JPanel {
         jLabel1.setText("APLICAR");
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        javax.swing.GroupLayout BotonLayout = new javax.swing.GroupLayout(Boton);
-        Boton.setLayout(BotonLayout);
-        BotonLayout.setHorizontalGroup(
-            BotonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BotonLayout.createSequentialGroup()
+        javax.swing.GroupLayout aplicarLayout = new javax.swing.GroupLayout(aplicar);
+        aplicar.setLayout(aplicarLayout);
+        aplicarLayout.setHorizontalGroup(
+            aplicarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(aplicarLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addComponent(jLabel1)
                 .addContainerGap(22, Short.MAX_VALUE))
         );
-        BotonLayout.setVerticalGroup(
-            BotonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BotonLayout.createSequentialGroup()
+        aplicarLayout.setVerticalGroup(
+            aplicarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(aplicarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        background.add(Boton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 440, 130, -1));
+        background.add(aplicar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 440, 130, -1));
 
-        iniciar1.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        iniciar1.setText("AJUSTES");
-        background.add(iniciar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 49, -1, -1));
+        titulo.setFont(Estilos.getFuenteCuerpo());
+        titulo.setText("AJUSTES");
+        titulo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                tituloMouseEntered(evt);
+            }
+        });
+        background.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 49, -1, -1));
 
-        iniciar2.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        iniciar2.setText("TAMAÑO TEXTO");
-        background.add(iniciar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
+        tamano.setFont(Estilos.getFuenteCuerpo());
+        tamano.setText("TAMAÑO TEXTO");
+        tamano.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                tamanoMouseEntered(evt);
+            }
+        });
+        background.add(tamano, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
 
-        iniciar3.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        iniciar3.setText("IDIOMA");
-        background.add(iniciar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+        idioma.setFont(Estilos.getFuenteCuerpo());
+        idioma.setText("IDIOMA");
+        idioma.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                idiomaMouseEntered(evt);
+            }
+        });
+        background.add(idioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Español", "Ingles" }));
-        jComboBox1.setBorder(null);
-        background.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
+        selectidioma.setFont(Estilos.getFuenteCuerpo());
+        selectidioma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Español", "Ingles" }));
+        selectidioma.setBorder(null);
+        background.add(selectidioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, -1, -1));
 
         buttonGroup1.add(No);
+        No.setFont(Estilos.getFuenteCuerpo());
         No.setText("NO");
+        No.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                NoMouseEntered(evt);
+            }
+        });
         No.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NoActionPerformed(evt);
@@ -114,7 +148,13 @@ public class Ajustes extends javax.swing.JPanel {
         background.add(No, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, -1, -1));
 
         buttonGroup1.add(Si);
+        Si.setFont(Estilos.getFuenteCuerpo());
         Si.setText("SI");
+        Si.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SiMouseEntered(evt);
+            }
+        });
         Si.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SiActionPerformed(evt);
@@ -122,36 +162,69 @@ public class Ajustes extends javax.swing.JPanel {
         });
         background.add(Si, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
 
+        texto.setFont(Estilos.getFuenteCuerpo());
+        texto.setMaximum(3);
+        texto.setMinimum(1);
+        texto.setValue(2);
+        texto.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                textoStateChanged(evt);
+            }
+        });
+        background.add(texto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 170, -1));
+
+        valortexto.setFont(Estilos.getFuenteCuerpo());
+        valortexto.setText("2");
+        background.add(valortexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 440, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BotonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMouseEntered
-        Boton.setBackground(new Color(69, 212, 252));
-       
-    }//GEN-LAST:event_BotonMouseEntered
-
-    private void BotonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMouseExited
-        Boton.setBackground(new Color(0, 155, 155));
-    }//GEN-LAST:event_BotonMouseExited
-
-    private void BotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMouseClicked
-        if (Si.isSelected()) {
-            audio = true;
-            
-        } else {
-            audio = false;
+    private void aplicarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aplicarMouseEntered
+        aplicar.setBackground(new Color(69, 212, 252));
+        if (Configuracion.isSonido()) {
+            try {
+                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Audios/aplicar.wav"));
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInputStream);
+                clip.start();
+            }catch(FileNotFoundException ex){
+                 Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            }catch (UnsupportedAudioFileException ex) {
+                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (LineUnavailableException ex) {
+                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
-    }//GEN-LAST:event_BotonMouseClicked
+    }//GEN-LAST:event_aplicarMouseEntered
+
+    private void aplicarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aplicarMouseExited
+        aplicar.setBackground(new Color(0, 155, 155));
+    }//GEN-LAST:event_aplicarMouseExited
+
+    private void aplicarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aplicarMouseClicked
+        Configuracion.setTamano((byte)texto.getValue());
+        Configuracion.setIdioma(selectidioma.getSelectedItem().toString());
+        if (Si.isSelected()) {
+            Configuracion.setSonido(true);
+
+        } else {
+            Configuracion.setSonido(false);
+        }
+
+    }//GEN-LAST:event_aplicarMouseClicked
 
     private void NoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoActionPerformed
         // TODO add your handling code here:
@@ -161,18 +234,138 @@ public class Ajustes extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_SiActionPerformed
 
+    private void textoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_textoStateChanged
+        valortexto.setText(Integer.toString(texto.getValue()));
+    }//GEN-LAST:event_textoStateChanged
+
+    private void tituloMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tituloMouseEntered
+        if (Configuracion.isSonido()) {
+            try {
+                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Audios/ajustes.wav"));
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInputStream);
+                clip.start();
+            }catch(FileNotFoundException ex){
+                 Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            }catch (UnsupportedAudioFileException ex) {
+                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (LineUnavailableException ex) {
+                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_tituloMouseEntered
+
+    private void tamanoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tamanoMouseEntered
+        if (Configuracion.isSonido()) {
+            try {
+                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Audios/tamaño_texto.wav"));
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInputStream);
+                clip.start();
+            }catch(FileNotFoundException ex){
+                 Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            }catch (UnsupportedAudioFileException ex) {
+                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (LineUnavailableException ex) {
+                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_tamanoMouseEntered
+
+    private void idiomaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idiomaMouseEntered
+        if (Configuracion.isSonido()) {
+            try {
+                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Audios/idioma.wav"));
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInputStream);
+                clip.start();
+            }catch(FileNotFoundException ex){
+                 Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            }catch (UnsupportedAudioFileException ex) {
+                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (LineUnavailableException ex) {
+                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_idiomaMouseEntered
+
+    private void iniciarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarMouseEntered
+        if (Configuracion.isSonido()) {
+            try {
+                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Audios/sonido.wav"));
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInputStream);
+                clip.start();
+            }catch(FileNotFoundException ex){
+                 Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            }catch (UnsupportedAudioFileException ex) {
+                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (LineUnavailableException ex) {
+                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_iniciarMouseEntered
+
+    private void SiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SiMouseEntered
+        if (Configuracion.isSonido()) {
+            try {
+                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Audios/si.wav"));
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInputStream);
+                clip.start();
+            }catch(FileNotFoundException ex){
+                 Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            }catch (UnsupportedAudioFileException ex) {
+                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (LineUnavailableException ex) {
+                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_SiMouseEntered
+
+    private void NoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NoMouseEntered
+        if (Configuracion.isSonido()) {
+            try {
+                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Audios/no.wav"));
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInputStream);
+                clip.start();
+            }catch(FileNotFoundException ex){
+                 Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            }catch (UnsupportedAudioFileException ex) {
+                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (LineUnavailableException ex) {
+                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_NoMouseEntered
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Boton;
     private javax.swing.JRadioButton No;
     private javax.swing.JRadioButton Si;
+    private javax.swing.JPanel aplicar;
     private javax.swing.JPanel background;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel idioma;
     private javax.swing.JLabel iniciar;
-    private javax.swing.JLabel iniciar1;
-    private javax.swing.JLabel iniciar2;
-    private javax.swing.JLabel iniciar3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox<String> selectidioma;
+    private javax.swing.JLabel tamano;
+    private javax.swing.JSlider texto;
+    private javax.swing.JLabel titulo;
+    private javax.swing.JLabel valortexto;
     // End of variables declaration//GEN-END:variables
 }

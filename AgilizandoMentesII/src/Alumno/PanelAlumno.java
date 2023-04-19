@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package Alumno;
-
+import Ajustes.*;
 /**
  *
  * @author damt111
@@ -50,8 +50,9 @@ public class PanelAlumno extends javax.swing.JPanel {
             }
         });
 
-        LoginTXT4.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        LoginTXT4.setFont(Estilos.getFuentePanel());
         LoginTXT4.setForeground(new java.awt.Color(255, 255, 255));
+        LoginTXT4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LoginTXT4.setText("Cálculo");
         LoginTXT4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -59,17 +60,11 @@ public class PanelAlumno extends javax.swing.JPanel {
         Cálculo.setLayout(CálculoLayout);
         CálculoLayout.setHorizontalGroup(
             CálculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CálculoLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(LoginTXT4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(LoginTXT4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         CálculoLayout.setVerticalGroup(
             CálculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(CálculoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(LoginTXT4, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(LoginTXT4, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
         );
 
         Euclides1.setBackground(new java.awt.Color(0, 155, 155));
@@ -79,8 +74,9 @@ public class PanelAlumno extends javax.swing.JPanel {
             }
         });
 
-        Euclides.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        Euclides.setFont(Estilos.getFuentePanel());
         Euclides.setForeground(new java.awt.Color(255, 255, 255));
+        Euclides.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Euclides.setText("Euclides");
         Euclides.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -88,10 +84,7 @@ public class PanelAlumno extends javax.swing.JPanel {
         Euclides1.setLayout(Euclides1Layout);
         Euclides1Layout.setHorizontalGroup(
             Euclides1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Euclides1Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(Euclides)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(Euclides, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         Euclides1Layout.setVerticalGroup(
             Euclides1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,8 +98,9 @@ public class PanelAlumno extends javax.swing.JPanel {
             }
         });
 
-        LoginTXT.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        LoginTXT.setFont(Estilos.getFuentePanel());
         LoginTXT.setForeground(new java.awt.Color(255, 255, 255));
+        LoginTXT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LoginTXT.setText("Resto división");
         LoginTXT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -114,10 +108,7 @@ public class PanelAlumno extends javax.swing.JPanel {
         RestoDivision.setLayout(RestoDivisionLayout);
         RestoDivisionLayout.setHorizontalGroup(
             RestoDivisionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RestoDivisionLayout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(LoginTXT)
-                .addContainerGap(21, Short.MAX_VALUE))
+            .addComponent(LoginTXT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
         );
         RestoDivisionLayout.setVerticalGroup(
             RestoDivisionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,8 +122,9 @@ public class PanelAlumno extends javax.swing.JPanel {
             }
         });
 
-        LoginTXT3.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
+        LoginTXT3.setFont(Estilos.getFuentePanel());
         LoginTXT3.setForeground(new java.awt.Color(255, 255, 255));
+        LoginTXT3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LoginTXT3.setText("Calculadora ");
         LoginTXT3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -140,17 +132,13 @@ public class PanelAlumno extends javax.swing.JPanel {
         Calculadora.setLayout(CalculadoraLayout);
         CalculadoraLayout.setHorizontalGroup(
             CalculadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, CalculadoraLayout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
-                .addComponent(LoginTXT3)
-                .addGap(34, 34, 34))
+            .addComponent(LoginTXT3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         CalculadoraLayout.setVerticalGroup(
             CalculadoraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(CalculadoraLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(LoginTXT3, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(LoginTXT3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout PanelAlumnosLayout = new javax.swing.GroupLayout(PanelAlumnos);
@@ -159,16 +147,12 @@ public class PanelAlumno extends javax.swing.JPanel {
             PanelAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelAlumnosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(PanelAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelAlumnosLayout.createSequentialGroup()
-                        .addGroup(PanelAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Cálculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Euclides1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(7, 7, 7))
-                    .addGroup(PanelAlumnosLayout.createSequentialGroup()
-                        .addComponent(RestoDivision, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
-            .addComponent(Calculadora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(PanelAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(RestoDivision, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Cálculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Calculadora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Euclides1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(7, 7, 7))
         );
         PanelAlumnosLayout.setVerticalGroup(
             PanelAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,7 +165,7 @@ public class PanelAlumno extends javax.swing.JPanel {
                 .addComponent(Calculadora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(Euclides1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

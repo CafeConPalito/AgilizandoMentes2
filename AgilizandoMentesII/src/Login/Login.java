@@ -7,6 +7,7 @@ package Login;
 import Main.Main;
 import java.awt.Color;
 import Ajustes.*;
+import Alumno.*;
 import java.awt.Container;
 /**
  *
@@ -161,7 +162,7 @@ public class Login extends javax.swing.JPanel {
 
         background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, -1, 60));
 
-        Boton.setBackground(new java.awt.Color(0, 155, 155));
+        Boton.setBackground(Estilos.getColorPanel());
         Boton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Boton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -185,17 +186,14 @@ public class Login extends javax.swing.JPanel {
         Boton.setLayout(BotonLayout);
         BotonLayout.setHorizontalGroup(
             BotonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BotonLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jLabel1)
-                .addContainerGap(58, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
         );
         BotonLayout.setVerticalGroup(
             BotonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(BotonLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         background.add(Boton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, 150, -1));
@@ -221,11 +219,11 @@ public class Login extends javax.swing.JPanel {
     }//GEN-LAST:event_TFUsuarioActionPerformed
 
     private void BotonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMouseEntered
-        Boton.setBackground(new Color(69, 212, 252));
+        Boton.setBackground(Estilos.getColorFuenteRegistroLogin());
     }//GEN-LAST:event_BotonMouseEntered
 
     private void BotonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMouseExited
-        Boton.setBackground(new Color(0, 155, 155));
+        Boton.setBackground(Estilos.getColorPanel());
     }//GEN-LAST:event_BotonMouseExited
 
     private void TFUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFUsuarioMousePressed
@@ -254,9 +252,22 @@ public class Login extends javax.swing.JPanel {
     }//GEN-LAST:event_PWFMousePressed
 
     private void BotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMouseClicked
-        Main Alumno =new Main();
-        Alumno.setVisible(true); 
+
+        PanelAlumno pa1 = new PanelAlumno();
+        pa1.setSize(210,330);
+        pa1.setLocation(0, 0);
+        Main.getPanelVacio().removeAll();
+        Main.getPanelVacio().add(pa1);
+        Main.getPanelVacio().revalidate();
+        Main.getPanelVacio().repaint();
         
+        BienvenidaA bienvenidaA = new BienvenidaA();
+        bienvenidaA.setSize(1070,720);
+        bienvenidaA.setLocation(0,0);
+        Main.getCuerpo().removeAll();
+        Main.getCuerpo().add(bienvenidaA);
+        Main.getCuerpo().revalidate();
+        Main.getCuerpo().repaint();
     }//GEN-LAST:event_BotonMouseClicked
 
     private void registraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registraMouseEntered
