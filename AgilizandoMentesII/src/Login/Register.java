@@ -4,7 +4,10 @@
  */
 package Login;
 
+import Main.Main;
 import java.awt.Color;
+import Ajustes.*;
+import java.awt.Container;
 
 /**
  *
@@ -28,74 +31,84 @@ public class Register extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        background = new javax.swing.JPanel();
-        JLIncio = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        JLContra = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
-        PWF = new javax.swing.JPasswordField();
-        jPanel1 = new javax.swing.JPanel();
-        JLUsuario = new javax.swing.JLabel();
+        fondoRegistro = new javax.swing.JPanel();
+        registro = new javax.swing.JLabel();
+        tienes = new javax.swing.JLabel();
+        inicia = new javax.swing.JLabel();
+        Usuario = new javax.swing.JPanel();
+        usuario = new javax.swing.JLabel();
         TFUsuario = new javax.swing.JTextField();
-        jSeparator1 = new javax.swing.JSeparator();
-        Boton = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        SepUsuario = new javax.swing.JSeparator();
+        Password = new javax.swing.JPanel();
+        password = new javax.swing.JLabel();
+        PWF1 = new javax.swing.JPasswordField();
+        SepPassword = new javax.swing.JSeparator();
+        Alias = new javax.swing.JPanel();
+        alias = new javax.swing.JLabel();
+        TFalias = new javax.swing.JTextField();
+        SepAlias = new javax.swing.JSeparator();
+        Nombre = new javax.swing.JPanel();
+        nombre = new javax.swing.JLabel();
+        TFnombre = new javax.swing.JTextField();
+        SepNombre = new javax.swing.JSeparator();
+        Apellido1 = new javax.swing.JPanel();
+        apellido1 = new javax.swing.JLabel();
+        TFapellido1 = new javax.swing.JTextField();
+        SepApellido1 = new javax.swing.JSeparator();
+        Apellido2 = new javax.swing.JPanel();
+        apellido2 = new javax.swing.JLabel();
+        TFapellido2 = new javax.swing.JTextField();
+        SepApellido2 = new javax.swing.JSeparator();
+        DNI = new javax.swing.JPanel();
+        dni = new javax.swing.JLabel();
+        TFdni = new javax.swing.JTextField();
+        SepDni = new javax.swing.JSeparator();
+        Curso = new javax.swing.JPanel();
+        curso = new javax.swing.JLabel();
+        TFCurso = new javax.swing.JTextField();
+        SepCurso = new javax.swing.JSeparator();
+        FechaNac = new javax.swing.JPanel();
+        fechaNac = new javax.swing.JLabel();
+        TFfechaNac = new javax.swing.JTextField();
+        SepFechaNac = new javax.swing.JSeparator();
+        Registrar = new javax.swing.JPanel();
+        registrar = new javax.swing.JLabel();
+        profesor = new javax.swing.JRadioButton();
 
-        setPreferredSize(new java.awt.Dimension(640, 500));
+        setPreferredSize(new java.awt.Dimension(1070, 720));
 
-        background.setBackground(new java.awt.Color(255, 255, 255));
-        background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        fondoRegistro.setBackground(new java.awt.Color(255, 255, 255));
+        fondoRegistro.setPreferredSize(new java.awt.Dimension(1070, 720));
+        fondoRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        JLIncio.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        JLIncio.setText("REGISTRAR USUARIO");
-        background.add(JLIncio, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 49, -1, -1));
+        registro.setFont(Estilos.getFuenteCuerpo());
+        registro.setText("REGISTRO DE NUEVO USUARIO");
+        fondoRegistro.add(registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, -1));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        tienes.setFont(Estilos.getFuenteCuerpo());
+        tienes.setText("¿TIENES CUENTA?");
+        fondoRegistro.add(tienes, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 510, -1, -1));
 
-        JLContra.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        JLContra.setText("Contraseña");
-
-        PWF.setForeground(new java.awt.Color(204, 204, 204));
-        PWF.setText("********");
-        PWF.setBorder(null);
-        PWF.addMouseListener(new java.awt.event.MouseAdapter() {
+        inicia.setFont(Estilos.getFuenteCuerpo());
+        inicia.setForeground(new java.awt.Color(0, 153, 255));
+        inicia.setText("Inicia sesión aquí.");
+        inicia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        inicia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                iniciaMouseEntered(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                PWFMousePressed(evt);
+                iniciaMousePressed(evt);
             }
         });
+        fondoRegistro.add(inicia, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 510, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JLContra)
-                    .addComponent(PWF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(JLContra)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PWF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        Usuario.setBackground(new java.awt.Color(255, 255, 255));
 
-        background.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+        usuario.setFont(Estilos.getFuenteCuerpo());
+        usuario.setText("Usuario");
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        JLUsuario.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        JLUsuario.setText("Usuario");
-
-        TFUsuario.setFont(new java.awt.Font("Roboto Medium", 0, 12)); // NOI18N
+        TFUsuario.setFont(Estilos.getFuenteCuerpo());
         TFUsuario.setForeground(new java.awt.Color(204, 204, 204));
         TFUsuario.setText("Inserte su nombre de usuario");
         TFUsuario.setBorder(null);
@@ -110,139 +123,642 @@ public class Register extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout UsuarioLayout = new javax.swing.GroupLayout(Usuario);
+        Usuario.setLayout(UsuarioLayout);
+        UsuarioLayout.setHorizontalGroup(
+            UsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(UsuarioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(UsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TFUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
-                    .addComponent(jSeparator1)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(JLUsuario)
+                    .addComponent(SepUsuario)
+                    .addGroup(UsuarioLayout.createSequentialGroup()
+                        .addComponent(usuario)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        UsuarioLayout.setVerticalGroup(
+            UsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(UsuarioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(JLUsuario)
+                .addComponent(usuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TFUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SepUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 84, -1, 60));
+        fondoRegistro.add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, -1, 70));
 
-        Boton.setBackground(new java.awt.Color(0, 155, 155));
-        Boton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Boton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BotonMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                BotonMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                BotonMouseExited(evt);
+        Password.setBackground(new java.awt.Color(255, 255, 255));
+
+        password.setFont(Estilos.getFuenteCuerpo());
+        password.setText("Password");
+
+        PWF1.setForeground(new java.awt.Color(204, 204, 204));
+        PWF1.setText("********");
+        PWF1.setBorder(null);
+        PWF1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                PWF1MousePressed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Roboto Medium", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("ENTRAR");
-        jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-
-        javax.swing.GroupLayout BotonLayout = new javax.swing.GroupLayout(Boton);
-        Boton.setLayout(BotonLayout);
-        BotonLayout.setHorizontalGroup(
-            BotonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BotonLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel1)
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
-        BotonLayout.setVerticalGroup(
-            BotonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BotonLayout.createSequentialGroup()
+        javax.swing.GroupLayout PasswordLayout = new javax.swing.GroupLayout(Password);
+        Password.setLayout(PasswordLayout);
+        PasswordLayout.setHorizontalGroup(
+            PasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PasswordLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addGroup(PasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(SepPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(password)
+                    .addComponent(PWF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        PasswordLayout.setVerticalGroup(
+            PasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PasswordLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(password)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PWF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5)
+                .addComponent(SepPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        background.add(Boton, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, 130, -1));
+        fondoRegistro.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, -1, -1));
+
+        Alias.setBackground(new java.awt.Color(255, 255, 255));
+
+        alias.setFont(Estilos.getFuenteCuerpo());
+        alias.setText("Alias");
+
+        TFalias.setFont(Estilos.getFuenteCuerpo());
+        TFalias.setForeground(new java.awt.Color(204, 204, 204));
+        TFalias.setText("Inserte su alias");
+        TFalias.setBorder(null);
+        TFalias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TFaliasMousePressed(evt);
+            }
+        });
+        TFalias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TFaliasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout AliasLayout = new javax.swing.GroupLayout(Alias);
+        Alias.setLayout(AliasLayout);
+        AliasLayout.setHorizontalGroup(
+            AliasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AliasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(AliasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TFalias, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+                    .addComponent(SepAlias)
+                    .addGroup(AliasLayout.createSequentialGroup()
+                        .addComponent(alias)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        AliasLayout.setVerticalGroup(
+            AliasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AliasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(alias)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TFalias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SepAlias, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        fondoRegistro.add(Alias, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, -1, 70));
+
+        Nombre.setBackground(new java.awt.Color(255, 255, 255));
+
+        nombre.setFont(Estilos.getFuenteCuerpo());
+        nombre.setText("Nombre");
+
+        TFnombre.setFont(Estilos.getFuenteCuerpo());
+        TFnombre.setForeground(new java.awt.Color(204, 204, 204));
+        TFnombre.setText("Inserte su nombre");
+        TFnombre.setBorder(null);
+        TFnombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TFnombreMousePressed(evt);
+            }
+        });
+        TFnombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TFnombreActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout NombreLayout = new javax.swing.GroupLayout(Nombre);
+        Nombre.setLayout(NombreLayout);
+        NombreLayout.setHorizontalGroup(
+            NombreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(NombreLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(NombreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TFnombre, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+                    .addComponent(SepNombre)
+                    .addGroup(NombreLayout.createSequentialGroup()
+                        .addComponent(nombre)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        NombreLayout.setVerticalGroup(
+            NombreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(NombreLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(nombre)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TFnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SepNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        fondoRegistro.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, -1, 70));
+
+        Apellido1.setBackground(new java.awt.Color(255, 255, 255));
+
+        apellido1.setFont(Estilos.getFuenteCuerpo());
+        apellido1.setText("Apellido 1");
+
+        TFapellido1.setFont(Estilos.getFuenteCuerpo());
+        TFapellido1.setForeground(new java.awt.Color(204, 204, 204));
+        TFapellido1.setText("Inserte su primer apellido");
+        TFapellido1.setBorder(null);
+        TFapellido1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TFapellido1MousePressed(evt);
+            }
+        });
+        TFapellido1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TFapellido1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Apellido1Layout = new javax.swing.GroupLayout(Apellido1);
+        Apellido1.setLayout(Apellido1Layout);
+        Apellido1Layout.setHorizontalGroup(
+            Apellido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Apellido1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Apellido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TFapellido1, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+                    .addComponent(SepApellido1)
+                    .addGroup(Apellido1Layout.createSequentialGroup()
+                        .addComponent(apellido1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        Apellido1Layout.setVerticalGroup(
+            Apellido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Apellido1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(apellido1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TFapellido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SepApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        fondoRegistro.add(Apellido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, -1, 70));
+
+        Apellido2.setBackground(new java.awt.Color(255, 255, 255));
+
+        apellido2.setFont(Estilos.getFuenteCuerpo());
+        apellido2.setText("Apellido 2");
+
+        TFapellido2.setFont(Estilos.getFuenteCuerpo());
+        TFapellido2.setForeground(new java.awt.Color(204, 204, 204));
+        TFapellido2.setText("Inserte su segundo apellido");
+        TFapellido2.setBorder(null);
+        TFapellido2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TFapellido2MousePressed(evt);
+            }
+        });
+        TFapellido2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TFapellido2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Apellido2Layout = new javax.swing.GroupLayout(Apellido2);
+        Apellido2.setLayout(Apellido2Layout);
+        Apellido2Layout.setHorizontalGroup(
+            Apellido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Apellido2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Apellido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TFapellido2, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+                    .addComponent(SepApellido2)
+                    .addGroup(Apellido2Layout.createSequentialGroup()
+                        .addComponent(apellido2)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        Apellido2Layout.setVerticalGroup(
+            Apellido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Apellido2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(apellido2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TFapellido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SepApellido2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        fondoRegistro.add(Apellido2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 480, -1, 70));
+
+        DNI.setBackground(new java.awt.Color(255, 255, 255));
+
+        dni.setFont(Estilos.getFuenteCuerpo());
+        dni.setText("DNI");
+
+        TFdni.setFont(Estilos.getFuenteCuerpo());
+        TFdni.setForeground(new java.awt.Color(204, 204, 204));
+        TFdni.setText("Inserte su DNI");
+        TFdni.setBorder(null);
+        TFdni.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TFdniMousePressed(evt);
+            }
+        });
+        TFdni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TFdniActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout DNILayout = new javax.swing.GroupLayout(DNI);
+        DNI.setLayout(DNILayout);
+        DNILayout.setHorizontalGroup(
+            DNILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DNILayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(DNILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TFdni, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+                    .addComponent(SepDni)
+                    .addGroup(DNILayout.createSequentialGroup()
+                        .addComponent(dni)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        DNILayout.setVerticalGroup(
+            DNILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DNILayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(dni)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TFdni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SepDni, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        fondoRegistro.add(DNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 130, -1, 70));
+
+        Curso.setBackground(new java.awt.Color(255, 255, 255));
+
+        curso.setFont(Estilos.getFuenteCuerpo());
+        curso.setText("Curso");
+
+        TFCurso.setFont(Estilos.getFuenteCuerpo());
+        TFCurso.setForeground(new java.awt.Color(204, 204, 204));
+        TFCurso.setText("Inserte su curso");
+        TFCurso.setBorder(null);
+        TFCurso.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TFCursoMousePressed(evt);
+            }
+        });
+        TFCurso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TFCursoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout CursoLayout = new javax.swing.GroupLayout(Curso);
+        Curso.setLayout(CursoLayout);
+        CursoLayout.setHorizontalGroup(
+            CursoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CursoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(CursoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TFCurso, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+                    .addComponent(SepCurso)
+                    .addGroup(CursoLayout.createSequentialGroup()
+                        .addComponent(curso)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        CursoLayout.setVerticalGroup(
+            CursoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(CursoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(curso)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TFCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SepCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        fondoRegistro.add(Curso, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 200, -1, 70));
+
+        FechaNac.setBackground(new java.awt.Color(255, 255, 255));
+
+        fechaNac.setFont(Estilos.getFuenteCuerpo());
+        fechaNac.setText("Fecha de Nacimiento");
+
+        TFfechaNac.setFont(Estilos.getFuenteCuerpo());
+        TFfechaNac.setForeground(new java.awt.Color(204, 204, 204));
+        TFfechaNac.setText("yyyy/mm/dd");
+        TFfechaNac.setBorder(null);
+        TFfechaNac.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TFfechaNacMousePressed(evt);
+            }
+        });
+        TFfechaNac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TFfechaNacActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout FechaNacLayout = new javax.swing.GroupLayout(FechaNac);
+        FechaNac.setLayout(FechaNacLayout);
+        FechaNacLayout.setHorizontalGroup(
+            FechaNacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FechaNacLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(FechaNacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TFfechaNac, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+                    .addComponent(SepFechaNac)
+                    .addGroup(FechaNacLayout.createSequentialGroup()
+                        .addComponent(fechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        FechaNacLayout.setVerticalGroup(
+            FechaNacLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FechaNacLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(fechaNac)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TFfechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SepFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        fondoRegistro.add(FechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 270, -1, 70));
+
+        Registrar.setBackground(new java.awt.Color(0, 155, 155));
+        Registrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Registrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RegistrarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RegistrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RegistrarMouseExited(evt);
+            }
+        });
+
+        registrar.setFont(Estilos.getFuenteCuerpo());
+        registrar.setForeground(new java.awt.Color(255, 255, 255));
+        registrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        registrar.setText("REGISTRAR");
+        registrar.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        javax.swing.GroupLayout RegistrarLayout = new javax.swing.GroupLayout(Registrar);
+        Registrar.setLayout(RegistrarLayout);
+        RegistrarLayout.setHorizontalGroup(
+            RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistrarLayout.createSequentialGroup()
+                .addContainerGap(62, Short.MAX_VALUE)
+                .addComponent(registrar)
+                .addGap(52, 52, 52))
+        );
+        RegistrarLayout.setVerticalGroup(
+            RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistrarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(registrar)
+                .addContainerGap())
+        );
+
+        fondoRegistro.add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 430, 190, -1));
+
+        profesor.setFont(Estilos.getFuenteCuerpo());
+        profesor.setText("Soy Profesor");
+        fondoRegistro.add(profesor, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 360, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+            .addComponent(fondoRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
+            .addComponent(fondoRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TFUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TFUsuarioActionPerformed
+    private void iniciaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciaMouseEntered
+        inicia.setFont(Estilos.getFuenteCuerpo());
+    }//GEN-LAST:event_iniciaMouseEntered
 
-    private void BotonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMouseEntered
-        Boton.setBackground(new Color(69, 212, 252));
-    }//GEN-LAST:event_BotonMouseEntered
-
-    private void BotonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMouseExited
-        Boton.setBackground(new Color(0, 155, 155));
-    }//GEN-LAST:event_BotonMouseExited
-
-    private void TFUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFUsuarioMousePressed
-        if (TFUsuario.getText().equals("Inserte su nombre de usuario")) {
-            TFUsuario.setText("");
-            TFUsuario.setForeground(Color.black);
-        }
-        if (String.valueOf(PWF.getPassword()).isEmpty()) {
-            PWF.setText("********");
-            PWF.setForeground(Color.gray);
-        }
-
-    }//GEN-LAST:event_TFUsuarioMousePressed
-
-    private void PWFMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PWFMousePressed
-        if (String.valueOf(PWF.getPassword()).equals("********")) {
-            PWF.setText("");
-            PWF.setForeground(Color.black);
+    private void PWF1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PWF1MousePressed
+        if (String.valueOf(PWF1.getPassword()).equals("********")) {
+            PWF1.setText("");
+            PWF1.setForeground(Color.black);
         }
         if (TFUsuario.getText().isEmpty()) {
             TFUsuario.setText("Inserte su nombre de usuario");
             TFUsuario.setForeground(Color.gray);
         }
 
+    }//GEN-LAST:event_PWF1MousePressed
 
-    }//GEN-LAST:event_PWFMousePressed
+    private void RegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarMouseClicked
+        Main Alumno =new Main();
+        Alumno.setVisible(true);
 
-    private void BotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMouseClicked
-        //Hacer cambio si se cumple algo
-    }//GEN-LAST:event_BotonMouseClicked
+    }//GEN-LAST:event_RegistrarMouseClicked
+
+    private void RegistrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarMouseEntered
+        Registrar.setBackground(new Color(69, 212, 252));
+    }//GEN-LAST:event_RegistrarMouseEntered
+
+    private void RegistrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarMouseExited
+        Registrar.setBackground(new Color(0, 155, 155));
+    }//GEN-LAST:event_RegistrarMouseExited
+
+    private void TFUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFUsuarioActionPerformed
+
+    private void TFUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFUsuarioMousePressed
+        if (TFUsuario.getText().equals("Inserte su nombre de usuario")) {
+            TFUsuario.setText("");
+            TFUsuario.setForeground(Color.blue);
+        }
+        if (String.valueOf(PWF1.getPassword()).isEmpty()) {
+            PWF1.setText("********");
+            PWF1.setForeground(Color.blue);
+        }
+    }//GEN-LAST:event_TFUsuarioMousePressed
+
+    private void TFapellido2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFapellido2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFapellido2ActionPerformed
+
+    private void TFapellido2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFapellido2MousePressed
+        if (TFapellido2.getText().equals("Inserte su segundo apellido")) {
+            TFapellido2.setText("");
+            TFapellido2.setForeground(Color.blue);
+        }
+    }//GEN-LAST:event_TFapellido2MousePressed
+
+    private void TFapellido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFapellido1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFapellido1ActionPerformed
+
+    private void TFapellido1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFapellido1MousePressed
+        if (TFapellido1.getText().equals("Inserte su primer apellido")) {
+            TFapellido1.setText("");
+            TFapellido1.setForeground(Color.blue);
+        }
+    }//GEN-LAST:event_TFapellido1MousePressed
+
+    private void TFnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFnombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFnombreActionPerformed
+
+    private void TFnombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFnombreMousePressed
+        if (TFnombre.getText().equals("Inserte su nombre")) {
+            TFnombre.setText("");
+            TFnombre.setForeground(Color.blue);
+        }
+    }//GEN-LAST:event_TFnombreMousePressed
+
+    private void TFfechaNacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFfechaNacActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFfechaNacActionPerformed
+
+    private void TFfechaNacMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFfechaNacMousePressed
+        if (TFfechaNac.getText().equals("yyyy/mm/dd")) {
+            TFfechaNac.setText("");
+            TFfechaNac.setForeground(Color.blue);
+        }
+    }//GEN-LAST:event_TFfechaNacMousePressed
+
+    private void TFCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFCursoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFCursoActionPerformed
+
+    private void TFCursoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFCursoMousePressed
+        if (TFCurso.getText().equals("Inserte su curso")) {
+            TFCurso.setText("");
+            TFCurso.setForeground(Color.blue);
+        }
+    }//GEN-LAST:event_TFCursoMousePressed
+
+    private void TFdniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFdniActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFdniActionPerformed
+
+    private void TFdniMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFdniMousePressed
+        if (TFdni.getText().equals("Inserte su DNI")) {
+            TFdni.setText("");
+            TFdni.setForeground(Color.blue);
+        }
+    }//GEN-LAST:event_TFdniMousePressed
+
+    private void TFaliasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFaliasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFaliasActionPerformed
+
+    private void TFaliasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFaliasMousePressed
+        if (TFalias.getText().equals("Inserte su alias")) {
+            TFalias.setText("");
+            TFalias.setForeground(Color.blue);
+        }
+    }//GEN-LAST:event_TFaliasMousePressed
+
+    private void iniciaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciaMousePressed
+        Container Cuerpo2 = this.getParent();   
+        Login l1 = new Login();
+        l1.setSize(1070,720);
+        l1.setLocation(0, 0);
+        Cuerpo2.removeAll();
+        Cuerpo2.add(l1);
+        Cuerpo2.revalidate();
+        Cuerpo2.repaint();
+    }//GEN-LAST:event_iniciaMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Boton;
-    private javax.swing.JLabel JLContra;
-    private javax.swing.JLabel JLIncio;
-    private javax.swing.JLabel JLUsuario;
-    private javax.swing.JPasswordField PWF;
+    private javax.swing.JPanel Alias;
+    private javax.swing.JPanel Apellido1;
+    private javax.swing.JPanel Apellido2;
+    private javax.swing.JPanel Curso;
+    private javax.swing.JPanel DNI;
+    private javax.swing.JPanel FechaNac;
+    private javax.swing.JPanel Nombre;
+    private javax.swing.JPasswordField PWF1;
+    private javax.swing.JPanel Password;
+    private javax.swing.JPanel Registrar;
+    private javax.swing.JSeparator SepAlias;
+    private javax.swing.JSeparator SepApellido1;
+    private javax.swing.JSeparator SepApellido2;
+    private javax.swing.JSeparator SepCurso;
+    private javax.swing.JSeparator SepDni;
+    private javax.swing.JSeparator SepFechaNac;
+    private javax.swing.JSeparator SepNombre;
+    private javax.swing.JSeparator SepPassword;
+    private javax.swing.JSeparator SepUsuario;
+    private javax.swing.JTextField TFCurso;
     private javax.swing.JTextField TFUsuario;
-    private javax.swing.JPanel background;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTextField TFalias;
+    private javax.swing.JTextField TFapellido1;
+    private javax.swing.JTextField TFapellido2;
+    private javax.swing.JTextField TFdni;
+    private javax.swing.JTextField TFfechaNac;
+    private javax.swing.JTextField TFnombre;
+    private javax.swing.JPanel Usuario;
+    private javax.swing.JLabel alias;
+    private javax.swing.JLabel apellido1;
+    private javax.swing.JLabel apellido2;
+    private javax.swing.JLabel curso;
+    private javax.swing.JLabel dni;
+    private javax.swing.JLabel fechaNac;
+    private javax.swing.JPanel fondoRegistro;
+    private javax.swing.JLabel inicia;
+    private javax.swing.JLabel nombre;
+    private javax.swing.JLabel password;
+    private javax.swing.JRadioButton profesor;
+    private javax.swing.JLabel registrar;
+    private javax.swing.JLabel registro;
+    private javax.swing.JLabel tienes;
+    private javax.swing.JLabel usuario;
     // End of variables declaration//GEN-END:variables
 }
