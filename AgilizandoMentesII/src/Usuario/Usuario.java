@@ -13,6 +13,7 @@ public class Usuario {
     private static int idUsuario;
     private static String alias;
     private static boolean esProfe = false;
+    private static String nombre;
     
     public Usuario() {
         
@@ -40,6 +41,14 @@ public class Usuario {
 
     public static void setEsProfe(boolean esProfe) {
         Usuario.esProfe = esProfe;
+    }
+
+    public static String getNombre() {
+        return nombre;
+    }
+
+    public static void setNombre(String nombre) {
+        Usuario.nombre = nombre;
     }
     
 }
