@@ -76,11 +76,12 @@ public class Main extends javax.swing.JFrame {
         Fondo.setPreferredSize(new java.awt.Dimension(1280, 720));
         Fondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BarraLateral.setBackground(new java.awt.Color(0, 155, 155));
+        BarraLateral.setBackground(Estilos.getColorPanel());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/augusto-logo-peq.png"))); // NOI18N
 
-        PanelVacio.setBackground(new java.awt.Color(0, 155, 155));
+        PanelVacio.setBackground(Estilos.getColorPanel());
+        PanelVacio.setName("panelVacio"); // NOI18N
 
         javax.swing.GroupLayout PanelVacioLayout = new javax.swing.GroupLayout(PanelVacio);
         PanelVacio.setLayout(PanelVacioLayout);
@@ -93,7 +94,7 @@ public class Main extends javax.swing.JFrame {
             .addGap(0, 330, Short.MAX_VALUE)
         );
 
-        Usuario.setBackground(new java.awt.Color(0, 155, 155));
+        Usuario.setBackground(Estilos.getColorPanel());
         Usuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 UsuarioMouseClicked(evt);
@@ -127,7 +128,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        Ajustes.setBackground(new java.awt.Color(0, 155, 155));
+        Ajustes.setBackground(Estilos.getColorPanel());
         Ajustes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 AjustesMouseClicked(evt);
@@ -259,6 +260,7 @@ public class Main extends javax.swing.JFrame {
         Fondo.add(header, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 30));
 
         Cuerpo.setBackground(new java.awt.Color(255, 255, 255));
+        Cuerpo.setName("blabla"); // NOI18N
 
         javax.swing.GroupLayout CuerpoLayout = new javax.swing.GroupLayout(Cuerpo);
         Cuerpo.setLayout(CuerpoLayout);
@@ -379,28 +381,27 @@ public class Main extends javax.swing.JFrame {
         });
     }
 
-    public JPanel getCuerpo() {
+    public static JPanel getCuerpo() {
         return Cuerpo;
     }
 
-    public void setCuerpo(JPanel Cuerpo) {
-        this.Cuerpo = Cuerpo;
+    public static JPanel getPanelVacio() {
+        return PanelVacio;
     }
-    
-    
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Ajustes;
-    private javax.swing.JPanel BarraLateral;
-    private javax.swing.JPanel Cuerpo;
-    private javax.swing.JPanel Fondo;
-    private javax.swing.JLabel LoginTXT1;
-    private javax.swing.JLabel LoginTXT2;
-    private javax.swing.JPanel PanelVacio;
-    private javax.swing.JPanel Usuario;
-    private javax.swing.JPanel exit;
-    private javax.swing.JPanel header;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel xtxt;
+    private static javax.swing.JPanel Ajustes;
+    private static javax.swing.JPanel BarraLateral;
+    private static javax.swing.JPanel Cuerpo;
+    private static javax.swing.JPanel Fondo;
+    private static javax.swing.JLabel LoginTXT1;
+    private static javax.swing.JLabel LoginTXT2;
+    private static javax.swing.JPanel PanelVacio;
+    private static javax.swing.JPanel Usuario;
+    private static javax.swing.JPanel exit;
+    private static javax.swing.JPanel header;
+    private static javax.swing.JLabel jLabel1;
+    private static javax.swing.JLabel xtxt;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,6 +7,7 @@ package Login;
 import Main.Main;
 import java.awt.Color;
 import Ajustes.*;
+import Alumno.PanelAlumno;
 import java.awt.Container;
 
 /**
@@ -133,7 +134,7 @@ public class Register extends javax.swing.JPanel {
                     .addComponent(TFUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
                     .addComponent(SepUsuario)
                     .addGroup(UsuarioLayout.createSequentialGroup()
-                        .addComponent(usuario)
+                        .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -173,8 +174,8 @@ public class Register extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(PasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(SepPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(password)
-                    .addComponent(PWF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(PWF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PasswordLayout.setVerticalGroup(
@@ -221,7 +222,7 @@ public class Register extends javax.swing.JPanel {
                     .addComponent(TFalias, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
                     .addComponent(SepAlias)
                     .addGroup(AliasLayout.createSequentialGroup()
-                        .addComponent(alias)
+                        .addComponent(alias, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -269,7 +270,7 @@ public class Register extends javax.swing.JPanel {
                     .addComponent(TFnombre, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
                     .addComponent(SepNombre)
                     .addGroup(NombreLayout.createSequentialGroup()
-                        .addComponent(nombre)
+                        .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -317,7 +318,7 @@ public class Register extends javax.swing.JPanel {
                     .addComponent(TFapellido1, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
                     .addComponent(SepApellido1)
                     .addGroup(Apellido1Layout.createSequentialGroup()
-                        .addComponent(apellido1)
+                        .addComponent(apellido1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -365,7 +366,7 @@ public class Register extends javax.swing.JPanel {
                     .addComponent(TFapellido2, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
                     .addComponent(SepApellido2)
                     .addGroup(Apellido2Layout.createSequentialGroup()
-                        .addComponent(apellido2)
+                        .addComponent(apellido2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -413,7 +414,7 @@ public class Register extends javax.swing.JPanel {
                     .addComponent(TFdni, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
                     .addComponent(SepDni)
                     .addGroup(DNILayout.createSequentialGroup()
-                        .addComponent(dni)
+                        .addComponent(dni, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -461,7 +462,7 @@ public class Register extends javax.swing.JPanel {
                     .addComponent(TFCurso, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
                     .addComponent(SepCurso)
                     .addGroup(CursoLayout.createSequentialGroup()
-                        .addComponent(curso)
+                        .addComponent(curso, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -509,7 +510,7 @@ public class Register extends javax.swing.JPanel {
                     .addComponent(TFfechaNac, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
                     .addComponent(SepFechaNac)
                     .addGroup(FechaNacLayout.createSequentialGroup()
-                        .addComponent(fechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(fechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -527,7 +528,7 @@ public class Register extends javax.swing.JPanel {
 
         fondoRegistro.add(FechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 270, -1, 70));
 
-        Registrar.setBackground(new java.awt.Color(0, 155, 155));
+        Registrar.setBackground(Estilos.getColorPanel());
         Registrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Registrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -551,17 +552,14 @@ public class Register extends javax.swing.JPanel {
         Registrar.setLayout(RegistrarLayout);
         RegistrarLayout.setHorizontalGroup(
             RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistrarLayout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
-                .addComponent(registrar)
-                .addGap(52, 52, 52))
+            .addComponent(registrar, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
         );
         RegistrarLayout.setVerticalGroup(
             RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, RegistrarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(RegistrarLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(registrar)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         fondoRegistro.add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 430, 190, -1));
@@ -599,17 +597,16 @@ public class Register extends javax.swing.JPanel {
     }//GEN-LAST:event_PWF1MousePressed
 
     private void RegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarMouseClicked
-        Main Alumno =new Main();
-        Alumno.setVisible(true);
 
+        
     }//GEN-LAST:event_RegistrarMouseClicked
 
     private void RegistrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarMouseEntered
-        Registrar.setBackground(new Color(69, 212, 252));
+        Registrar.setBackground(Estilos.getColorFuenteRegistroLogin());
     }//GEN-LAST:event_RegistrarMouseEntered
 
     private void RegistrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarMouseExited
-        Registrar.setBackground(new Color(0, 155, 155));
+        Registrar.setBackground(Estilos.getColorPanel());
     }//GEN-LAST:event_RegistrarMouseExited
 
     private void TFUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFUsuarioActionPerformed
@@ -619,11 +616,11 @@ public class Register extends javax.swing.JPanel {
     private void TFUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFUsuarioMousePressed
         if (TFUsuario.getText().equals("Inserte su nombre de usuario")) {
             TFUsuario.setText("");
-            TFUsuario.setForeground(Color.blue);
+            TFUsuario.setForeground(Estilos.getColorFuenteRegistroLogin());
         }
         if (String.valueOf(PWF1.getPassword()).isEmpty()) {
             PWF1.setText("********");
-            PWF1.setForeground(Color.blue);
+            PWF1.setForeground(Estilos.getColorFuenteRegistroLogin());
         }
     }//GEN-LAST:event_TFUsuarioMousePressed
 
@@ -634,7 +631,7 @@ public class Register extends javax.swing.JPanel {
     private void TFapellido2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFapellido2MousePressed
         if (TFapellido2.getText().equals("Inserte su segundo apellido")) {
             TFapellido2.setText("");
-            TFapellido2.setForeground(Color.blue);
+            TFapellido2.setForeground(Estilos.getColorFuenteRegistroLogin());
         }
     }//GEN-LAST:event_TFapellido2MousePressed
 
@@ -645,7 +642,7 @@ public class Register extends javax.swing.JPanel {
     private void TFapellido1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFapellido1MousePressed
         if (TFapellido1.getText().equals("Inserte su primer apellido")) {
             TFapellido1.setText("");
-            TFapellido1.setForeground(Color.blue);
+            TFapellido1.setForeground(Estilos.getColorFuenteRegistroLogin());
         }
     }//GEN-LAST:event_TFapellido1MousePressed
 
@@ -656,7 +653,7 @@ public class Register extends javax.swing.JPanel {
     private void TFnombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFnombreMousePressed
         if (TFnombre.getText().equals("Inserte su nombre")) {
             TFnombre.setText("");
-            TFnombre.setForeground(Color.blue);
+            TFnombre.setForeground(Estilos.getColorFuenteRegistroLogin());
         }
     }//GEN-LAST:event_TFnombreMousePressed
 
@@ -667,7 +664,7 @@ public class Register extends javax.swing.JPanel {
     private void TFfechaNacMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFfechaNacMousePressed
         if (TFfechaNac.getText().equals("yyyy/mm/dd")) {
             TFfechaNac.setText("");
-            TFfechaNac.setForeground(Color.blue);
+            TFfechaNac.setForeground(Estilos.getColorFuenteRegistroLogin());
         }
     }//GEN-LAST:event_TFfechaNacMousePressed
 
@@ -678,7 +675,7 @@ public class Register extends javax.swing.JPanel {
     private void TFCursoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFCursoMousePressed
         if (TFCurso.getText().equals("Inserte su curso")) {
             TFCurso.setText("");
-            TFCurso.setForeground(Color.blue);
+            TFCurso.setForeground(Estilos.getColorFuenteRegistroLogin());
         }
     }//GEN-LAST:event_TFCursoMousePressed
 
@@ -689,7 +686,7 @@ public class Register extends javax.swing.JPanel {
     private void TFdniMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFdniMousePressed
         if (TFdni.getText().equals("Inserte su DNI")) {
             TFdni.setText("");
-            TFdni.setForeground(Color.blue);
+            TFdni.setForeground(Estilos.getColorFuenteRegistroLogin());
         }
     }//GEN-LAST:event_TFdniMousePressed
 
@@ -700,7 +697,7 @@ public class Register extends javax.swing.JPanel {
     private void TFaliasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFaliasMousePressed
         if (TFalias.getText().equals("Inserte su alias")) {
             TFalias.setText("");
-            TFalias.setForeground(Color.blue);
+            TFalias.setForeground(Estilos.getColorFuenteRegistroLogin());
         }
     }//GEN-LAST:event_TFaliasMousePressed
 
