@@ -5,6 +5,7 @@
 package Main;
 
 import BBDD.ConexionBBDD;
+import BBDD.MetodosUsuario;
 import Login.Login;
 import Usuario.Usuario;
 import java.sql.*;
@@ -30,6 +31,9 @@ public class Principal {
         
         //Usuario user = new Usuario();
         
+        String usuario = "Cbarrios";
+        
+        System.out.println(MetodosUsuario.loginUsuario(con, usuario));
         
     }
     
