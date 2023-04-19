@@ -40,12 +40,13 @@ public class Ajustes extends javax.swing.JPanel {
         No = new javax.swing.JRadioButton();
         Si = new javax.swing.JRadioButton();
 
-        setPreferredSize(new java.awt.Dimension(640, 500));
+        setPreferredSize(new java.awt.Dimension(1070, 720));
 
         background.setBackground(new java.awt.Color(255, 255, 255));
+        background.setPreferredSize(new java.awt.Dimension(1070, 720));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        iniciar.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        iniciar.setFont(Estilos.getFuenteCuerpo());
         iniciar.setText("SONIDO");
         background.add(iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
 
@@ -88,23 +89,25 @@ public class Ajustes extends javax.swing.JPanel {
 
         background.add(Boton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 440, 130, -1));
 
-        iniciar1.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        iniciar1.setFont(Estilos.getFuenteCuerpo());
         iniciar1.setText("AJUSTES");
         background.add(iniciar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 49, -1, -1));
 
-        iniciar2.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        iniciar2.setFont(Estilos.getFuenteCuerpo());
         iniciar2.setText("TAMAÑO TEXTO");
         background.add(iniciar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
 
-        iniciar3.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        iniciar3.setFont(Estilos.getFuenteCuerpo());
         iniciar3.setText("IDIOMA");
         background.add(iniciar3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
 
+        jComboBox1.setFont(Estilos.getFuenteCuerpo());
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Español", "Ingles" }));
         jComboBox1.setBorder(null);
         background.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
 
         buttonGroup1.add(No);
+        No.setFont(Estilos.getFuenteCuerpo());
         No.setText("NO");
         No.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,6 +117,7 @@ public class Ajustes extends javax.swing.JPanel {
         background.add(No, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, -1, -1));
 
         buttonGroup1.add(Si);
+        Si.setFont(Estilos.getFuenteCuerpo());
         Si.setText("SI");
         Si.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -126,11 +130,11 @@ public class Ajustes extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 440, Short.MAX_VALUE)
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
