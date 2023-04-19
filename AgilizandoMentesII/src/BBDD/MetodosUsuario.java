@@ -41,7 +41,8 @@ public class MetodosUsuario {
     }
 
     /**
-     * Comprobar la contraseña 
+     * Comprobar la contraseña
+     *
      * @param con
      * @param usuario
      * @param contrasena
@@ -120,37 +121,61 @@ public class MetodosUsuario {
          */
     }
 
-    //definir condiciones
-    public static boolean comprobarNombre() {
-
+    /**
+     * Comprueba si el nombre no esta vacio, pasado desde el registro
+     *
+     * @param nombre
+     * @return boolean
+     */
+    public static boolean comprobarNombre(String nombre) {
+        if (!"".equalsIgnoreCase(nombre)) {
+            return true;
+        }
         return false;
     }
 
-    //definir condiciones
-    public static boolean comprobarApellido1() {
-
+    /**
+     * CComprueba si el apellido1 no esta vacio, pasado desde el registro
+     *
+     * @param apellido1
+     * @return boolean
+     */
+    public static boolean comprobarApellido1(String apellido1) {
+        if (!"".equalsIgnoreCase(apellido1)) {
+            return true;
+        }
         return false;
     }
 
-    //definir condiciones
-    public static boolean comprobarApellido2() {
-
+    /**
+     * Comprueba si el apellido2 no esta vacio, pasado desde el registro
+     *
+     * @param apellido2
+     * @return boolean
+     */
+    public static boolean comprobarApellido2(String apellido2) {
+        if (!"".equalsIgnoreCase(apellido2)) {
+            return true;
+        }
         return false;
     }
 
-    //definir condiciones
-    public static boolean comprobarDNI() {
-
+    /**
+     * Comprueba si el DNI contiene 8 numeros y Una letra mayuscula, pasado desde el registro
+     * @param DNI
+     * @return boolean
+     */
+    public static boolean comprobarDNI(String DNI) {
+        if (DNI.matches("[0-9]{8}[A-Z]")) {
+            return true;
+        }
         return false;
     }
 
-    //definir condiciones
-    public static boolean comprobarEsProfesor() {
-
-        return false;
-    }
-
-    //definir condiciones
+    /**
+     * Comprueba si el Email tiene los parametros correctos (caracteres + "@" + dominio + ".", pasado desde el registro
+     * @return boolean 
+     */
     public static boolean compobrarEmail() {
 
         return false;
@@ -170,6 +195,11 @@ public class MetodosUsuario {
 
     //definir condiciones
     public static boolean compobrarContrasena() {
+
+        return false;
+    }
+
+    public static boolean comprobarEsProfesor() {
 
         return false;
     }
