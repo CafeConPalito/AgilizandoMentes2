@@ -24,29 +24,27 @@ public class MetodosUsuario {
             
             //se crear el Statement Con la conexion a la BBDD y el String
             ps = con.prepareStatement(selectLogUsuario);
-            //se pasa 
+            //se añade al select el nombre del usuario
             ps.setString(1, usuario);
-
+            //se ejecuta la sentencia y devuelve un resultado
             rs = ps.executeQuery();
-
-            rs.next();
-            System.out.println(rs.getString(1));
             
-            if (usuario.equals(rs.getString(1))) {
+            //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
+            //una vez en la primera linea podemos obtener la informacion;
+            if (rs.next() && usuario.equals(rs.getString(1))) {
                 return true;
             }
-
             return false;
 
         } catch (SQLException e) {
-            System.err.println("ERROR AL LEER");
+            System.err.println("ERROR AL LEER Usuario");
             return false;
         }
 
     }
 
     /**
-     * Comprobar la contraseña
+     * Comprobar la contraseña con el cifrado correcto
      *
      * @param con
      * @param usuario
@@ -55,29 +53,29 @@ public class MetodosUsuario {
      */
     public static boolean loginContrasena(Connection con, String usuario, String contrasena) {
 
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        //debuelve 1 para true 0 para false
+        String selectComprobarContraseña = "select if(md5(?) = (select contrasena from usuario where nombre_usuario = ?),true,false)";
+        
         try {
+            
+            ps = con.prepareStatement(selectComprobarContraseña);
+            ps.setString(1, contrasena);
+            ps.setString(2, usuario);
+            
+            rs = ps.executeQuery();
 
-            //esto busca la contraseña en la BBDD del usuario cifrada en md5
-            //Deprecated
-            //String selectContUsuario = "select contraseña from usuario where nombre_usuario = '" + usuario + "'";
-            //esto devuelve la contraseña pasada como parametro y la devuelve desde la BBDD 
-            //Deprecated
-            //String selectCifrarContrasena = "select md5('" + contrasena + "')";
-            //Select todo en uno
-            String selectComprobarContraseña = "select if(md5('" + contrasena + "') = (select contrasena from usuario where nombre_usuario = '" + usuario + "'),true,false)";
-
-            // PENDIENTE DE REVISAR
-            Statement sentencia = con.createStatement();
-            ResultSet rs = sentencia.executeQuery(selectComprobarContraseña);
-
-            if ("true".equalsIgnoreCase(rs.toString())) {
+            //el valor que retorna es 1 (true) o 0(false)
+            if (rs.next() && "1".equalsIgnoreCase(rs.getString(1))) {
                 return true;
             }
 
             return false;
 
         } catch (SQLException e) {
-            System.err.println("ERROR AL LEER");
+            System.err.println("ERROR AL LEER Loging");
             return false;
         }
 
