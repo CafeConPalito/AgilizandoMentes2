@@ -4,7 +4,6 @@
  */
 package Main;
 
-import Alumno.Main;
 import BBDD.ConexionBBDD;
 import Login.Login;
 import Usuario.Usuario;
