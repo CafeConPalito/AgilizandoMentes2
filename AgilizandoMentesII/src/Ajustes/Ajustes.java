@@ -1,24 +1,10 @@
 package Ajustes;
 
+import Main.Main;
 import java.awt.Color;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 
-//REVISAR
-//http://dar10comyr.blogspot.com/2015/06/tips-como-reproducir-sonidos-en-java.html
 public class Ajustes extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Login
-     */
     public Ajustes() {
         initComponents();
     }
@@ -34,17 +20,16 @@ public class Ajustes extends javax.swing.JPanel {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         background = new javax.swing.JPanel();
-        iniciar = new javax.swing.JLabel();
+        sonido = new javax.swing.JLabel();
         aplicar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         titulo = new javax.swing.JLabel();
         tamano = new javax.swing.JLabel();
         idioma = new javax.swing.JLabel();
         selectidioma = new javax.swing.JComboBox<>();
-        No = new javax.swing.JRadioButton();
-        Si = new javax.swing.JRadioButton();
         texto = new javax.swing.JSlider();
         valortexto = new javax.swing.JLabel();
+        Si = new javax.swing.JCheckBox();
 
         setPreferredSize(new java.awt.Dimension(1070, 720));
 
@@ -52,14 +37,17 @@ public class Ajustes extends javax.swing.JPanel {
         background.setPreferredSize(new java.awt.Dimension(1070, 720));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        iniciar.setFont(Estilos.getFuenteCuerpo());
-        iniciar.setText("SONIDO");
-        iniciar.addMouseListener(new java.awt.event.MouseAdapter() {
+        sonido.setFont(Estilos.getFuenteCuerpo());
+        sonido.setText("SONIDO");
+        sonido.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                iniciarMouseEntered(evt);
+                sonidoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                sonidoMouseExited(evt);
             }
         });
-        background.add(iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
+        background.add(sonido, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
 
         aplicar.setBackground(Estilos.getColorPanel());
         aplicar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -106,6 +94,9 @@ public class Ajustes extends javax.swing.JPanel {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 tituloMouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                tituloMouseExited(evt);
+            }
         });
         background.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 49, -1, -1));
 
@@ -114,6 +105,9 @@ public class Ajustes extends javax.swing.JPanel {
         tamano.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 tamanoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                tamanoMouseExited(evt);
             }
         });
         background.add(tamano, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
@@ -124,6 +118,9 @@ public class Ajustes extends javax.swing.JPanel {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 idiomaMouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                idiomaMouseExited(evt);
+            }
         });
         background.add(idioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
 
@@ -131,36 +128,6 @@ public class Ajustes extends javax.swing.JPanel {
         selectidioma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Español", "Ingles" }));
         selectidioma.setBorder(null);
         background.add(selectidioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, -1, -1));
-
-        buttonGroup1.add(No);
-        No.setFont(Estilos.getFuenteCuerpo());
-        No.setText("NO");
-        No.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                NoMouseEntered(evt);
-            }
-        });
-        No.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NoActionPerformed(evt);
-            }
-        });
-        background.add(No, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, -1, -1));
-
-        buttonGroup1.add(Si);
-        Si.setFont(Estilos.getFuenteCuerpo());
-        Si.setText("SI");
-        Si.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                SiMouseEntered(evt);
-            }
-        });
-        Si.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SiActionPerformed(evt);
-            }
-        });
-        background.add(Si, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
 
         texto.setFont(Estilos.getFuenteCuerpo());
         texto.setMaximum(3);
@@ -177,6 +144,22 @@ public class Ajustes extends javax.swing.JPanel {
         valortexto.setText("2");
         background.add(valortexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, -1, -1));
 
+        Si.setText("Si");
+        Si.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                SiMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                SiMouseExited(evt);
+            }
+        });
+        Si.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SiActionPerformed(evt);
+            }
+        });
+        background.add(Si, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -191,31 +174,37 @@ public class Ajustes extends javax.swing.JPanel {
 
     private void aplicarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aplicarMouseEntered
         aplicar.setBackground(new Color(69, 212, 252));
+        
+        //CONFIGURACION PARA ACTIVAR SONIDO
         if (Configuracion.isSonido()) {
-            try {
-                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Audios/aplicar.wav"));
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInputStream);
-                clip.start();
-            }catch(FileNotFoundException ex){
-                 Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            }catch (UnsupportedAudioFileException ex) {
-                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (LineUnavailableException ex) {
-                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            Configuracion.sonar("aplicar");
         }
 
     }//GEN-LAST:event_aplicarMouseEntered
 
     private void aplicarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aplicarMouseExited
         aplicar.setBackground(new Color(0, 155, 155));
+        Configuracion.parar();
+        
     }//GEN-LAST:event_aplicarMouseExited
 
     private void aplicarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aplicarMouseClicked
         Configuracion.setTamano((byte)texto.getValue());
+        switch (Configuracion.getTamano()) {
+            case 1:
+                Estilos.setSizeCuerpo(12);
+                
+                break;
+            case 2:
+                Estilos.setSizeCuerpo(18);
+              
+                break;
+            case 3:
+                Estilos.setSizeCuerpo(24);
+             
+                break;
+        }
+        
         Configuracion.setIdioma(selectidioma.getSelectedItem().toString());
         if (Si.isSelected()) {
             Configuracion.setSonido(true);
@@ -223,146 +212,95 @@ public class Ajustes extends javax.swing.JPanel {
         } else {
             Configuracion.setSonido(false);
         }
+        
+        Ajustes a1 = new Ajustes();
+        a1.setSize(1070,720);
+        a1.setLocation(0, 0);
+        Main.getCuerpo().removeAll();
+        Main.getCuerpo().add(a1);
+        Main.getCuerpo().revalidate();
+        Main.getCuerpo().repaint();
 
     }//GEN-LAST:event_aplicarMouseClicked
-
-    private void NoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NoActionPerformed
-
-    private void SiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SiActionPerformed
 
     private void textoStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_textoStateChanged
         valortexto.setText(Integer.toString(texto.getValue()));
     }//GEN-LAST:event_textoStateChanged
 
     private void tituloMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tituloMouseEntered
+        
+        //CONFIGURACION PARA ACTIVAR SONIDO
         if (Configuracion.isSonido()) {
-            try {
-                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Audios/ajustes.wav"));
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInputStream);
-                clip.start();
-            }catch(FileNotFoundException ex){
-                 Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            }catch (UnsupportedAudioFileException ex) {
-                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (LineUnavailableException ex) {
-                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            }
+          Configuracion.sonar("ajustes");
         }
     }//GEN-LAST:event_tituloMouseEntered
 
     private void tamanoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tamanoMouseEntered
+        
+        //CONFIGURACION PARA ACTIVAR SONIDO
         if (Configuracion.isSonido()) {
-            try {
-                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Audios/tamaño_texto.wav"));
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInputStream);
-                clip.start();
-            }catch(FileNotFoundException ex){
-                 Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            }catch (UnsupportedAudioFileException ex) {
-                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (LineUnavailableException ex) {
-                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            Configuracion.sonar("tamaño_texto");
         }
     }//GEN-LAST:event_tamanoMouseEntered
 
     private void idiomaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idiomaMouseEntered
+        
+        //CONFIGURACION PARA ACTIVAR SONIDO
         if (Configuracion.isSonido()) {
-            try {
-                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Audios/idioma.wav"));
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInputStream);
-                clip.start();
-            }catch(FileNotFoundException ex){
-                 Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            }catch (UnsupportedAudioFileException ex) {
-                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (LineUnavailableException ex) {
-                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            Configuracion.sonar("idioma");
         }
     }//GEN-LAST:event_idiomaMouseEntered
 
-    private void iniciarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarMouseEntered
+    private void sonidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sonidoMouseEntered
+        
+        //CONFIGURACION PARA ACTIVAR SONIDO
         if (Configuracion.isSonido()) {
-            try {
-                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Audios/sonido.wav"));
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInputStream);
-                clip.start();
-            }catch(FileNotFoundException ex){
-                 Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            }catch (UnsupportedAudioFileException ex) {
-                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (LineUnavailableException ex) {
-                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            Configuracion.sonar("sonido");
         }
-    }//GEN-LAST:event_iniciarMouseEntered
+    }//GEN-LAST:event_sonidoMouseEntered
+
+    private void SiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SiActionPerformed
 
     private void SiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SiMouseEntered
+       
+        //CONFIGURACION PARA ACTIVAR SONIDO
         if (Configuracion.isSonido()) {
-            try {
-                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Audios/si.wav"));
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInputStream);
-                clip.start();
-            }catch(FileNotFoundException ex){
-                 Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            }catch (UnsupportedAudioFileException ex) {
-                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (LineUnavailableException ex) {
-                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            Configuracion.sonar("si");
         }
     }//GEN-LAST:event_SiMouseEntered
 
-    private void NoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NoMouseEntered
-        if (Configuracion.isSonido()) {
-            try {
-                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Audios/no.wav"));
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInputStream);
-                clip.start();
-            }catch(FileNotFoundException ex){
-                 Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            }catch (UnsupportedAudioFileException ex) {
-                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (LineUnavailableException ex) {
-                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }//GEN-LAST:event_NoMouseEntered
+    private void tituloMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tituloMouseExited
+      Configuracion.parar();
+    }//GEN-LAST:event_tituloMouseExited
+
+    private void tamanoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tamanoMouseExited
+       Configuracion.parar();
+    }//GEN-LAST:event_tamanoMouseExited
+
+    private void idiomaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idiomaMouseExited
+       Configuracion.parar();
+    }//GEN-LAST:event_idiomaMouseExited
+
+    private void sonidoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sonidoMouseExited
+       Configuracion.parar();
+    }//GEN-LAST:event_sonidoMouseExited
+
+    private void SiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SiMouseExited
+       Configuracion.parar();
+    }//GEN-LAST:event_SiMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton No;
-    private javax.swing.JRadioButton Si;
+    private javax.swing.JCheckBox Si;
     private javax.swing.JPanel aplicar;
     private javax.swing.JPanel background;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel idioma;
-    private javax.swing.JLabel iniciar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JComboBox<String> selectidioma;
+    private javax.swing.JLabel sonido;
     private javax.swing.JLabel tamano;
     private javax.swing.JSlider texto;
     private javax.swing.JLabel titulo;

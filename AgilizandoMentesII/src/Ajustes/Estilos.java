@@ -6,16 +6,16 @@ package Ajustes;
 
 import java.awt.Color;
 import java.awt.Font;
-import org.w3c.dom.css.RGBColor;
 
 /**
  *
  * @author damt111
  */
 public class Estilos {
-    
+    private static int  sizeCuerpo =18;
+            
     //FUENTES
-    private static Font fuenteCuerpo = new Font("Roboto Medium", 0, 18);
+    private static Font fuenteCuerpo = new Font("Roboto Medium", 0, sizeCuerpo);
     private static Font fuentePanel = new Font("Roboto Medium", 0, 24);
     
     //COLORES
@@ -48,5 +48,9 @@ public class Estilos {
         return colorFuenteRegistroLogin;
     }
 
-    
+    public static void setSizeCuerpo(int sizeCuerpo) {
+        Estilos.sizeCuerpo = sizeCuerpo;
+        fuenteCuerpo = new Font("Roboto Medium", 0, Estilos.sizeCuerpo);
+    }
+
 }
