@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 import java.sql.*;
 
 /**
- *
+ * Clase para rgestionar la conexion a la BBDDD
  * @author damt108
  */
 public class ConexionBBDD {
@@ -18,9 +18,18 @@ public class ConexionBBDD {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver"; // esto por lo que entiendo utiliza el driver que bajamos (el jar)
     static final String USER = "root"; 
     static final String PASS = "1234";
-    static final String BD = "bbdd"; // nombre de la base de datos
+    static final String BD = "BBDD"; // nombre de la base de datos
     //la direccion para conectar a la bbdd se le pasa como parametro "BD"
-    static final String DB_URL = "jdbc:mysql://localhost:3306/"+BD+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"; 
+    
+    //IP PARA TRABAJAR EN EL SERVER
+    static final String IP = "192.168.24.16";
+    
+    //IP PARA TRABAJAR EN LOCAL
+    //tatic final String IP = "127.0.0.1";
+    //static final String IP = "localhost";
+    
+    //Todos los parametros para conectar a la BBDD
+    static final String DB_URL = "jdbc:mysql://"+ IP +":3306/"+BD+"?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC"; 
        
     
     /**
