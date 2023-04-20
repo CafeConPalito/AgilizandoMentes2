@@ -33,9 +33,19 @@ public class Principal {
         
         String usuario = "Cbarrios";
         String contrasena = "12345";
-        System.out.println("Usuario " + MetodosUsuario.loginUsuario(con, usuario));
-        System.out.println("Contraseña " + MetodosUsuario.loginContrasena(con, usuario, contrasena));
-                
+        String DNI = "12345678T";
+        String email = "123@asd.es";
+        String alias = "AliasDaniel";
+        String nombreUsuario ="Amartinez";
+        System.out.println("Login Usuario " + MetodosUsuario.loginUsuario(con, usuario));
+        System.out.println("Login Contraseña " + MetodosUsuario.loginContrasena(con, usuario, contrasena));
+        System.out.println("DNI " + MetodosUsuario.comprobarDNI(con, DNI));
+        System.out.println("Email " + MetodosUsuario.compobrarEmail(con, email));
+        System.out.println("Alias " + MetodosUsuario.compobrarAlias(con, alias));
+        System.out.println("Nombre Usuario " + MetodosUsuario.comprobarNombreUsuario(con, nombreUsuario));
+        System.out.println("Es Profesor " + MetodosUsuario.comprobarEsProfesor(con, nombreUsuario));    
+
+        
         conBD.desconectar();
     }
     
