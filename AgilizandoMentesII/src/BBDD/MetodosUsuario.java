@@ -45,7 +45,6 @@ public class MetodosUsuario {
 
     /**
      * Comprobar la contraseña con el cifrado correcto
-     *
      * @param con
      * @param usuario
      * @param contrasena
@@ -95,33 +94,6 @@ public class MetodosUsuario {
         String nombreUsuario = null;
         String contraseña = null;
 
-        /*
-        try {
-            
-            
-            coche c1 = new coche();
-            c1.setMatricula("ABC123");
-            c1.setMarca("Seat");
-            c1.setModelo("Ibiza");
-            c1.setColor("Rojo");
-            
-            String insertarPersona = "insert into persona(matricula,modelo,marca,color) values(?,?,?,?)";
-            String insertarUsuario = "insert into usuario("
-            PreparedStatement ps = conexion.prepareStatement(insertarCoche);
-            
-            ps.setString(1, c1.getMatricula());
-            ps.setString(2, c1.getModelo());
-            ps.setString(3, c1.getMarca());
-            ps.setString(4, c1.getColor());
-            
-            ps.executeUpdate();
-            
-            System.out.println("datos insertados ;)");
-        
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-        }
-         */
     }
 
     /**

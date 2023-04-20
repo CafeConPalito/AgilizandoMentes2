@@ -35,7 +35,8 @@ public class Principal {
         String contrasena = "12345";
         System.out.println("Usuario " + MetodosUsuario.loginUsuario(con, usuario));
         System.out.println("Contraseña " + MetodosUsuario.loginContrasena(con, usuario, contrasena));
-        
+                
+        conBD.desconectar();
     }
     
 }
