@@ -32,8 +32,9 @@ public class Principal {
         //Usuario user = new Usuario();
         
         String usuario = "Cbarrios";
-        
-        System.out.println(MetodosUsuario.loginUsuario(con, usuario));
+        String contrasena = "12345";
+        System.out.println("Usuario " + MetodosUsuario.loginUsuario(con, usuario));
+        System.out.println("Contraseña " + MetodosUsuario.loginContrasena(con, usuario, contrasena));
         
     }
     
