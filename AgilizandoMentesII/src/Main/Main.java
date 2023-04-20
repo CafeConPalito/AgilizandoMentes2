@@ -191,7 +191,7 @@ public class Main extends javax.swing.JFrame {
         Fondo.add(BarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 720));
 
         header.setBackground(new java.awt.Color(255, 255, 255));
-        header.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        header.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
         header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 headerMouseDragged(evt);

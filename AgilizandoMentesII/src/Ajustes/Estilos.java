@@ -6,7 +6,6 @@ package Ajustes;
 
 import java.awt.Color;
 import java.awt.Font;
-import org.w3c.dom.css.RGBColor;
 
 /**
  *
