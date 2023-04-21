@@ -4,6 +4,7 @@
  */
 package BBDD;
 
+import Usuario.Usuario;
 import java.sql.*;
 
 /**
@@ -335,5 +336,143 @@ public class MetodosUsuario {
         }
         return false;
     }
+    
+    public static void getid_usuario(Connection con){
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        
+
+            // se prepara la sentencia para la BBDD como un String
+            String selectNombreUsuario= "select id_usuario from usuario where nombre_usuario = ?";
+
+            try {
+
+                ps = con.prepareStatement(selectNombreUsuario);
+                ps.setString(1, Usuario.getUsuario());
+                rs = ps.executeQuery();
+
+                //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
+                //una vez en la primera linea podemos obtener la informacion;
+                rs.next();
+                Usuario.setIdUsuario(rs.getInt(1));
+                
+            
+
+            } catch (SQLException e) {
+                System.err.println("ERROR AL LEER id_usuario");
+        }
+        
+    }
+    
+    public static void getnombre(Connection con){
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        
+
+            // se prepara la sentencia para la BBDD como un String
+            String selectNombreUsuario= "select nombre from persona where id_usuario = ?";
+
+            try {
+
+                ps = con.prepareStatement(selectNombreUsuario);
+                ps.setString(1, Integer.toString(Usuario.getIdUsuario()));
+                rs = ps.executeQuery();
+
+                //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
+                //una vez en la primera linea podemos obtener la informacion;
+                rs.next();
+                Usuario.setNombre(rs.getString(1));
+            
+
+            } catch (SQLException e) {
+                System.err.println("ERROR AL LEER NombreUsuario");
+        }
+        
+    }
+    
+    public static void getalias(Connection con){
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        
+
+            // se prepara la sentencia para la BBDD como un String
+            String selectNombreUsuario= "select alias from usuario where id_usuario = ?";
+
+            try {
+
+                ps = con.prepareStatement(selectNombreUsuario);
+                ps.setString(1, Integer.toString(Usuario.getIdUsuario()));
+                rs = ps.executeQuery();
+
+                //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
+                //una vez en la primera linea podemos obtener la informacion;
+                rs.next();
+                Usuario.setAlias(rs.getString(1));
+            
+
+            } catch (SQLException e) {
+                System.err.println("ERROR AL LEER alias");
+        }
+        
+    }
+    
+    public static void getapellido1(Connection con){
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        
+
+            // se prepara la sentencia para la BBDD como un String
+            String selectNombreUsuario= "select apellido1 from usuario where id_usuario = ?";
+
+            try {
+
+                ps = con.prepareStatement(selectNombreUsuario);
+                ps.setString(1, Integer.toString(Usuario.getIdUsuario()));
+                rs = ps.executeQuery();
+
+                //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
+                //una vez en la primera linea podemos obtener la informacion;
+                rs.next();
+                Usuario.setApellido1(rs.getString(1));
+            
+
+            } catch (SQLException e) {
+                System.err.println("ERROR AL LEER apellido1");
+        }
+        
+    }
+    
+    public static void getapellido2(Connection con){
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        
+
+            // se prepara la sentencia para la BBDD como un String
+            String selectNombreUsuario= "select apellido2 from usuario where id_usuario = ?";
+
+            try {
+
+                ps = con.prepareStatement(selectNombreUsuario);
+                ps.setString(1, Integer.toString(Usuario.getIdUsuario()));
+                rs = ps.executeQuery();
+
+                //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
+                //una vez en la primera linea podemos obtener la informacion;
+                rs.next();
+                Usuario.setApellido2(rs.getString(1));
+            
+
+            } catch (SQLException e) {
+                System.err.println("ERROR AL LEER apellido2");
+        }
+        
+    }
+    
+    
 
 }

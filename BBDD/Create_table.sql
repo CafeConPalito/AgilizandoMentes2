@@ -2,7 +2,7 @@ create database if not exists BBDD;
 use BBDD;
 
 create table if not exists usuario (
-id_usuario int(7) unsigned zerofill auto_increment not null,
+id_usuario int(7) unsigned auto_increment not null,
 nombre_usuario varchar(45) not null unique,
 contrasena varchar(100) not null,
 alias varchar (15) not null unique,
@@ -10,7 +10,7 @@ primary key (id_usuario)
 );
 
 create table if not exists persona (
-id_usuario int(7) unsigned zerofill not null,
+id_usuario int(7) unsigned not null,
 nombre varchar(45) not null,
 apellido1 varchar(45) not null,
 apellido2 varchar(45),
@@ -25,14 +25,14 @@ constraint fk_usuario_persona foreign key (id_usuario) references usuario(id_usu
 
 
 create table if not exists reto (
-id_reto int(7) unsigned zerofill auto_increment not null,
+id_reto int(7) unsigned auto_increment not null,
 nombre_reto varchar(45) not null,
 nivel enum('1','2','3','4'),
 primary key (id_reto)
 );
 
 create table if not exists calculo (
-idpartida int(7) unsigned zerofill auto_increment not null,
+idpartida int(7) unsigned auto_increment not null,
 jugador int(7) unsigned zerofill not null,
 reto int(7) unsigned zerofill not null,
 fecha_hora datetime,
@@ -46,7 +46,7 @@ constraint fk_calculo_reto foreign key (reto) references reto (id_reto) on delet
 
 
 create table if not exists ajuste (
-id_ajuste int(7) unsigned zerofill auto_increment not null,
+id_ajuste int(7) unsigned auto_increment not null,
 usuario int(7) unsigned zerofill not null,
 tamaño enum('1','2','3') default '2',
 idioma enum('Espanol','Ingles') default 'Espanol',

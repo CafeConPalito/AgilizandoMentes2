@@ -8,21 +8,17 @@ import Main.Main;
 import java.awt.Color;
 import Ajustes.*;
 import Alumno.*;
-import BBDD.ConexionBBDD;
 import BBDD.MetodosUsuario;
 import Profesor.BienvenidaP;
 import Profesor.PanelProfesor;
+import Usuario.Usuario;
 import java.awt.Container;
-import java.sql.Connection;
 
 /**
  *
  * @author TerciodeMarte
  */
 public class Login extends javax.swing.JPanel {
-
-    ConexionBBDD conBD = new ConexionBBDD();
-    Connection con = conBD.conectar();
 
     public Login() {
         initComponents();
@@ -282,11 +278,11 @@ public class Login extends javax.swing.JPanel {
 
     private void BotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMouseClicked
         //Compruebo que existe el usuario
-        if (MetodosUsuario.loginUsuario(con, TFUsuario.getText())) {
+        if (MetodosUsuario.loginUsuario(Main.getCon(), TFUsuario.getText())) {
             //Compruebo que introduce bien la contraseña
-            if (MetodosUsuario.loginContrasena(con, TFUsuario.getText(), String.copyValueOf(PWF.getPassword()))) {
+            if (MetodosUsuario.loginContrasena(Main.getCon(), TFUsuario.getText(), String.copyValueOf(PWF.getPassword()))) {
                 //Compruebo si es alumno
-                if (!MetodosUsuario.comprobarEsProfesor(con, TFUsuario.getText())) {
+                if (!MetodosUsuario.comprobarEsProfesor(Main.getCon(), TFUsuario.getText())) {
 
                     //Muestro los paneles del alumno
                     PanelAlumno pa1 = new PanelAlumno();
@@ -306,7 +302,10 @@ public class Login extends javax.swing.JPanel {
                     Main.getCuerpo().repaint();
 
                     //Confirmo que se ha logueado para que no vuelva atras
-                    Main.setIsLogin(true);
+                    Usuario.setEsProfe(false);
+                    Usuario.setUsuario(TFUsuario.getText());
+                    MetodosUsuario.getid_usuario(Main.getCon());
+
                 } else {
                     //Muestro los paneles del profesor
                     PanelProfesor pp1 = new PanelProfesor();
@@ -326,7 +325,9 @@ public class Login extends javax.swing.JPanel {
                     Main.getCuerpo().repaint();
 
                     //Confirmo que se ha logueado para que no vuelva atras
-                    Main.setIsLogin(true);
+                    Usuario.setEsProfe(true);
+                    Usuario.setUsuario(TFUsuario.getText());
+                    MetodosUsuario.getid_usuario(Main.getCon());
                 }
             } else {
                 //Muestro el error que se ha equivocado con la contraseña

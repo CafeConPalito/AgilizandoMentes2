@@ -70,7 +70,7 @@
                               <Component id="jLabel1" min="-2" pref="100" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="Usuario" alignment="1" max="32767" attributes="0"/>
+                          <Component id="usuario" alignment="1" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="Ajustes" max="32767" attributes="0"/>
@@ -89,7 +89,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="PanelVacio" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="112" max="32767" attributes="0"/>
-                      <Component id="Usuario" min="-2" max="-2" attributes="0"/>
+                      <Component id="usuario" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="Ajustes" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
@@ -126,14 +126,14 @@
                 </DimensionLayout>
               </Layout>
             </Container>
-            <Container class="javax.swing.JPanel" name="Usuario">
+            <Container class="javax.swing.JPanel" name="usuario">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="Estilos.getColorPanel()" type="code"/>
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="UsuarioMouseClicked"/>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="usuarioMouseClicked"/>
               </Events>
 
               <Layout>

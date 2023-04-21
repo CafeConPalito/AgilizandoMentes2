@@ -6,11 +6,18 @@ package Main;
 //package Images;
 
 import Ajustes.*;
+import BBDD.ConexionBBDD;
 import Login.*;
 import java.awt.*;
+import Usuario.Usuario;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+
 
 /**
  *
@@ -19,8 +26,15 @@ import javax.swing.JPanel;
 public class Main extends javax.swing.JFrame {
 
     int xMouse, yMouse;
+    
+    private static ConexionBBDD conBD = new ConexionBBDD();
+    private static Connection con = conBD.conectar();
 
-    private static boolean isLogin = false;
+    public static Connection getCon() {
+        return con;
+    }
+    
+    
 
     int textoBotones = 18;
     //int whitBotones = 100;
@@ -46,11 +60,9 @@ public class Main extends javax.swing.JFrame {
         Cuerpo.add(l1);
         Cuerpo.revalidate();
         Cuerpo.repaint();
+        
+        //Abrir conexion con base de datos
 
-    }
-
-    public static void setIsLogin(boolean isLogin) {
-        Main.isLogin = isLogin;
     }
 
     /**
@@ -66,7 +78,7 @@ public class Main extends javax.swing.JFrame {
         BarraLateral = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         PanelVacio = new javax.swing.JPanel();
-        Usuario = new javax.swing.JPanel();
+        usuario = new javax.swing.JPanel();
         LoginTXT1 = new javax.swing.JLabel();
         Ajustes = new javax.swing.JPanel();
         LoginTXT2 = new javax.swing.JLabel();
@@ -100,10 +112,10 @@ public class Main extends javax.swing.JFrame {
             .addGap(0, 330, Short.MAX_VALUE)
         );
 
-        Usuario.setBackground(Estilos.getColorPanel());
-        Usuario.addMouseListener(new java.awt.event.MouseAdapter() {
+        usuario.setBackground(Estilos.getColorPanel());
+        usuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                UsuarioMouseClicked(evt);
+                usuarioMouseClicked(evt);
             }
         });
 
@@ -117,18 +129,18 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout UsuarioLayout = new javax.swing.GroupLayout(Usuario);
-        Usuario.setLayout(UsuarioLayout);
-        UsuarioLayout.setHorizontalGroup(
-            UsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(UsuarioLayout.createSequentialGroup()
+        javax.swing.GroupLayout usuarioLayout = new javax.swing.GroupLayout(usuario);
+        usuario.setLayout(usuarioLayout);
+        usuarioLayout.setHorizontalGroup(
+            usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(usuarioLayout.createSequentialGroup()
                 .addGap(57, 57, 57)
                 .addComponent(LoginTXT1)
                 .addContainerGap(107, Short.MAX_VALUE))
         );
-        UsuarioLayout.setVerticalGroup(
-            UsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(UsuarioLayout.createSequentialGroup()
+        usuarioLayout.setVerticalGroup(
+            usuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(usuarioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(LoginTXT1, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
                 .addContainerGap())
@@ -173,7 +185,7 @@ public class Main extends javax.swing.JFrame {
                         .addGap(51, 51, 51)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(Usuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(usuario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(BarraLateralLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(Ajustes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -188,7 +200,7 @@ public class Main extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(PanelVacio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
-                .addComponent(Usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Ajustes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
@@ -296,6 +308,11 @@ public class Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void xtxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xtxtMouseClicked
+        try {
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
         System.exit(0);
     }//GEN-LAST:event_xtxtMouseClicked
 
@@ -320,8 +337,8 @@ public class Main extends javax.swing.JFrame {
         yMouse = evt.getY();
     }//GEN-LAST:event_headerMousePressed
 
-    private void UsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuarioMouseClicked
-        if (!isLogin) {
+    private void usuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuarioMouseClicked
+        if (!Usuario.isEsProfe()) {
             Login l2 = new Login();
             l2.setSize(1070, 720);
             l2.setLocation(0, 0);
@@ -330,10 +347,10 @@ public class Main extends javax.swing.JFrame {
             Cuerpo.revalidate();
             Cuerpo.repaint();
         } else {
-
+            
         }
 
-    }//GEN-LAST:event_UsuarioMouseClicked
+    }//GEN-LAST:event_usuarioMouseClicked
 
     private void AjustesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AjustesMouseClicked
         Ajustes A1 = new Ajustes();
@@ -346,7 +363,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_AjustesMouseClicked
 
     private void LoginTXT1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginTXT1MouseClicked
-        if (!isLogin) {
+        if (!Usuario.isEsProfe()) {
             Login L1 = new Login();
             L1.setSize(1070, 720);
             L1.setLocation(0, 0);
@@ -410,10 +427,10 @@ public class Main extends javax.swing.JFrame {
     private static javax.swing.JLabel LoginTXT1;
     private static javax.swing.JLabel LoginTXT2;
     private static javax.swing.JPanel PanelVacio;
-    private static javax.swing.JPanel Usuario;
     private static javax.swing.JPanel exit;
     private static javax.swing.JPanel header;
     private static javax.swing.JLabel jLabel1;
+    private static javax.swing.JPanel usuario;
     private static javax.swing.JLabel xtxt;
     // End of variables declaration//GEN-END:variables
 }

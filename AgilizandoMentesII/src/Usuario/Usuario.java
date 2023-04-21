@@ -11,13 +11,13 @@ package Usuario;
 public class Usuario {
     
     private static int idUsuario;
+    private static String usuario;
     private static String alias;
     private static boolean esProfe = false;
     private static String nombre;
+    private static String apellido1;
+    private static String apellido2;
     
-    public Usuario() {
-        
-    }
 
     public static int getIdUsuario() {
         return idUsuario;
@@ -50,5 +50,30 @@ public class Usuario {
     public static void setNombre(String nombre) {
         Usuario.nombre = nombre;
     }
+
+    public static String getApellido1() {
+        return apellido1;
+    }
+
+    public static void setApellido1(String apellido1) {
+        Usuario.apellido1 = apellido1;
+    }
+
+    public static String getApellido2() {
+        return apellido2;
+    }
+
+    public static void setApellido2(String apellido2) {
+        Usuario.apellido2 = apellido2;
+    }
+
+    public static String getUsuario() {
+        return usuario;
+    }
+
+    public static void setUsuario(String usuario) {
+        Usuario.usuario = usuario;
+    }
+    
     
 }

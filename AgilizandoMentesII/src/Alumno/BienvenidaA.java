@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package Alumno;
+
 import Usuario.*;
 import Ajustes.*;
 
@@ -18,9 +19,14 @@ public class BienvenidaA extends javax.swing.JPanel {
      */
     public BienvenidaA() {
         initComponents();
+        
+        //NO PONE BIEN LOS TEXTOS
+        alias.setText(Usuario.getAlias());
+     
+        nombre.setText(Usuario.getNombre());
+      
+        Apellido.setText(Usuario.getApellido1() +" "+Usuario.getApellido2() );
     }
-    private static String TextoBienvenida= "Bienvenido a AgilizandoMentesII " + Usuario.getNombre()
-            + "\nSelecciona una actividad en el menú de la izquierda.";
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,8 +38,11 @@ public class BienvenidaA extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        bienvenido = new javax.swing.JLabel();
+        alias = new javax.swing.JLabel();
+        nombre = new javax.swing.JLabel();
+        Apellido = new javax.swing.JLabel();
+        bienvenido1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1070, 720));
 
@@ -41,17 +50,35 @@ public class BienvenidaA extends javax.swing.JPanel {
         jPanel1.setPreferredSize(new java.awt.Dimension(1070, 720));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(Estilos.getFuenteCuerpo());
-        jLabel1.setForeground(Estilos.getColorFuenteCuerpo());
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Alias");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 230, 120, 30));
+        bienvenido.setFont(Estilos.getFuenteCuerpo());
+        bienvenido.setForeground(Estilos.getColorFuenteCuerpo());
+        bienvenido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        bienvenido.setText("Selecciona una actividad en el menú de la izquierda.");
+        jPanel1.add(bienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 490, 660, 30));
 
-        jLabel2.setFont(Estilos.getFuenteCuerpo());
-        jLabel2.setForeground(Estilos.getColorFuenteCuerpo());
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Bienvenido");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 120, 30));
+        alias.setFont(Estilos.getFuenteCuerpo());
+        alias.setForeground(Estilos.getColorFuenteCuerpo());
+        alias.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        alias.setText("Alias");
+        jPanel1.add(alias, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 220, 120, 30));
+
+        nombre.setFont(Estilos.getFuenteCuerpo());
+        nombre.setForeground(Estilos.getColorFuenteCuerpo());
+        nombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nombre.setText("Nombre");
+        jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, 120, 30));
+
+        Apellido.setFont(Estilos.getFuenteCuerpo());
+        Apellido.setForeground(Estilos.getColorFuenteCuerpo());
+        Apellido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Apellido.setText("Apellido");
+        jPanel1.add(Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, 120, 30));
+
+        bienvenido1.setFont(Estilos.getFuenteCuerpo());
+        bienvenido1.setForeground(Estilos.getColorFuenteCuerpo());
+        bienvenido1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        bienvenido1.setText("Bienvenido a Agilizando Mentes II");
+        jPanel1.add(bienvenido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 330, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -67,8 +94,11 @@ public class BienvenidaA extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel Apellido;
+    private javax.swing.JLabel alias;
+    private javax.swing.JLabel bienvenido;
+    private javax.swing.JLabel bienvenido1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel nombre;
     // End of variables declaration//GEN-END:variables
 }
