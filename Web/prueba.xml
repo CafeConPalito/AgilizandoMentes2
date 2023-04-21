@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+    <channel>
+
+        <title>Cafe Con Palito Noticias</title>
+        <link>http://192.168.24.16:8080</link>
+        <description>Canal de noticias de Cafe Con Palito</description>
+        <copyright>CC 4.0 – BY-SA</copyright>
+
+        <item>
+            <title>SAM: La IA de Meta que LO SEGMENTA TODO!</title>
+            <link>https://www.youtube.com/watch?v=NmwC393cg_o</link>
+            <guid>https://www.youtube.com/watch?v=NmwC393cg_o</guid>
+            <description>Dot CSV - SAM o Segment Anything Model es el nuevo trabajo de Meta que
+                promete acelerar los avances en visión por computador con Inteligencia Artificial.
+                Un modelo capaz de segmentar los elementos característicos de una imagen, sin
+                importar no haberlo visto nunca antes. Un modelo que será muy útil tanto para la
+                generación de futuros datasets como para su uso en tecnologías de AR.</description>
+            <author>despinosag02@educantabria.es (daniel espinosa)</author>
+            <pubDate>Fri, 21 Apr 2023 19:00:00 GMT</pubDate>
+        </item>
+
+        <item>
+            <title>Creada la Empresa Cafe Con Palito</title>
+            <link>http://192.168.24.16:8080</link>
+            <guid>http://192.168.24.16:8080</guid>
+            <description>Creamos la empresa Cafe con Palito para el reto Agiliza Mentes</description>
+            <author>despinosag02@educantabria.es (daniel espinosa)</author>
+            <pubDate>Thu, 20 Apr 2023 18:00:00 GMT</pubDate>
+        </item>
+
+    </channel>
+
+</rss>
