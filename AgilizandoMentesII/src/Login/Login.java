@@ -8,17 +8,26 @@ import Main.Main;
 import java.awt.Color;
 import Ajustes.*;
 import Alumno.*;
+import BBDD.ConexionBBDD;
+import BBDD.MetodosUsuario;
+import Profesor.BienvenidaP;
+import Profesor.PanelProfesor;
 import java.awt.Container;
+import java.sql.Connection;
+
 /**
  *
- * @author carra
+ * @author TerciodeMarte
  */
 public class Login extends javax.swing.JPanel {
-    /**
-     * Creates new form Login
-     */
+
+    ConexionBBDD conBD = new ConexionBBDD();
+    Connection con = conBD.conectar();
+
     public Login() {
         initComponents();
+        errorC.setVisible(false);
+        errorU.setVisible(false);
     }
 
     /**
@@ -38,10 +47,12 @@ public class Login extends javax.swing.JPanel {
         JLContra = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         PWF = new javax.swing.JPasswordField();
-        jSeparator1 = new javax.swing.JSeparator();
+        errorC = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         JLUsuario = new javax.swing.JLabel();
         TFUsuario = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        errorU = new javax.swing.JLabel();
         Boton = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -52,11 +63,11 @@ public class Login extends javax.swing.JPanel {
 
         iniciar.setFont(Estilos.getFuenteCuerpo());
         iniciar.setText("INICIAR SESIÓN");
-        background.add(iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, -1, -1));
+        background.add(iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, -1, -1));
 
         tienes.setFont(Estilos.getFuenteCuerpo());
         tienes.setText("¿NO TIENES CUENTA?");
-        background.add(tienes, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 470, -1, -1));
+        background.add(tienes, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 570, -1, -1));
 
         registra.setFont(Estilos.getFuenteCuerpo());
         registra.setForeground(new java.awt.Color(0, 153, 255));
@@ -70,7 +81,7 @@ public class Login extends javax.swing.JPanel {
                 registraMouseEntered(evt);
             }
         });
-        background.add(registra, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 470, -1, -1));
+        background.add(registra, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -86,6 +97,11 @@ public class Login extends javax.swing.JPanel {
             }
         });
 
+        errorC.setFont(Estilos.getFuenteCuerpo());
+        errorC.setForeground(Estilos.getColorFuenteError());
+        errorC.setText("Contraseña no valida");
+        errorC.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -93,29 +109,30 @@ public class Login extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator2)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(JLContra)
-                            .addComponent(PWF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jSeparator1))
+                            .addComponent(PWF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(errorC))
+                        .addGap(0, 227, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(16, 16, 16)
                 .addComponent(JLContra)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PWF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(errorC)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        background.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, -1, -1));
+        background.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 350, 130));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -137,6 +154,11 @@ public class Login extends javax.swing.JPanel {
             }
         });
 
+        errorU.setFont(Estilos.getFuenteCuerpo());
+        errorU.setForeground(Estilos.getColorFuenteError());
+        errorU.setText("Usuario no encontrado");
+        errorU.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -144,11 +166,17 @@ public class Login extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TFUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(JLUsuario)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(errorU)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TFUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(JLUsuario)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -157,10 +185,13 @@ public class Login extends javax.swing.JPanel {
                 .addComponent(JLUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TFUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addComponent(errorU))
         );
 
-        background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, -1, 60));
+        background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 350, 120));
 
         Boton.setBackground(Estilos.getColorPanel());
         Boton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -191,24 +222,22 @@ public class Login extends javax.swing.JPanel {
         BotonLayout.setVerticalGroup(
             BotonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BotonLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(16, 16, 16)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        background.add(Boton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, 150, -1));
+        background.add(Boton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 500, 150, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 1070, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, 1070, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(background, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -252,22 +281,63 @@ public class Login extends javax.swing.JPanel {
     }//GEN-LAST:event_PWFMousePressed
 
     private void BotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMouseClicked
+        //Compruebo que existe el usuario
+        if (MetodosUsuario.loginUsuario(con, TFUsuario.getText())) {
+            //Compruebo que introduce bien la contraseña
+            if (MetodosUsuario.loginContrasena(con, TFUsuario.getText(), String.copyValueOf(PWF.getPassword()))) {
+                //Compruebo si es alumno
+                if (!MetodosUsuario.comprobarEsProfesor(con, TFUsuario.getText())) {
 
-        PanelAlumno pa1 = new PanelAlumno();
-        pa1.setSize(210,330);
-        pa1.setLocation(0, 0);
-        Main.getPanelVacio().removeAll();
-        Main.getPanelVacio().add(pa1);
-        Main.getPanelVacio().revalidate();
-        Main.getPanelVacio().repaint();
-        
-        BienvenidaA bienvenidaA = new BienvenidaA();
-        bienvenidaA.setSize(1070,720);
-        bienvenidaA.setLocation(0,0);
-        Main.getCuerpo().removeAll();
-        Main.getCuerpo().add(bienvenidaA);
-        Main.getCuerpo().revalidate();
-        Main.getCuerpo().repaint();
+                    //Muestro los paneles del alumno
+                    PanelAlumno pa1 = new PanelAlumno();
+                    pa1.setSize(210, 330);
+                    pa1.setLocation(0, 0);
+                    Main.getPanelVacio().removeAll();
+                    Main.getPanelVacio().add(pa1);
+                    Main.getPanelVacio().revalidate();
+                    Main.getPanelVacio().repaint();
+
+                    BienvenidaA bienvenidaA = new BienvenidaA();
+                    bienvenidaA.setSize(1070, 720);
+                    bienvenidaA.setLocation(0, 0);
+                    Main.getCuerpo().removeAll();
+                    Main.getCuerpo().add(bienvenidaA);
+                    Main.getCuerpo().revalidate();
+                    Main.getCuerpo().repaint();
+
+                    //Confirmo que se ha logueado para que no vuelva atras
+                    Main.setIsLogin(true);
+                } else {
+                    //Muestro los paneles del profesor
+                    PanelProfesor pp1 = new PanelProfesor();
+                    pp1.setSize(210, 330);
+                    pp1.setLocation(0, 0);
+                    Main.getPanelVacio().removeAll();
+                    Main.getPanelVacio().add(pp1);
+                    Main.getPanelVacio().revalidate();
+                    Main.getPanelVacio().repaint();
+
+                    BienvenidaP bienvenidaP = new BienvenidaP();
+                    bienvenidaP.setSize(1070, 720);
+                    bienvenidaP.setLocation(0, 0);
+                    Main.getCuerpo().removeAll();
+                    Main.getCuerpo().add(bienvenidaP);
+                    Main.getCuerpo().revalidate();
+                    Main.getCuerpo().repaint();
+
+                    //Confirmo que se ha logueado para que no vuelva atras
+                    Main.setIsLogin(true);
+                }
+            } else {
+                //Muestro el error que se ha equivocado con la contraseña
+                errorC.setVisible(true);
+            }
+        } else {
+            //Muestro que se ha equivocado con el usaurio
+            errorU.setVisible(true);
+        }
+
+
     }//GEN-LAST:event_BotonMouseClicked
 
     private void registraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registraMouseEntered
@@ -275,15 +345,15 @@ public class Login extends javax.swing.JPanel {
     }//GEN-LAST:event_registraMouseEntered
 
     private void registraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registraMouseClicked
-        Container Cuerpo2 = this.getParent();   
+        Container Cuerpo2 = this.getParent();
         Register r1 = new Register();
-        r1.setSize(1070,720);
+        r1.setSize(1070, 720);
         r1.setLocation(0, 0);
         Cuerpo2.removeAll();
         Cuerpo2.add(r1);
         Cuerpo2.revalidate();
         Cuerpo2.repaint();
-        
+
     }//GEN-LAST:event_registraMouseClicked
 
 
@@ -294,6 +364,8 @@ public class Login extends javax.swing.JPanel {
     private javax.swing.JPasswordField PWF;
     private javax.swing.JTextField TFUsuario;
     private javax.swing.JPanel background;
+    private javax.swing.JLabel errorC;
+    private javax.swing.JLabel errorU;
     private javax.swing.JLabel iniciar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

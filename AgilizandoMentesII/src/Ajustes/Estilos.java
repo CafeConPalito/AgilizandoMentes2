@@ -21,6 +21,7 @@ public class Estilos {
     //COLORES
     private static Color colorPanel = new Color(0,155,155);
     private static Color colorFuenteRegistroLogin = new Color(0,153,255);
+    private static Color colorFuenteError = new Color(255,50,0);
     private static Color colorFuentePanel = new Color(255,255,255);
     private static Color colorFuenteCuerpo = new Color(0,0,0);
  
@@ -48,6 +49,10 @@ public class Estilos {
         return colorFuenteRegistroLogin;
     }
 
+    public static Color getColorFuenteError() {
+        return colorFuenteError;
+    }
+    
     public static void setSizeCuerpo(int sizeCuerpo) {
         Estilos.sizeCuerpo = sizeCuerpo;
         fuenteCuerpo = new Font("Roboto Medium", 0, Estilos.sizeCuerpo);

@@ -20,6 +20,8 @@ public class Main extends javax.swing.JFrame {
 
     int xMouse, yMouse;
 
+    private static boolean isLogin = false;
+
     int textoBotones = 18;
     //int whitBotones = 100;
     //int heigtBotones = 200;
@@ -45,6 +47,10 @@ public class Main extends javax.swing.JFrame {
         Cuerpo.revalidate();
         Cuerpo.repaint();
 
+    }
+
+    public static void setIsLogin(boolean isLogin) {
+        Main.isLogin = isLogin;
     }
 
     /**
@@ -191,7 +197,7 @@ public class Main extends javax.swing.JFrame {
         Fondo.add(BarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 720));
 
         header.setBackground(new java.awt.Color(255, 255, 255));
-        header.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
+        header.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 headerMouseDragged(evt);
@@ -315,13 +321,18 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_headerMousePressed
 
     private void UsuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuarioMouseClicked
-        Login l2 = new Login();
-        l2.setSize(1070, 720);
-        l2.setLocation(0, 0);
-        Cuerpo.removeAll();
-        Cuerpo.add(l2);
-        Cuerpo.revalidate();
-        Cuerpo.repaint();
+        if (!isLogin) {
+            Login l2 = new Login();
+            l2.setSize(1070, 720);
+            l2.setLocation(0, 0);
+            Cuerpo.removeAll();
+            Cuerpo.add(l2);
+            Cuerpo.revalidate();
+            Cuerpo.repaint();
+        } else {
+
+        }
+
     }//GEN-LAST:event_UsuarioMouseClicked
 
     private void AjustesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AjustesMouseClicked
@@ -329,27 +340,28 @@ public class Main extends javax.swing.JFrame {
         A1.setSize(1070, 720);
         A1.setLocation(0, 0);
         Cuerpo.removeAll();
-        Cuerpo.add(A1,BorderLayout.CENTER);
+        Cuerpo.add(A1, BorderLayout.CENTER);
         Cuerpo.revalidate();
         Cuerpo.repaint();
     }//GEN-LAST:event_AjustesMouseClicked
 
     private void LoginTXT1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginTXT1MouseClicked
-
-        Login l1= new Login();
-        l1.setSize(1070,720);
-        l1.setLocation(0, 0);
-        Cuerpo.removeAll();
-        Cuerpo.add(l1);
-        Cuerpo.revalidate();
-        Cuerpo.repaint();
+        if (!isLogin) {
+            Login L1 = new Login();
+            L1.setSize(1070, 720);
+            L1.setLocation(0, 0);
+            Cuerpo.removeAll();
+            Cuerpo.add(L1, BorderLayout.CENTER);
+            Cuerpo.revalidate();
+            Cuerpo.repaint();
+        }
     }//GEN-LAST:event_LoginTXT1MouseClicked
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -389,7 +401,7 @@ public class Main extends javax.swing.JFrame {
         return PanelVacio;
     }
 
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JPanel Ajustes;
     private static javax.swing.JPanel BarraLateral;
