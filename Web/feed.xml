@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+
+    <channel>
+
+        <title>Cafe Con Palito Noticias</title>
+        <link>https://www.google.com</link>
+        <description>Canal de noticias de Cafe Con Palito</description>
+        <copyright>CC 4.0 – BY-SA</copyright>
+
+        <item>
+            <title>Creada la Empresa Cafe Con Palito</title>
+            <link>http://localhost:8080</link>
+            <guid>http://localhost:8080</guid>
+            <description>Creamos la empresa Cafe con Palito para el reto Agiliza Mentes</description>
+            <author>despinosag02@educantabria.es (daniel espinosa)</author>
+            <pubDate>Thu, 20 Apr 2023 18:00:00 GMT</pubDate>
+        </item>
+        
+    </channel>
+
+</rss>

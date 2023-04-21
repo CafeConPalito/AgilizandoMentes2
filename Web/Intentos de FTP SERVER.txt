@@ -1,0 +1,11 @@
+docker run -d -v /home/gutierrezramiro/ftpserver:/home/vsftpd -p 20:20 -p 21:21 -p 47470:47470 -e FTP_USER=admin -e FTP_PASS=1234 -e PASV_ADDRESS=127.0.0.1 --name ftp --restart=always bogem/ftp
+
+docker run -d \
+    -p 21:21 \
+    -p 21000-21010:21000-21010 \
+    -e USERS="admin|1234|/Users/ftp_path|10000" \
+    -e ADDRESS=localhost \
+    -v /home/gutierrezramiro/ftpserver:/Users/ftp_path \
+    delfer/alpine-ftp-server
+
+docker run -dit --name webprueba -p 8081:80 -v /home/gutierrezramiro/ftpserver:/usr/local/apache2/htdocs/ httpd:2.4

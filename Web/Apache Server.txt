@@ -1,0 +1,5 @@
+// Inicia el servicio apache dos (no borrar el espacio . )
+docker build -t my-apache2 .
+
+// monta el cafe con palito
+docker run -dit --name cafeconpalitoweb -p 8080:80 my-apache2
