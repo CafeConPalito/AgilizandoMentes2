@@ -359,7 +359,6 @@ public class MetodosUsuario {
     /**
      * Metodo que trae desde la BBDD el id_usuario del usuario Pensado para
      * utilizar despues del Login
-     *
      * @param con
      */
     public static void getid_usuario(Connection con) {

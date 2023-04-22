@@ -9,16 +9,8 @@ import java.sql.*;
 
 /**
  *
- * @author damt108
+ * @author produccion
  */
-public class MetodosAjustes {
-    
-    public static void guardarAjustes(Connection con){
-             
-    }
-    
-    public static void cargarAjustes(Connection con){
-        
-    }
+public class MetodosRegistro {
     
 }
