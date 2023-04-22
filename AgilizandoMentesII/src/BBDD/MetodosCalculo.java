@@ -20,9 +20,7 @@ public class MetodosCalculo {
      *
      * @param con
      * @param puntos
-     * @param tiempo_partida al pasarle un entero como tiempo los considera como
-     * segundos y los almacena bien mientras no dure mas de 1 min
-     * @param tipo
+     * @param tiempo_partida pasado como segundos
      */
     public static void insertResultado(Connection con, int puntos, int tiempo_partida) {
         PreparedStatement ps = null;
@@ -34,7 +32,7 @@ public class MetodosCalculo {
 
         //SQL
         String select = "select id_reto from reto where nombre_reto = ? and nivel = ?";
-        String insert = "insert into calculo(jugador,reto,puntos,tiempo_partida) values (?,?,?,?)";
+        String insert = "insert into calculo(jugador,reto,puntos,tiempo_partida) values (?,?,?,sec_to_time(?))";
 
         try {
 
