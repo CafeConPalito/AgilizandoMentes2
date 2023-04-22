@@ -4,6 +4,7 @@
  */
 package Profesor;
 import Ajustes.*;
+import Calculadora.Calculadora;
 /**
  *
  * @author damt111
@@ -164,7 +165,8 @@ public class PanelProfesor extends javax.swing.JPanel {
     }//GEN-LAST:event_RestoDivisionMouseClicked
 
     private void CalculadoraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CalculadoraMouseClicked
-
+        Calculadora calcu = new Calculadora();
+        calcu.setVisible(true);
     }//GEN-LAST:event_CalculadoraMouseClicked
 
 

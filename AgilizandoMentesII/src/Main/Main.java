@@ -25,6 +25,8 @@ import javax.swing.JPanel;
  */
 public class Main extends javax.swing.JFrame {
 
+    private static boolean islogin = false;
+    
     int xMouse, yMouse;
     
     private static ConexionBBDD conBD = new ConexionBBDD();
@@ -33,7 +35,14 @@ public class Main extends javax.swing.JFrame {
     public static Connection getCon() {
         return con;
     }
-    
+
+    public static boolean isIslogin() {
+        return islogin;
+    }
+
+    public static void setIslogin(boolean islogin) {
+        Main.islogin = islogin;
+    }
     
 
     int textoBotones = 18;
@@ -338,7 +347,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_headerMousePressed
 
     private void usuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuarioMouseClicked
-        if (!Usuario.isEsProfe()) {
+        if (!islogin) {
             Login l2 = new Login();
             l2.setSize(1070, 720);
             l2.setLocation(0, 0);
@@ -363,7 +372,7 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_AjustesMouseClicked
 
     private void LoginTXT1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginTXT1MouseClicked
-        if (!Usuario.isEsProfe()) {
+        if (!islogin) {
             Login L1 = new Login();
             L1.setSize(1070, 720);
             L1.setLocation(0, 0);
