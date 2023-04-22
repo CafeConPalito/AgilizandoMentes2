@@ -6,6 +6,7 @@ package Main;
 
 import BBDD.ConexionBBDD;
 import BBDD.MetodosUsuario;
+import Calculadora.Calculadora;
 import Login.Login;
 import Usuario.Usuario;
 import java.sql.*;
@@ -32,6 +33,7 @@ public class Principal {
         //Usuario user = new Usuario();
         
         String usuario = "Cbarrios";
+        /*
         String contrasena = "12345";
         String DNI = "12345678T";
         String email = "123@asd.es";
@@ -44,7 +46,14 @@ public class Principal {
         System.out.println("Alias " + MetodosUsuario.compobrarAlias(con, alias));
         System.out.println("Nombre Usuario " + MetodosUsuario.comprobarNombreUsuario(con, nombreUsuario));
         System.out.println("Es Profesor " + MetodosUsuario.comprobarEsProfesor(con, nombreUsuario));    
-
+        */
+        
+        Usuario.setUsuario(usuario);
+        MetodosUsuario.generarUsuario(con);
+        System.out.println(Usuario.getAlias() + Usuario.getApellido1() + Usuario.getApellido2() + Usuario.getNombre());
+        
+        Calculadora calcu = new Calculadora();
+        calcu.setVisible(true);
         
         conBD.desconectar();
     }

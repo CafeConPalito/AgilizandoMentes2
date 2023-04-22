@@ -4,6 +4,8 @@
  */
 package Usuario;
 
+import java.sql.*;
+
 /**
  *
  * @author damt108
@@ -17,8 +19,8 @@ public class Usuario {
     private static String nombre;
     private static String apellido1;
     private static String apellido2;
+    private static String curso = null;
     
-
     public static int getIdUsuario() {
         return idUsuario;
     }
@@ -74,6 +76,15 @@ public class Usuario {
     public static void setUsuario(String usuario) {
         Usuario.usuario = usuario;
     }
+
+    public static String getCurso() {
+        return curso;
+    }
+
+    public static void setCurso(String curso) {
+        Usuario.curso = curso;
+    }
+    
     
     
 }

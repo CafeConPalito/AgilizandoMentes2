@@ -277,6 +277,9 @@ public class Login extends javax.swing.JPanel {
     }//GEN-LAST:event_PWFMousePressed
 
     private void BotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMouseClicked
+        errorU.setVisible(false);
+        errorC.setVisible(false);
+        
         //Compruebo que existe el usuario
         if (MetodosUsuario.loginUsuario(Main.getCon(), TFUsuario.getText())) {
             //Compruebo que introduce bien la contraseña
@@ -284,6 +287,10 @@ public class Login extends javax.swing.JPanel {
                 //Compruebo si es alumno
                 if (!MetodosUsuario.comprobarEsProfesor(Main.getCon(), TFUsuario.getText())) {
 
+                    //Confirmo que se ha logueado para que no vuelva atras
+                    Usuario.setUsuario(TFUsuario.getText());
+                    MetodosUsuario.generarUsuario(Main.getCon());
+                    
                     //Muestro los paneles del alumno
                     PanelAlumno pa1 = new PanelAlumno();
                     pa1.setSize(210, 330);
@@ -301,12 +308,14 @@ public class Login extends javax.swing.JPanel {
                     Main.getCuerpo().revalidate();
                     Main.getCuerpo().repaint();
 
-                    //Confirmo que se ha logueado para que no vuelva atras
-                    Usuario.setEsProfe(false);
-                    Usuario.setUsuario(TFUsuario.getText());
-                    MetodosUsuario.getid_usuario(Main.getCon());
+                    Main.setIslogin(true);
 
                 } else {
+                    
+                    //Confirmo que se ha logueado para que no vuelva atras
+                    Usuario.setUsuario(TFUsuario.getText());
+                    MetodosUsuario.generarUsuario(Main.getCon());
+                    
                     //Muestro los paneles del profesor
                     PanelProfesor pp1 = new PanelProfesor();
                     pp1.setSize(210, 330);
@@ -324,10 +333,8 @@ public class Login extends javax.swing.JPanel {
                     Main.getCuerpo().revalidate();
                     Main.getCuerpo().repaint();
 
-                    //Confirmo que se ha logueado para que no vuelva atras
-                    Usuario.setEsProfe(true);
-                    Usuario.setUsuario(TFUsuario.getText());
-                    MetodosUsuario.getid_usuario(Main.getCon());
+                    Main.setIslogin(true);
+                    
                 }
             } else {
                 //Muestro el error que se ha equivocado con la contraseña

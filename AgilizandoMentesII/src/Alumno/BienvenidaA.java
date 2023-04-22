@@ -4,7 +4,7 @@
  */
 package Alumno;
 
-import Usuario.*;
+import Usuario.Usuario;
 import Ajustes.*;
 
 
@@ -19,15 +19,12 @@ public class BienvenidaA extends javax.swing.JPanel {
      */
     public BienvenidaA() {
         initComponents();
-        
-        //NO PONE BIEN LOS TEXTOS
         alias.setText(Usuario.getAlias());
-     
         nombre.setText(Usuario.getNombre());
-      
         Apellido.setText(Usuario.getApellido1() +" "+Usuario.getApellido2() );
-    }
 
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,19 +57,19 @@ public class BienvenidaA extends javax.swing.JPanel {
         alias.setForeground(Estilos.getColorFuenteCuerpo());
         alias.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         alias.setText("Alias");
-        jPanel1.add(alias, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 220, 120, 30));
+        jPanel1.add(alias, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 380, 120, 30));
 
         nombre.setFont(Estilos.getFuenteCuerpo());
         nombre.setForeground(Estilos.getColorFuenteCuerpo());
         nombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nombre.setText("Nombre");
-        jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, 120, 30));
+        jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, 120, 30));
 
         Apellido.setFont(Estilos.getFuenteCuerpo());
         Apellido.setForeground(Estilos.getColorFuenteCuerpo());
         Apellido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Apellido.setText("Apellido");
-        jPanel1.add(Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, 120, 30));
+        jPanel1.add(Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, 120, 30));
 
         bienvenido1.setFont(Estilos.getFuenteCuerpo());
         bienvenido1.setForeground(Estilos.getColorFuenteCuerpo());

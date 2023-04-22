@@ -132,6 +132,7 @@ public class MetodosUsuario {
     /**
      * Comprueba si el DNI contiene 8 numeros y Una letra mayuscula, pasado
      * desde el registro y que no existe en la BBDD
+     *
      * @param con
      * @param DNI
      * @return boolean
@@ -206,25 +207,26 @@ public class MetodosUsuario {
 
         }
         return false;
-        
+
     }
 
     /**
-     * Comprueba si el alias no esta vacio, pasado desde el registro 
-     * y que no existe en la BBDD
+     * Comprueba si el alias no esta vacio, pasado desde el registro y que no
+     * existe en la BBDD
+     *
      * @param alias
      * @param con
      * @return boolean
      */
     public static boolean compobrarAlias(Connection con, String alias) {
-        
+
         PreparedStatement ps = null;
         ResultSet rs = null;
 
         if (!"".equalsIgnoreCase(alias)) {
 
             // se prepara la sentencia para la BBDD como un String
-            String selectAlias= "select alias from usuario where alias = ?";
+            String selectAlias = "select alias from usuario where alias = ?";
 
             try {
 
@@ -246,7 +248,7 @@ public class MetodosUsuario {
 
         }
         return false;
-        
+
     }
 
     /**
@@ -264,7 +266,7 @@ public class MetodosUsuario {
         if (!"".equalsIgnoreCase(nombreUsuario)) {
 
             // se prepara la sentencia para la BBDD como un String
-            String selectNombreUsuario= "select nombre_usuario from usuario where nombre_usuario = ?";
+            String selectNombreUsuario = "select nombre_usuario from usuario where nombre_usuario = ?";
 
             try {
 
@@ -290,6 +292,7 @@ public class MetodosUsuario {
 
     /**
      * Comprueba que la contraseña no esta vacia, pasado desde el registro
+     *
      * @param contrasena
      * @return boolean
      */
@@ -302,6 +305,7 @@ public class MetodosUsuario {
 
     /**
      * Comprobar si el Usuario es Profesor en la BBDD
+     *
      * @param con
      * @param nombreUsuario
      * @return boolean
@@ -313,7 +317,7 @@ public class MetodosUsuario {
         if (!"".equalsIgnoreCase(nombreUsuario)) {
 
             // se prepara la sentencia para la BBDD como un String
-            String selectNombreUsuario= "select profesor from persona inner join usuario using(id_usuario) where nombre_usuario = ?";
+            String selectNombreUsuario = "select profesor from persona inner join usuario using(id_usuario) where nombre_usuario = ?";
 
             try {
 
@@ -327,7 +331,7 @@ public class MetodosUsuario {
                 if (rs.next() && "1".equalsIgnoreCase(rs.getString(1))) {
                     return true;
                 }
-                
+
             } catch (SQLException e) {
                 System.err.println("ERROR AL LEER ES Profesor");
                 return false;
@@ -336,143 +340,232 @@ public class MetodosUsuario {
         }
         return false;
     }
-    
-    public static void getid_usuario(Connection con){
-        PreparedStatement ps = null;
-        ResultSet rs = null;
 
-        
-
-            // se prepara la sentencia para la BBDD como un String
-            String selectNombreUsuario= "select id_usuario from usuario where nombre_usuario = ?";
-
-            try {
-
-                ps = con.prepareStatement(selectNombreUsuario);
-                ps.setString(1, Usuario.getUsuario());
-                rs = ps.executeQuery();
-
-                //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
-                //una vez en la primera linea podemos obtener la informacion;
-                rs.next();
-                Usuario.setIdUsuario(rs.getInt(1));
-                
-            
-
-            } catch (SQLException e) {
-                System.err.println("ERROR AL LEER id_usuario");
-        }
-        
+    /**
+     * Aglutina todos los metodos que cargan desde la BBDD los datos del usuario.
+     * Trae el id_usuario, alias, nombre, apellido1, apellido2, esProfe, el curso.
+     * @param con 
+     */
+    public static void generarUsuario(Connection con){
+        getid_usuario(con);
+        getalias(con);
+        getnombre(con);
+        getapellido1(con);
+        getapellido2(con);
+        getEsProfe(con);
+        getCurso(con);
     }
-    
-    public static void getnombre(Connection con){
+
+    /**
+     * Metodo que trae desde la BBDD el id_usuario del usuario Pensado para
+     * utilizar despues del Login
+     *
+     * @param con
+     */
+    public static void getid_usuario(Connection con) {
         PreparedStatement ps = null;
         ResultSet rs = null;
 
-        
+        // se prepara la sentencia para la BBDD como un String
+        String select = "select id_usuario from usuario where nombre_usuario = ?";
+
+        try {
+
+            ps = con.prepareStatement(select);
+            ps.setString(1, Usuario.getUsuario());
+            rs = ps.executeQuery();
+
+            //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
+            //una vez en la primera linea podemos obtener la informacion;
+            rs.next();
+            Usuario.setIdUsuario(rs.getInt(1));
+
+        } catch (SQLException e) {
+            System.err.println("ERROR AL LEER id_usuario");
+        }
+    }
+
+    /**
+     * Metodo que trae desde la BBDD el nombre del usuario Pensado para utilizar
+     * despues del Login
+     *
+     * @param con
+     */
+    public static void getnombre(Connection con) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        // se prepara la sentencia para la BBDD como un String
+        String select = "select nombre from persona where id_usuario = ?";
+
+        try {
+
+            ps = con.prepareStatement(select);
+            ps.setInt(1, Usuario.getIdUsuario());
+            rs = ps.executeQuery();
+
+            //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
+            //una vez en la primera linea podemos obtener la informacion;
+            rs.next();
+            Usuario.setNombre(rs.getString(1));
+            
+        } catch (SQLException e) {
+            System.err.println("ERROR AL LEER NombreUsuario");
+        }
+    }
+
+    /**
+     * Metodo que trae desde la BBDD el alias del usuario Pensado para utilizar
+     * despues del Login
+     *
+     * @param con
+     */
+    public static void getalias(Connection con) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        // se prepara la sentencia para la BBDD como un String
+        String select = "select alias from usuario where id_usuario = ?";
+
+        try {
+
+            ps = con.prepareStatement(select);
+            ps.setString(1, Integer.toString(Usuario.getIdUsuario()));
+            rs = ps.executeQuery();
+
+            //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
+            //una vez en la primera linea podemos obtener la informacion;
+            rs.next();
+            Usuario.setAlias(rs.getString(1));
+            
+        } catch (SQLException e) {
+            System.err.println("ERROR AL LEER alias");
+        }
+    }
+
+    /**
+     * Metodo que trae desde la BBDD el apellido1 del usuario Pensado para
+     * utilizar despues del Login
+     *
+     * @param con
+     */
+    public static void getapellido1(Connection con) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        // se prepara la sentencia para la BBDD como un String
+        String select = "select apellido1 from persona where id_usuario = ?";
+
+        try {
+
+            ps = con.prepareStatement(select);
+            ps.setString(1, Integer.toString(Usuario.getIdUsuario()));
+            rs = ps.executeQuery();
+
+            //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
+            //una vez en la primera linea podemos obtener la informacion;
+            rs.next();
+            Usuario.setApellido1(rs.getString(1));
+
+        } catch (SQLException e) {
+            System.err.println("ERROR AL LEER apellido1");
+        }
+    }
+
+    /**
+     * Metodo que trae desde la BBDD el apellido1 del usuario Pensado para
+     * utilizar despues del Login
+     *
+     * @param con
+     */
+    public static void getapellido2(Connection con) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        // se prepara la sentencia para la BBDD como un String
+        String select = "select apellido2 from persona where id_usuario = ?";
+
+        try {
+
+            ps = con.prepareStatement(select);
+            ps.setString(1, Integer.toString(Usuario.getIdUsuario()));
+            rs = ps.executeQuery();
+
+            //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
+            //una vez en la primera linea podemos obtener la informacion;
+            rs.next();
+            Usuario.setApellido2(rs.getString(1));
+
+        } catch (SQLException e) {
+            System.err.println("ERROR AL LEER apellido2");
+        }
+    }
+
+    /**
+     * Metodo que trae desde la BBDD si el Usuario es profesor Pensado para
+     * utilizar despues del Login
+     *
+     * @param con
+     */
+    public static void getEsProfe(Connection con) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        // se prepara la sentencia para la BBDD como un String
+        String select = "select profesor from persona where id_usuario = ?";
+
+        try {
+
+            ps = con.prepareStatement(select);
+            ps.setString(1, Integer.toString(Usuario.getIdUsuario()));
+            rs = ps.executeQuery();
+
+            //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
+            //una vez en la primera linea podemos obtener la informacion;
+            rs.next();
+            if ("1".equalsIgnoreCase(rs.getString(1))) {
+                Usuario.setEsProfe(true);
+            } else {
+                Usuario.setEsProfe(false);
+            }
+
+        } catch (SQLException e) {
+            System.err.println("ERROR AL LEER esProfe");
+        }
+    }
+
+    /**
+     * Metodo que trae desde la BBDD si el curso del Usuario si el usuario es
+     * profesor no se realiza. Pensado para utilizar despues del Login
+     * @param con
+     */
+    public static void getCurso(Connection con) {
+
+        // si el usuario no es profesor trae su curso , en caso contrario el curso queda a null
+        if (!Usuario.isEsProfe()) {
+            PreparedStatement ps = null;
+            ResultSet rs = null;
 
             // se prepara la sentencia para la BBDD como un String
-            String selectNombreUsuario= "select nombre from persona where id_usuario = ?";
+            String select = "select curso from persona where id_usuario = ?";
 
             try {
 
-                ps = con.prepareStatement(selectNombreUsuario);
+                ps = con.prepareStatement(select);
                 ps.setString(1, Integer.toString(Usuario.getIdUsuario()));
                 rs = ps.executeQuery();
 
                 //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
                 //una vez en la primera linea podemos obtener la informacion;
                 rs.next();
-                Usuario.setNombre(rs.getString(1));
-            
+                Usuario.setCurso(rs.getString(1));
 
             } catch (SQLException e) {
-                System.err.println("ERROR AL LEER NombreUsuario");
+                System.err.println("ERROR AL LEER Curso");
+            }
+
         }
-        
+
     }
-    
-    public static void getalias(Connection con){
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-
-        
-
-            // se prepara la sentencia para la BBDD como un String
-            String selectNombreUsuario= "select alias from usuario where id_usuario = ?";
-
-            try {
-
-                ps = con.prepareStatement(selectNombreUsuario);
-                ps.setString(1, Integer.toString(Usuario.getIdUsuario()));
-                rs = ps.executeQuery();
-
-                //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
-                //una vez en la primera linea podemos obtener la informacion;
-                rs.next();
-                Usuario.setAlias(rs.getString(1));
-            
-
-            } catch (SQLException e) {
-                System.err.println("ERROR AL LEER alias");
-        }
-        
-    }
-    
-    public static void getapellido1(Connection con){
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-
-        
-
-            // se prepara la sentencia para la BBDD como un String
-            String selectNombreUsuario= "select apellido1 from usuario where id_usuario = ?";
-
-            try {
-
-                ps = con.prepareStatement(selectNombreUsuario);
-                ps.setString(1, Integer.toString(Usuario.getIdUsuario()));
-                rs = ps.executeQuery();
-
-                //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
-                //una vez en la primera linea podemos obtener la informacion;
-                rs.next();
-                Usuario.setApellido1(rs.getString(1));
-            
-
-            } catch (SQLException e) {
-                System.err.println("ERROR AL LEER apellido1");
-        }
-        
-    }
-    
-    public static void getapellido2(Connection con){
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-
-        
-
-            // se prepara la sentencia para la BBDD como un String
-            String selectNombreUsuario= "select apellido2 from usuario where id_usuario = ?";
-
-            try {
-
-                ps = con.prepareStatement(selectNombreUsuario);
-                ps.setString(1, Integer.toString(Usuario.getIdUsuario()));
-                rs = ps.executeQuery();
-
-                //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
-                //una vez en la primera linea podemos obtener la informacion;
-                rs.next();
-                Usuario.setApellido2(rs.getString(1));
-            
-
-            } catch (SQLException e) {
-                System.err.println("ERROR AL LEER apellido2");
-        }
-        
-    }
-    
-    
 
 }
