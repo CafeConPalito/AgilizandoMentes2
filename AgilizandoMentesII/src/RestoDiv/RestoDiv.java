@@ -9,6 +9,7 @@ import Usuario.Usuario;
 import Ajustes.*;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import javax.swing.table.DefaultTableModel;
 
 
 /**
@@ -16,7 +17,7 @@ import java.awt.event.KeyEvent;
  * @author damt111
  */
 public class RestoDiv extends javax.swing.JPanel {
-    MetodosRestoDiv juego = null;
+    MetodosJuegoRestoDiv juego = null;
     boolean controlPartida = false;
     /**
      * Creates new form NewJPanel
@@ -24,6 +25,14 @@ public class RestoDiv extends javax.swing.JPanel {
     public RestoDiv() {
         initComponents();
         alias.setText(Usuario.getAlias());
+        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        Object[] row = new Object[4];
+        
+        for (int i = 0; i < 10; i++) {
+            
+            model.addRow(row);
+        }
+        
     }
     
     /**
@@ -272,7 +281,7 @@ public class RestoDiv extends javax.swing.JPanel {
     private void buttonNewPlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonNewPlayMouseClicked
         //inserta codigo para iniciar la partida
         controlPartida = false;
-        juego = new MetodosRestoDiv();
+        juego = new MetodosJuegoRestoDiv();
         juego.iniciarJuego();
         jLOperacion.setText("El resto de la division de " + juego.getDividendo() + " entre " + juego.getDivisor() + " es:");
         jLResultado.setText("");
