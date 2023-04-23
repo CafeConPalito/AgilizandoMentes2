@@ -12,7 +12,7 @@ import java.awt.Font;
  * @author damt111
  */
 public class Estilos {
-    private static int  sizeCuerpo =18;
+    private static int  sizeCuerpo =24;
             
     //FUENTES
     private static Font fuenteCuerpo = new Font("Roboto Medium", 0, sizeCuerpo);
