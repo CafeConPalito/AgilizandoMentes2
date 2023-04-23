@@ -68,7 +68,7 @@ public class Login extends javax.swing.JPanel {
         registra.setFont(Estilos.getFuenteCuerpo());
         registra.setForeground(new java.awt.Color(0, 153, 255));
         registra.setText("Registrate aquí.");
-        registra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        registra.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         registra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 registraMouseClicked(evt);
@@ -87,6 +87,11 @@ public class Login extends javax.swing.JPanel {
         PWF.setForeground(new java.awt.Color(204, 204, 204));
         PWF.setText("********");
         PWF.setBorder(null);
+        PWF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                PWFFocusGained(evt);
+            }
+        });
         PWF.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 PWFMousePressed(evt);
@@ -190,7 +195,7 @@ public class Login extends javax.swing.JPanel {
         background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 350, 120));
 
         Boton.setBackground(Estilos.getColorPanel());
-        Boton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Boton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Boton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BotonMouseClicked(evt);
@@ -363,6 +368,17 @@ public class Login extends javax.swing.JPanel {
         Cuerpo2.repaint();
 
     }//GEN-LAST:event_registraMouseClicked
+
+    private void PWFFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_PWFFocusGained
+         if (String.valueOf(PWF.getPassword()).equals("********")) {
+            PWF.setText("");
+            PWF.setForeground(Color.black);
+        }
+        if (TFUsuario.getText().isEmpty()) {
+            TFUsuario.setText("Inserte su nombre de usuario");
+            TFUsuario.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_PWFFocusGained
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
