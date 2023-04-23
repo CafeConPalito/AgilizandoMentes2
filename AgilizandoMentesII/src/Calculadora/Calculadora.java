@@ -9,6 +9,8 @@ Debes tratar al menos las excepciones relacionadas con dividir entre cero y calc
 El usuario solo podrá seleccionar operaciones con números enteros, aunque el resultado podrá ser decimal en algunas operaciones.*/
 package Calculadora;
 
+import javax.swing.JFrame;
+
 /**
  * 
  * @author CafeConPalito
@@ -494,7 +496,7 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        this.dispose();
     }//GEN-LAST:event_salirActionPerformed
 
     private void raizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_raizActionPerformed

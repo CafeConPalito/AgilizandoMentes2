@@ -10,6 +10,7 @@ import BBDD.MetodosUsuario;
 import Calculadora.Calculadora;
 import Euclides.Euclides;
 import Login.Login;
+import RestoDiv.MetodosRestoDiv;
 import Tiempo.Tiempo;
 import Usuario.Usuario;
 import java.sql.*;
@@ -116,6 +117,24 @@ public class Principal {
         Euclides partida = new Euclides();
         partida.iniciarJuego();
         System.out.println("numero A: " + partida.getNumeroMayor() + ", Numero B: " + partida.getNumeroMenor() + ", Maximo comun divisor: " + partida.getMaximoComunDivisor());
+        */
+        
+        //RestoDiv
+        /*
+        MetodosRestoDiv juego = new MetodosRestoDiv();
+        System.out.println("dame el resto de la division de estos dos numeros");
+        System.out.println("Dividendo: " + juego.getDividendo() + ", divisor " + juego.getDivisor());
+        Scanner sc = new Scanner(System.in);
+        juego.iniciarJuego();
+        int respuesta = sc.nextInt();
+        juego.terminarJuego();
+        if (respuesta == juego.getRespuesta()) {
+            System.out.println("Correcto!");
+            System.out.println("Tiempo transcurrido (sec): " + juego.getTiempoPartida());
+        } else {
+            System.out.println("FALLASTE! la respuesta correcta es: " + juego.getRespuesta());
+            System.out.println("Tiempo transcurrido (sec): " + juego.getTiempoPartida());
+        }
         */
         
         conBD.desconectar();

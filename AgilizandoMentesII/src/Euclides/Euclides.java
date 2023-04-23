@@ -25,7 +25,7 @@ public class Euclides {
         numeroMenor = (int) (Math.random() * 100 + 1);
 
         while (numeroMenor > numeroMayor) {
-            numeroMenor = (int) (Math.random() * 10 + 1);
+            numeroMenor = (int) (Math.random() * 100 + 1);
         }
 
         euclides(numeroMayor, numeroMenor);
@@ -33,7 +33,7 @@ public class Euclides {
 
     /**
      * Calcula el Maximo comun divisor de dos numeros.
-     * 
+     *
      * @param x
      * @param y
      */
@@ -44,15 +44,15 @@ public class Euclides {
             y = temp % y;
             System.out.println("x " + x + " y " + y );
         }
-        maximoComunDivisor = Math.abs(x);
-        
+        maximoComunDivisor = x;
+
         // Para evitar que el MaximoComunDivisor sea 1, pasa casi siempre,
         // se coloca un contador y condicion para volver a intentarlo y volver a lanzar el juego
         if (maximoComunDivisor == 1 && contador > 0) {
             contador --;
             iniciarJuego();
         }
-        
+
     }
 
     public int getNumeroMayor() {
