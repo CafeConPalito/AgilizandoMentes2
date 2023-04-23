@@ -3,8 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package Alumno;
+
 import Ajustes.*;
 import Calculadora.Calculadora;
+import java.awt.Container;
+import Main.*;
+import RestoDiv.RestoDiv;
+
 /**
  *
  * @author damt111
@@ -195,6 +200,13 @@ public class PanelAlumno extends javax.swing.JPanel {
 
     private void RestoDivisionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RestoDivisionMouseClicked
         // TODO add your handling code here:
+        RestoDiv panel = new RestoDiv();
+        panel.setSize(1070, 720);
+        panel.setLocation(0, 0);
+        Main.getCuerpo().removeAll();
+        Main.getCuerpo().add(panel);
+        Main.getCuerpo().revalidate();
+        Main.getCuerpo().repaint();
     }//GEN-LAST:event_RestoDivisionMouseClicked
 
     private void CalculadoraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CalculadoraMouseClicked
