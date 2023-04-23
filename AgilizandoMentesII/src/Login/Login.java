@@ -303,7 +303,7 @@ public class Login extends javax.swing.JPanel {
                     
                     //Muestro los paneles del alumno
                     PanelAlumno pa1 = new PanelAlumno();
-                    pa1.setSize(210, 330);
+                    pa1.setSize(210, 400);
                     pa1.setLocation(0, 0);
                     Main.getPanelVacio().removeAll();
                     Main.getPanelVacio().add(pa1);

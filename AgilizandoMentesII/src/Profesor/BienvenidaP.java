@@ -75,7 +75,7 @@ public class BienvenidaP extends javax.swing.JPanel {
         bienvenido1.setForeground(Estilos.getColorFuenteCuerpo());
         bienvenido1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         bienvenido1.setText("Bienvenido a Agilizando Mentes II");
-        jPanel1.add(bienvenido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 330, 30));
+        jPanel1.add(bienvenido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 750, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
