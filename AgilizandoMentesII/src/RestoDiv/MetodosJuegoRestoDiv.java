@@ -10,7 +10,7 @@ import Tiempo.Tiempo;
  *
  * @author CafeConPalito
  */
-public class MetodosRestoDiv {
+public class MetodosJuegoRestoDiv {
 
     //private int nivel = (int) (Math.random() * 4 + 1);
     // private int intentos;
@@ -20,7 +20,7 @@ public class MetodosRestoDiv {
     private int tiempoPartida;
     private Tiempo tiempo = new Tiempo();
 
-    public MetodosRestoDiv() {
+    public MetodosJuegoRestoDiv() {
         dividendo = (int) (Math.random() * 100 + 1);
         divisor = (int) (Math.random() * 100 + 1);
         while (divisor > dividendo) {

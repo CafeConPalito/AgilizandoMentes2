@@ -11,7 +11,8 @@ import BBDD.MetodosUsuario;
 import Calculadora.Calculadora;
 import Euclides.Euclides;
 import Login.Login;
-import RestoDiv.MetodosRestoDiv;
+import RestoDiv.BBDDMetodosRestoDiv;
+import RestoDiv.MetodosJuegoRestoDiv;
 import Tiempo.Tiempo;
 import Usuario.Usuario;
 import java.sql.*;
@@ -112,7 +113,7 @@ public class Principal {
          */
         //RestoDiv
         /*
-        MetodosRestoDiv juego = new MetodosRestoDiv();
+        MetodosJuegoRestoDiv juego = new MetodosJuegoRestoDiv();
         System.out.println("dame el resto de la division de estos dos numeros");
         System.out.println("Dividendo: " + juego.getDividendo() + ", divisor " + juego.getDivisor());
         Scanner sc = new Scanner(System.in);
@@ -127,7 +128,10 @@ public class Principal {
             System.out.println("Tiempo transcurrido (sec): " + juego.getTiempoPartida());
         }
          */
-       
-conBD.desconectar();
+        //RestoDiv
+        BBDDMetodosRestoDiv.selectClasificacion(con);
+        
+        
+        conBD.desconectar();
     }
 }
