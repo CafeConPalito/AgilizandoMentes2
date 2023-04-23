@@ -9,6 +9,10 @@ Debes tratar al menos las excepciones relacionadas con dividir entre cero y calc
 El usuario solo podrá seleccionar operaciones con números enteros, aunque el resultado podrá ser decimal en algunas operaciones.*/
 package Calculadora;
 
+/**
+ * 
+ * @author CafeConPalito
+ */
 public class Calculadora extends javax.swing.JFrame {
 
     //VARIABLES PARA ALMACENAR LOS VALORES;

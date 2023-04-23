@@ -8,10 +8,13 @@ import BBDD.ConexionBBDD;
 import BBDD.MetodosCalculo;
 import BBDD.MetodosUsuario;
 import Calculadora.Calculadora;
+import Euclides.Euclides;
 import Login.Login;
+import Tiempo.Tiempo;
 import Usuario.Usuario;
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.Scanner;
 
 /**
  *
@@ -63,10 +66,11 @@ public class Principal {
         //calcu.setVisible(true);
         
         //devuelve la fecha actual
-        //System.out.println(Date.valueOf(LocalDate.now()));
         
+        /*
+        // TODO ESTO FUNCIONA!
         System.out.println("Insertar Datos Partida Calculo25");
-        //MetodosCalculo.insertResultado(con,28, 14);
+        MetodosCalculo.insertResultado(con,28, 200);
         System.out.println("fin insertar datos");
         System.out.println("Mejores 5 partidas del jugador " + Usuario.getUsuario());
         MetodosCalculo.selectJugadorMejoresPartidas(con);
@@ -77,7 +81,42 @@ public class Principal {
         System.out.println("Mostrando las ultimas 5 Partidas del Jugador");
         MetodosCalculo.selectJugadorUltimasPartidas(con);
         System.out.println("fin mostrando ultimas partidas");
+        */
         
+        // prueba para añadir segundos y convertirlos en tiempo
+        // FUNCIONA!
+        /*
+        System.out.println("Probando Añadir tiempo a la BBDD");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("inicia el contador esperando intro");
+        Tiempo tiempo = new Tiempo();
+        tiempo.iniciarContador();
+        sc.next();
+        tiempo.pararContador();
+        System.out.println("fin del contador");
+        
+        System.out.println("segundos transcurridos: " + tiempo.getSecTranscurridos());
+        
+        //inserta datos en la tabla resto_div.
+        PreparedStatement ps = null;
+        String insert = "insert into resto_div(jugador,reto,intentos,puntos,tiempo_partida) values(1,1,1,1,sec_to_time(?));";
+        try {
+            ps = con.prepareStatement(insert);
+            ps.setInt(1, tiempo.getSecTranscurridos());
+            
+            ps.executeUpdate();
+            
+        } catch (SQLException e) {
+        }
+        */
+        
+        /*
+        //EUCLIDES
+        //Funciona, se crea un objeto de esa clase y se inicializa la partida. esto genera solo los dos numeros iniciales y almacena el Maximo comun divisor.
+        Euclides partida = new Euclides();
+        partida.iniciarJuego();
+        System.out.println("numero A: " + partida.getNumeroMayor() + ", Numero B: " + partida.getNumeroMenor() + ", Maximo comun divisor: " + partida.getMaximoComunDivisor());
+        */
         
         conBD.desconectar();
     }
