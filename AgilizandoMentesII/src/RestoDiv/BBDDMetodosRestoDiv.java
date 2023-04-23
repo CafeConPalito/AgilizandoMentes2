@@ -34,16 +34,76 @@ public class BBDDMetodosRestoDiv {
      * a peor 1º por puntos luego por tiempo.
      *
      * @param con
+     * @return ArrayList con las 5 mejores partidas del jugador
      */
-    public static void selectJugadorMejoresPartidas(Connection con) {
+    public static ArrayList selectJugadorMejoresPartidas(Connection con) {
+
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ArrayList<objetosBBDDRestoDiv> lista = new ArrayList();
+
+        //Variable nombre del juego
+        //String nombreJuego = "RestoDiv";
+        //SQL
+        String select = "select alias, time_to_sec(tiempo_partida), aciertos, fecha_hora from resto_div inner join usuario on id_usuario = jugador where id_usuario = ? order by aciertos desc, tiempo_partida asc limit 5";
+
+        try {
+
+            ps = con.prepareStatement(select);
+            ps.setInt(1, Usuario.getIdUsuario());
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                objetosBBDDRestoDiv jugador = new objetosBBDDRestoDiv(rs.getString(1), rs.getInt(2), rs.getInt(3), rs.getString(4));
+                lista.add(jugador);
+            }
+
+        } catch (NumberFormatException e) {
+            System.err.println("Error de conversion de numero");
+        } catch (SQLException ex) {
+            Logger.getLogger(MetodosCalculo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return lista;
+
     }
 
     /**
      * Busca en la BBDD las ultimas 5 partidas de el jugador
      *
      * @param con
+     * @return ArrayList con las 5 ultimas partidas del jugador
      */
-    public static void selectJugadorUltimasPartidas(Connection con) {
+    public static ArrayList selectJugadorUltimasPartidas(Connection con) {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        ArrayList<objetosBBDDRestoDiv> lista = new ArrayList();
+
+        //Variable nombre del juego
+        //String nombreJuego = "RestoDiv";
+        //SQL
+        String select = "select alias, time_to_sec(tiempo_partida), aciertos, fecha_hora from resto_div inner join usuario on id_usuario = jugador where id_usuario = ? order by fecha_hora desc limit 5";
+
+        try {
+
+            ps = con.prepareStatement(select);
+            ps.setInt(1, Usuario.getIdUsuario());
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                objetosBBDDRestoDiv jugador = new objetosBBDDRestoDiv(rs.getString(1), rs.getInt(2), rs.getInt(3), rs.getString(4));
+                lista.add(jugador);
+            }
+
+        } catch (NumberFormatException e) {
+            System.err.println("Error de conversion de numero");
+        } catch (SQLException ex) {
+            Logger.getLogger(MetodosCalculo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return lista;
     }
 
     /**
@@ -51,21 +111,22 @@ public class BBDDMetodosRestoDiv {
      * nivel del Usuario
      *
      * @param con
+     * @return ArrayList con los 5 mejores calificados
      */
-    public static void selectClasificacion(Connection con) {
+    public static ArrayList selectClasificacion(Connection con) {
 
         PreparedStatement ps = null;
         PreparedStatement psBusqueda = null;
         ResultSet rs = null;
         ResultSet rsBusqueda = null;
-        ArrayList <objetosBBDDRestoDiv> lista = new ArrayList();
+        ArrayList<objetosBBDDRestoDiv> lista = new ArrayList();
 
         //Variable nombre del juego
         String nombreJuego = "RestoDiv";
 
         //SQL
         String selectReto = "select id_reto from reto where nombre_reto = ? and nivel = ?";
-        String select = "select alias, time_to_sec(tiempo_partida), fecha_hora from resto_div inner join usuario on id_usuario = jugador where reto = ? order by tiempo_partida asc limit 5";
+        String select = "select alias, time_to_sec(tiempo_partida), aciertos, fecha_hora from resto_div inner join usuario on id_usuario = jugador where reto = ? order by aciertos desc, tiempo_partida asc limit 5";
 
         try {
 
@@ -82,14 +143,10 @@ public class BBDDMetodosRestoDiv {
                 rs = ps.executeQuery();
 
                 while (rs.next()) {
-                    objetosBBDDRestoDiv jugador = new objetosBBDDRestoDiv(rs.getString(1), rs.getInt(2), rs.getString(3));
+                    objetosBBDDRestoDiv jugador = new objetosBBDDRestoDiv(rs.getString(1), rs.getInt(2), rs.getInt(3), rs.getString(4));
                     lista.add(jugador);
                 }
-                
-                for (objetosBBDDRestoDiv i : lista) {
-                    System.out.println("alias: " + i.getAlias() + " tiempo partida: " + i.getTiempoPartida() + " Jugado el: " + i.getFecha_hora());
-                }
-                
+
             }
 
         } catch (NumberFormatException e) {
@@ -97,6 +154,8 @@ public class BBDDMetodosRestoDiv {
         } catch (SQLException ex) {
             Logger.getLogger(MetodosCalculo.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        return lista;
     }
 
 }
