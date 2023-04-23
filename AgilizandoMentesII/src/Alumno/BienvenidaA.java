@@ -57,19 +57,19 @@ public class BienvenidaA extends javax.swing.JPanel {
         alias.setForeground(Estilos.getColorFuenteCuerpo());
         alias.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         alias.setText("Alias");
-        jPanel1.add(alias, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 380, 120, 30));
+        jPanel1.add(alias, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 380, 720, 30));
 
         nombre.setFont(Estilos.getFuenteCuerpo());
         nombre.setForeground(Estilos.getColorFuenteCuerpo());
         nombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nombre.setText("Nombre");
-        jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 210, 120, 30));
+        jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 580, 30));
 
         Apellido.setFont(Estilos.getFuenteCuerpo());
         Apellido.setForeground(Estilos.getColorFuenteCuerpo());
         Apellido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Apellido.setText("Apellido");
-        jPanel1.add(Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 290, 120, 30));
+        jPanel1.add(Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 580, 30));
 
         bienvenido1.setFont(Estilos.getFuenteCuerpo());
         bienvenido1.setForeground(Estilos.getColorFuenteCuerpo());

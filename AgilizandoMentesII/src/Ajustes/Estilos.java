@@ -19,11 +19,11 @@ public class Estilos {
     private static Font fuentePanel = new Font("Roboto Medium", 0, 24);
     
     //COLORES
-    private static Color colorPanel = new Color(0,155,155);
-    private static Color colorFuenteRegistroLogin = new Color(0,153,255);
-    private static Color colorFuenteError = new Color(255,50,0);
-    private static Color colorFuentePanel = new Color(255,255,255);
-    private static Color colorFuenteCuerpo = new Color(0,0,0);
+    private static Color colorPanel = new Color(0,155,155); //VERDE
+    private static Color colorFuenteRegistroLogin = new Color(0,153,255); //AZUL
+    private static Color colorFuenteError = new Color(255,50,0) ;// ROJO
+    private static Color colorFuentePanel = new Color(255,255,255); //BLANCO
+    private static Color colorFuenteCuerpo = new Color(0,0,0); //NEGRO
  
     public static Font getFuenteCuerpo() {
         return fuenteCuerpo;

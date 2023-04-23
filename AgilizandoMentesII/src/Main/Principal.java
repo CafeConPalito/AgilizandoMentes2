@@ -6,6 +6,7 @@ package Main;
 
 import BBDD.ConexionBBDD;
 import BBDD.MetodosCalculo;
+import BBDD.MetodosRegistro;
 import BBDD.MetodosUsuario;
 import Calculadora.Calculadora;
 import Euclides.Euclides;
@@ -28,21 +29,18 @@ public class Principal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
         //Main a1 = new Main();
-        
         //a1.setVisible(true);
-        
         ConexionBBDD conBD = new ConexionBBDD();
         Connection con = conBD.conectar();
-        
+
         //Usuario user = new Usuario();
-        
         String usuario = "Cbarrios";
         //String usuario = "Despinosa";
         //String usuario = "Rgutierrez";
         //String usuario = "Adiez";
-        
+
         /*
         String contrasena = "12345";
         String DNI = "12345678T";
@@ -56,18 +54,14 @@ public class Principal {
         System.out.println("Alias " + MetodosUsuario.compobrarAlias(con, alias));
         System.out.println("Nombre Usuario " + MetodosUsuario.comprobarNombreUsuario(con, nombreUsuario));
         System.out.println("Es Profesor " + MetodosUsuario.comprobarEsProfesor(con, nombreUsuario));    
-        */
-        
-        
+         */
         Usuario.setUsuario(usuario);
         MetodosUsuario.generarUsuario(con);
         //System.out.println(Usuario.getAlias() + Usuario.getApellido1() + Usuario.getApellido2() + Usuario.getNombre());
-        
+
         //Calculadora calcu = new Calculadora();
         //calcu.setVisible(true);
-        
         //devuelve la fecha actual
-        
         /*
         // TODO ESTO FUNCIONA!
         System.out.println("Insertar Datos Partida Calculo25");
@@ -82,8 +76,7 @@ public class Principal {
         System.out.println("Mostrando las ultimas 5 Partidas del Jugador");
         MetodosCalculo.selectJugadorUltimasPartidas(con);
         System.out.println("fin mostrando ultimas partidas");
-        */
-        
+         */
         // prueba para añadir segundos y convertirlos en tiempo
         // FUNCIONA!
         /*
@@ -109,16 +102,14 @@ public class Principal {
             
         } catch (SQLException e) {
         }
-        */
-        
-        /*
+         */
+ /*
         //EUCLIDES
         //Funciona, se crea un objeto de esa clase y se inicializa la partida. esto genera solo los dos numeros iniciales y almacena el Maximo comun divisor.
         Euclides partida = new Euclides();
         partida.iniciarJuego();
         System.out.println("numero A: " + partida.getNumeroMayor() + ", Numero B: " + partida.getNumeroMenor() + ", Maximo comun divisor: " + partida.getMaximoComunDivisor());
-        */
-        
+         */
         //RestoDiv
         /*
         MetodosRestoDiv juego = new MetodosRestoDiv();
@@ -135,9 +126,8 @@ public class Principal {
             System.out.println("FALLASTE! la respuesta correcta es: " + juego.getRespuesta());
             System.out.println("Tiempo transcurrido (sec): " + juego.getTiempoPartida());
         }
-        */
-        
-        conBD.desconectar();
+         */
+       
+conBD.desconectar();
     }
-    
 }

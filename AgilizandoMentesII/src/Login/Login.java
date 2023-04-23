@@ -144,6 +144,11 @@ public class Login extends javax.swing.JPanel {
         TFUsuario.setForeground(new java.awt.Color(204, 204, 204));
         TFUsuario.setText("Inserte su nombre de usuario");
         TFUsuario.setBorder(null);
+        TFUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                TFUsuarioFocusGained(evt);
+            }
+        });
         TFUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 TFUsuarioMousePressed(evt);
@@ -379,6 +384,17 @@ public class Login extends javax.swing.JPanel {
             TFUsuario.setForeground(Color.gray);
         }
     }//GEN-LAST:event_PWFFocusGained
+
+    private void TFUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TFUsuarioFocusGained
+          if (TFUsuario.getText().equals("Inserte su nombre de usuario")) {
+            TFUsuario.setText("");
+            TFUsuario.setForeground(Color.black);
+        }
+        if (String.valueOf(PWF.getPassword()).isEmpty()) {
+            TFUsuario.setText("********");
+            TFUsuario.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_TFUsuarioFocusGained
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
