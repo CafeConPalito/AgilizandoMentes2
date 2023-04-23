@@ -47,10 +47,10 @@ public class Ajustes extends javax.swing.JPanel {
                 sonidoMouseExited(evt);
             }
         });
-        background.add(sonido, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
+        background.add(sonido, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, -1, -1));
 
         aplicar.setBackground(Estilos.getColorPanel());
-        aplicar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        aplicar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         aplicar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 aplicarMouseClicked(evt);
@@ -110,7 +110,7 @@ public class Ajustes extends javax.swing.JPanel {
                 tamanoMouseExited(evt);
             }
         });
-        background.add(tamano, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
+        background.add(tamano, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
 
         idioma.setFont(Estilos.getFuenteCuerpo());
         idioma.setText("IDIOMA");
@@ -122,29 +122,33 @@ public class Ajustes extends javax.swing.JPanel {
                 idiomaMouseExited(evt);
             }
         });
-        background.add(idioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
+        background.add(idioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, -1));
 
         selectidioma.setFont(Estilos.getFuenteCuerpo());
         selectidioma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Español", "Ingles" }));
         selectidioma.setBorder(null);
-        background.add(selectidioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, -1, -1));
+        selectidioma.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        background.add(selectidioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, -1));
 
         texto.setFont(Estilos.getFuenteCuerpo());
         texto.setMaximum(3);
         texto.setMinimum(1);
         texto.setValue(2);
+        texto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         texto.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 textoStateChanged(evt);
             }
         });
-        background.add(texto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 170, -1));
+        background.add(texto, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 170, -1));
 
         valortexto.setFont(Estilos.getFuenteCuerpo());
         valortexto.setText("2");
-        background.add(valortexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 100, -1, -1));
+        background.add(valortexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, -1, -1));
 
+        Si.setFont(Estilos.getFuenteCuerpo());
         Si.setText("Si");
+        Si.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Si.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 SiMouseEntered(evt);
@@ -158,7 +162,7 @@ public class Ajustes extends javax.swing.JPanel {
                 SiActionPerformed(evt);
             }
         });
-        background.add(Si, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, -1, -1));
+        background.add(Si, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
