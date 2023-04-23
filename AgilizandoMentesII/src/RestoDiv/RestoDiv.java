@@ -17,16 +17,13 @@ import java.awt.event.KeyEvent;
  */
 public class RestoDiv extends javax.swing.JPanel {
     MetodosRestoDiv juego = null;
+    boolean controlPartida = false;
     /**
      * Creates new form NewJPanel
      */
     public RestoDiv() {
         initComponents();
         alias.setText(Usuario.getAlias());
-        nombre.setText(Usuario.getNombre());
-        Apellido.setText(Usuario.getApellido1() +" "+Usuario.getApellido2());
-
-        
     }
     
     /**
@@ -48,12 +45,13 @@ public class RestoDiv extends javax.swing.JPanel {
         LastPlays = new javax.swing.JPanel();
         bienvenido = new javax.swing.JLabel();
         alias = new javax.swing.JLabel();
-        nombre = new javax.swing.JLabel();
-        Apellido = new javax.swing.JLabel();
-        Titulo = new javax.swing.JLabel();
+        jLOperacion = new javax.swing.JLabel();
+        jLResultado = new javax.swing.JLabel();
+        jLTitulo = new javax.swing.JLabel();
         buttonNewPlay = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         TFrespuesta = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setPreferredSize(new java.awt.Dimension(1070, 720));
 
@@ -61,17 +59,36 @@ public class RestoDiv extends javax.swing.JPanel {
         jPanel1.setPreferredSize(new java.awt.Dimension(1070, 720));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Informacion.setBackground(new java.awt.Color(255, 255, 255));
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Jugador", "Tiempo", "Fecha y Hora", "Aciertos"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout RankingLayout = new javax.swing.GroupLayout(Ranking);
@@ -89,7 +106,7 @@ public class RestoDiv extends javax.swing.JPanel {
         Estadisticas.setLayout(EstadisticasLayout);
         EstadisticasLayout.setHorizontalGroup(
             EstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 548, Short.MAX_VALUE)
+            .addGap(0, 518, Short.MAX_VALUE)
         );
         EstadisticasLayout.setVerticalGroup(
             EstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,7 +117,7 @@ public class RestoDiv extends javax.swing.JPanel {
         BestPlays.setLayout(BestPlaysLayout);
         BestPlaysLayout.setHorizontalGroup(
             BestPlaysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 548, Short.MAX_VALUE)
+            .addGap(0, 518, Short.MAX_VALUE)
         );
         BestPlaysLayout.setVerticalGroup(
             BestPlaysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -111,7 +128,7 @@ public class RestoDiv extends javax.swing.JPanel {
         LastPlays.setLayout(LastPlaysLayout);
         LastPlaysLayout.setHorizontalGroup(
             LastPlaysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 548, Short.MAX_VALUE)
+            .addGap(0, 518, Short.MAX_VALUE)
         );
         LastPlaysLayout.setVerticalGroup(
             LastPlaysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,37 +162,37 @@ public class RestoDiv extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel1.add(Informacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 0, 560, 720));
+        jPanel1.add(Informacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 530, 720));
 
         bienvenido.setFont(Estilos.getFuenteCuerpo());
         bienvenido.setForeground(Estilos.getColorFuenteCuerpo());
         bienvenido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         bienvenido.setText("Selecciona una actividad en el menú de la izquierda.");
-        jPanel1.add(bienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 550, 360, 30));
+        jPanel1.add(bienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 360, 30));
 
         alias.setFont(Estilos.getFuenteCuerpo());
         alias.setForeground(Estilos.getColorFuenteCuerpo());
         alias.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         alias.setText("Alias");
-        jPanel1.add(alias, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 510, 100, 30));
+        jPanel1.add(alias, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 100, 30));
 
-        nombre.setFont(Estilos.getFuenteCuerpo());
-        nombre.setForeground(Estilos.getColorFuenteCuerpo());
-        nombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        nombre.setText("Nombre");
-        jPanel1.add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 460, 100, 30));
+        jLOperacion.setFont(Estilos.getFuenteCuerpo());
+        jLOperacion.setForeground(Estilos.getColorFuenteCuerpo());
+        jLOperacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLOperacion.setText("Operacion");
+        jLOperacion.setToolTipText("");
+        jPanel1.add(jLOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 440, 40));
 
-        Apellido.setFont(Estilos.getFuenteCuerpo());
-        Apellido.setForeground(Estilos.getColorFuenteCuerpo());
-        Apellido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Apellido.setText("Apellido");
-        jPanel1.add(Apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 450, 80, 30));
+        jLResultado.setFont(Estilos.getFuenteCuerpo());
+        jLResultado.setForeground(Estilos.getColorFuenteCuerpo());
+        jLResultado.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jPanel1.add(jLResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 550, 490, 40));
 
-        Titulo.setFont(Estilos.getFuenteCuerpo());
-        Titulo.setForeground(Estilos.getColorFuenteCuerpo());
-        Titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Titulo.setText("Calcula el resto de una división entera");
-        jPanel1.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 240, 30));
+        jLTitulo.setFont(Estilos.getFuenteCuerpo());
+        jLTitulo.setForeground(Estilos.getColorFuenteCuerpo());
+        jLTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTitulo.setText("Calcula el resto de una división entera");
+        jPanel1.add(jLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 240, 30));
 
         buttonNewPlay.setBackground(Estilos.getColorPanel());
         buttonNewPlay.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -195,26 +212,26 @@ public class RestoDiv extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Nueva Partida");
-        jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         javax.swing.GroupLayout buttonNewPlayLayout = new javax.swing.GroupLayout(buttonNewPlay);
         buttonNewPlay.setLayout(buttonNewPlayLayout);
         buttonNewPlayLayout.setHorizontalGroup(
             buttonNewPlayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
         );
         buttonNewPlayLayout.setVerticalGroup(
             buttonNewPlayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(buttonNewPlayLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel1)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        jPanel1.add(buttonNewPlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 610, 150, 50));
+        jPanel1.add(buttonNewPlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 610, 180, 50));
 
         TFrespuesta.setFont(Estilos.getFuenteCuerpo());
         TFrespuesta.setForeground(new java.awt.Color(204, 204, 204));
+        TFrespuesta.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         TFrespuesta.setText("Inserta una respuesta");
         TFrespuesta.setBorder(null);
         TFrespuesta.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -237,7 +254,8 @@ public class RestoDiv extends javax.swing.JPanel {
                 TFrespuestaKeyPressed(evt);
             }
         });
-        jPanel1.add(TFrespuesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 610, -1, -1));
+        jPanel1.add(TFrespuesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 610, 250, 50));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 660, 250, 10));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -253,8 +271,12 @@ public class RestoDiv extends javax.swing.JPanel {
 
     private void buttonNewPlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonNewPlayMouseClicked
         //inserta codigo para iniciar la partida
+        controlPartida = false;
         juego = new MetodosRestoDiv();
         juego.iniciarJuego();
+        jLOperacion.setText("El resto de la division de " + juego.getDividendo() + " entre " + juego.getDivisor() + " es:");
+        jLResultado.setText("");
+        TFrespuesta.setText("");
         TFrespuesta.requestFocus();
     }//GEN-LAST:event_buttonNewPlayMouseClicked
 
@@ -280,33 +302,42 @@ public class RestoDiv extends javax.swing.JPanel {
     private void TFrespuestaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFrespuestaKeyPressed
         // TODO add your handling code here:
         int key = evt.getKeyCode();
-        if (key == KeyEvent.VK_ENTER) {
+        if (key == KeyEvent.VK_ENTER && controlPartida == false) {
         juego.terminarJuego();
-            System.out.println("tiempo " + juego.getTiempoPartida());
+            if (TFrespuesta.getText().equalsIgnoreCase(Integer.toString(juego.getRespuesta()))) {
+                jLResultado.setText("¡Correcto! tiempo: " + juego.getTiempoPartida() + " segundos");
+                jLResultado.setForeground(Color.GREEN);
+            } else {
+                jLResultado.setText("Incorrecto, la respuesta es: " + juego.getRespuesta() + " tiempo: " +juego.getTiempoPartida() + " segundos");
+                jLResultado.setForeground(Color.RED);
+            }
+            controlPartida = true;
         }
     }//GEN-LAST:event_TFrespuestaKeyPressed
 
     private void TFrespuestaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TFrespuestaFocusGained
         // TODO add your handling code here:
         TFrespuesta.setText("");
+        TFrespuesta.setForeground(Color.black);
     }//GEN-LAST:event_TFrespuestaFocusGained
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Apellido;
     private javax.swing.JPanel BestPlays;
     private javax.swing.JPanel Estadisticas;
     private javax.swing.JPanel Informacion;
     private javax.swing.JPanel LastPlays;
     private javax.swing.JPanel Ranking;
     private javax.swing.JTextField TFrespuesta;
-    private javax.swing.JLabel Titulo;
     private javax.swing.JLabel alias;
     private javax.swing.JLabel bienvenido;
     private javax.swing.JPanel buttonNewPlay;
+    private javax.swing.JLabel jLOperacion;
+    private javax.swing.JLabel jLResultado;
+    private javax.swing.JLabel jLTitulo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JLabel nombre;
     // End of variables declaration//GEN-END:variables
 }
