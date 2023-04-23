@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author produccion
+ * @author CafeConPalito
  */
 public class RestoDivisionEntera {
 

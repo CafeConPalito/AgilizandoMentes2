@@ -20,8 +20,8 @@ import javax.swing.JPanel;
 
 
 /**
- *
- * @author damt111
+ * @author Grupo1 Cafe Con Palito
+ * @author Carmen, Ramiro, Albano, Daniel
  */
 public class Main extends javax.swing.JFrame {
 

@@ -6,7 +6,7 @@ package Tiempo;
 
 /**
  *
- * @author produccion
+ * @author CafeConPalito
  */
 public class Tiempo {
 

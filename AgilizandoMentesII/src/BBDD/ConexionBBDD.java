@@ -10,7 +10,7 @@ import java.sql.*;
 
 /**
  * Clase para rgestionar la conexion a la BBDDD
- * @author damt108
+ * @author CafeConPalito
  */
 public class ConexionBBDD {
     

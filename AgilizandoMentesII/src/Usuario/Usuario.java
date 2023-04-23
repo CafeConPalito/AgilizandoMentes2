@@ -8,7 +8,7 @@ import java.sql.*;
 
 /**
  *
- * @author damt108
+ * @author CafeConPalito
  */
 public class Usuario {
     

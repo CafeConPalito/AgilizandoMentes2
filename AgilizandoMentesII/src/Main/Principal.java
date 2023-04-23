@@ -8,6 +8,7 @@ import BBDD.ConexionBBDD;
 import BBDD.MetodosCalculo;
 import BBDD.MetodosUsuario;
 import Calculadora.Calculadora;
+import Euclides.Euclides;
 import Login.Login;
 import Tiempo.Tiempo;
 import Usuario.Usuario;
@@ -107,6 +108,14 @@ public class Principal {
             
         } catch (SQLException e) {
         }
+        */
+        
+        /*
+        //EUCLIDES
+        //Funciona, se crea un objeto de esa clase y se inicializa la partida. esto genera solo los dos numeros iniciales y almacena el Maximo comun divisor.
+        Euclides partida = new Euclides();
+        partida.iniciarJuego();
+        System.out.println("numero A: " + partida.getNumeroMayor() + ", Numero B: " + partida.getNumeroMenor() + ", Maximo comun divisor: " + partida.getMaximoComunDivisor());
         */
         
         conBD.desconectar();
