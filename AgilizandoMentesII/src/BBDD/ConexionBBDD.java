@@ -34,7 +34,7 @@ public class ConexionBBDD {
     
     /**
      * Metodo para crear una conexion a la BBDD
-     * @return 
+     * @return Objeto de la clase Connection
      */
     public Connection conectar (){
         
@@ -42,9 +42,9 @@ public class ConexionBBDD {
 
             Class.forName(JDBC_DRIVER);
             con = DriverManager.getConnection(DB_URL, USER, PASS);
-            if (con != null) {
+            /*if (con != null) {
                 System.out.println("conexion realizada");
-            }
+            }*/
             
         } catch (SQLException ex) {
             System.err.println("problemas de coneccion\n" + ex.toString());

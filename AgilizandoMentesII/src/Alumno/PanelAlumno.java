@@ -51,6 +51,7 @@ public class PanelAlumno extends javax.swing.JPanel {
         PanelAlumnos.setPreferredSize(new java.awt.Dimension(210, 330));
 
         Cálculo.setBackground(new java.awt.Color(0, 155, 155));
+        Cálculo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Cálculo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CálculoMouseClicked(evt);
@@ -75,6 +76,7 @@ public class PanelAlumno extends javax.swing.JPanel {
         );
 
         Euclides1.setBackground(new java.awt.Color(0, 155, 155));
+        Euclides1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Euclides1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Euclides1MouseClicked(evt);
@@ -99,6 +101,7 @@ public class PanelAlumno extends javax.swing.JPanel {
         );
 
         RestoDivision.setBackground(new java.awt.Color(0, 155, 155));
+        RestoDivision.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         RestoDivision.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 RestoDivisionMouseClicked(evt);
@@ -109,7 +112,7 @@ public class PanelAlumno extends javax.swing.JPanel {
         LoginTXT.setForeground(new java.awt.Color(255, 255, 255));
         LoginTXT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LoginTXT.setText("Resto división");
-        LoginTXT.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        LoginTXT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout RestoDivisionLayout = new javax.swing.GroupLayout(RestoDivision);
         RestoDivision.setLayout(RestoDivisionLayout);
@@ -123,6 +126,7 @@ public class PanelAlumno extends javax.swing.JPanel {
         );
 
         Calculadora.setBackground(new java.awt.Color(0, 155, 155));
+        Calculadora.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Calculadora.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CalculadoraMouseClicked(evt);
@@ -181,7 +185,7 @@ public class PanelAlumno extends javax.swing.JPanel {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Calculadora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -194,7 +198,7 @@ public class PanelAlumno extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelAlumnos, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(PanelAlumnos, javax.swing.GroupLayout.DEFAULT_SIZE, 334, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

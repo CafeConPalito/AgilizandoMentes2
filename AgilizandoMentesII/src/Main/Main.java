@@ -10,6 +10,7 @@ import BBDD.ConexionBBDD;
 import Login.*;
 import java.awt.*;
 import Usuario.Usuario;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -17,6 +18,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import java.awt.Desktop;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 
 /**
@@ -106,6 +110,12 @@ public class Main extends javax.swing.JFrame {
         BarraLateral.setBackground(Estilos.getColorPanel());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/augusto-logo-peq.png"))); // NOI18N
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
 
         PanelVacio.setBackground(Estilos.getColorPanel());
         PanelVacio.setName("panelVacio"); // NOI18N
@@ -122,6 +132,7 @@ public class Main extends javax.swing.JFrame {
         );
 
         usuario.setBackground(Estilos.getColorPanel());
+        usuario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         usuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 usuarioMouseClicked(evt);
@@ -131,7 +142,7 @@ public class Main extends javax.swing.JFrame {
         LoginTXT1.setFont(Estilos.getFuentePanel());
         LoginTXT1.setForeground(new java.awt.Color(255, 255, 255));
         LoginTXT1.setText("Usuario");
-        LoginTXT1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        LoginTXT1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         LoginTXT1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 LoginTXT1MouseClicked(evt);
@@ -156,6 +167,7 @@ public class Main extends javax.swing.JFrame {
         );
 
         Ajustes.setBackground(Estilos.getColorPanel());
+        Ajustes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Ajustes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 AjustesMouseClicked(evt);
@@ -165,7 +177,7 @@ public class Main extends javax.swing.JFrame {
         LoginTXT2.setFont(new java.awt.Font("Roboto Medium", 0, 24)); // NOI18N
         LoginTXT2.setForeground(new java.awt.Color(255, 255, 255));
         LoginTXT2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ajustesblanco.png"))); // NOI18N
-        LoginTXT2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        LoginTXT2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout AjustesLayout = new javax.swing.GroupLayout(Ajustes);
         Ajustes.setLayout(AjustesLayout);
@@ -382,6 +394,16 @@ public class Main extends javax.swing.JFrame {
             Cuerpo.repaint();
         }
     }//GEN-LAST:event_LoginTXT1MouseClicked
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        try {
+            Desktop.getDesktop().browse(new URI("https://www.iesaglinares.com/"));
+        } catch (IOException ex) {
+            System.err.println("Ha ocurrido una IOException");
+        } catch (URISyntaxException ex) {
+            System.err.println("No ha encontrado la URL");
+        }
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
      * @param args the command line arguments

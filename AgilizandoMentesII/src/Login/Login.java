@@ -59,16 +59,16 @@ public class Login extends javax.swing.JPanel {
 
         iniciar.setFont(Estilos.getFuenteCuerpo());
         iniciar.setText("INICIAR SESIÓN");
-        background.add(iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, -1, -1));
+        background.add(iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, -1, -1));
 
         tienes.setFont(Estilos.getFuenteCuerpo());
         tienes.setText("¿NO TIENES CUENTA?");
-        background.add(tienes, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 570, -1, -1));
+        background.add(tienes, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 570, -1, -1));
 
         registra.setFont(Estilos.getFuenteCuerpo());
         registra.setForeground(new java.awt.Color(0, 153, 255));
         registra.setText("Registrate aquí.");
-        registra.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        registra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         registra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 registraMouseClicked(evt);
@@ -112,11 +112,10 @@ public class Login extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator2)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JLContra)
-                            .addComponent(PWF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(errorC))
-                        .addGap(0, 227, Short.MAX_VALUE)))
+                        .addComponent(JLContra)
+                        .addGap(0, 282, Short.MAX_VALUE))
+                    .addComponent(errorC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PWF))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -129,11 +128,11 @@ public class Login extends javax.swing.JPanel {
                 .addGap(5, 5, 5)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(errorC)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(errorC, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
-        background.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 360, 350, 130));
+        background.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 370, 160));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -144,6 +143,7 @@ public class Login extends javax.swing.JPanel {
         TFUsuario.setForeground(new java.awt.Color(204, 204, 204));
         TFUsuario.setText("Inserte su nombre de usuario");
         TFUsuario.setBorder(null);
+        TFUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         TFUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 TFUsuarioFocusGained(evt);
@@ -178,7 +178,7 @@ public class Login extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TFUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE)
+                            .addComponent(TFUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(JLUsuario)
                                 .addGap(0, 0, Short.MAX_VALUE)))
@@ -197,10 +197,10 @@ public class Login extends javax.swing.JPanel {
                 .addComponent(errorU))
         );
 
-        background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 200, 350, 120));
+        background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 380, 120));
 
         Boton.setBackground(Estilos.getColorPanel());
-        Boton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Boton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Boton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BotonMouseClicked(evt);
@@ -233,7 +233,7 @@ public class Login extends javax.swing.JPanel {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        background.add(Boton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 500, 150, 50));
+        background.add(Boton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 480, 150, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
