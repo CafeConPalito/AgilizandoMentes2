@@ -8,6 +8,7 @@ package Main;
 import Ajustes.*;
 import BBDD.ConexionBBDD;
 import Login.*;
+import Usuario.Cambio;
 import java.awt.*;
 import Usuario.Usuario;
 import java.io.IOException;
@@ -368,7 +369,13 @@ public class Main extends javax.swing.JFrame {
             Cuerpo.revalidate();
             Cuerpo.repaint();
         } else {
-            
+            Cambio c1= new Cambio();
+            c1.setSize(1070, 720);
+            c1.setLocation(0, 0);
+            Cuerpo.removeAll();
+            Cuerpo.add(c1);
+            Cuerpo.revalidate();
+            Cuerpo.repaint();
         }
 
     }//GEN-LAST:event_usuarioMouseClicked
@@ -390,6 +397,14 @@ public class Main extends javax.swing.JFrame {
             L1.setLocation(0, 0);
             Cuerpo.removeAll();
             Cuerpo.add(L1, BorderLayout.CENTER);
+            Cuerpo.revalidate();
+            Cuerpo.repaint();
+        }else{
+            Cambio c1= new Cambio();
+            c1.setSize(1070, 720);
+            c1.setLocation(0, 0);
+            Cuerpo.removeAll();
+            Cuerpo.add(c1);
             Cuerpo.revalidate();
             Cuerpo.repaint();
         }

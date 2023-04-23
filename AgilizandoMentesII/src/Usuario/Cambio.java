@@ -2,25 +2,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package Login;
+package Usuario;
 
 import Main.Main;
 import java.awt.Color;
 import Ajustes.*;
 import BBDD.MetodosRegistro;
-import java.awt.Container;
+import BBDD.MetodosUpdate;
 
 /**
  *
- * @author carra
+ * @author terciodemarte
  */
-public class Register extends javax.swing.JPanel {
+public class Cambio extends javax.swing.JPanel {
 
     /**
      * Creates new form Login
      */
-    public Register() {
+    public Cambio() {
         initComponents();
+        aliasupdate.setText(Usuario.getAlias());
     }
 
     /**
@@ -33,13 +34,7 @@ public class Register extends javax.swing.JPanel {
     private void initComponents() {
 
         fondoRegistro = new javax.swing.JPanel();
-        registro = new javax.swing.JLabel();
-        tienes = new javax.swing.JLabel();
-        inicia = new javax.swing.JLabel();
-        Usuario = new javax.swing.JPanel();
-        usuario = new javax.swing.JLabel();
-        TFUsuario = new javax.swing.JTextField();
-        SepUsuario = new javax.swing.JSeparator();
+        aliasupdate = new javax.swing.JLabel();
         Password = new javax.swing.JPanel();
         password = new javax.swing.JLabel();
         PWF1 = new javax.swing.JPasswordField();
@@ -74,7 +69,6 @@ public class Register extends javax.swing.JPanel {
         SepFechaNac = new javax.swing.JSeparator();
         Registrar = new javax.swing.JPanel();
         registrar = new javax.swing.JLabel();
-        profesor = new javax.swing.JRadioButton();
         Email = new javax.swing.JPanel();
         email = new javax.swing.JLabel();
         TFemail = new javax.swing.JTextField();
@@ -83,6 +77,12 @@ public class Register extends javax.swing.JPanel {
         password2 = new javax.swing.JLabel();
         PWF2 = new javax.swing.JPasswordField();
         SepPassword1 = new javax.swing.JSeparator();
+        Usuario1 = new javax.swing.JPanel();
+        usuario1 = new javax.swing.JLabel();
+        TFUsuario = new javax.swing.JTextField();
+        SepUsuario = new javax.swing.JSeparator();
+        registro1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1070, 720));
 
@@ -90,76 +90,9 @@ public class Register extends javax.swing.JPanel {
         fondoRegistro.setPreferredSize(new java.awt.Dimension(1070, 720));
         fondoRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        registro.setFont(Estilos.getFuenteCuerpo());
-        registro.setText("REGISTRO DE NUEVO USUARIO");
-        fondoRegistro.add(registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
-
-        tienes.setFont(Estilos.getFuenteCuerpo());
-        tienes.setText("¿TIENES CUENTA?");
-        fondoRegistro.add(tienes, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 640, -1, -1));
-
-        inicia.setFont(Estilos.getFuenteCuerpo());
-        inicia.setForeground(new java.awt.Color(0, 153, 255));
-        inicia.setText("Inicia sesión aquí.");
-        inicia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        inicia.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                iniciaMouseEntered(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                iniciaMousePressed(evt);
-            }
-        });
-        fondoRegistro.add(inicia, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 640, -1, -1));
-
-        Usuario.setBackground(new java.awt.Color(255, 255, 255));
-
-        usuario.setFont(Estilos.getFuenteCuerpo());
-        usuario.setText("Usuario *");
-
-        TFUsuario.setFont(Estilos.getFuenteCuerpo());
-        TFUsuario.setForeground(new java.awt.Color(204, 204, 204));
-        TFUsuario.setText("Inserte su nombre de usuario");
-        TFUsuario.setBorder(null);
-        TFUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                TFUsuarioMousePressed(evt);
-            }
-        });
-        TFUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TFUsuarioActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout UsuarioLayout = new javax.swing.GroupLayout(Usuario);
-        Usuario.setLayout(UsuarioLayout);
-        UsuarioLayout.setHorizontalGroup(
-            UsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(UsuarioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(UsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TFUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
-                    .addGroup(UsuarioLayout.createSequentialGroup()
-                        .addGroup(UsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SepUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        UsuarioLayout.setVerticalGroup(
-            UsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(UsuarioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(usuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TFUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SepUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        fondoRegistro.add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, 70));
+        aliasupdate.setFont(Estilos.getFuenteCuerpo());
+        aliasupdate.setText("alias");
+        fondoRegistro.add(aliasupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, -1));
 
         Password.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -199,7 +132,7 @@ public class Register extends javax.swing.JPanel {
                 .addComponent(SepPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        fondoRegistro.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
+        fondoRegistro.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, -1, -1));
 
         Alias.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -247,7 +180,7 @@ public class Register extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        fondoRegistro.add(Alias, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, -1, 70));
+        fondoRegistro.add(Alias, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, -1, 70));
 
         Nombre.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -295,7 +228,7 @@ public class Register extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        fondoRegistro.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 440, -1, 70));
+        fondoRegistro.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, -1, 70));
 
         Apellido1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -344,7 +277,7 @@ public class Register extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        fondoRegistro.add(Apellido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 520, -1, 70));
+        fondoRegistro.add(Apellido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 500, -1, 70));
 
         Apellido2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -554,7 +487,7 @@ public class Register extends javax.swing.JPanel {
         registrar.setFont(Estilos.getFuenteCuerpo());
         registrar.setForeground(new java.awt.Color(255, 255, 255));
         registrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        registrar.setText("REGISTRAR");
+        registrar.setText("ACTUALIZAR");
         registrar.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         javax.swing.GroupLayout RegistrarLayout = new javax.swing.GroupLayout(Registrar);
@@ -572,10 +505,6 @@ public class Register extends javax.swing.JPanel {
         );
 
         fondoRegistro.add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 580, 190, -1));
-
-        profesor.setFont(Estilos.getFuenteCuerpo());
-        profesor.setText("Soy Profesor");
-        fondoRegistro.add(profesor, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 520, -1, -1));
 
         Email.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -666,7 +595,63 @@ public class Register extends javax.swing.JPanel {
                 .addGap(14, 14, 14))
         );
 
-        fondoRegistro.add(Password2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, -1, -1));
+        fondoRegistro.add(Password2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, -1, -1));
+
+        Usuario1.setBackground(new java.awt.Color(255, 255, 255));
+
+        usuario1.setFont(Estilos.getFuenteCuerpo());
+        usuario1.setText("Usuario *");
+
+        TFUsuario.setFont(Estilos.getFuenteCuerpo());
+        TFUsuario.setForeground(new java.awt.Color(204, 204, 204));
+        TFUsuario.setText("Inserte su nombre de usuario");
+        TFUsuario.setBorder(null);
+        TFUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TFUsuarioMousePressed(evt);
+            }
+        });
+        TFUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TFUsuarioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout Usuario1Layout = new javax.swing.GroupLayout(Usuario1);
+        Usuario1.setLayout(Usuario1Layout);
+        Usuario1Layout.setHorizontalGroup(
+            Usuario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Usuario1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Usuario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TFUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
+                    .addGroup(Usuario1Layout.createSequentialGroup()
+                        .addGroup(Usuario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(usuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(SepUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        Usuario1Layout.setVerticalGroup(
+            Usuario1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Usuario1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(usuario1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TFUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SepUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        fondoRegistro.add(Usuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, 70));
+
+        registro1.setFont(Estilos.getFuenteCuerpo());
+        registro1.setText("CAMBIA TUS DATOS");
+        fondoRegistro.add(registro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
+
+        jLabel1.setText("(P)");
+        fondoRegistro.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -680,10 +665,6 @@ public class Register extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void iniciaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciaMouseEntered
-        inicia.setFont(Estilos.getFuenteCuerpo());
-    }//GEN-LAST:event_iniciaMouseEntered
-
     private void PWF1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PWF1MousePressed
         if (String.valueOf(PWF1.getPassword()).equals("********")) {
             PWF1.setText("");
@@ -692,10 +673,6 @@ public class Register extends javax.swing.JPanel {
         if (String.valueOf(PWF2.getPassword()).isEmpty()) {
             PWF2.setText("********");
             PWF2.setForeground(Color.black);
-        }
-        if (TFUsuario.getText().isEmpty()) {
-            TFUsuario.setText("Inserte su nombre de usuario");
-            TFUsuario.setForeground(Color.gray);
         }
         if (TFalias.getText().isEmpty()) {
             TFalias.setText("Inserte su alias");
@@ -733,110 +710,118 @@ public class Register extends javax.swing.JPanel {
     }//GEN-LAST:event_PWF1MousePressed
 
     private void RegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarMouseClicked
-        boolean register = true;
-        //COMPRUEBO QUE EL USUARIO A INTRODUCIDO TODO LO QUE TIENE QUE INTRODUCIR
-        if ((TFUsuario.getText().isEmpty() || TFUsuario.getText().equals("Inserte su nombre de usuario")) || MetodosRegistro.comprobarNombreUsuario(Main.getCon(), TFUsuario.getText())) {
-            usuario.setForeground(Estilos.getColorFuenteError());
-            register = false;
-        } else {
-            usuario.setForeground(Estilos.getColorFuenteCuerpo());
-            register = true;
-        }
 
+        //Update Usuario
+        /*if (!(TFUsuario.getText().isEmpty()||TFUsuario.getText().equals("Inserte su nombre de usuario")) ) {
+            if (MetodosRegistro.comprobarNombreUsuario(Main.getCon(), TFUsuario.getText())) {
+                usuario1.setForeground(Estilos.getColorFuenteError());
+            }
+            usuario1.setForeground(Estilos.getColorFuenteCuerpo());
+            MetodosUpdate.updateNombre(Main.getCon(), TFUsuario.getText());
+        } */
+        
+        //Update contraseña
         if (String.valueOf(PWF1.getPassword()).isEmpty() || String.valueOf(PWF1.getPassword()).equals("********")) {
             password.setForeground(Estilos.getColorFuenteError());
-            register = false;
+
         } else {
             password.setForeground(Estilos.getColorFuenteCuerpo());
-            register = true;
+
         }
 
         if ((String.valueOf(PWF2.getPassword()).isEmpty() || String.valueOf(PWF2.getPassword()).equals("********")) || !String.valueOf(PWF2.getPassword()).equals(String.valueOf(PWF1.getPassword()))) {
             password2.setForeground(Estilos.getColorFuenteError());
-            register = false;
+
         } else {
+            MetodosUpdate.updatePassword(Main.getCon(), String.valueOf(PWF2.getPassword()));
             password2.setForeground(Estilos.getColorFuenteCuerpo());
-            register = true;
+
         }
-        if (!TFalias.getText().equals("Inserte su alias")) {
-            if (MetodosRegistro.comprobrarAlias(Main.getCon(), TFalias.getText())) {
+        
+        //Update Alias
+        if (TFalias.getText().equals("Inserte su alias")&&!TFUsuario.getText().equals("Inserte su nombre de usuario")) {
+            if (MetodosRegistro.comprobrarAlias(Main.getCon(), TFUsuario.getText())) {
                 alias.setForeground(Estilos.getColorFuenteError());
-                register = false;
+
             } else {
+                MetodosUpdate.updateAlias(Main.getCon(), TFUsuario.getText());
                 alias.setForeground(Estilos.getColorFuenteCuerpo());
-                register = true;
+
             }
         }
+        
+        //Update del nombre
         if (TFnombre.getText().isEmpty() || TFnombre.getText().equals("Inserte su nombre")) {
             nombre.setForeground(Estilos.getColorFuenteError());
-            register = false;
+
         } else {
+            MetodosUpdate.updateNombre(Main.getCon(), TFnombre.getText());
             nombre.setForeground(Estilos.getColorFuenteCuerpo());
-            register = true;
+
         }
 
+        //Update apellido1
         if (TFapellido1.getText().isEmpty() || TFapellido1.getText().equals("Inserte su primer apellido")) {
             apellido1.setForeground(Estilos.getColorFuenteError());
-            register = false;
+
         } else {
+            MetodosUpdate.updateApellido1(Main.getCon(),TFapellido1.getText());
             apellido1.setForeground(Estilos.getColorFuenteCuerpo());
-            register = true;
+
+        }
+        
+        //Update apellido2
+        if (TFapellido2.getText().isEmpty() || TFapellido2.getText().equals("Inserte su segundo apellido")) {
+            apellido1.setForeground(Estilos.getColorFuenteError());
+
+        } else {
+            MetodosUpdate.updateApellido2(Main.getCon(),TFapellido2.getText());
+            apellido2.setForeground(Estilos.getColorFuenteCuerpo());
+
         }
 
+        //Update DNI
         if ((TFdni.getText().isEmpty() || TFdni.getText().equals("Inserte su DNI")) || MetodosRegistro.comprobarDNI(Main.getCon(), TFdni.getText())) {
             dni.setForeground(Estilos.getColorFuenteError());
-            register = false;
+
         } else {
+            MetodosUpdate.updateDNI(Main.getCon(),TFdni.getText());
             dni.setForeground(Estilos.getColorFuenteCuerpo());
-            register = true;
+
         }
+        //Update de curso
         try {
             if ((TFCurso.getText().isEmpty() || TFCurso.getText().equals("Inserte su curso")) || !MetodosRegistro.comprobarCurso(Integer.parseInt(TFCurso.getText()))) {
                 curso.setForeground(Estilos.getColorFuenteError());
-                register = false;
+
             } else {
+                MetodosUpdate.updateCurso(Main.getCon(), Integer.parseInt(TFCurso.getText()));
                 curso.setForeground(Estilos.getColorFuenteCuerpo());
-                register = true;
+
             }
         } catch (NumberFormatException e) {
             curso.setForeground(Estilos.getColorFuenteError());
-            register = false;
+
         }
 
+        //Update fecha de nacimiento
         if ((TFfechaNac.getText().isEmpty() || TFfechaNac.getText().equals("yyyy-mm-dd")) || !MetodosRegistro.comprobarFecha(TFfechaNac.getText())) {
             fechaNac.setForeground(Estilos.getColorFuenteError());
-            register = false;
+
         } else {
+            MetodosUpdate.updateFechaNac(Main.getCon(), TFfechaNac.getText());
             fechaNac.setForeground(Estilos.getColorFuenteCuerpo());
-            register = true;
+
         }
+        
+        //Update email
 
         if ((TFemail.getText().isEmpty() || TFemail.getText().equals("ejemplo@ejemplo.com")) || MetodosRegistro.comprobrarEmail(Main.getCon(), TFemail.getText())) {
             email.setForeground(Estilos.getColorFuenteError());
-            register = false;
+
         } else {
+            MetodosUpdate.updateEmail(Main.getCon(), TFemail.getText());
             email.setForeground(Estilos.getColorFuenteCuerpo());
-            register = true;
-        }
-
-        //SI EL USUARIO A INTRODUCCIDO BIEN LOS DATOS REGISTRO AL USUARIO
-        if (register) {
-            if (TFalias.getText().equals("Inserte su alias")) {
-                TFalias.setText(TFUsuario.getText());
-            }
-            if (TFapellido2.getText().equals("Inserte su segundo apellido")) {
-                TFapellido2.setText("");
-            }
-            MetodosRegistro.registrarUsuario(Main.getCon(), TFUsuario.getText(), String.valueOf(PWF1.getPassword()), TFalias.getText(), TFnombre.getText(), TFapellido1.getText(), TFapellido2.getText(), TFdni.getText(), Integer.parseInt(TFCurso.getText()), TFfechaNac.getText(), TFemail.getText(), profesor.isSelected());
-
-            Container Cuerpo2 = this.getParent();
-            Login l1 = new Login();
-            l1.setSize(1070, 720);
-            l1.setLocation(0, 0);
-            Cuerpo2.removeAll();
-            Cuerpo2.add(l1);
-            Cuerpo2.revalidate();
-            Cuerpo2.repaint();
 
         }
 
@@ -850,9 +835,406 @@ public class Register extends javax.swing.JPanel {
         Registrar.setBackground(Estilos.getColorPanel());
     }//GEN-LAST:event_RegistrarMouseExited
 
-    private void TFUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFUsuarioActionPerformed
+    private void TFapellido2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFapellido2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TFUsuarioActionPerformed
+    }//GEN-LAST:event_TFapellido2ActionPerformed
+
+    private void TFapellido2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFapellido2MousePressed
+        if (TFapellido2.getText().equals("Inserte su segundo apellido")) {
+            TFapellido2.setText("");
+            TFapellido2.setForeground(Color.gray);
+        }
+
+        if (String.valueOf(PWF1.getPassword()).isEmpty()) {
+            PWF1.setText("********");
+            PWF1.setForeground(Color.gray);
+        }
+        if (String.valueOf(PWF2.getPassword()).isEmpty()) {
+            PWF2.setText("********");
+            PWF2.setForeground(Color.gray);
+        }
+
+        if (TFalias.getText().isEmpty()) {
+            TFalias.setText("Inserte su alias");
+            TFalias.setForeground(Color.gray);
+        }
+        if (TFnombre.getText().isEmpty()) {
+            TFnombre.setText("Inserte su nombre");
+            TFnombre.setForeground(Color.gray);
+        }
+        if (TFapellido1.getText().isEmpty()) {
+            TFapellido1.setText("Inserte su primer apellido");
+            TFapellido1.setForeground(Color.gray);
+        }
+        if (TFdni.getText().isEmpty()) {
+            TFdni.setText("Inserte su DNI");
+            TFdni.setForeground(Color.gray);
+        }
+        if (TFCurso.getText().isEmpty()) {
+            TFCurso.setText("Inserte su curso");
+            TFCurso.setForeground(Color.gray);
+        }
+        if (TFfechaNac.getText().isEmpty()) {
+            TFfechaNac.setText("yyyy-mm-dd");
+            TFfechaNac.setForeground(Color.gray);
+        }
+        if (TFemail.getText().isEmpty()) {
+            TFemail.setText("ejemplo@ejemplo.com");
+            TFemail.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_TFapellido2MousePressed
+
+    private void TFapellido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFapellido1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFapellido1ActionPerformed
+
+    private void TFapellido1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFapellido1MousePressed
+        if (TFapellido1.getText().equals("Inserte su primer apellido")) {
+            TFapellido1.setText("");
+            TFapellido1.setForeground(Color.gray);
+        }
+        if (String.valueOf(PWF1.getPassword()).isEmpty()) {
+            PWF1.setText("********");
+            PWF1.setForeground(Color.gray);
+        }
+        if (String.valueOf(PWF2.getPassword()).isEmpty()) {
+            PWF2.setText("********");
+            PWF2.setForeground(Color.gray);
+        }
+
+        if (TFalias.getText().isEmpty()) {
+            TFalias.setText("Inserte su alias");
+            TFalias.setForeground(Color.gray);
+        }
+        if (TFnombre.getText().isEmpty()) {
+            TFnombre.setText("Inserte su nombre");
+            TFnombre.setForeground(Color.gray);
+        }
+        if (TFapellido2.getText().isEmpty()) {
+            TFapellido2.setText("Inserte su segundo apellido");
+            TFapellido2.setForeground(Color.gray);
+        }
+        if (TFdni.getText().isEmpty()) {
+            TFdni.setText("Inserte su DNI");
+            TFdni.setForeground(Color.gray);
+        }
+        if (TFCurso.getText().isEmpty()) {
+            TFCurso.setText("Inserte su curso");
+            TFCurso.setForeground(Color.gray);
+        }
+        if (TFfechaNac.getText().isEmpty()) {
+            TFfechaNac.setText("yyyy-mm-dd");
+            TFfechaNac.setForeground(Color.gray);
+        }
+        if (TFemail.getText().isEmpty()) {
+            TFemail.setText("ejemplo@ejemplo.com");
+            TFemail.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_TFapellido1MousePressed
+
+    private void TFnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFnombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFnombreActionPerformed
+
+    private void TFnombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFnombreMousePressed
+        if (TFnombre.getText().equals("Inserte su nombre")) {
+            TFnombre.setText("");
+            TFnombre.setForeground(Color.gray);
+        }
+        if (String.valueOf(PWF1.getPassword()).isEmpty()) {
+            PWF1.setText("********");
+            PWF1.setForeground(Color.gray);
+        }
+        if (String.valueOf(PWF2.getPassword()).isEmpty()) {
+            PWF2.setText("********");
+            PWF2.setForeground(Color.gray);
+        }
+
+        if (TFalias.getText().isEmpty()) {
+            TFalias.setText("Inserte su alias");
+            TFalias.setForeground(Color.gray);
+        }
+        if (TFapellido2.getText().isEmpty()) {
+            TFapellido2.setText("Inserte su segundo apellido");
+            TFapellido2.setForeground(Color.gray);
+        }
+        if (TFdni.getText().isEmpty()) {
+            TFdni.setText("Inserte su DNI");
+            TFdni.setForeground(Color.gray);
+        }
+        if (TFCurso.getText().isEmpty()) {
+            TFCurso.setText("Inserte su curso");
+            TFCurso.setForeground(Color.gray);
+        }
+        if (TFfechaNac.getText().isEmpty()) {
+            TFfechaNac.setText("yyyy-mm-dd");
+            TFfechaNac.setForeground(Color.gray);
+        }
+        if (TFemail.getText().isEmpty()) {
+            TFemail.setText("ejemplo@ejemplo.com");
+            TFemail.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_TFnombreMousePressed
+
+    private void TFfechaNacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFfechaNacActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFfechaNacActionPerformed
+
+    private void TFfechaNacMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFfechaNacMousePressed
+        if (TFfechaNac.getText().equals("yyyy-mm-dd")) {
+            TFfechaNac.setText("");
+            TFfechaNac.setForeground(Color.gray);
+        }
+        if (String.valueOf(PWF1.getPassword()).isEmpty()) {
+            PWF1.setText("********");
+            PWF1.setForeground(Color.gray);
+        }
+        if (String.valueOf(PWF2.getPassword()).isEmpty()) {
+            PWF2.setText("********");
+            PWF2.setForeground(Color.gray);
+        }
+
+        if (TFalias.getText().isEmpty()) {
+            TFalias.setText("Inserte su alias");
+            TFalias.setForeground(Color.gray);
+        }
+        if (TFnombre.getText().isEmpty()) {
+            TFnombre.setText("Inserte su nombre");
+            TFnombre.setForeground(Color.gray);
+        }
+        if (TFapellido2.getText().isEmpty()) {
+            TFapellido2.setText("Inserte su segundo apellido");
+            TFapellido2.setForeground(Color.gray);
+        }
+        if (TFdni.getText().isEmpty()) {
+            TFdni.setText("Inserte su DNI");
+            TFdni.setForeground(Color.gray);
+        }
+        if (TFCurso.getText().isEmpty()) {
+            TFCurso.setText("Inserte su curso");
+            TFCurso.setForeground(Color.gray);
+        }
+        if (TFemail.getText().isEmpty()) {
+            TFemail.setText("ejemplo@ejemplo.com");
+            TFemail.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_TFfechaNacMousePressed
+
+    private void TFCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFCursoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFCursoActionPerformed
+
+    private void TFCursoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFCursoMousePressed
+        if (TFCurso.getText().equals("Inserte su curso")) {
+            TFCurso.setText("");
+            TFCurso.setForeground(Color.gray);
+        }
+        if (String.valueOf(PWF1.getPassword()).isEmpty()) {
+            PWF1.setText("********");
+            PWF1.setForeground(Color.gray);
+        }
+        if (String.valueOf(PWF2.getPassword()).isEmpty()) {
+            PWF2.setText("********");
+            PWF2.setForeground(Color.gray);
+        }
+
+        if (TFalias.getText().isEmpty()) {
+            TFalias.setText("Inserte su alias");
+            TFalias.setForeground(Color.gray);
+        }
+        if (TFnombre.getText().isEmpty()) {
+            TFnombre.setText("Inserte su nombre");
+            TFnombre.setForeground(Color.gray);
+        }
+        if (TFapellido2.getText().isEmpty()) {
+            TFapellido2.setText("Inserte su segundo apellido");
+            TFapellido2.setForeground(Color.gray);
+        }
+        if (TFdni.getText().isEmpty()) {
+            TFdni.setText("Inserte su DNI");
+            TFdni.setForeground(Color.gray);
+        }
+        if (TFfechaNac.getText().isEmpty()) {
+            TFfechaNac.setText("yyyy-mm-dd");
+            TFfechaNac.setForeground(Color.gray);
+        }
+        if (TFemail.getText().isEmpty()) {
+            TFemail.setText("ejemplo@ejemplo.com");
+            TFemail.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_TFCursoMousePressed
+
+    private void TFdniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFdniActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFdniActionPerformed
+
+    private void TFdniMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFdniMousePressed
+        if (TFdni.getText().equals("Inserte su DNI")) {
+            TFdni.setText("");
+            TFdni.setForeground(Color.gray);
+        }
+        if (String.valueOf(PWF1.getPassword()).isEmpty()) {
+            PWF1.setText("********");
+            PWF1.setForeground(Color.gray);
+        }
+        if (String.valueOf(PWF2.getPassword()).isEmpty()) {
+            PWF2.setText("********");
+            PWF2.setForeground(Color.gray);
+        }
+
+        if (TFalias.getText().isEmpty()) {
+            TFalias.setText("Inserte su alias");
+            TFalias.setForeground(Color.gray);
+        }
+        if (TFnombre.getText().isEmpty()) {
+            TFnombre.setText("Inserte su nombre");
+            TFnombre.setForeground(Color.gray);
+        }
+        if (TFapellido2.getText().isEmpty()) {
+            TFapellido2.setText("Inserte su segundo apellido");
+            TFapellido2.setForeground(Color.gray);
+        }
+        if (TFCurso.getText().isEmpty()) {
+            TFCurso.setText("Inserte su curso");
+            TFCurso.setForeground(Color.gray);
+        }
+        if (TFfechaNac.getText().isEmpty()) {
+            TFfechaNac.setText("yyyy-mm-dd");
+            TFfechaNac.setForeground(Color.gray);
+        }
+        if (TFemail.getText().isEmpty()) {
+            TFemail.setText("ejemplo@ejemplo.com");
+            TFemail.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_TFdniMousePressed
+
+    private void TFaliasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFaliasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFaliasActionPerformed
+
+    private void TFaliasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFaliasMousePressed
+        if (TFalias.getText().equals("Inserte su alias")) {
+            TFalias.setText("");
+            TFalias.setForeground(Color.gray);
+        }
+        if (String.valueOf(PWF1.getPassword()).isEmpty()) {
+            PWF1.setText("********");
+            PWF1.setForeground(Color.gray);
+        }
+        if (String.valueOf(PWF2.getPassword()).isEmpty()) {
+            PWF2.setText("********");
+            PWF2.setForeground(Color.gray);
+        }
+
+        if (TFnombre.getText().isEmpty()) {
+            TFnombre.setText("Inserte su nombre");
+            TFnombre.setForeground(Color.gray);
+        }
+        if (TFapellido2.getText().isEmpty()) {
+            TFapellido2.setText("Inserte su segundo apellido");
+            TFapellido2.setForeground(Color.gray);
+        }
+        if (TFdni.getText().isEmpty()) {
+            TFdni.setText("Inserte su DNI");
+            TFdni.setForeground(Color.gray);
+        }
+        if (TFCurso.getText().isEmpty()) {
+            TFCurso.setText("Inserte su curso");
+            TFCurso.setForeground(Color.gray);
+        }
+        if (TFfechaNac.getText().isEmpty()) {
+            TFfechaNac.setText("yyyy-mm-dd");
+            TFfechaNac.setForeground(Color.gray);
+        }
+        if (TFemail.getText().isEmpty()) {
+            TFemail.setText("ejemplo@ejemplo.com");
+            TFemail.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_TFaliasMousePressed
+
+    private void TFemailMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFemailMousePressed
+        if (TFemail.getText().equals("ejemplo@ejemplo.com")) {
+            TFemail.setText("");
+            TFemail.setForeground(Color.gray);
+        }
+        if (String.valueOf(PWF1.getPassword()).isEmpty()) {
+            PWF1.setText("********");
+            PWF1.setForeground(Color.gray);
+        }
+        if (String.valueOf(PWF2.getPassword()).isEmpty()) {
+            PWF2.setText("********");
+            PWF2.setForeground(Color.gray);
+        }
+
+        if (TFnombre.getText().isEmpty()) {
+            TFnombre.setText("Inserte su nombre");
+            TFnombre.setForeground(Color.gray);
+        }
+        if (TFapellido2.getText().isEmpty()) {
+            TFapellido2.setText("Inserte su segundo apellido");
+            TFapellido2.setForeground(Color.gray);
+        }
+        if (TFdni.getText().isEmpty()) {
+            TFdni.setText("Inserte su DNI");
+            TFdni.setForeground(Color.gray);
+        }
+        if (TFCurso.getText().isEmpty()) {
+            TFCurso.setText("Inserte su curso");
+            TFCurso.setForeground(Color.gray);
+        }
+        if (TFfechaNac.getText().isEmpty()) {
+            TFfechaNac.setText("yyyy-mm-dd");
+            TFfechaNac.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_TFemailMousePressed
+
+    private void TFemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFemailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFemailActionPerformed
+
+    private void PWF2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PWF2MousePressed
+        if (String.valueOf(PWF2.getPassword()).equals("********")) {
+            PWF2.setText("");
+            PWF2.setForeground(Color.gray);
+        }
+        if (String.valueOf(PWF1.getPassword()).isEmpty()) {
+            PWF1.setText("********");
+            PWF1.setForeground(Color.gray);
+        }
+
+        if (TFalias.getText().isEmpty()) {
+            TFalias.setText("Inserte su alias");
+            TFalias.setForeground(Color.gray);
+        }
+        if (TFnombre.getText().isEmpty()) {
+            TFnombre.setText("Inserte su nombre");
+            TFnombre.setForeground(Color.gray);
+        }
+        if (TFapellido1.getText().isEmpty()) {
+            TFapellido1.setText("Inserte su primer apellido");
+            TFapellido1.setForeground(Color.gray);
+        }
+        if (TFapellido2.getText().isEmpty()) {
+            TFapellido2.setText("Inserte su segundo apellido");
+            TFapellido2.setForeground(Color.gray);
+        }
+        if (TFdni.getText().isEmpty()) {
+            TFdni.setText("Inserte su DNI");
+            TFdni.setForeground(Color.gray);
+        }
+        if (TFCurso.getText().isEmpty()) {
+            TFCurso.setText("Inserte su curso");
+            TFCurso.setForeground(Color.gray);
+        }
+        if (TFfechaNac.getText().isEmpty()) {
+            TFfechaNac.setText("yyyy-mm-dd");
+            TFfechaNac.setForeground(Color.gray);
+        }
+        if (TFemail.getText().isEmpty()) {
+            TFemail.setText("ejemplo@ejemplo.com");
+            TFemail.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_PWF2MousePressed
 
     private void TFUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFUsuarioMousePressed
         if (TFUsuario.getText().equals("Inserte su nombre de usuario")) {
@@ -901,444 +1283,9 @@ public class Register extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_TFUsuarioMousePressed
 
-    private void TFapellido2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFapellido2ActionPerformed
+    private void TFUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TFapellido2ActionPerformed
-
-    private void TFapellido2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFapellido2MousePressed
-        if (TFapellido2.getText().equals("Inserte su segundo apellido")) {
-            TFapellido2.setText("");
-            TFapellido2.setForeground(Color.gray);
-        }
-
-        if (String.valueOf(PWF1.getPassword()).isEmpty()) {
-            PWF1.setText("********");
-            PWF1.setForeground(Color.gray);
-        }
-        if (String.valueOf(PWF2.getPassword()).isEmpty()) {
-            PWF2.setText("********");
-            PWF2.setForeground(Color.gray);
-        }
-        if (TFUsuario.getText().isEmpty()) {
-            TFUsuario.setText("Inserte su nombre de usuario");
-            TFUsuario.setForeground(Color.gray);
-        }
-        if (TFalias.getText().isEmpty()) {
-            TFalias.setText("Inserte su alias");
-            TFalias.setForeground(Color.gray);
-        }
-        if (TFnombre.getText().isEmpty()) {
-            TFnombre.setText("Inserte su nombre");
-            TFnombre.setForeground(Color.gray);
-        }
-        if (TFapellido1.getText().isEmpty()) {
-            TFapellido1.setText("Inserte su primer apellido");
-            TFapellido1.setForeground(Color.gray);
-        }
-        if (TFdni.getText().isEmpty()) {
-            TFdni.setText("Inserte su DNI");
-            TFdni.setForeground(Color.gray);
-        }
-        if (TFCurso.getText().isEmpty()) {
-            TFCurso.setText("Inserte su curso");
-            TFCurso.setForeground(Color.gray);
-        }
-        if (TFfechaNac.getText().isEmpty()) {
-            TFfechaNac.setText("yyyy-mm-dd");
-            TFfechaNac.setForeground(Color.gray);
-        }
-        if (TFemail.getText().isEmpty()) {
-            TFemail.setText("ejemplo@ejemplo.com");
-            TFemail.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_TFapellido2MousePressed
-
-    private void TFapellido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFapellido1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TFapellido1ActionPerformed
-
-    private void TFapellido1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFapellido1MousePressed
-        if (TFapellido1.getText().equals("Inserte su primer apellido")) {
-            TFapellido1.setText("");
-            TFapellido1.setForeground(Color.gray);
-        }
-        if (String.valueOf(PWF1.getPassword()).isEmpty()) {
-            PWF1.setText("********");
-            PWF1.setForeground(Color.gray);
-        }
-        if (String.valueOf(PWF2.getPassword()).isEmpty()) {
-            PWF2.setText("********");
-            PWF2.setForeground(Color.gray);
-        }
-        if (TFUsuario.getText().isEmpty()) {
-            TFUsuario.setText("Inserte su nombre de usuario");
-            TFUsuario.setForeground(Color.gray);
-        }
-        if (TFalias.getText().isEmpty()) {
-            TFalias.setText("Inserte su alias");
-            TFalias.setForeground(Color.gray);
-        }
-        if (TFnombre.getText().isEmpty()) {
-            TFnombre.setText("Inserte su nombre");
-            TFnombre.setForeground(Color.gray);
-        }
-        if (TFapellido2.getText().isEmpty()) {
-            TFapellido2.setText("Inserte su segundo apellido");
-            TFapellido2.setForeground(Color.gray);
-        }
-        if (TFdni.getText().isEmpty()) {
-            TFdni.setText("Inserte su DNI");
-            TFdni.setForeground(Color.gray);
-        }
-        if (TFCurso.getText().isEmpty()) {
-            TFCurso.setText("Inserte su curso");
-            TFCurso.setForeground(Color.gray);
-        }
-        if (TFfechaNac.getText().isEmpty()) {
-            TFfechaNac.setText("yyyy-mm-dd");
-            TFfechaNac.setForeground(Color.gray);
-        }
-        if (TFemail.getText().isEmpty()) {
-            TFemail.setText("ejemplo@ejemplo.com");
-            TFemail.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_TFapellido1MousePressed
-
-    private void TFnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFnombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TFnombreActionPerformed
-
-    private void TFnombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFnombreMousePressed
-        if (TFnombre.getText().equals("Inserte su nombre")) {
-            TFnombre.setText("");
-            TFnombre.setForeground(Color.gray);
-        }
-        if (String.valueOf(PWF1.getPassword()).isEmpty()) {
-            PWF1.setText("********");
-            PWF1.setForeground(Color.gray);
-        }
-        if (String.valueOf(PWF2.getPassword()).isEmpty()) {
-            PWF2.setText("********");
-            PWF2.setForeground(Color.gray);
-        }
-        if (TFUsuario.getText().isEmpty()) {
-            TFUsuario.setText("Inserte su nombre de usuario");
-            TFUsuario.setForeground(Color.gray);
-        }
-        if (TFalias.getText().isEmpty()) {
-            TFalias.setText("Inserte su alias");
-            TFalias.setForeground(Color.gray);
-        }
-        if (TFapellido2.getText().isEmpty()) {
-            TFapellido2.setText("Inserte su segundo apellido");
-            TFapellido2.setForeground(Color.gray);
-        }
-        if (TFdni.getText().isEmpty()) {
-            TFdni.setText("Inserte su DNI");
-            TFdni.setForeground(Color.gray);
-        }
-        if (TFCurso.getText().isEmpty()) {
-            TFCurso.setText("Inserte su curso");
-            TFCurso.setForeground(Color.gray);
-        }
-        if (TFfechaNac.getText().isEmpty()) {
-            TFfechaNac.setText("yyyy-mm-dd");
-            TFfechaNac.setForeground(Color.gray);
-        }
-        if (TFemail.getText().isEmpty()) {
-            TFemail.setText("ejemplo@ejemplo.com");
-            TFemail.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_TFnombreMousePressed
-
-    private void TFfechaNacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFfechaNacActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TFfechaNacActionPerformed
-
-    private void TFfechaNacMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFfechaNacMousePressed
-        if (TFfechaNac.getText().equals("yyyy-mm-dd")) {
-            TFfechaNac.setText("");
-            TFfechaNac.setForeground(Color.gray);
-        }
-        if (String.valueOf(PWF1.getPassword()).isEmpty()) {
-            PWF1.setText("********");
-            PWF1.setForeground(Color.gray);
-        }
-        if (String.valueOf(PWF2.getPassword()).isEmpty()) {
-            PWF2.setText("********");
-            PWF2.setForeground(Color.gray);
-        }
-        if (TFUsuario.getText().isEmpty()) {
-            TFUsuario.setText("Inserte su nombre de usuario");
-            TFUsuario.setForeground(Color.gray);
-        }
-        if (TFalias.getText().isEmpty()) {
-            TFalias.setText("Inserte su alias");
-            TFalias.setForeground(Color.gray);
-        }
-        if (TFnombre.getText().isEmpty()) {
-            TFnombre.setText("Inserte su nombre");
-            TFnombre.setForeground(Color.gray);
-        }
-        if (TFapellido2.getText().isEmpty()) {
-            TFapellido2.setText("Inserte su segundo apellido");
-            TFapellido2.setForeground(Color.gray);
-        }
-        if (TFdni.getText().isEmpty()) {
-            TFdni.setText("Inserte su DNI");
-            TFdni.setForeground(Color.gray);
-        }
-        if (TFCurso.getText().isEmpty()) {
-            TFCurso.setText("Inserte su curso");
-            TFCurso.setForeground(Color.gray);
-        }
-        if (TFemail.getText().isEmpty()) {
-            TFemail.setText("ejemplo@ejemplo.com");
-            TFemail.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_TFfechaNacMousePressed
-
-    private void TFCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFCursoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TFCursoActionPerformed
-
-    private void TFCursoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFCursoMousePressed
-        if (TFCurso.getText().equals("Inserte su curso")) {
-            TFCurso.setText("");
-            TFCurso.setForeground(Color.gray);
-        }
-        if (String.valueOf(PWF1.getPassword()).isEmpty()) {
-            PWF1.setText("********");
-            PWF1.setForeground(Color.gray);
-        }
-        if (String.valueOf(PWF2.getPassword()).isEmpty()) {
-            PWF2.setText("********");
-            PWF2.setForeground(Color.gray);
-        }
-        if (TFUsuario.getText().isEmpty()) {
-            TFUsuario.setText("Inserte su nombre de usuario");
-            TFUsuario.setForeground(Color.gray);
-        }
-        if (TFalias.getText().isEmpty()) {
-            TFalias.setText("Inserte su alias");
-            TFalias.setForeground(Color.gray);
-        }
-        if (TFnombre.getText().isEmpty()) {
-            TFnombre.setText("Inserte su nombre");
-            TFnombre.setForeground(Color.gray);
-        }
-        if (TFapellido2.getText().isEmpty()) {
-            TFapellido2.setText("Inserte su segundo apellido");
-            TFapellido2.setForeground(Color.gray);
-        }
-        if (TFdni.getText().isEmpty()) {
-            TFdni.setText("Inserte su DNI");
-            TFdni.setForeground(Color.gray);
-        }
-        if (TFfechaNac.getText().isEmpty()) {
-            TFfechaNac.setText("yyyy-mm-dd");
-            TFfechaNac.setForeground(Color.gray);
-        }
-        if (TFemail.getText().isEmpty()) {
-            TFemail.setText("ejemplo@ejemplo.com");
-            TFemail.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_TFCursoMousePressed
-
-    private void TFdniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFdniActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TFdniActionPerformed
-
-    private void TFdniMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFdniMousePressed
-        if (TFdni.getText().equals("Inserte su DNI")) {
-            TFdni.setText("");
-            TFdni.setForeground(Color.gray);
-        }
-        if (String.valueOf(PWF1.getPassword()).isEmpty()) {
-            PWF1.setText("********");
-            PWF1.setForeground(Color.gray);
-        }
-        if (String.valueOf(PWF2.getPassword()).isEmpty()) {
-            PWF2.setText("********");
-            PWF2.setForeground(Color.gray);
-        }
-        if (TFUsuario.getText().isEmpty()) {
-            TFUsuario.setText("Inserte su nombre de usuario");
-            TFUsuario.setForeground(Color.gray);
-        }
-        if (TFalias.getText().isEmpty()) {
-            TFalias.setText("Inserte su alias");
-            TFalias.setForeground(Color.gray);
-        }
-        if (TFnombre.getText().isEmpty()) {
-            TFnombre.setText("Inserte su nombre");
-            TFnombre.setForeground(Color.gray);
-        }
-        if (TFapellido2.getText().isEmpty()) {
-            TFapellido2.setText("Inserte su segundo apellido");
-            TFapellido2.setForeground(Color.gray);
-        }
-        if (TFCurso.getText().isEmpty()) {
-            TFCurso.setText("Inserte su curso");
-            TFCurso.setForeground(Color.gray);
-        }
-        if (TFfechaNac.getText().isEmpty()) {
-            TFfechaNac.setText("yyyy-mm-dd");
-            TFfechaNac.setForeground(Color.gray);
-        }
-        if (TFemail.getText().isEmpty()) {
-            TFemail.setText("ejemplo@ejemplo.com");
-            TFemail.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_TFdniMousePressed
-
-    private void TFaliasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFaliasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TFaliasActionPerformed
-
-    private void TFaliasMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFaliasMousePressed
-        if (TFalias.getText().equals("Inserte su alias")) {
-            TFalias.setText("");
-            TFalias.setForeground(Color.gray);
-        }
-        if (String.valueOf(PWF1.getPassword()).isEmpty()) {
-            PWF1.setText("********");
-            PWF1.setForeground(Color.gray);
-        }
-        if (String.valueOf(PWF2.getPassword()).isEmpty()) {
-            PWF2.setText("********");
-            PWF2.setForeground(Color.gray);
-        }
-        if (TFUsuario.getText().isEmpty()) {
-            TFUsuario.setText("Inserte su nombre de usuario");
-            TFUsuario.setForeground(Color.gray);
-        }
-        if (TFnombre.getText().isEmpty()) {
-            TFnombre.setText("Inserte su nombre");
-            TFnombre.setForeground(Color.gray);
-        }
-        if (TFapellido2.getText().isEmpty()) {
-            TFapellido2.setText("Inserte su segundo apellido");
-            TFapellido2.setForeground(Color.gray);
-        }
-        if (TFdni.getText().isEmpty()) {
-            TFdni.setText("Inserte su DNI");
-            TFdni.setForeground(Color.gray);
-        }
-        if (TFCurso.getText().isEmpty()) {
-            TFCurso.setText("Inserte su curso");
-            TFCurso.setForeground(Color.gray);
-        }
-        if (TFfechaNac.getText().isEmpty()) {
-            TFfechaNac.setText("yyyy-mm-dd");
-            TFfechaNac.setForeground(Color.gray);
-        }
-        if (TFemail.getText().isEmpty()) {
-            TFemail.setText("ejemplo@ejemplo.com");
-            TFemail.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_TFaliasMousePressed
-
-    private void iniciaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciaMousePressed
-        Container Cuerpo2 = this.getParent();
-        Login l1 = new Login();
-        l1.setSize(1070, 720);
-        l1.setLocation(0, 0);
-        Cuerpo2.removeAll();
-        Cuerpo2.add(l1);
-        Cuerpo2.revalidate();
-        Cuerpo2.repaint();
-    }//GEN-LAST:event_iniciaMousePressed
-
-    private void TFemailMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFemailMousePressed
-        if (TFemail.getText().equals("ejemplo@ejemplo.com")) {
-            TFemail.setText("");
-            TFemail.setForeground(Color.gray);
-        }
-        if (String.valueOf(PWF1.getPassword()).isEmpty()) {
-            PWF1.setText("********");
-            PWF1.setForeground(Color.gray);
-        }
-        if (String.valueOf(PWF2.getPassword()).isEmpty()) {
-            PWF2.setText("********");
-            PWF2.setForeground(Color.gray);
-        }
-        if (TFUsuario.getText().isEmpty()) {
-            TFUsuario.setText("Inserte su nombre de usuario");
-            TFUsuario.setForeground(Color.gray);
-        }
-        if (TFnombre.getText().isEmpty()) {
-            TFnombre.setText("Inserte su nombre");
-            TFnombre.setForeground(Color.gray);
-        }
-        if (TFapellido2.getText().isEmpty()) {
-            TFapellido2.setText("Inserte su segundo apellido");
-            TFapellido2.setForeground(Color.gray);
-        }
-        if (TFdni.getText().isEmpty()) {
-            TFdni.setText("Inserte su DNI");
-            TFdni.setForeground(Color.gray);
-        }
-        if (TFCurso.getText().isEmpty()) {
-            TFCurso.setText("Inserte su curso");
-            TFCurso.setForeground(Color.gray);
-        }
-        if (TFfechaNac.getText().isEmpty()) {
-            TFfechaNac.setText("yyyy-mm-dd");
-            TFfechaNac.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_TFemailMousePressed
-
-    private void TFemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFemailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TFemailActionPerformed
-
-    private void PWF2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PWF2MousePressed
-        if (String.valueOf(PWF2.getPassword()).equals("********")) {
-            PWF2.setText("");
-            PWF2.setForeground(Color.gray);
-        }
-        if (String.valueOf(PWF1.getPassword()).isEmpty()) {
-            PWF1.setText("********");
-            PWF1.setForeground(Color.gray);
-        }
-        if (TFUsuario.getText().isEmpty()) {
-            TFUsuario.setText("Inserte su nombre de usuario");
-            TFUsuario.setForeground(Color.gray);
-        }
-        if (TFalias.getText().isEmpty()) {
-            TFalias.setText("Inserte su alias");
-            TFalias.setForeground(Color.gray);
-        }
-        if (TFnombre.getText().isEmpty()) {
-            TFnombre.setText("Inserte su nombre");
-            TFnombre.setForeground(Color.gray);
-        }
-        if (TFapellido1.getText().isEmpty()) {
-            TFapellido1.setText("Inserte su primer apellido");
-            TFapellido1.setForeground(Color.gray);
-        }
-        if (TFapellido2.getText().isEmpty()) {
-            TFapellido2.setText("Inserte su segundo apellido");
-            TFapellido2.setForeground(Color.gray);
-        }
-        if (TFdni.getText().isEmpty()) {
-            TFdni.setText("Inserte su DNI");
-            TFdni.setForeground(Color.gray);
-        }
-        if (TFCurso.getText().isEmpty()) {
-            TFCurso.setText("Inserte su curso");
-            TFCurso.setForeground(Color.gray);
-        }
-        if (TFfechaNac.getText().isEmpty()) {
-            TFfechaNac.setText("yyyy-mm-dd");
-            TFfechaNac.setForeground(Color.gray);
-        }
-        if (TFemail.getText().isEmpty()) {
-            TFemail.setText("ejemplo@ejemplo.com");
-            TFemail.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_PWF2MousePressed
+    }//GEN-LAST:event_TFUsuarioActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1375,8 +1322,9 @@ public class Register extends javax.swing.JPanel {
     private javax.swing.JTextField TFemail;
     private javax.swing.JTextField TFfechaNac;
     private javax.swing.JTextField TFnombre;
-    private javax.swing.JPanel Usuario;
+    private javax.swing.JPanel Usuario1;
     private javax.swing.JLabel alias;
+    private javax.swing.JLabel aliasupdate;
     private javax.swing.JLabel apellido1;
     private javax.swing.JLabel apellido2;
     private javax.swing.JLabel curso;
@@ -1384,14 +1332,12 @@ public class Register extends javax.swing.JPanel {
     private javax.swing.JLabel email;
     private javax.swing.JLabel fechaNac;
     private javax.swing.JPanel fondoRegistro;
-    private javax.swing.JLabel inicia;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel nombre;
     private javax.swing.JLabel password;
     private javax.swing.JLabel password2;
-    private javax.swing.JRadioButton profesor;
     private javax.swing.JLabel registrar;
-    private javax.swing.JLabel registro;
-    private javax.swing.JLabel tienes;
-    private javax.swing.JLabel usuario;
+    private javax.swing.JLabel registro1;
+    private javax.swing.JLabel usuario1;
     // End of variables declaration//GEN-END:variables
 }

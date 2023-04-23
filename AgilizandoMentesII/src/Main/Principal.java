@@ -56,8 +56,8 @@ public class Principal {
         System.out.println("Nombre Usuario " + MetodosUsuario.comprobarNombreUsuario(con, nombreUsuario));
         System.out.println("Es Profesor " + MetodosUsuario.comprobarEsProfesor(con, nombreUsuario));    
          */
-        Usuario.setUsuario(usuario);
-        MetodosUsuario.generarUsuario(con);
+        //usuario.setUsuario(usuario);
+        //MetodosUsuario.generarUsuario(con);
         //System.out.println(Usuario.getAlias() + Usuario.getApellido1() + Usuario.getApellido2() + Usuario.getNombre());
 
         //Calculadora calcu = new Calculadora();
