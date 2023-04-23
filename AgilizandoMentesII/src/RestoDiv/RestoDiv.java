@@ -7,9 +7,12 @@ package RestoDiv;
 import Alumno.*;
 import Usuario.Usuario;
 import Ajustes.*;
+import Main.Main;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+
 
 
 /**
@@ -24,13 +27,53 @@ public class RestoDiv extends javax.swing.JPanel {
      */
     public RestoDiv() {
         initComponents();
-        alias.setText(Usuario.getAlias());
-        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        actualizarClasificacion();
+        actualizarMejorePartidas();
+        actualizarUltimasPartidas();
+    }
+    
+    public void actualizarClasificacion (){
+        DefaultTableModel modelC = (DefaultTableModel)jTclasificacion.getModel();
+        modelC.setRowCount(0);
         Object[] row = new Object[4];
+        ArrayList <objetosBBDDRestoDiv> lista = BBDDMetodosRestoDiv.selectClasificacion(Main.getCon());
+        for (int i = 0; i < lista.size(); i++) {
+            row[0] = lista.get(i).getAlias();
+            row[1] = lista.get(i).getTiempoPartida();
+            row[2] = lista.get(i).getAciertos();
+            row[3] = lista.get(i).getFecha_hora();            
+            modelC.addRow(row);
+        }
+    }
+    
+    public void actualizarMejorePartidas (){
         
-        for (int i = 0; i < 10; i++) {
-            
-            model.addRow(row);
+        DefaultTableModel modelB = (DefaultTableModel)jTmejoresPartidas.getModel();
+        modelB.setRowCount(0);
+        Object[] row = new Object[4];
+        ArrayList <objetosBBDDRestoDiv> lista = BBDDMetodosRestoDiv.selectJugadorMejoresPartidas(Main.getCon());
+        for (int i = 0; i < lista.size(); i++) {
+            row[0] = lista.get(i).getAlias();
+            row[1] = lista.get(i).getTiempoPartida();
+            row[2] = lista.get(i).getAciertos();
+            row[3] = lista.get(i).getFecha_hora();            
+            modelB.addRow(row);
+        }
+        
+    }
+    
+    public void actualizarUltimasPartidas (){
+        
+        DefaultTableModel modelL = (DefaultTableModel)jTultimasPartidas.getModel();
+        modelL.setRowCount(0);
+        Object[] row = new Object[4];
+        ArrayList <objetosBBDDRestoDiv> lista = BBDDMetodosRestoDiv.selectJugadorUltimasPartidas(Main.getCon());
+        for (int i = 0; i < lista.size(); i++) {
+            row[0] = lista.get(i).getAlias();
+            row[1] = lista.get(i).getTiempoPartida();
+            row[2] = lista.get(i).getAciertos();
+            row[3] = lista.get(i).getFecha_hora();            
+            modelL.addRow(row);
         }
         
     }
@@ -46,14 +89,17 @@ public class RestoDiv extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         Informacion = new javax.swing.JPanel();
-        Ranking = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         Estadisticas = new javax.swing.JPanel();
-        BestPlays = new javax.swing.JPanel();
-        LastPlays = new javax.swing.JPanel();
+        jSPranking = new javax.swing.JScrollPane();
+        jTclasificacion = new javax.swing.JTable();
+        jSPbestPlays = new javax.swing.JScrollPane();
+        jTmejoresPartidas = new javax.swing.JTable();
+        jSPlastPlays = new javax.swing.JScrollPane();
+        jTultimasPartidas = new javax.swing.JTable();
+        jLlastPlays = new javax.swing.JLabel();
+        javax.swing.JLabel jLbestPlays = new javax.swing.JLabel();
+        jLranking = new javax.swing.JLabel();
         bienvenido = new javax.swing.JLabel();
-        alias = new javax.swing.JLabel();
         jLOperacion = new javax.swing.JLabel();
         jLResultado = new javax.swing.JLabel();
         jLTitulo = new javax.swing.JLabel();
@@ -70,20 +116,29 @@ public class RestoDiv extends javax.swing.JPanel {
 
         Informacion.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Estadisticas.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout EstadisticasLayout = new javax.swing.GroupLayout(Estadisticas);
+        Estadisticas.setLayout(EstadisticasLayout);
+        EstadisticasLayout.setHorizontalGroup(
+            EstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 478, Short.MAX_VALUE)
+        );
+        EstadisticasLayout.setVerticalGroup(
+            EstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 107, Short.MAX_VALUE)
+        );
+
+        jTclasificacion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Jugador", "Tiempo", "Fecha y Hora", "Aciertos"
+                "Jugador", "Tiempo (sec)", "Aciertos", "Fecha y Hora"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false
@@ -97,93 +152,149 @@ public class RestoDiv extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTable1);
+        jTclasificacion.setEnabled(false);
+        jTclasificacion.setRowSelectionAllowed(false);
+        jTclasificacion.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        jTclasificacion.getTableHeader().setReorderingAllowed(false);
+        jSPranking.setViewportView(jTclasificacion);
+        if (jTclasificacion.getColumnModel().getColumnCount() > 0) {
+            jTclasificacion.getColumnModel().getColumn(0).setResizable(false);
+            jTclasificacion.getColumnModel().getColumn(1).setPreferredWidth(25);
+            jTclasificacion.getColumnModel().getColumn(2).setPreferredWidth(25);
+            jTclasificacion.getColumnModel().getColumn(3).setResizable(false);
+        }
 
-        javax.swing.GroupLayout RankingLayout = new javax.swing.GroupLayout(Ranking);
-        Ranking.setLayout(RankingLayout);
-        RankingLayout.setHorizontalGroup(
-            RankingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
-        );
-        RankingLayout.setVerticalGroup(
-            RankingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-        );
+        jTmejoresPartidas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        javax.swing.GroupLayout EstadisticasLayout = new javax.swing.GroupLayout(Estadisticas);
-        Estadisticas.setLayout(EstadisticasLayout);
-        EstadisticasLayout.setHorizontalGroup(
-            EstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 518, Short.MAX_VALUE)
-        );
-        EstadisticasLayout.setVerticalGroup(
-            EstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 160, Short.MAX_VALUE)
-        );
+            },
+            new String [] {
+                "Jugador", "Tiempo (sec)", "Aciertos", "Fecha y Hora"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
 
-        javax.swing.GroupLayout BestPlaysLayout = new javax.swing.GroupLayout(BestPlays);
-        BestPlays.setLayout(BestPlaysLayout);
-        BestPlaysLayout.setHorizontalGroup(
-            BestPlaysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 518, Short.MAX_VALUE)
-        );
-        BestPlaysLayout.setVerticalGroup(
-            BestPlaysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 160, Short.MAX_VALUE)
-        );
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
-        javax.swing.GroupLayout LastPlaysLayout = new javax.swing.GroupLayout(LastPlays);
-        LastPlays.setLayout(LastPlaysLayout);
-        LastPlaysLayout.setHorizontalGroup(
-            LastPlaysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 518, Short.MAX_VALUE)
-        );
-        LastPlaysLayout.setVerticalGroup(
-            LastPlaysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 160, Short.MAX_VALUE)
-        );
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTmejoresPartidas.setEnabled(false);
+        jTmejoresPartidas.setRowSelectionAllowed(false);
+        jTmejoresPartidas.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        jTmejoresPartidas.getTableHeader().setReorderingAllowed(false);
+        jSPbestPlays.setViewportView(jTmejoresPartidas);
+        if (jTmejoresPartidas.getColumnModel().getColumnCount() > 0) {
+            jTmejoresPartidas.getColumnModel().getColumn(0).setResizable(false);
+            jTmejoresPartidas.getColumnModel().getColumn(1).setPreferredWidth(25);
+            jTmejoresPartidas.getColumnModel().getColumn(2).setPreferredWidth(25);
+            jTmejoresPartidas.getColumnModel().getColumn(3).setResizable(false);
+        }
+
+        jTultimasPartidas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Jugador", "Tiempo (sec)", "Aciertos", "Fecha y Hora"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTultimasPartidas.setEnabled(false);
+        jTultimasPartidas.setRowSelectionAllowed(false);
+        jTultimasPartidas.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        jTultimasPartidas.getTableHeader().setReorderingAllowed(false);
+        jSPlastPlays.setViewportView(jTultimasPartidas);
+        if (jTultimasPartidas.getColumnModel().getColumnCount() > 0) {
+            jTultimasPartidas.getColumnModel().getColumn(0).setResizable(false);
+            jTultimasPartidas.getColumnModel().getColumn(1).setPreferredWidth(25);
+            jTultimasPartidas.getColumnModel().getColumn(2).setPreferredWidth(25);
+            jTultimasPartidas.getColumnModel().getColumn(3).setResizable(false);
+        }
+
+        jLlastPlays.setFont(Estilos.getFuenteCuerpo());
+        jLlastPlays.setForeground(Estilos.getColorFuenteCuerpo());
+        jLlastPlays.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLlastPlays.setText("Tus ultimas 5 partidas");
+        jLlastPlays.setToolTipText("");
+
+        jLbestPlays.setFont(Estilos.getFuenteCuerpo());
+        jLbestPlays.setForeground(Estilos.getColorFuenteCuerpo());
+        jLbestPlays.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLbestPlays.setText("Tus mejores partidas");
+        jLbestPlays.setToolTipText("");
+
+        jLranking.setFont(Estilos.getFuenteCuerpo());
+        jLranking.setForeground(Estilos.getColorFuenteCuerpo());
+        jLranking.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLranking.setText("Clasificacion");
+        jLranking.setToolTipText("");
 
         javax.swing.GroupLayout InformacionLayout = new javax.swing.GroupLayout(Informacion);
         Informacion.setLayout(InformacionLayout);
         InformacionLayout.setHorizontalGroup(
             InformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InformacionLayout.createSequentialGroup()
+            .addGroup(InformacionLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(InformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Estadisticas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BestPlays, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(LastPlays, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Ranking, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(InformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSPranking, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
+                    .addComponent(Estadisticas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jSPbestPlays, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
+                    .addComponent(jSPlastPlays, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
+                    .addComponent(jLlastPlays, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLbestPlays, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLranking, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         InformacionLayout.setVerticalGroup(
             InformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(InformacionLayout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
-                .addComponent(Ranking, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap()
                 .addComponent(Estadisticas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(68, 68, 68)
+                .addComponent(jLranking, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSPranking, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLbestPlays, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSPbestPlays, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(BestPlays, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(LastPlays, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jLlastPlays, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSPlastPlays, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                .addGap(83, 83, 83))
         );
 
-        jPanel1.add(Informacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 530, 720));
+        jPanel1.add(Informacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 490, 720));
 
         bienvenido.setFont(Estilos.getFuenteCuerpo());
         bienvenido.setForeground(Estilos.getColorFuenteCuerpo());
         bienvenido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         bienvenido.setText("Selecciona una actividad en el menú de la izquierda.");
         jPanel1.add(bienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 360, 30));
-
-        alias.setFont(Estilos.getFuenteCuerpo());
-        alias.setForeground(Estilos.getColorFuenteCuerpo());
-        alias.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        alias.setText("Alias");
-        jPanel1.add(alias, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 100, 30));
 
         jLOperacion.setFont(Estilos.getFuenteCuerpo());
         jLOperacion.setForeground(Estilos.getColorFuenteCuerpo());
@@ -331,22 +442,24 @@ public class RestoDiv extends javax.swing.JPanel {
     }//GEN-LAST:event_TFrespuestaFocusGained
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel BestPlays;
     private javax.swing.JPanel Estadisticas;
     private javax.swing.JPanel Informacion;
-    private javax.swing.JPanel LastPlays;
-    private javax.swing.JPanel Ranking;
     private javax.swing.JTextField TFrespuesta;
-    private javax.swing.JLabel alias;
     private javax.swing.JLabel bienvenido;
     private javax.swing.JPanel buttonNewPlay;
     private javax.swing.JLabel jLOperacion;
     private javax.swing.JLabel jLResultado;
     private javax.swing.JLabel jLTitulo;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLlastPlays;
+    private javax.swing.JLabel jLranking;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jSPbestPlays;
+    private javax.swing.JScrollPane jSPlastPlays;
+    private javax.swing.JScrollPane jSPranking;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTclasificacion;
+    private javax.swing.JTable jTmejoresPartidas;
+    private javax.swing.JTable jTultimasPartidas;
     // End of variables declaration//GEN-END:variables
 }

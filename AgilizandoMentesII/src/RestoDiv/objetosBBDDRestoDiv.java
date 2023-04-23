@@ -9,17 +9,19 @@ package RestoDiv;
  * @author produccion
  */
 public class objetosBBDDRestoDiv {
-    
+
     private String alias;
     private int tiempoPartida;
+    private int aciertos;
     private String fecha_hora;
 
-    public objetosBBDDRestoDiv(String alias, int tiempoPartida, String fecha_hora) {
+    public objetosBBDDRestoDiv(String alias, int tiempoPartida, int aciertos, String fecha_hora) {
         this.alias = alias;
         this.tiempoPartida = tiempoPartida;
+        this.aciertos = aciertos;
         this.fecha_hora = fecha_hora;
     }
-    
+
     public String getAlias() {
         return alias;
     }
@@ -42,6 +44,14 @@ public class objetosBBDDRestoDiv {
 
     public void setFecha_hora(String fecha_hora) {
         this.fecha_hora = fecha_hora;
+    }
+
+    public int getAciertos() {
+        return aciertos;
+    }
+
+    public void setAciertos(int aciertos) {
+        this.aciertos = aciertos;
     }
 
 }
