@@ -42,10 +42,11 @@ public class MetodosRegistro {
                     ps = con.prepareStatement(selectDNI);
                     ps.setString(1, DNI);
                     rs = ps.executeQuery();
+                    rs.next();
 
                     //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
                     //una vez en la primera linea podemos obtener la informacion;
-                    if (rs.next() && DNI.equals(rs.getString(1))) {
+                    if (DNI.equals(rs.getString(1))) {
                         return true;
                     }
                     return false;
@@ -88,7 +89,8 @@ public class MetodosRegistro {
 
                 //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
                 //una vez en la primera linea podemos obtener la informacion;
-                if (rs.next() && email.equals(rs.getString(1))) {
+                rs.next();
+                if (email.equals(rs.getString(1))) {
                     return true;
                 }
                 return false;
@@ -126,10 +128,11 @@ public class MetodosRegistro {
                 ps = con.prepareStatement(selectAlias);
                 ps.setString(1, alias);
                 rs = ps.executeQuery();
+                rs.next();
 
                 //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
                 //una vez en la primera linea podemos obtener la informacion;
-                if (rs.next() && alias.equals(rs.getString(1))) {
+                if (alias.equals(rs.getString(1))) {
                     return true;
                 }
                 return false;
@@ -166,10 +169,11 @@ public class MetodosRegistro {
                 ps = con.prepareStatement(selectNombreUsuario);
                 ps.setString(1, nombreUsuario);
                 rs = ps.executeQuery();
+                rs.next();
 
                 //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
                 //una vez en la primera linea podemos obtener la informacion;
-                if (rs.next() && nombreUsuario.equals(rs.getString(1))) {
+                if (nombreUsuario.equals(rs.getString(1))) {
                     return true;
                 }
                 return false;
