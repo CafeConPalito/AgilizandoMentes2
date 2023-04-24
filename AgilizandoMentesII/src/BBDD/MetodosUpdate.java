@@ -11,19 +11,6 @@ import java.util.logging.Logger;
  */
 public class MetodosUpdate {
 
-    /*public static void updateUsuario(Connection con, String usuario) {
-      
-        Usuario.setNombre(usuario);
-        PreparedStatement ps1 = null;
-        String insert1 = "update usuario set nombre_usuario='?' where id_usuario=" + Usuario.getIdUsuario();
-        try {
-            ps1 = con.prepareStatement(insert1);
-            ps1.setString(1, usuario);
-            ps1.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(MetodosUpdate.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }*/
     
     /**
      * Metodo para actualizar la contraseña del usuario
@@ -119,62 +106,6 @@ public class MetodosUpdate {
         }
     }
 
-    /**
-     * Metodo para actualziar el DNI del usuario
-     *
-     * @param con
-     * @param DNI
-     */
-    public static void updateDNI(Connection con, String DNI) {
-
-        PreparedStatement ps1 = null;
-        String insert1 = "update persona set dni=? where id_usuario=" + Usuario.getIdUsuario();
-        try {
-            ps1 = con.prepareStatement(insert1);
-            ps1.setString(1, DNI);
-            ps1.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(MetodosUpdate.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    /**
-     * Metodo para actualizar el curso del usuario
-     *
-     * @param con
-     * @param curso
-     */
-    public static void updateCurso(Connection con, int curso) {
-
-        PreparedStatement ps1 = null;
-        String insert1 = "update persona set curso=? where id_usuario=" + Usuario.getIdUsuario();
-        try {
-            ps1 = con.prepareStatement(insert1);
-            ps1.setInt(1, curso);
-            ps1.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(MetodosUpdate.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    /**
-     * Metodo para actualizar la fecha de nacimiento del usuario
-     *
-     * @param con
-     * @param fecha
-     */
-    public static void updateFechaNac(Connection con, String fecha) {
-
-        PreparedStatement ps1 = null;
-        String insert1 = "update persona set fecha_naci=? where id_usuario=" + Usuario.getIdUsuario();
-        try {
-            ps1 = con.prepareStatement(insert1);
-            ps1.setString(1, fecha);
-            ps1.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(MetodosUpdate.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
 
     /**
      * Metodo para actualizar el email del usuario
