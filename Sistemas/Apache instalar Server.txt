@@ -1,7 +1,7 @@
 1º
 Crear la carpeta donde se almacenara la informacion y cargar la WEB en ella.
 en este caso:
-/home/gutierrezramiro/cafewebftp/
+/home/gutierrezramiro/cafeweb/
 2º
 redireccionamos el contenedor a la carpeta web y elegimos la ip de salida. 
-docker run --name Apachecafewebftp -v /home/gutierrezramiro/cafewebftp/:/usr/local/apache2/htdocs/:ro -p 8082:80 -d httpd:2.4.57-alpine
+docker run --name ApacheCafeweb -v /home/gutierrezramiro/cafeweb/:/usr/local/apache2/htdocs/:ro -p 8082:80 -d httpd:2.4.57-alpine
