@@ -13,71 +13,91 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
-
-
 /**
  *
  * @author damt111
  */
 public class RestoDiv extends javax.swing.JPanel {
+
     MetodosJuegoRestoDiv juego = null;
-    boolean controlPartida = false;
+    boolean controlPartida = false; // partida no iniciada , en true iniciada
+    private String almacenOperaciones = "";
+
     /**
      * Creates new form NewJPanel
      */
     public RestoDiv() {
         initComponents();
+        actualizarTablas();
+    }
+
+    public void actualizarTablas() {
         actualizarClasificacion();
         actualizarMejorePartidas();
         actualizarUltimasPartidas();
     }
-    
-    public void actualizarClasificacion (){
-        DefaultTableModel modelC = (DefaultTableModel)jTclasificacion.getModel();
+
+    public void actualizarAlmacenOperaciones(boolean control) {
+        if (controlPartida) {
+            if (control) {
+                almacenOperaciones = almacenOperaciones + "\nResto: " + juego.getDividendo() + " / " + juego.getDivisor() + " es: " + juego.getRespuesta() + " ★ ";
+                jTextAreaAlmacenOperaconiones.setText(almacenOperaciones);
+            } else {
+                almacenOperaciones = almacenOperaciones + "\nResto: " + juego.getDividendo() + " / " + juego.getDivisor() + " es: " + juego.getRespuesta() + " ☓ tu respuesta " + TFrespuesta.getText();
+                jTextAreaAlmacenOperaconiones.setText(almacenOperaciones);
+            }
+        } else {
+            jTextAreaAlmacenOperaconiones.setText("");
+        }
+
+    }
+
+    private void actualizarClasificacion() {
+        DefaultTableModel modelC = (DefaultTableModel) jTclasificacion.getModel();
         modelC.setRowCount(0);
         Object[] row = new Object[4];
-        ArrayList <objetosBBDDRestoDiv> lista = BBDDMetodosRestoDiv.selectClasificacion(Main.getCon());
+        ArrayList<objetosBBDDRestoDiv> lista = BBDDMetodosRestoDiv.selectClasificacion(Main.getCon());
         for (int i = 0; i < lista.size(); i++) {
             row[0] = lista.get(i).getAlias();
             row[1] = lista.get(i).getTiempoPartida();
             row[2] = lista.get(i).getAciertos();
-            row[3] = lista.get(i).getFecha_hora();            
+            row[3] = lista.get(i).getFecha_hora();
             modelC.addRow(row);
         }
     }
-    
-    public void actualizarMejorePartidas (){
-        
-        DefaultTableModel modelB = (DefaultTableModel)jTmejoresPartidas.getModel();
+
+    private void actualizarMejorePartidas() {
+
+        DefaultTableModel modelB = (DefaultTableModel) jTmejoresPartidas.getModel();
         modelB.setRowCount(0);
         Object[] row = new Object[4];
-        ArrayList <objetosBBDDRestoDiv> lista = BBDDMetodosRestoDiv.selectJugadorMejoresPartidas(Main.getCon());
+        ArrayList<objetosBBDDRestoDiv> lista = BBDDMetodosRestoDiv.selectJugadorMejoresPartidas(Main.getCon());
         for (int i = 0; i < lista.size(); i++) {
             row[0] = lista.get(i).getAlias();
             row[1] = lista.get(i).getTiempoPartida();
             row[2] = lista.get(i).getAciertos();
-            row[3] = lista.get(i).getFecha_hora();            
+            row[3] = lista.get(i).getFecha_hora();
             modelB.addRow(row);
         }
-        
+
     }
-    
-    public void actualizarUltimasPartidas (){
-        
-        DefaultTableModel modelL = (DefaultTableModel)jTultimasPartidas.getModel();
+
+    private void actualizarUltimasPartidas() {
+
+        DefaultTableModel modelL = (DefaultTableModel) jTultimasPartidas.getModel();
         modelL.setRowCount(0);
         Object[] row = new Object[4];
-        ArrayList <objetosBBDDRestoDiv> lista = BBDDMetodosRestoDiv.selectJugadorUltimasPartidas(Main.getCon());
+        ArrayList<objetosBBDDRestoDiv> lista = BBDDMetodosRestoDiv.selectJugadorUltimasPartidas(Main.getCon());
         for (int i = 0; i < lista.size(); i++) {
             row[0] = lista.get(i).getAlias();
             row[1] = lista.get(i).getTiempoPartida();
             row[2] = lista.get(i).getAciertos();
-            row[3] = lista.get(i).getFecha_hora();            
+            row[3] = lista.get(i).getFecha_hora();
             modelL.addRow(row);
         }
-        
+
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -99,7 +119,6 @@ public class RestoDiv extends javax.swing.JPanel {
         jLlastPlays = new javax.swing.JLabel();
         javax.swing.JLabel jLbestPlays = new javax.swing.JLabel();
         jLranking = new javax.swing.JLabel();
-        bienvenido = new javax.swing.JLabel();
         jLOperacion = new javax.swing.JLabel();
         jLResultado = new javax.swing.JLabel();
         jLTitulo = new javax.swing.JLabel();
@@ -107,6 +126,8 @@ public class RestoDiv extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         TFrespuesta = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
+        jScrollAlmacenOperaciones = new javax.swing.JScrollPane();
+        jTextAreaAlmacenOperaconiones = new javax.swing.JTextArea();
 
         setPreferredSize(new java.awt.Dimension(1070, 720));
 
@@ -128,6 +149,8 @@ public class RestoDiv extends javax.swing.JPanel {
             EstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 107, Short.MAX_VALUE)
         );
+
+        jSPranking.setBorder(null);
 
         jTclasificacion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -164,6 +187,8 @@ public class RestoDiv extends javax.swing.JPanel {
             jTclasificacion.getColumnModel().getColumn(3).setResizable(false);
         }
 
+        jSPbestPlays.setBorder(null);
+
         jTmejoresPartidas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -198,6 +223,8 @@ public class RestoDiv extends javax.swing.JPanel {
             jTmejoresPartidas.getColumnModel().getColumn(2).setPreferredWidth(25);
             jTmejoresPartidas.getColumnModel().getColumn(3).setResizable(false);
         }
+
+        jSPlastPlays.setBorder(null);
 
         jTultimasPartidas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -290,18 +317,12 @@ public class RestoDiv extends javax.swing.JPanel {
 
         jPanel1.add(Informacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 490, 720));
 
-        bienvenido.setFont(Estilos.getFuenteCuerpo());
-        bienvenido.setForeground(Estilos.getColorFuenteCuerpo());
-        bienvenido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        bienvenido.setText("Selecciona una actividad en el menú de la izquierda.");
-        jPanel1.add(bienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 360, 30));
-
         jLOperacion.setFont(Estilos.getFuenteCuerpo());
         jLOperacion.setForeground(Estilos.getColorFuenteCuerpo());
         jLOperacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLOperacion.setText("Operacion");
         jLOperacion.setToolTipText("");
-        jPanel1.add(jLOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 440, 40));
+        jPanel1.add(jLOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 490, 40));
 
         jLResultado.setFont(Estilos.getFuenteCuerpo());
         jLResultado.setForeground(Estilos.getColorFuenteCuerpo());
@@ -377,6 +398,19 @@ public class RestoDiv extends javax.swing.JPanel {
         jPanel1.add(TFrespuesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 610, 250, 50));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 660, 250, 10));
 
+        jScrollAlmacenOperaciones.setBorder(null);
+
+        jTextAreaAlmacenOperaconiones.setColumns(20);
+        jTextAreaAlmacenOperaconiones.setFont(Estilos.getFuenteCuerpo());
+        jTextAreaAlmacenOperaconiones.setForeground(Estilos.getColorFuenteCuerpo());
+        jTextAreaAlmacenOperaconiones.setRows(5);
+        jTextAreaAlmacenOperaconiones.setText("Instrucciones de partida");
+        jTextAreaAlmacenOperaconiones.setToolTipText("");
+        jTextAreaAlmacenOperaconiones.setBorder(null);
+        jScrollAlmacenOperaciones.setViewportView(jTextAreaAlmacenOperaconiones);
+
+        jPanel1.add(jScrollAlmacenOperaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 490, 420));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -391,13 +425,24 @@ public class RestoDiv extends javax.swing.JPanel {
 
     private void buttonNewPlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonNewPlayMouseClicked
         //inserta codigo para iniciar la partida
-        controlPartida = false;
-        juego = new MetodosJuegoRestoDiv();
-        juego.iniciarJuego();
-        jLOperacion.setText("El resto de la division de " + juego.getDividendo() + " entre " + juego.getDivisor() + " es:");
-        jLResultado.setText("");
-        TFrespuesta.setText("");
-        TFrespuesta.requestFocus();
+        //Esto evita que una ves precionado el boton de inicio se pueda volver a iniciar una partida
+        if (controlPartida == false) {
+            actualizarAlmacenOperaciones(controlPartida);
+            controlPartida = true;
+            // inicia el juego
+            juego = new MetodosJuegoRestoDiv();
+            juego.crearPregunta();
+            juego.iniciarJuego();
+            //se coloca la pregunta en el panel
+            jLOperacion.setText("El resto de la division de " + juego.getDividendo() + " entre " + juego.getDivisor() + " es:");
+            jLResultado.setText("");
+            TFrespuesta.setText("");
+            //
+            almacenOperaciones = "";
+            //lleva el teclado al campo de la respuesta
+            TFrespuesta.requestFocus();
+        }
+
     }//GEN-LAST:event_buttonNewPlayMouseClicked
 
     private void buttonNewPlayMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonNewPlayMouseEntered
@@ -422,16 +467,32 @@ public class RestoDiv extends javax.swing.JPanel {
     private void TFrespuestaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFrespuestaKeyPressed
         // TODO add your handling code here:
         int key = evt.getKeyCode();
-        if (key == KeyEvent.VK_ENTER && controlPartida == false) {
-        juego.terminarJuego();
-            if (TFrespuesta.getText().equalsIgnoreCase(Integer.toString(juego.getRespuesta()))) {
-                jLResultado.setText("¡Correcto! tiempo: " + juego.getTiempoPartida() + " segundos");
+        if (key == KeyEvent.VK_ENTER && controlPartida == true) {
+            System.out.println("");
+            if (juego.comprobarRespuesta(TFrespuesta.getText())) {
                 jLResultado.setForeground(Color.GREEN);
+                jLResultado.setText("¡Correcto!");
+                actualizarAlmacenOperaciones(true);
             } else {
-                jLResultado.setText("Incorrecto, la respuesta es: " + juego.getRespuesta() + " tiempo: " +juego.getTiempoPartida() + " segundos");
                 jLResultado.setForeground(Color.RED);
+                jLResultado.setText("Incorrecto, la respuesta es: " + juego.getRespuesta());
+                actualizarAlmacenOperaciones(false);
             }
-            controlPartida = true;
+
+            TFrespuesta.setText("");
+            TFrespuesta.requestFocus();
+
+            if (juego.comprobarQuedanIntentos()) {
+                juego.crearPregunta();
+                jLOperacion.setText("El resto de la division de " + juego.getDividendo() + " entre " + juego.getDivisor() + " es:");
+            } else {
+                juego.terminarJuego();
+                controlPartida = false;
+                jLOperacion.setText("Aciertos: " + juego.getAciertos() + ", Tiempo: " + juego.getTiempoPartida() + " sec");
+                BBDDMetodosRestoDiv.insertResultado(Main.getCon(), juego.getAciertos(), juego.getTiempoPartida());
+                // actualiza la informacion de las tablas
+                actualizarTablas();
+            }
         }
     }//GEN-LAST:event_TFrespuestaKeyPressed
 
@@ -440,12 +501,11 @@ public class RestoDiv extends javax.swing.JPanel {
         TFrespuesta.setText("");
         TFrespuesta.setForeground(Color.black);
     }//GEN-LAST:event_TFrespuestaFocusGained
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Estadisticas;
     private javax.swing.JPanel Informacion;
     private javax.swing.JTextField TFrespuesta;
-    private javax.swing.JLabel bienvenido;
     private javax.swing.JPanel buttonNewPlay;
     private javax.swing.JLabel jLOperacion;
     private javax.swing.JLabel jLResultado;
@@ -457,8 +517,10 @@ public class RestoDiv extends javax.swing.JPanel {
     private javax.swing.JScrollPane jSPbestPlays;
     private javax.swing.JScrollPane jSPlastPlays;
     private javax.swing.JScrollPane jSPranking;
+    private javax.swing.JScrollPane jScrollAlmacenOperaciones;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTclasificacion;
+    private javax.swing.JTextArea jTextAreaAlmacenOperaconiones;
     private javax.swing.JTable jTmejoresPartidas;
     private javax.swing.JTable jTultimasPartidas;
     // End of variables declaration//GEN-END:variables

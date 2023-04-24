@@ -21,12 +21,50 @@ public class BBDDMetodosRestoDiv {
      * Inserta en la BBDD la puntuacion del jugador para el juego Resto Division
      *
      * @param con
-     * @param puntos
-     * @param tiempo_partida al pasarle un entero como tiempo los considera como
-     * segundos y los almacena bien mientras no dure mas de 1 min
-     * @param tipo
+     * @param aciertos se pasan los aciertos del jugador
+     * @param tiempo_partida se pasan los segundos como entero
      */
-    public static void insertResultado(Connection con, int puntos, int tiempo_partida, String tipo) {
+    public static void insertResultado(Connection con, int aciertos, int tiempo_partida) {
+        PreparedStatement ps = null;
+        PreparedStatement psBusqueda = null;
+        ResultSet rs = null;
+
+        //Variable nombre del juego
+        String nombreJuego = "RestoDiv";
+
+        //SQL
+        String select = "select id_reto from reto where nombre_reto = ? and nivel = ?";
+        String insert = "insert into resto_div(jugador,reto,aciertos,tiempo_partida) values (?,?,?,sec_to_time(?))";
+
+        try {
+
+            //ejecuta esta sentencia para buscar ID del reto corresponde con el jugador. Pensado por si añadimos mas cosas al mismo reto 
+            psBusqueda = con.prepareStatement(select);
+            psBusqueda.setString(1, nombreJuego);
+            psBusqueda.setInt(2, Integer.parseInt(Usuario.getCurso()));
+            rs = psBusqueda.executeQuery();
+
+            // si existe reto para ese jugador lo inserta.
+            if (rs.next()) {
+                ps = con.prepareStatement(insert);
+                ps.setInt(1, Usuario.getIdUsuario());
+                ps.setString(2, rs.getString(1));
+                ps.setInt(3, aciertos);
+                ps.setInt(4, tiempo_partida);
+
+                //CUANDO REALIZAMOS UNA INSERT SE UTILIZA EXECUTE UPDATE
+                ps.executeUpdate();
+
+            } else {
+                System.err.println("FALLO EN LA BUSQUEDA, ERROR AL INSERTAR DATOS");
+            }
+
+        } catch (NumberFormatException e) {
+            System.err.println("Error de conversion de numero");
+        } catch (SQLException ex) {
+            Logger.getLogger(MetodosCalculo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
     /**
