@@ -1,0 +1,6 @@
+1º
+Crear la carpeta donde se almacenara la informacion y cargar la WEB en ella.
+2º
+redireccionamos el contenedor a la carpeta web y elegimos la ip de salida. 
+docker run --name cafewebftp -v /home/gutierrezramiro/cafewebftp/:/usr/share/nginx/html/:ro -p 8081:80 -d nginx:1.23.4 
+
