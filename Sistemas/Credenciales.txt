@@ -1,0 +1,10 @@
+Maquina Alpine
+user: gutierrezramiro
+pass: 1234
+
+su
+pass: 1234
+
+portainer
+user:admin
+pass:123412341234
