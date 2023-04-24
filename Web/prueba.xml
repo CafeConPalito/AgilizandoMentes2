@@ -4,10 +4,19 @@
     <channel>
 
         <title>Cafe Con Palito Noticias</title>
-        <link>http://192.168.24.16:8080</link>
+        <link>http://192.168.24.16:8081</link>
         <description>Canal de noticias de Cafe Con Palito</description>
         <copyright>CC 4.0 – BY-SA</copyright>
 
+        <item>
+            <title>AlternativeTo: Crowdsourced software recommendations</title>
+            <link>https://alternativeto.net/platform/windows/</link>
+            <guid>https://alternativeto.net/platform/windows/</guid>
+            <description>Pagina de descargas de software que recomienda alternativas a los programas más conocidos.
+             Valoraciones. gran seleccion. Diferentes plataformas.</description>
+            <author>rgutierrezv03@educantabria.es (ramiro gutiérrez)</author>
+            <pubDate>Mon, 24 Apr 2023 16:00:00 GMT</pubDate>
+        </item>
         <item>
             <title>SAM: La IA de Meta que LO SEGMENTA TODO!</title>
             <link>https://www.youtube.com/watch?v=NmwC393cg_o</link>
@@ -23,8 +32,8 @@
 
         <item>
             <title>Creada la Empresa Cafe Con Palito</title>
-            <link>http://192.168.24.16:8080</link>
-            <guid>http://192.168.24.16:8080</guid>
+            <link>http://192.168.24.16:8081</link>
+            <guid>http://192.168.24.16:8081</guid>
             <description>Creamos la empresa Cafe con Palito para el reto Agiliza Mentes</description>
             <author>despinosag02@educantabria.es (daniel espinosa)</author>
             <pubDate>Thu, 20 Apr 2023 18:00:00 GMT</pubDate>

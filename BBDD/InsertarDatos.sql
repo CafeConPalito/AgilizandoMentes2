@@ -1,4 +1,4 @@
-use bbdd;
+use BBDD;
 insert into usuario (nombre_usuario,contrasena,alias) values
 ('Cbarrios',md5(12345),'AliasKaren'),
 ('Despinosa',md5(12345),'AliasDaniel'),
