@@ -25,6 +25,16 @@ public class MetodosJuegoRestoDiv {
     private int nivelB;
     private Tiempo tiempo = new Tiempo();
 
+    public void crearPregunta() {
+        implementarNivel();
+        dividendo = (int) (Math.random() * nivelA + 1);
+        divisor = (int) (Math.random() * nivelB + 1);
+        while (divisor > dividendo) {
+            divisor = (int) (Math.random() * nivelB + 1);
+        }
+        respuesta = dividendo % divisor;
+    }
+
     private void implementarNivel() {
         switch (Usuario.getCurso()) {
             case "1":
@@ -48,17 +58,7 @@ public class MetodosJuegoRestoDiv {
         }
 
     }
-
-    public void crearPregunta() {
-        implementarNivel();
-        dividendo = (int) (Math.random() * nivelA + 1);
-        divisor = (int) (Math.random() * nivelB + 1);
-        while (divisor > dividendo) {
-            divisor = (int) (Math.random() * nivelB + 1);
-        }
-        respuesta = dividendo % divisor;
-    }
-
+    
     /**
      * Metodo que comprueba si la respuesta es correcta, y añade 1 a los
      * aciertos

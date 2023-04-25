@@ -48,11 +48,12 @@ public class Euclides {
 
         // Para evitar que el MaximoComunDivisor sea 1, pasa casi siempre,
         // se coloca un contador y condicion para volver a intentarlo y volver a lanzar el juego
+        
         if (maximoComunDivisor == 1 && contador > 0) {
             contador --;
             iniciarJuego();
         }
-
+        
     }
 
     public int getNumeroMayor() {

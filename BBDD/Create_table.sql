@@ -81,3 +81,8 @@ constraint fk_resto_usuario foreign key (jugador) references usuario(id_usuario)
 constraint fk_resto_reto foreign key (reto) references reto (id_reto) on delete restrict on update cascade
 );
 
+-- Vista Resto_Div 
+Create view view_resto_div_jugador as select alias, id_usuario, nombre_reto, reto,nivel,fecha_hora,aciertos,tiempo_partida from resto_div inner join reto on reto = id_reto inner join usuario on id_usuario = jugador;
+
+-- todo de usuarios
+create view view_info_usuario as select nombre_usuario,contrasena,alias,nombre,apellido1,apellido2,dni,email,curso,fecha_naci,profesor from usuario inner join persona using (id_usuario);
