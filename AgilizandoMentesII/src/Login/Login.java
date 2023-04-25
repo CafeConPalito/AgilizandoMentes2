@@ -260,7 +260,7 @@ public class Login extends javax.swing.JPanel {
     }//GEN-LAST:event_TFUsuarioActionPerformed
 
     private void BotonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMouseEntered
-        Boton.setBackground(Estilos.getColorFuenteRegistroLogin());
+        Boton.setBackground(Estilos.getColorSobreBoton());
     }//GEN-LAST:event_BotonMouseEntered
 
     private void BotonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMouseExited

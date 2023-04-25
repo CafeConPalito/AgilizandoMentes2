@@ -5,6 +5,7 @@
 package RestoDiv;
 
 import Tiempo.Tiempo;
+import Usuario.*;
 
 /**
  *
@@ -20,19 +21,48 @@ public class MetodosJuegoRestoDiv {
     private int tiempoPartida;
     private int aciertos = 0;
     private int intentos = 5;
+    private int nivelA;
+    private int nivelB;
     private Tiempo tiempo = new Tiempo();
 
+    private void implementarNivel() {
+        switch (Usuario.getCurso()) {
+            case "1":
+                nivelA = 10;
+                nivelB = 10;
+                break;
+            case "2":
+                nivelA = 100;
+                nivelB = 10;
+                break;
+            case "3":
+                nivelA = 100;
+                nivelB = 100;
+                break;
+            case "4":
+                nivelA = 1000;
+                nivelB = 100;
+                break;
+            default:
+                throw new AssertionError();
+        }
+
+    }
+
     public void crearPregunta() {
-        dividendo = (int) (Math.random() * 100 + 1);
-        divisor = (int) (Math.random() * 100 + 1);
+        implementarNivel();
+        dividendo = (int) (Math.random() * nivelA + 1);
+        divisor = (int) (Math.random() * nivelB + 1);
         while (divisor > dividendo) {
-            divisor = (int) (Math.random() * 100 + 1);
+            divisor = (int) (Math.random() * nivelB + 1);
         }
         respuesta = dividendo % divisor;
     }
 
     /**
-     * Metodo que comprueba si la respuesta es correcta, y añade 1 a los aciertos
+     * Metodo que comprueba si la respuesta es correcta, y añade 1 a los
+     * aciertos
+     *
      * @param respuesta
      * @return boolean si la respuesta es correcta
      */
