@@ -555,7 +555,6 @@ public class Register extends javax.swing.JPanel {
         registrar.setForeground(new java.awt.Color(255, 255, 255));
         registrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         registrar.setText("REGISTRAR");
-        registrar.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         javax.swing.GroupLayout RegistrarLayout = new javax.swing.GroupLayout(Registrar);
         Registrar.setLayout(RegistrarLayout);
@@ -565,13 +564,10 @@ public class Register extends javax.swing.JPanel {
         );
         RegistrarLayout.setVerticalGroup(
             RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RegistrarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(registrar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(registrar, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        fondoRegistro.add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 580, 190, -1));
+        fondoRegistro.add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 560, 190, 50));
 
         profesor.setFont(Estilos.getFuenteCuerpo());
         profesor.setText("Soy Profesor");
@@ -843,7 +839,7 @@ public class Register extends javax.swing.JPanel {
     }//GEN-LAST:event_RegistrarMouseClicked
 
     private void RegistrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarMouseEntered
-        Registrar.setBackground(Estilos.getColorFuenteRegistroLogin());
+        Registrar.setBackground(Estilos.getColorSobreBoton());
     }//GEN-LAST:event_RegistrarMouseEntered
 
     private void RegistrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarMouseExited
