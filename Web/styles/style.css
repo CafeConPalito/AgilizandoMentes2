@@ -13,12 +13,16 @@ nav{
     text-align: center;
     list-style: none;
     margin-top: 0%;
-    padding: 15px;
+    
 }
 nav a{
+    padding:30px;
     width: 25%;
     text-decoration: none;
     color: white;
+}
+nav a:hover{
+    background-color: rgb(0, 153, 255);
 }
 #logo{
     padding-top: 200px;
@@ -27,28 +31,40 @@ nav a{
 }
 
 #noticias{
-    padding-top: 100px;
+    padding-top: 200px;
     width: 70%;
     text-align: center;
     margin-left: 15%;
 }
-#proyectos{
+#noticia1{
+    display: flex;
+    
     padding-top: 100px;
+}
+#textonoticia{
+    text-align: justify;
+    padding-right:50px;
+}
+#proyectos{
+    padding-top: 200px;
     width: 70%;
     text-align: center;
     margin-left: 15%;
 }
 #sobre{
-    padding-top: 100px;
+    padding-top: 200px;
     width: 70%;
     text-align: center;
     margin-left: 15%;
+    padding-bottom:200px;
 }
 #pie {
-    padding-top: 100px;
-    width: 70%;
+    background-color: rgb(0, 155, 155);
+    padding-top: 200px;
+    width: 100%;
     text-align: center;
-    margin-left: 15%;
+    padding-bottom:200px;
+    color: white;
 }
 
 #integrantes {
@@ -62,9 +78,9 @@ nav a{
     float: left;
 }
 #direccion{
+    color: white;
     display:flex;
-    margin: auto;
-    float: left;
+    justify-content: center;
 }
 #direcompleta{
     margin: 30px;
