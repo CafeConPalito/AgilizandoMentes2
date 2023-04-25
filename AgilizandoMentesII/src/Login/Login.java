@@ -13,6 +13,7 @@ import Profesor.BienvenidaP;
 import Profesor.PanelProfesor;
 import Usuario.Usuario;
 import java.awt.Container;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -95,6 +96,11 @@ public class Login extends javax.swing.JPanel {
         PWF.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 PWFMousePressed(evt);
+            }
+        });
+        PWF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                PWFKeyPressed(evt);
             }
         });
 
@@ -254,7 +260,7 @@ public class Login extends javax.swing.JPanel {
     }//GEN-LAST:event_TFUsuarioActionPerformed
 
     private void BotonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMouseEntered
-        Boton.setBackground(Estilos.getColorFuenteRegistroLogin());
+        Boton.setBackground(Estilos.getColorSobreBoton());
     }//GEN-LAST:event_BotonMouseEntered
 
     private void BotonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMouseExited
@@ -289,7 +295,7 @@ public class Login extends javax.swing.JPanel {
     private void BotonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMouseClicked
         errorU.setVisible(false);
         errorC.setVisible(false);
-        
+
         //Compruebo que existe el usuario
         if (MetodosUsuario.loginUsuario(Main.getCon(), TFUsuario.getText())) {
             //Compruebo que introduce bien la contraseña
@@ -300,7 +306,7 @@ public class Login extends javax.swing.JPanel {
                     //Confirmo que se ha logueado para que no vuelva atras
                     Usuario.setUsuario(TFUsuario.getText());
                     MetodosUsuario.generarUsuario(Main.getCon());
-                    
+
                     //Muestro los paneles del alumno
                     PanelAlumno pa1 = new PanelAlumno();
                     pa1.setSize(210, 400);
@@ -321,11 +327,11 @@ public class Login extends javax.swing.JPanel {
                     Main.setIslogin(true);
 
                 } else {
-                    
+
                     //Confirmo que se ha logueado para que no vuelva atras
                     Usuario.setUsuario(TFUsuario.getText());
                     MetodosUsuario.generarUsuario(Main.getCon());
-                    
+
                     //Muestro los paneles del profesor
                     PanelProfesor pp1 = new PanelProfesor();
                     pp1.setSize(210, 330);
@@ -344,7 +350,7 @@ public class Login extends javax.swing.JPanel {
                     Main.getCuerpo().repaint();
 
                     Main.setIslogin(true);
-                    
+
                 }
             } else {
                 //Muestro el error que se ha equivocado con la contraseña
@@ -375,7 +381,7 @@ public class Login extends javax.swing.JPanel {
     }//GEN-LAST:event_registraMouseClicked
 
     private void PWFFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_PWFFocusGained
-         if (String.valueOf(PWF.getPassword()).equals("********")) {
+        if (String.valueOf(PWF.getPassword()).equals("********")) {
             PWF.setText("");
             PWF.setForeground(Color.black);
         }
@@ -386,7 +392,7 @@ public class Login extends javax.swing.JPanel {
     }//GEN-LAST:event_PWFFocusGained
 
     private void TFUsuarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TFUsuarioFocusGained
-          if (TFUsuario.getText().equals("Inserte su nombre de usuario")) {
+        if (TFUsuario.getText().equals("Inserte su nombre de usuario")) {
             TFUsuario.setText("");
             TFUsuario.setForeground(Color.black);
         }
@@ -395,6 +401,76 @@ public class Login extends javax.swing.JPanel {
             TFUsuario.setForeground(Color.gray);
         }
     }//GEN-LAST:event_TFUsuarioFocusGained
+
+    private void PWFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PWFKeyPressed
+        int key = evt.getKeyCode();
+        if (key == KeyEvent.VK_ENTER && !String.valueOf(PWF.getPassword()).equals("********")) {
+            //Compruebo que existe el usuario
+            if (MetodosUsuario.loginUsuario(Main.getCon(), TFUsuario.getText())) {
+                //Compruebo que introduce bien la contraseña
+                if (MetodosUsuario.loginContrasena(Main.getCon(), TFUsuario.getText(), String.copyValueOf(PWF.getPassword()))) {
+                    //Compruebo si es alumno
+                    if (!MetodosUsuario.comprobarEsProfesor(Main.getCon(), TFUsuario.getText())) {
+
+                        //Confirmo que se ha logueado para que no vuelva atras
+                        Usuario.setUsuario(TFUsuario.getText());
+                        MetodosUsuario.generarUsuario(Main.getCon());
+
+                        //Muestro los paneles del alumno
+                        PanelAlumno pa1 = new PanelAlumno();
+                        pa1.setSize(210, 400);
+                        pa1.setLocation(0, 0);
+                        Main.getPanelVacio().removeAll();
+                        Main.getPanelVacio().add(pa1);
+                        Main.getPanelVacio().revalidate();
+                        Main.getPanelVacio().repaint();
+
+                        BienvenidaA bienvenidaA = new BienvenidaA();
+                        bienvenidaA.setSize(1070, 720);
+                        bienvenidaA.setLocation(0, 0);
+                        Main.getCuerpo().removeAll();
+                        Main.getCuerpo().add(bienvenidaA);
+                        Main.getCuerpo().revalidate();
+                        Main.getCuerpo().repaint();
+
+                        Main.setIslogin(true);
+
+                    } else {
+
+                        //Confirmo que se ha logueado para que no vuelva atras
+                        Usuario.setUsuario(TFUsuario.getText());
+                        MetodosUsuario.generarUsuario(Main.getCon());
+
+                        //Muestro los paneles del profesor
+                        PanelProfesor pp1 = new PanelProfesor();
+                        pp1.setSize(210, 330);
+                        pp1.setLocation(0, 0);
+                        Main.getPanelVacio().removeAll();
+                        Main.getPanelVacio().add(pp1);
+                        Main.getPanelVacio().revalidate();
+                        Main.getPanelVacio().repaint();
+
+                        BienvenidaP bienvenidaP = new BienvenidaP();
+                        bienvenidaP.setSize(1070, 720);
+                        bienvenidaP.setLocation(0, 0);
+                        Main.getCuerpo().removeAll();
+                        Main.getCuerpo().add(bienvenidaP);
+                        Main.getCuerpo().revalidate();
+                        Main.getCuerpo().repaint();
+
+                        Main.setIslogin(true);
+
+                    }
+                } else {
+                    //Muestro el error que se ha equivocado con la contraseña
+                    errorC.setVisible(true);
+                }
+            } else {
+                //Muestro que se ha equivocado con el usaurio
+                errorU.setVisible(true);
+            }
+        }
+    }//GEN-LAST:event_PWFKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

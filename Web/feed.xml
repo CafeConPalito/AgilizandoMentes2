@@ -4,19 +4,61 @@
     <channel>
 
         <title>Cafe Con Palito Noticias</title>
-        <link>https://www.google.com</link>
+        <link>http://192.168.24.16:8081</link>
         <description>Canal de noticias de Cafe Con Palito</description>
         <copyright>CC 4.0 – BY-SA</copyright>
 
         <item>
+            <title>Oracle anuncia la disponibilidad de Java 20</title>
+            <link>https://www.muycomputerpro.com/2023/03/23/oracle-java-20</link>
+            <guid>https://www.muycomputerpro.com/2023/03/23/oracle-java-20</guid>
+            <description>Oracle ha confirmado, en el marco del Oracle DevLive Level Up, la disponibilidad de Java 20, la versión más reciente de la plataforma de desarrollo. Ofrece numerosas mejoras en rendimiento, estabilidad y seguridad.</description>
+            <author>adiezd07@educantabria.es (Albano Díez)</author>
+            <pubDate>Mon, 25 Apr 2023 16:17:00 GMT</pubDate>
+        </item>
+        
+
+        <item>
+            <title>ChatGPT: qué es, cómo usarlo y qué puedes hacer con este chat de inteligencia artificial GPT-3</title>
+            <link>https://www.xataka.com/basics/chatgpt-que-como-usarlo-que-puedes-hacer-este-chat-inteligencia-artificial</link>
+            <guid>https://www.xataka.com/basics/chatgpt-que-como-usarlo-que-puedes-hacer-este-chat-inteligencia-artificial</guid>
+            <description>Explicación sobre ChatGPT: qué es, cómo usarlo y qué puedes hacer con este chat de inteligencia artificial</description>
+            <author>mbarriosf02@educantabria.es (Carmen Barrios)</author>
+            <pubDate>Mon, 24 Apr 2023 18:00:00 GMT</pubDate>
+        </item>
+        
+
+        <item>
+            <title>AlternativeTo: Crowdsourced software recommendations</title>
+            <link>https://alternativeto.net/platform/windows/</link>
+            <guid>https://alternativeto.net/platform/windows/</guid>
+            <description>Pagina de descargas de software que recomienda alternativas a los programas más conocidos.
+             Valoraciones. gran seleccion. Diferentes plataformas.</description>
+            <author>rgutierrezv03@educantabria.es (ramiro gutiérrez)</author>
+            <pubDate>Mon, 24 Apr 2023 16:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>SAM: La IA de Meta que LO SEGMENTA TODO!</title>
+            <link>https://www.youtube.com/watch?v=NmwC393cg_o</link>
+            <guid>https://www.youtube.com/watch?v=NmwC393cg_o</guid>
+            <description>Dot CSV - SAM o Segment Anything Model es el nuevo trabajo de Meta que
+                promete acelerar los avances en visión por computador con Inteligencia Artificial.
+                Un modelo capaz de segmentar los elementos característicos de una imagen, sin
+                importar no haberlo visto nunca antes. Un modelo que será muy útil tanto para la
+                generación de futuros datasets como para su uso en tecnologías de AR.</description>
+            <author>despinosag02@educantabria.es (daniel espinosa)</author>
+            <pubDate>Fri, 21 Apr 2023 19:00:00 GMT</pubDate>
+        </item>
+
+        <item>
             <title>Creada la Empresa Cafe Con Palito</title>
-            <link>http://localhost:8080</link>
-            <guid>http://localhost:8080</guid>
+            <link>http://192.168.24.16:8081</link>
+            <guid>http://192.168.24.16:8081</guid>
             <description>Creamos la empresa Cafe con Palito para el reto Agiliza Mentes</description>
             <author>despinosag02@educantabria.es (daniel espinosa)</author>
             <pubDate>Thu, 20 Apr 2023 18:00:00 GMT</pubDate>
         </item>
-        
+
     </channel>
 
 </rss>

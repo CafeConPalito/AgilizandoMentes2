@@ -3,40 +3,113 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#menu {
+nav {
     background-color: rgb(0, 155, 155);
     display: flex;
     position: fixed;
     top: 0;
     width: 100%;
     align-content: space-between;
-    text-align: right;
-}
-
-#menu header{
-    width: 10%;
-}
-#menu header img {
-    width: 80%;
-
-}
-#menu header nav {
-    width: 90%;
-
-}
-
-#menu nav ul {
-    width: 90%;
-    display: flex;
+    text-align: center;
     list-style: none;
+    margin-top: 0%;
+
 }
-#cuerpo{
-    margin-top: 10%;
+
+nav a {
+    padding: 30px;
+    width: 25%;
+    text-decoration: none;
+    color: white;
+}
+
+nav a:hover {
+    background-color: rgb(69, 195, 195);
+}
+
+#logo {
+    padding-top: 200px;
+    justify-content: center;
     text-align: center;
 }
-#pie{
+
+#noticias {
+    padding-top: 100px;
+    width: 70%;
     text-align: center;
+    margin-left: 15%;
+    padding-bottom: 100px;
 }
-#integrantes{
+
+#noticia1 {
     display: flex;
+
+    padding-top: 50px;
+}
+
+#textonoticia {
+    text-align: justify;
+    padding-right: 50px;
+}
+
+#proyectos {
+    padding-top: 100px;
+    width: 70%;
+    text-align: center;
+    margin-left: 15%;
+    padding-bottom: 100px;
+}
+#proyecto1 {
+    display: flex;
+
+    padding-top: 50px;
+}
+
+#textoproyecto {
+    text-align: justify;
+    padding-right: 50px;
+}
+
+#sobre {
+    padding-top: 100px;
+    width: 70%;
+    text-align: center;
+    margin-left: 15%;
+    padding-bottom: 200px;
+}
+
+#pie {
+    background-color: rgb(0, 155, 155);
+    padding-top: 100px;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 150px;
+    color: white;
+}
+
+#integrantes {
+    display: flex;
+    justify-content: center;
+
+}
+
+#integrantes div.fotos {
+    margin: 30px;
+    float: left;
+}
+
+#direccion {
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+#direcompleta {
+    margin: 30px;
+
+}
+
+#mapa {
+    margin: 30px;
+
 }
