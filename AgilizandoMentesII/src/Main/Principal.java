@@ -104,13 +104,13 @@ public class Principal {
         } catch (SQLException e) {
         }
          */
- /*
+
         //EUCLIDES
         //Funciona, se crea un objeto de esa clase y se inicializa la partida. esto genera solo los dos numeros iniciales y almacena el Maximo comun divisor.
         Euclides partida = new Euclides();
         partida.iniciarJuego();
         System.out.println("numero A: " + partida.getNumeroMayor() + ", Numero B: " + partida.getNumeroMenor() + ", Maximo comun divisor: " + partida.getMaximoComunDivisor());
-         */
+        
         //RestoDiv
         /*
         MetodosJuegoRestoDiv juego = new MetodosJuegoRestoDiv();
@@ -129,7 +129,7 @@ public class Principal {
         }
          */
         //RestoDiv
-        BBDDMetodosRestoDiv.selectClasificacion(con);
+        //BBDDMetodosRestoDiv.selectClasificacion(con);
         
         
         conBD.desconectar();
