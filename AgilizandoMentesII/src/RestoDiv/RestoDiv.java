@@ -9,6 +9,7 @@ import Usuario.Usuario;
 import Ajustes.*;
 import Main.Main;
 import java.awt.Color;
+import java.awt.ComponentOrientation;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
@@ -300,19 +301,19 @@ public class RestoDiv extends javax.swing.JPanel {
             .addGroup(InformacionLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Estadisticas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
                 .addComponent(jLranking, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSPranking, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSPranking, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLbestPlays, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSPbestPlays, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                .addComponent(jSPbestPlays, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLlastPlays, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSPlastPlays, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
-                .addGap(83, 83, 83))
+                .addComponent(jSPlastPlays, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
 
         jPanel1.add(Informacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 490, 720));
@@ -322,12 +323,12 @@ public class RestoDiv extends javax.swing.JPanel {
         jLOperacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLOperacion.setText("Operacion");
         jLOperacion.setToolTipText("");
-        jPanel1.add(jLOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 490, 40));
+        jPanel1.add(jLOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 490, 40));
 
         jLResultado.setFont(Estilos.getFuenteCuerpo());
         jLResultado.setForeground(Estilos.getColorFuenteCuerpo());
         jLResultado.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jPanel1.add(jLResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 550, 490, 40));
+        jPanel1.add(jLResultado, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 490, 40));
 
         jLTitulo.setFont(Estilos.getFuenteCuerpo());
         jLTitulo.setForeground(Estilos.getColorFuenteCuerpo());
@@ -368,7 +369,7 @@ public class RestoDiv extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel1.add(buttonNewPlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 610, 180, 50));
+        jPanel1.add(buttonNewPlay, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 180, 50));
 
         TFrespuesta.setFont(Estilos.getFuenteCuerpo());
         TFrespuesta.setForeground(new java.awt.Color(204, 204, 204));
@@ -395,8 +396,8 @@ public class RestoDiv extends javax.swing.JPanel {
                 TFrespuestaKeyPressed(evt);
             }
         });
-        jPanel1.add(TFrespuesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 610, 250, 50));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 660, 250, 10));
+        jPanel1.add(TFrespuesta, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 250, 50));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 250, 10));
 
         jScrollAlmacenOperaciones.setBorder(null);
 
@@ -409,7 +410,7 @@ public class RestoDiv extends javax.swing.JPanel {
         jTextAreaAlmacenOperaconiones.setBorder(null);
         jScrollAlmacenOperaciones.setViewportView(jTextAreaAlmacenOperaconiones);
 
-        jPanel1.add(jScrollAlmacenOperaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 490, 420));
+        jPanel1.add(jScrollAlmacenOperaciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 490, 440));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
