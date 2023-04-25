@@ -1,19 +1,17 @@
-/*Realiza una calculadora con las herramientas gráficas de NetBeans. Debes incluir:
-
-Un cuadro de texto donde se mostrará la operación seleccionada por el usuario.
-Un botón "igual" que, al pulsarlo, cambie el contenido del cuadro y muestre el resultado de la operación (en caso de ser posible).
-Un botón para cada número entero del 0 al 9 (ambos incluidos).
-Cinco botones con las operaciones suma, resta, multiplicación, división y raíz cuadrada.
-Debes incluir al menos dos paneles (con marcos) para agrupar los elementos anteriores.
-Debes tratar al menos las excepciones relacionadas con dividir entre cero y calcular la raíz cuadrada de un número negativo.
-El usuario solo podrá seleccionar operaciones con números enteros, aunque el resultado podrá ser decimal en algunas operaciones.*/
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 package Calculadora;
 
-import javax.swing.JFrame;
+import Ajustes.Estilos;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
 
 /**
- * 
- * @author CafeConPalito
+ *
+ * @author terciodemarte
  */
 public class Calculadora extends javax.swing.JFrame {
 
@@ -29,10 +27,19 @@ public class Calculadora extends javax.swing.JFrame {
         5 para raiz cuadrada
      */
     private int maxCaracteres = 20;
-
+    /**
+     * Creates new form Calculadora2
+     */
     public Calculadora() {
         initComponents();
+       
     }
+    
+    @Override
+    public Image getIconImage() {
+    Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Images/calculadora.png"));
+    return retValue;
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -43,402 +50,894 @@ public class Calculadora extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        number1 = new javax.swing.JButton();
-        number2 = new javax.swing.JButton();
-        number3 = new javax.swing.JButton();
-        number4 = new javax.swing.JButton();
-        number5 = new javax.swing.JButton();
-        number6 = new javax.swing.JButton();
-        number7 = new javax.swing.JButton();
-        number8 = new javax.swing.JButton();
-        number9 = new javax.swing.JButton();
-        number0 = new javax.swing.JButton();
-        comaButon = new javax.swing.JButton();
-        reset = new javax.swing.JButton();
-        salir = new javax.swing.JButton();
-        igual = new javax.swing.JButton();
-        suma = new javax.swing.JButton();
-        resta = new javax.swing.JButton();
-        multiplicacion = new javax.swing.JButton();
-        division = new javax.swing.JButton();
-        raiz = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        background = new javax.swing.JPanel();
+        display = new javax.swing.JPanel();
         output = new javax.swing.JTextField();
         input = new javax.swing.JTextField();
+        boton = new javax.swing.JPanel();
+        b1 = new javax.swing.JPanel();
+        t1 = new javax.swing.JLabel();
+        b2 = new javax.swing.JPanel();
+        t2 = new javax.swing.JLabel();
+        b7 = new javax.swing.JPanel();
+        t7 = new javax.swing.JLabel();
+        b8 = new javax.swing.JPanel();
+        t8 = new javax.swing.JLabel();
+        b9 = new javax.swing.JPanel();
+        t9 = new javax.swing.JLabel();
+        suma = new javax.swing.JPanel();
+        t10 = new javax.swing.JLabel();
+        b3 = new javax.swing.JPanel();
+        t3 = new javax.swing.JLabel();
+        b4 = new javax.swing.JPanel();
+        t4 = new javax.swing.JLabel();
+        b5 = new javax.swing.JPanel();
+        t5 = new javax.swing.JLabel();
+        b6 = new javax.swing.JPanel();
+        t6 = new javax.swing.JLabel();
+        resta = new javax.swing.JPanel();
+        t11 = new javax.swing.JLabel();
+        multi = new javax.swing.JPanel();
+        t12 = new javax.swing.JLabel();
+        dividir = new javax.swing.JPanel();
+        t13 = new javax.swing.JLabel();
+        b0 = new javax.swing.JPanel();
+        t0 = new javax.swing.JLabel();
+        bc = new javax.swing.JPanel();
+        tc = new javax.swing.JLabel();
+        bc1 = new javax.swing.JPanel();
+        tc1 = new javax.swing.JLabel();
+        salir = new javax.swing.JPanel();
+        tc2 = new javax.swing.JLabel();
+        raiz = new javax.swing.JPanel();
+        t14 = new javax.swing.JLabel();
+        igual = new javax.swing.JPanel();
+        t16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 255, 255));
+        setTitle("calculadora");
+        setIconImages(getIconImages());
+        setLocation(new java.awt.Point(20, 20));
         setResizable(false);
-
-        number1.setText("1");
-        number1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        number1.setMaximumSize(new java.awt.Dimension(24, 24));
-        number1.setMinimumSize(new java.awt.Dimension(24, 24));
-        number1.setPreferredSize(new java.awt.Dimension(26, 26));
-        number1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                number1ActionPerformed(evt);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
             }
         });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        number2.setText("2");
-        number2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        number2.setMaximumSize(new java.awt.Dimension(24, 24));
-        number2.setMinimumSize(new java.awt.Dimension(24, 24));
-        number2.setPreferredSize(new java.awt.Dimension(26, 26));
-        number2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                number2ActionPerformed(evt);
-            }
-        });
+        background.setBackground(Estilos.getColorPanelBlanco());
 
-        number3.setText("3");
-        number3.setToolTipText("");
-        number3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        number3.setMaximumSize(new java.awt.Dimension(24, 24));
-        number3.setMinimumSize(new java.awt.Dimension(24, 24));
-        number3.setPreferredSize(new java.awt.Dimension(26, 26));
-        number3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                number3ActionPerformed(evt);
-            }
-        });
+        display.setBackground(Estilos.getColorPanelBlanco());
 
-        number4.setText("4");
-        number4.setToolTipText("");
-        number4.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        number4.setMaximumSize(new java.awt.Dimension(24, 24));
-        number4.setMinimumSize(new java.awt.Dimension(24, 24));
-        number4.setPreferredSize(new java.awt.Dimension(26, 26));
-        number4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                number4ActionPerformed(evt);
-            }
-        });
-
-        number5.setText("5");
-        number5.setToolTipText("");
-        number5.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        number5.setMaximumSize(new java.awt.Dimension(24, 24));
-        number5.setMinimumSize(new java.awt.Dimension(24, 24));
-        number5.setPreferredSize(new java.awt.Dimension(26, 26));
-        number5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                number5ActionPerformed(evt);
-            }
-        });
-
-        number6.setText("6");
-        number6.setToolTipText("");
-        number6.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        number6.setMaximumSize(new java.awt.Dimension(24, 24));
-        number6.setMinimumSize(new java.awt.Dimension(24, 24));
-        number6.setPreferredSize(new java.awt.Dimension(26, 26));
-        number6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                number6ActionPerformed(evt);
-            }
-        });
-
-        number7.setText("7");
-        number7.setToolTipText("");
-        number7.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        number7.setMaximumSize(new java.awt.Dimension(24, 24));
-        number7.setMinimumSize(new java.awt.Dimension(24, 24));
-        number7.setPreferredSize(new java.awt.Dimension(26, 26));
-        number7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                number7ActionPerformed(evt);
-            }
-        });
-
-        number8.setText("8");
-        number8.setToolTipText("");
-        number8.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        number8.setMaximumSize(new java.awt.Dimension(24, 24));
-        number8.setMinimumSize(new java.awt.Dimension(24, 24));
-        number8.setPreferredSize(new java.awt.Dimension(26, 26));
-        number8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                number8ActionPerformed(evt);
-            }
-        });
-
-        number9.setText("9");
-        number9.setToolTipText("");
-        number9.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        number9.setMaximumSize(new java.awt.Dimension(24, 24));
-        number9.setMinimumSize(new java.awt.Dimension(24, 24));
-        number9.setPreferredSize(new java.awt.Dimension(26, 26));
-        number9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                number9ActionPerformed(evt);
-            }
-        });
-
-        number0.setText("0");
-        number0.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        number0.setMaximumSize(new java.awt.Dimension(24, 24));
-        number0.setMinimumSize(new java.awt.Dimension(24, 24));
-        number0.setPreferredSize(new java.awt.Dimension(26, 26));
-        number0.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                number0ActionPerformed(evt);
-            }
-        });
-
-        comaButon.setText(",");
-        comaButon.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        comaButon.setMaximumSize(new java.awt.Dimension(24, 24));
-        comaButon.setMinimumSize(new java.awt.Dimension(24, 24));
-        comaButon.setPreferredSize(new java.awt.Dimension(26, 26));
-        comaButon.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comaButonActionPerformed(evt);
-            }
-        });
-
-        reset.setText("C");
-        reset.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        reset.setMaximumSize(new java.awt.Dimension(24, 24));
-        reset.setMinimumSize(new java.awt.Dimension(24, 24));
-        reset.setPreferredSize(new java.awt.Dimension(26, 26));
-        reset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                resetActionPerformed(evt);
-            }
-        });
-
-        salir.setText("Salir");
-        salir.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                salirActionPerformed(evt);
-            }
-        });
-
-        igual.setText("=");
-        igual.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        igual.setMaximumSize(new java.awt.Dimension(24, 24));
-        igual.setMinimumSize(new java.awt.Dimension(24, 24));
-        igual.setPreferredSize(new java.awt.Dimension(26, 26));
-        igual.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                igualActionPerformed(evt);
-            }
-        });
-
-        suma.setText("+");
-        suma.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        suma.setPreferredSize(new java.awt.Dimension(26, 26));
-        suma.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sumaActionPerformed(evt);
-            }
-        });
-
-        resta.setText("-");
-        resta.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        resta.setPreferredSize(new java.awt.Dimension(26, 26));
-        resta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                restaActionPerformed(evt);
-            }
-        });
-
-        multiplicacion.setText("*");
-        multiplicacion.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        multiplicacion.setPreferredSize(new java.awt.Dimension(26, 26));
-        multiplicacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                multiplicacionActionPerformed(evt);
-            }
-        });
-
-        division.setText("/");
-        division.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        division.setPreferredSize(new java.awt.Dimension(26, 26));
-        division.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                divisionActionPerformed(evt);
-            }
-        });
-
-        raiz.setText("√");
-        raiz.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        raiz.setPreferredSize(new java.awt.Dimension(26, 26));
-        raiz.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                raizActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(number7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(number8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(number9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(number4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(number1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(reset, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(number5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(number6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(number0, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(number2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(number3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(comaButon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(igual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(raiz, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(division, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(suma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(resta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(multiplicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(suma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(resta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(multiplicacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(division, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(raiz, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(number9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(number8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(number7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(number4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(number5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(number6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(number3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(number2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(number1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(reset, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(number0, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comaButon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(igual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(17, Short.MAX_VALUE))
-        );
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setText("Calculadora");
-
+        output.setBackground(Estilos.getColorPanelBlanco());
+        output.setFont(Estilos.getFuenteCuerpo());
         output.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        output.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        output.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        output.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        output.setDisabledTextColor(Estilos.getColorFuenteCuerpo());
         output.setEnabled(false);
-        output.addActionListener(new java.awt.event.ActionListener() {
+
+        input.setBackground(Estilos.getColorPanelBlanco());
+        input.setFont(Estilos.getFuenteCuerpo());
+        input.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        input.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        input.setDisabledTextColor(Estilos.getColorFuenteCuerpo());
+        input.setEnabled(false);
+        input.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                outputActionPerformed(evt);
+                inputActionPerformed(evt);
             }
         });
 
-        input.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        input.setText("0");
-        input.setDisabledTextColor(new java.awt.Color(0, 0, 0));
-        input.setEnabled(false);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout displayLayout = new javax.swing.GroupLayout(display);
+        display.setLayout(displayLayout);
+        displayLayout.setHorizontalGroup(
+            displayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(displayLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(input)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addContainerGap(28, Short.MAX_VALUE))
-                    .addComponent(output)))
+                .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(displayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(displayLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(output, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        displayLayout.setVerticalGroup(
+            displayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, displayLayout.createSequentialGroup()
+                .addGap(0, 53, Short.MAX_VALUE)
+                .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(displayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(displayLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(output, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(49, Short.MAX_VALUE)))
+        );
+
+        boton.setBackground(Estilos.getColorPanelBlanco());
+        boton.setLayout(null);
+
+        b1.setBackground(Estilos.getColorPanel());
+        b1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                b1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                b1MouseExited(evt);
+            }
+        });
+
+        t1.setFont(Estilos.getFuenteCuerpo());
+        t1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        t1.setText("1");
+
+        javax.swing.GroupLayout b1Layout = new javax.swing.GroupLayout(b1);
+        b1.setLayout(b1Layout);
+        b1Layout.setHorizontalGroup(
+            b1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t1, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+        b1Layout.setVerticalGroup(
+            b1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t1, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        boton.add(b1);
+        b1.setBounds(10, 120, 50, 50);
+
+        b2.setBackground(Estilos.getColorPanel());
+        b2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                b2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                b2MouseExited(evt);
+            }
+        });
+
+        t2.setFont(Estilos.getFuenteCuerpo());
+        t2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        t2.setText("2");
+
+        javax.swing.GroupLayout b2Layout = new javax.swing.GroupLayout(b2);
+        b2.setLayout(b2Layout);
+        b2Layout.setHorizontalGroup(
+            b2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t2, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+        b2Layout.setVerticalGroup(
+            b2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t2, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        boton.add(b2);
+        b2.setBounds(70, 120, 50, 50);
+
+        b7.setBackground(Estilos.getColorPanel());
+        b7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                b7MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b7MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                b7MouseExited(evt);
+            }
+        });
+
+        t7.setFont(Estilos.getFuenteCuerpo());
+        t7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        t7.setText("7");
+
+        javax.swing.GroupLayout b7Layout = new javax.swing.GroupLayout(b7);
+        b7.setLayout(b7Layout);
+        b7Layout.setHorizontalGroup(
+            b7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t7, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+        b7Layout.setVerticalGroup(
+            b7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t7, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        boton.add(b7);
+        b7.setBounds(10, 0, 50, 50);
+
+        b8.setBackground(Estilos.getColorPanel());
+        b8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                b8MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b8MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                b8MouseExited(evt);
+            }
+        });
+
+        t8.setFont(Estilos.getFuenteCuerpo());
+        t8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        t8.setText("8");
+
+        javax.swing.GroupLayout b8Layout = new javax.swing.GroupLayout(b8);
+        b8.setLayout(b8Layout);
+        b8Layout.setHorizontalGroup(
+            b8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t8, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+        b8Layout.setVerticalGroup(
+            b8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t8, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        boton.add(b8);
+        b8.setBounds(70, 0, 50, 50);
+
+        b9.setBackground(Estilos.getColorPanel());
+        b9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                b9MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b9MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                b9MouseExited(evt);
+            }
+        });
+
+        t9.setFont(Estilos.getFuenteCuerpo());
+        t9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        t9.setText("9");
+
+        javax.swing.GroupLayout b9Layout = new javax.swing.GroupLayout(b9);
+        b9.setLayout(b9Layout);
+        b9Layout.setHorizontalGroup(
+            b9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t9, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+        b9Layout.setVerticalGroup(
+            b9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t9, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        boton.add(b9);
+        b9.setBounds(130, 0, 50, 50);
+
+        suma.setBackground(Estilos.getColorPanel());
+        suma.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sumaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                sumaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                sumaMouseExited(evt);
+            }
+        });
+
+        t10.setFont(Estilos.getFuenteCuerpo());
+        t10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        t10.setText("+");
+
+        javax.swing.GroupLayout sumaLayout = new javax.swing.GroupLayout(suma);
+        suma.setLayout(sumaLayout);
+        sumaLayout.setHorizontalGroup(
+            sumaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t10, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+        sumaLayout.setVerticalGroup(
+            sumaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t10, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        boton.add(suma);
+        suma.setBounds(200, 0, 50, 50);
+
+        b3.setBackground(Estilos.getColorPanel());
+        b3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                b3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                b3MouseExited(evt);
+            }
+        });
+
+        t3.setFont(Estilos.getFuenteCuerpo());
+        t3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        t3.setText("3");
+
+        javax.swing.GroupLayout b3Layout = new javax.swing.GroupLayout(b3);
+        b3.setLayout(b3Layout);
+        b3Layout.setHorizontalGroup(
+            b3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t3, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+        b3Layout.setVerticalGroup(
+            b3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t3, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        boton.add(b3);
+        b3.setBounds(130, 120, 50, 50);
+
+        b4.setBackground(Estilos.getColorPanel());
+        b4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                b4MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                b4MouseExited(evt);
+            }
+        });
+
+        t4.setFont(Estilos.getFuenteCuerpo());
+        t4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        t4.setText("4");
+
+        javax.swing.GroupLayout b4Layout = new javax.swing.GroupLayout(b4);
+        b4.setLayout(b4Layout);
+        b4Layout.setHorizontalGroup(
+            b4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t4, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+        b4Layout.setVerticalGroup(
+            b4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t4, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        boton.add(b4);
+        b4.setBounds(10, 60, 50, 50);
+
+        b5.setBackground(Estilos.getColorPanel());
+        b5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                b5MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b5MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                b5MouseExited(evt);
+            }
+        });
+
+        t5.setFont(Estilos.getFuenteCuerpo());
+        t5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        t5.setText("5");
+
+        javax.swing.GroupLayout b5Layout = new javax.swing.GroupLayout(b5);
+        b5.setLayout(b5Layout);
+        b5Layout.setHorizontalGroup(
+            b5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t5, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+        b5Layout.setVerticalGroup(
+            b5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t5, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        boton.add(b5);
+        b5.setBounds(70, 60, 50, 50);
+
+        b6.setBackground(Estilos.getColorPanel());
+        b6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                b6MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b6MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                b6MouseExited(evt);
+            }
+        });
+
+        t6.setFont(Estilos.getFuenteCuerpo());
+        t6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        t6.setText("6");
+
+        javax.swing.GroupLayout b6Layout = new javax.swing.GroupLayout(b6);
+        b6.setLayout(b6Layout);
+        b6Layout.setHorizontalGroup(
+            b6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t6, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+        b6Layout.setVerticalGroup(
+            b6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t6, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        boton.add(b6);
+        b6.setBounds(130, 60, 50, 50);
+
+        resta.setBackground(Estilos.getColorPanel());
+        resta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                restaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                restaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                restaMouseExited(evt);
+            }
+        });
+
+        t11.setFont(Estilos.getFuenteCuerpo());
+        t11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        t11.setText("-");
+
+        javax.swing.GroupLayout restaLayout = new javax.swing.GroupLayout(resta);
+        resta.setLayout(restaLayout);
+        restaLayout.setHorizontalGroup(
+            restaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t11, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+        restaLayout.setVerticalGroup(
+            restaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t11, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        boton.add(resta);
+        resta.setBounds(200, 60, 50, 50);
+
+        multi.setBackground(Estilos.getColorPanel());
+        multi.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                multiMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                multiMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                multiMouseExited(evt);
+            }
+        });
+
+        t12.setFont(Estilos.getFuenteCuerpo());
+        t12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        t12.setText("*");
+
+        javax.swing.GroupLayout multiLayout = new javax.swing.GroupLayout(multi);
+        multi.setLayout(multiLayout);
+        multiLayout.setHorizontalGroup(
+            multiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t12, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+        multiLayout.setVerticalGroup(
+            multiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t12, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        boton.add(multi);
+        multi.setBounds(200, 120, 50, 50);
+
+        dividir.setBackground(Estilos.getColorPanel());
+        dividir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dividirMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                dividirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                dividirMouseExited(evt);
+            }
+        });
+
+        t13.setFont(Estilos.getFuenteCuerpo());
+        t13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        t13.setText("/");
+
+        javax.swing.GroupLayout dividirLayout = new javax.swing.GroupLayout(dividir);
+        dividir.setLayout(dividirLayout);
+        dividirLayout.setHorizontalGroup(
+            dividirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t13, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+        dividirLayout.setVerticalGroup(
+            dividirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t13, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        boton.add(dividir);
+        dividir.setBounds(200, 180, 50, 50);
+
+        b0.setBackground(Estilos.getColorPanel());
+        b0.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                b0MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                b0MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                b0MouseExited(evt);
+            }
+        });
+
+        t0.setFont(Estilos.getFuenteCuerpo());
+        t0.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        t0.setText("0");
+
+        javax.swing.GroupLayout b0Layout = new javax.swing.GroupLayout(b0);
+        b0.setLayout(b0Layout);
+        b0Layout.setHorizontalGroup(
+            b0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t0, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+        b0Layout.setVerticalGroup(
+            b0Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t0, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        boton.add(b0);
+        b0.setBounds(70, 180, 50, 50);
+
+        bc.setBackground(Estilos.getColorPanel());
+        bc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bcMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bcMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bcMouseExited(evt);
+            }
+        });
+
+        tc.setFont(Estilos.getFuenteCuerpo());
+        tc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tc.setText(",");
+
+        javax.swing.GroupLayout bcLayout = new javax.swing.GroupLayout(bc);
+        bc.setLayout(bcLayout);
+        bcLayout.setHorizontalGroup(
+            bcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tc, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+        bcLayout.setVerticalGroup(
+            bcLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tc, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        boton.add(bc);
+        bc.setBounds(130, 180, 50, 50);
+
+        bc1.setBackground(Estilos.getColorPanel());
+        bc1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bc1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bc1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bc1MouseExited(evt);
+            }
+        });
+
+        tc1.setFont(Estilos.getFuenteCuerpo());
+        tc1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tc1.setText("C");
+
+        javax.swing.GroupLayout bc1Layout = new javax.swing.GroupLayout(bc1);
+        bc1.setLayout(bc1Layout);
+        bc1Layout.setHorizontalGroup(
+            bc1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tc1, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+        bc1Layout.setVerticalGroup(
+            bc1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tc1, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        boton.add(bc1);
+        bc1.setBounds(10, 180, 50, 50);
+
+        salir.setBackground(Estilos.getColorPanel());
+        salir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                salirMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                salirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                salirMouseExited(evt);
+            }
+        });
+
+        tc2.setFont(Estilos.getFuenteCuerpo());
+        tc2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tc2.setText("SALIR");
+
+        javax.swing.GroupLayout salirLayout = new javax.swing.GroupLayout(salir);
+        salir.setLayout(salirLayout);
+        salirLayout.setHorizontalGroup(
+            salirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tc2, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+        );
+        salirLayout.setVerticalGroup(
+            salirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(tc2, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        boton.add(salir);
+        salir.setBounds(80, 240, 150, 50);
+
+        raiz.setBackground(Estilos.getColorPanel());
+        raiz.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                raizMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                raizMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                raizMouseExited(evt);
+            }
+        });
+
+        t14.setFont(Estilos.getFuenteCuerpo());
+        t14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        t14.setText("√");
+
+        javax.swing.GroupLayout raizLayout = new javax.swing.GroupLayout(raiz);
+        raiz.setLayout(raizLayout);
+        raizLayout.setHorizontalGroup(
+            raizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t14, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+        raizLayout.setVerticalGroup(
+            raizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t14, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        boton.add(raiz);
+        raiz.setBounds(260, 0, 50, 50);
+
+        igual.setBackground(Estilos.getColorSobreBoton());
+        igual.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                igualMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                igualMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                igualMouseExited(evt);
+            }
+        });
+
+        t16.setBackground(Estilos.getColorSobreBoton());
+        t16.setFont(Estilos.getFuenteCuerpo());
+        t16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        t16.setText("=");
+
+        javax.swing.GroupLayout igualLayout = new javax.swing.GroupLayout(igual);
+        igual.setLayout(igualLayout);
+        igualLayout.setHorizontalGroup(
+            igualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t16, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+        igualLayout.setVerticalGroup(
+            igualLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(t16, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        boton.add(igual);
+        igual.setBounds(260, 180, 50, 50);
+
+        javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
+        background.setLayout(backgroundLayout);
+        backgroundLayout.setHorizontalGroup(
+            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(display, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(boton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(37, 37, 37))
+        );
+        backgroundLayout.setVerticalGroup(
+            backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(backgroundLayout.createSequentialGroup()
+                .addComponent(display, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(input, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1))
+                .addComponent(boton, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void sumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sumaActionPerformed
+    private void inputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_inputActionPerformed
+
+    private void b7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b7MouseEntered
+        b7.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_b7MouseEntered
+
+    private void b7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b7MouseExited
+        b7.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_b7MouseExited
+
+    private void b8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b8MouseEntered
+        b8.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_b8MouseEntered
+
+    private void b8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b8MouseExited
+        b8.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_b8MouseExited
+
+    private void b9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b9MouseEntered
+        b9.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_b9MouseEntered
+
+    private void b9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b9MouseExited
+        b9.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_b9MouseExited
+
+    private void sumaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sumaMouseEntered
+        suma.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_sumaMouseEntered
+
+    private void sumaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sumaMouseExited
+        suma.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_sumaMouseExited
+
+    private void b1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b1MouseEntered
+       b1.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_b1MouseEntered
+
+    private void b1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b1MouseExited
+        b1.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_b1MouseExited
+
+    private void b2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b2MouseEntered
+       b2.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_b2MouseEntered
+
+    private void b2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b2MouseExited
+        b2.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_b2MouseExited
+
+    private void b3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b3MouseEntered
+        b3.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_b3MouseEntered
+
+    private void b3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b3MouseExited
+        b3.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_b3MouseExited
+
+    private void b4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b4MouseEntered
+        b4.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_b4MouseEntered
+
+    private void b4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b4MouseExited
+        b4.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_b4MouseExited
+
+    private void b5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b5MouseEntered
+        b5.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_b5MouseEntered
+
+    private void b5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b5MouseExited
+        b5.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_b5MouseExited
+
+    private void b6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b6MouseEntered
+        b6.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_b6MouseEntered
+
+    private void b6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b6MouseExited
+        b6.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_b6MouseExited
+
+    private void restaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_restaMouseEntered
+       resta.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_restaMouseEntered
+
+    private void restaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_restaMouseExited
+        resta.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_restaMouseExited
+
+    private void multiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_multiMouseEntered
+        multi.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_multiMouseEntered
+
+    private void multiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_multiMouseExited
+        multi.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_multiMouseExited
+
+    private void dividirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dividirMouseEntered
+       dividir.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_dividirMouseEntered
+
+    private void dividirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dividirMouseExited
+        dividir.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_dividirMouseExited
+
+    private void b0MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b0MouseEntered
+        b0.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_b0MouseEntered
+
+    private void b0MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b0MouseExited
+        b0.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_b0MouseExited
+
+    private void bcMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bcMouseEntered
+       bc.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_bcMouseEntered
+
+    private void bcMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bcMouseExited
+        bc.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_bcMouseExited
+
+    private void bc1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bc1MouseEntered
+        bc1.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_bc1MouseEntered
+
+    private void bc1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bc1MouseExited
+        bc1.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_bc1MouseExited
+
+    private void salirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirMouseEntered
+        salir.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_salirMouseEntered
+
+    private void salirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirMouseExited
+       salir.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_salirMouseExited
+
+    private void raizMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_raizMouseEntered
+        raiz.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_raizMouseEntered
+
+    private void raizMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_raizMouseExited
+       raiz.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_raizMouseExited
+
+    private void igualMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_igualMouseEntered
+        igual.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_igualMouseEntered
+
+    private void igualMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_igualMouseExited
+        igual.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_igualMouseExited
+
+    private void sumaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sumaMouseClicked
+          // TODO add your handling code here:
         limpiarError();
         capturarValorInput();
         operacion = 1;
         output.setText(valor1 + " +");
-    }//GEN-LAST:event_sumaActionPerformed
+    }//GEN-LAST:event_sumaMouseClicked
 
-    private void restaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restaActionPerformed
+    private void restaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_restaMouseClicked
         // TODO add your handling code here:
         limpiarError();
         capturarValorInput();
@@ -465,26 +964,25 @@ public class Calculadora extends javax.swing.JFrame {
             output.setText("ERROR");
         }
         */
-    }//GEN-LAST:event_restaActionPerformed
+    }//GEN-LAST:event_restaMouseClicked
 
-    private void multiplicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiplicacionActionPerformed
-        // TODO add your handling code here:
+    private void multiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_multiMouseClicked
+         // TODO add your handling code here:
         limpiarError();
         capturarValorInput();
         operacion = 3;
         output.setText(valor1 + " *");
+    }//GEN-LAST:event_multiMouseClicked
 
-    }//GEN-LAST:event_multiplicacionActionPerformed
-
-    private void divisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divisionActionPerformed
-        // TODO add your handling code here:
+    private void dividirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dividirMouseClicked
+         // TODO add your handling code here:
         limpiarError();
         capturarValorInput();
         operacion = 4;
         output.setText(valor1 + " /");
-    }//GEN-LAST:event_divisionActionPerformed
+    }//GEN-LAST:event_dividirMouseClicked
 
-    private void resetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetActionPerformed
+    private void bc1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bc1MouseClicked
         // TODO add your handling code here:
         input.setText("0");
         output.setText("");
@@ -492,114 +990,115 @@ public class Calculadora extends javax.swing.JFrame {
         valor2 = 0;
         resultado = -1;
         operacion = -1;
-    }//GEN-LAST:event_resetActionPerformed
+    }//GEN-LAST:event_bc1MouseClicked
 
-    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+    private void salirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirMouseClicked
         // TODO add your handling code here:
         this.dispose();
-    }//GEN-LAST:event_salirActionPerformed
+    }//GEN-LAST:event_salirMouseClicked
 
-    private void raizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_raizActionPerformed
-        // TODO add your handling code here:
+    private void raizMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_raizMouseClicked
+       // TODO add your handling code here:
         limpiarError();
         capturarValorInput();
         operacion =5;
         operaciones();
-        output.setText(valor1 + "");
-    }//GEN-LAST:event_raizActionPerformed
+        output.setText("√"+valor1 + "");
+    }//GEN-LAST:event_raizMouseClicked
 
-    private void number1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_number1ActionPerformed
+    private void b1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b1MouseClicked
         // TODO add your handling code here:
         limpiarError();
         limparCerosIzquierda();
         if (input.getText().length() < maxCaracteres) {
             input.setText(input.getText() + "1");
         }
-    }//GEN-LAST:event_number1ActionPerformed
+    }//GEN-LAST:event_b1MouseClicked
 
-    private void number2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_number2ActionPerformed
-        // TODO add your handling code here:
+    private void b2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b2MouseClicked
+         // TODO add your handling code here:
         limpiarError();
         limparCerosIzquierda();
         if (input.getText().length() < maxCaracteres) {
             input.setText(input.getText() + "2");
         }
-    }//GEN-LAST:event_number2ActionPerformed
+    }//GEN-LAST:event_b2MouseClicked
 
-    private void number3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_number3ActionPerformed
+    private void b3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b3MouseClicked
         // TODO add your handling code here:
-        limpiarError();
+         limpiarError();
         limparCerosIzquierda();
         if (input.getText().length() < maxCaracteres) {
             input.setText(input.getText() + "3");
         }
-    }//GEN-LAST:event_number3ActionPerformed
+    }//GEN-LAST:event_b3MouseClicked
 
-    private void number4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_number4ActionPerformed
+    private void b4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b4MouseClicked
         // TODO add your handling code here:
-        limpiarError();
+         limpiarError();
         limparCerosIzquierda();
         if (input.getText().length() < maxCaracteres) {
             input.setText(input.getText() + "4");
         }
-    }//GEN-LAST:event_number4ActionPerformed
+    }//GEN-LAST:event_b4MouseClicked
 
-    private void number5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_number5ActionPerformed
+    private void b5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b5MouseClicked
         // TODO add your handling code here:
-        limpiarError();
+         limpiarError();
         limparCerosIzquierda();
         if (input.getText().length() < maxCaracteres) {
             input.setText(input.getText() + "5");
         }
-    }//GEN-LAST:event_number5ActionPerformed
+    }//GEN-LAST:event_b5MouseClicked
 
-    private void number6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_number6ActionPerformed
+    private void b6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b6MouseClicked
         // TODO add your handling code here:
-        limpiarError();
+         limpiarError();
         limparCerosIzquierda();
         if (input.getText().length() < maxCaracteres) {
             input.setText(input.getText() + "6");
         }
-    }//GEN-LAST:event_number6ActionPerformed
+    }//GEN-LAST:event_b6MouseClicked
 
-    private void number7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_number7ActionPerformed
-        limpiarError();
+    private void b7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b7MouseClicked
+        // TODO add your handling code here:
+         limpiarError();
         limparCerosIzquierda();
         if (input.getText().length() < maxCaracteres) {
             input.setText(input.getText() + "7");
         }
-    }//GEN-LAST:event_number7ActionPerformed
+    }//GEN-LAST:event_b7MouseClicked
 
-    private void number8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_number8ActionPerformed
+    private void b8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b8MouseClicked
         // TODO add your handling code here:
-        limpiarError();
+         limpiarError();
         limparCerosIzquierda();
         if (input.getText().length() < maxCaracteres) {
             input.setText(input.getText() + "8");
         }
-    }//GEN-LAST:event_number8ActionPerformed
+    }//GEN-LAST:event_b8MouseClicked
 
-    private void number9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_number9ActionPerformed
+    private void b9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b9MouseClicked
         // TODO add your handling code here:
-        limpiarError();
+         limpiarError();
         limparCerosIzquierda();
         if (input.getText().length() < maxCaracteres) {
             input.setText(input.getText() + "9");
         }
-    }//GEN-LAST:event_number9ActionPerformed
+    }//GEN-LAST:event_b9MouseClicked
 
-    private void number0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_number0ActionPerformed
+    private void b0MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b0MouseClicked
         // TODO add your handling code here:
-        limpiarError();
+         limpiarError();
         limparCerosIzquierda();
         if (input.getText().length() < maxCaracteres) {
             input.setText(input.getText() + "0");
         }
-    }//GEN-LAST:event_number0ActionPerformed
+    }//GEN-LAST:event_b0MouseClicked
 
-    private void comaButonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comaButonActionPerformed
+    private void bcMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bcMouseClicked
         // TODO add your handling code here:
-        limpiarError();
+         limpiarError();
         if (input.getText().length() < maxCaracteres) {
             if (input.getText().length() == 0) {
                 input.setText("0.");
@@ -607,11 +1106,11 @@ public class Calculadora extends javax.swing.JFrame {
                 input.setText(input.getText() + ".");
             }
         }
-    }//GEN-LAST:event_comaButonActionPerformed
+    }//GEN-LAST:event_bcMouseClicked
 
-    private void igualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_igualActionPerformed
+    private void igualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_igualMouseClicked
         // TODO add your handling code here:
-        if (operacion != -1) {
+          if (operacion != -1) {
             try {
                 if (!input.getText().isEmpty()&& !input.getText().equalsIgnoreCase("0")) {
                     valor2 = Double.parseDouble(input.getText());
@@ -627,12 +1126,14 @@ public class Calculadora extends javax.swing.JFrame {
             }
             
         } 
+    }//GEN-LAST:event_igualMouseClicked
 
-    }//GEN-LAST:event_igualActionPerformed
-
-    private void outputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_outputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_outputActionPerformed
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        int key = evt.getKeyCode();
+        if (key == KeyEvent.VK_ENTER){
+            //No puedo llamar a los metodos de arriba
+        }
+    }//GEN-LAST:event_formKeyPressed
 
     private void operaciones() {
         switch (operacion) {
@@ -692,8 +1193,7 @@ public class Calculadora extends javax.swing.JFrame {
         }
     }
     
-    
-    //metodo para limpiar si tiene un error.
+     //metodo para limpiar si tiene un error.
     public void limpiarError(){
         if (input.getText().equalsIgnoreCase("ERROR")){// si tiene un error limpia para volver a colocar numeros ;)
             input.setText("0");
@@ -701,13 +1201,12 @@ public class Calculadora extends javax.swing.JFrame {
         }
     }
     
-    //metodo para quitar ceros a la izquierda
+     //metodo para quitar ceros a la izquierda
     public void limparCerosIzquierda (){
         if (input.getText().equalsIgnoreCase("0")) {
             input.setText("");
         }
     }
-
     /**
      * @param args the command line arguments
      */
@@ -734,6 +1233,7 @@ public class Calculadora extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Calculadora.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -744,29 +1244,48 @@ public class Calculadora extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton comaButon;
-    private javax.swing.JButton division;
-    private javax.swing.JButton igual;
+    private javax.swing.JPanel b0;
+    private javax.swing.JPanel b1;
+    private javax.swing.JPanel b2;
+    private javax.swing.JPanel b3;
+    private javax.swing.JPanel b4;
+    private javax.swing.JPanel b5;
+    private javax.swing.JPanel b6;
+    private javax.swing.JPanel b7;
+    private javax.swing.JPanel b8;
+    private javax.swing.JPanel b9;
+    private javax.swing.JPanel background;
+    private javax.swing.JPanel bc;
+    private javax.swing.JPanel bc1;
+    private javax.swing.JPanel boton;
+    private javax.swing.JPanel display;
+    private javax.swing.JPanel dividir;
+    private javax.swing.JPanel igual;
     private javax.swing.JTextField input;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JButton multiplicacion;
-    private javax.swing.JButton number0;
-    private javax.swing.JButton number1;
-    private javax.swing.JButton number2;
-    private javax.swing.JButton number3;
-    private javax.swing.JButton number4;
-    private javax.swing.JButton number5;
-    private javax.swing.JButton number6;
-    private javax.swing.JButton number7;
-    private javax.swing.JButton number8;
-    private javax.swing.JButton number9;
+    private javax.swing.JPanel multi;
     private javax.swing.JTextField output;
-    private javax.swing.JButton raiz;
-    private javax.swing.JButton reset;
-    private javax.swing.JButton resta;
-    private javax.swing.JButton salir;
-    private javax.swing.JButton suma;
+    private javax.swing.JPanel raiz;
+    private javax.swing.JPanel resta;
+    private javax.swing.JPanel salir;
+    private javax.swing.JPanel suma;
+    private javax.swing.JLabel t0;
+    private javax.swing.JLabel t1;
+    private javax.swing.JLabel t10;
+    private javax.swing.JLabel t11;
+    private javax.swing.JLabel t12;
+    private javax.swing.JLabel t13;
+    private javax.swing.JLabel t14;
+    private javax.swing.JLabel t16;
+    private javax.swing.JLabel t2;
+    private javax.swing.JLabel t3;
+    private javax.swing.JLabel t4;
+    private javax.swing.JLabel t5;
+    private javax.swing.JLabel t6;
+    private javax.swing.JLabel t7;
+    private javax.swing.JLabel t8;
+    private javax.swing.JLabel t9;
+    private javax.swing.JLabel tc;
+    private javax.swing.JLabel tc1;
+    private javax.swing.JLabel tc2;
     // End of variables declaration//GEN-END:variables
 }

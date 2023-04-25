@@ -20,7 +20,7 @@ public class Estilos {
     private static Font fuentePanel = new Font("Roboto Medium", 0, 24);
     
     //COLORES
-    private static Color colorSobreBoton = new Color(69,195,195);
+    private static Color colorSobreBoton = new Color(69,195,195); //VERDE CONTRASTE
     private static Color colorPanel = new Color(0,155,155); //VERDE
     private static Color colorPanelBlanco = new Color(255,255,255); //blanco
     private static Color colorFuenteRegistroLogin = new Color(0,153,255); //AZUL
@@ -67,6 +67,14 @@ public class Estilos {
 
     public static Color getColorFuenteError() {
         return colorFuenteError;
+    }
+
+    public static Color getColorPanelBlanco() {
+        return colorPanelBlanco;
+    }
+
+    public static void setColorPanelBlanco(Color colorPanelBlanco) {
+        Estilos.colorPanelBlanco = colorPanelBlanco;
     }
     
     public static void setSizeCuerpo(int sizeCuerpo) {
