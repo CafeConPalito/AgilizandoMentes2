@@ -56,6 +56,12 @@ public class PanelAlumno extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CálculoMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CálculoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                CálculoMouseExited(evt);
+            }
         });
 
         LoginTXT4.setFont(Estilos.getFuentePanel());
@@ -80,6 +86,12 @@ public class PanelAlumno extends javax.swing.JPanel {
         Euclides1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Euclides1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Euclides1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Euclides1MouseExited(evt);
             }
         });
 
@@ -106,6 +118,12 @@ public class PanelAlumno extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 RestoDivisionMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                RestoDivisionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                RestoDivisionMouseExited(evt);
+            }
         });
 
         LoginTXT.setFont(Estilos.getFuentePanel());
@@ -118,7 +136,7 @@ public class PanelAlumno extends javax.swing.JPanel {
         RestoDivision.setLayout(RestoDivisionLayout);
         RestoDivisionLayout.setHorizontalGroup(
             RestoDivisionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(LoginTXT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
+            .addComponent(LoginTXT, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
         );
         RestoDivisionLayout.setVerticalGroup(
             RestoDivisionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,6 +148,12 @@ public class PanelAlumno extends javax.swing.JPanel {
         Calculadora.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CalculadoraMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CalculadoraMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                CalculadoraMouseExited(evt);
             }
         });
 
@@ -158,19 +182,11 @@ public class PanelAlumno extends javax.swing.JPanel {
             PanelAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelAlumnosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(PanelAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelAlumnosLayout.createSequentialGroup()
-                        .addGroup(PanelAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(RestoDivision, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(Cálculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(7, 7, 7))
-                    .addGroup(PanelAlumnosLayout.createSequentialGroup()
-                        .addComponent(Euclides1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelAlumnosLayout.createSequentialGroup()
-                        .addComponent(Calculadora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addComponent(jSeparator1)))
+                .addComponent(jSeparator1))
+            .addComponent(Calculadora, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Cálculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Euclides1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(RestoDivision, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         PanelAlumnosLayout.setVerticalGroup(
             PanelAlumnosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,6 +241,38 @@ public class PanelAlumno extends javax.swing.JPanel {
         Calculadora calcu = new Calculadora();
         calcu.setVisible(true);
     }//GEN-LAST:event_CalculadoraMouseClicked
+
+    private void CálculoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CálculoMouseEntered
+        Cálculo.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_CálculoMouseEntered
+
+    private void CálculoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CálculoMouseExited
+        Cálculo.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_CálculoMouseExited
+
+    private void RestoDivisionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RestoDivisionMouseEntered
+        RestoDivision.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_RestoDivisionMouseEntered
+
+    private void RestoDivisionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RestoDivisionMouseExited
+       RestoDivision.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_RestoDivisionMouseExited
+
+    private void Euclides1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Euclides1MouseEntered
+        Euclides1.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_Euclides1MouseEntered
+
+    private void Euclides1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Euclides1MouseExited
+        Euclides1.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_Euclides1MouseExited
+
+    private void CalculadoraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CalculadoraMouseEntered
+         Calculadora.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_CalculadoraMouseEntered
+
+    private void CalculadoraMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CalculadoraMouseExited
+        Calculadora.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_CalculadoraMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

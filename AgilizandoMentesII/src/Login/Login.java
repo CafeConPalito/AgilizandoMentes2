@@ -11,6 +11,7 @@ import Alumno.*;
 import BBDD.MetodosUsuario;
 import Profesor.BienvenidaP;
 import Profesor.PanelProfesor;
+import Usuario.AjustesUsuario;
 import Usuario.Usuario;
 import java.awt.Container;
 import java.awt.event.KeyEvent;
@@ -69,7 +70,7 @@ public class Login extends javax.swing.JPanel {
         registra.setFont(Estilos.getFuenteCuerpo());
         registra.setForeground(new java.awt.Color(0, 153, 255));
         registra.setText("Registrate aquí.");
-        registra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        registra.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         registra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 registraMouseClicked(evt);
@@ -149,7 +150,7 @@ public class Login extends javax.swing.JPanel {
         TFUsuario.setForeground(new java.awt.Color(204, 204, 204));
         TFUsuario.setText("Inserte su nombre de usuario");
         TFUsuario.setBorder(null);
-        TFUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        TFUsuario.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         TFUsuario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 TFUsuarioFocusGained(evt);
@@ -206,7 +207,7 @@ public class Login extends javax.swing.JPanel {
         background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 380, 120));
 
         Boton.setBackground(Estilos.getColorPanel());
-        Boton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Boton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Boton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BotonMouseClicked(evt);
@@ -223,7 +224,6 @@ public class Login extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ENTRAR");
-        jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         javax.swing.GroupLayout BotonLayout = new javax.swing.GroupLayout(Boton);
         Boton.setLayout(BotonLayout);
@@ -233,10 +233,7 @@ public class Login extends javax.swing.JPanel {
         );
         BotonLayout.setVerticalGroup(
             BotonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(BotonLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel1)
-                .addContainerGap(18, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
         background.add(Boton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 480, 150, 50));
@@ -326,6 +323,14 @@ public class Login extends javax.swing.JPanel {
 
                     Main.setIslogin(true);
 
+                    AjustesUsuario au1 = new AjustesUsuario();
+                    au1.setSize(210, 50);
+                    au1.setLocation(0, 0);
+                    Main.getAjustes().removeAll();
+                    Main.getAjustes().add(au1);
+                    Main.getAjustes().revalidate();
+                    Main.getAjustes().repaint();
+
                 } else {
 
                     //Confirmo que se ha logueado para que no vuelva atras
@@ -350,6 +355,14 @@ public class Login extends javax.swing.JPanel {
                     Main.getCuerpo().repaint();
 
                     Main.setIslogin(true);
+
+                    AjustesUsuario au2 = new AjustesUsuario();
+                    au2.setSize(210, 50);
+                    au2.setLocation(0, 0);
+                    Main.getAjustes().removeAll();
+                    Main.getAjustes().add(au2);
+                    Main.getAjustes().revalidate();
+                    Main.getAjustes().repaint();
 
                 }
             } else {
@@ -435,6 +448,14 @@ public class Login extends javax.swing.JPanel {
 
                         Main.setIslogin(true);
 
+                        AjustesUsuario au1 = new AjustesUsuario();
+                        au1.setSize(210, 50);
+                        au1.setLocation(0, 0);
+                        Main.getAjustes().removeAll();
+                        Main.getAjustes().add(au1);
+                        Main.getAjustes().revalidate();
+                        Main.getAjustes().repaint();
+
                     } else {
 
                         //Confirmo que se ha logueado para que no vuelva atras
@@ -459,6 +480,14 @@ public class Login extends javax.swing.JPanel {
                         Main.getCuerpo().repaint();
 
                         Main.setIslogin(true);
+
+                        AjustesUsuario au2 = new AjustesUsuario();
+                        au2.setSize(210, 50);
+                        au2.setLocation(0, 0);
+                        Main.getAjustes().removeAll();
+                        Main.getAjustes().add(au2);
+                        Main.getAjustes().revalidate();
+                        Main.getAjustes().repaint();
 
                     }
                 } else {
