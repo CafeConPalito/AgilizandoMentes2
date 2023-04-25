@@ -843,7 +843,7 @@ public class Register extends javax.swing.JPanel {
     }//GEN-LAST:event_RegistrarMouseClicked
 
     private void RegistrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarMouseEntered
-        Registrar.setBackground(Estilos.getColorFuenteRegistroLogin());
+        Registrar.setBackground(Estilos.getColorSobreBoton());
     }//GEN-LAST:event_RegistrarMouseEntered
 
     private void RegistrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarMouseExited
