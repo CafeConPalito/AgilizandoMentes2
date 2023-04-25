@@ -4,11 +4,8 @@
  */
 package BBDD;
 
-import Usuario.Usuario;
 import java.sql.*;
 import java.util.HashMap;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -26,40 +23,47 @@ public class MetodosRegistro {
      * datos
      */
     public static boolean comprobarDNI(Connection con, String DNI) {
-        DNI = DNI.toUpperCase();
+        String DNI2 = DNI.toUpperCase();
+        System.out.println(DNI2);
         PreparedStatement ps = null;
         ResultSet rs = null;
 
         HashMap<Integer, String> mapa = generarHashMap();
 
-        if (DNI.matches("[0-9]{8}[A-Z]")) {
-            if (DNI.substring(8).equals(mapa.get(Integer.parseInt(DNI.substring(0, 8)) % 23))) {
+        if (DNI2.matches("[0-9]{8}[A-Z]")) {
+            if (DNI2.substring(8).equals(mapa.get(Integer.parseInt(DNI2.substring(0, 8)) % 23))) {
                 // se prepara la sentencia para la BBDD como un String
                 String selectDNI = "select dni from persona where dni = ?";
 
                 try {
 
                     ps = con.prepareStatement(selectDNI);
-                    ps.setString(1, DNI);
+                    ps.setString(1, DNI2);
                     rs = ps.executeQuery();
                     rs.next();
 
                     //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
                     //una vez en la primera linea podemos obtener la informacion;
-                    if (DNI.equals(rs.getString(1))) {
+                    if (DNI2.equals(rs.getString(1))) {
+                        System.out.println("TRUE");
                         return true;
+                        
                     }
                     return false;
 
                 } catch (SQLException e) {
-                    System.err.println("ERROR AL LEER DNI");
-                    return false;
+                    //System.err.println("ERROR AL LEER DNI");
+                    return true;
                 }
+            } else {
+                
+                return false;
             }
+        } else {
+            
             return false;
-
         }
-        return false;
+
     }
 
     /**
@@ -96,7 +100,7 @@ public class MetodosRegistro {
                 return false;
 
             } catch (SQLException e) {
-                System.err.println("ERROR AL LEER EMAIL");
+                //System.err.println("ERROR AL LEER EMAIL");
                 return false;
             }
 
@@ -138,7 +142,7 @@ public class MetodosRegistro {
                 return false;
 
             } catch (SQLException e) {
-                System.err.println("ERROR AL LEER Alias");
+                //System.err.println("ERROR AL LEER Alias");
                 return false;
             }
 
@@ -179,7 +183,7 @@ public class MetodosRegistro {
                 return false;
 
             } catch (SQLException e) {
-                System.err.println("ERROR AL LEER NombreUsuario");
+                //System.err.println("ERROR AL LEER NombreUsuario");
                 return false;
             }
 
@@ -205,21 +209,30 @@ public class MetodosRegistro {
                     if (fecha2[1] == 2) {
                         if (fecha2[2] <= 29 && fecha2[2] >= 1) {
                             return true;
-                        } else if (fecha2[1] == 8) {
-                            if (fecha2[2] <= 31 && fecha2[2] >= 1) {
-                                return true;
-                            }
-                        } else if (fecha2[1] % 2 == 0) {
-                            if (fecha2[2] <= 30 && fecha2[2] >= 1) {
-                                return true;
-                            }
+                        } else {
+                            return false;
                         }
-
+                    } else if (fecha2[1] == 8) {
+                        if (fecha2[2] <= 31 && fecha2[2] >= 1) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    } else if (fecha2[1] % 2 == 0) {
+                        if (fecha2[2] <= 30 && fecha2[2] >= 1) {
+                            return true;
+                        } else {
+                            return false;
+                        }
                     }
-
+                } else {
+                    return false;
                 }
+            } else {
+                return false;
             }
-            return true;
+        } else {
+            return false;
         }
         return false;
     }
@@ -236,9 +249,10 @@ public class MetodosRegistro {
         }
         return false;
     }
-    
+
     /**
      * Metodo para insertar usuario a nuestra base de datos
+     *
      * @param con
      * @param usuario
      * @param password
@@ -250,14 +264,14 @@ public class MetodosRegistro {
      * @param curso
      * @param fecha
      * @param email
-     * @param profesor 
+     * @param profesor
      */
-    public static void registrarUsuario(Connection con,String usuario,String password,String alias,String nombre,String apellido1,String apellido2,String DNI,int curso,String fecha,String email,boolean profesor){
+    public static void registrarUsuario(Connection con, String usuario, String password, String alias, String nombre, String apellido1, String apellido2, String DNI, int curso, String fecha, String email, boolean profesor) {
         PreparedStatement ps1 = null;
         PreparedStatement ps2 = null;
         PreparedStatement ps3 = null;
         ResultSet rs = null;
-        int id=0;
+        int id = 0;
 
         //SQL
         String select = "select id_usuario from usuario where nombre_usuario = ?";
@@ -267,23 +281,23 @@ public class MetodosRegistro {
         try {
 
             //Preparo el primer insert
-            ps1= con.prepareStatement(insert1);
+            ps1 = con.prepareStatement(insert1);
             ps1.setString(1, usuario);
             ps1.setString(2, password);
             ps1.setString(3, alias);
-            
+
             //Ejecuto el primer insert
             ps1.executeUpdate();
-            
+
             //Busco el id del nuevo usuario
-            ps2= con.prepareStatement(select);
+            ps2 = con.prepareStatement(select);
             ps2.setString(1, usuario);
             rs = ps2.executeQuery();
             rs.next();
-            id=rs.getInt(1);
-            
+            id = rs.getInt(1);
+
             //Preparo el segundo insert
-            ps3= con.prepareStatement(insert2);
+            ps3 = con.prepareStatement(insert2);
             ps3.setInt(1, id);
             ps3.setString(2, nombre);
             ps3.setString(3, apellido1);
@@ -293,15 +307,14 @@ public class MetodosRegistro {
             ps3.setInt(7, curso);
             ps3.setString(8, fecha);
             ps3.setBoolean(9, profesor);
-            
+
             //Ejecuto el segundo insert
             ps3.executeUpdate();
-            
-   
+
         } catch (NumberFormatException e) {
-            System.err.println("Error de conversion de numero");
+            //System.err.println("Error de conversion de numero");
         } catch (SQLException ex) {
-            Logger.getLogger(MetodosCalculo.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(MetodosCalculo.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

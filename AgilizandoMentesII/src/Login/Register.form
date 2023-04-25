@@ -115,7 +115,7 @@
                           <Component id="TFUsuario" alignment="0" pref="368" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="usuario" alignment="0" min="-2" pref="226" max="-2" attributes="0"/>
+                                  <Component id="us" alignment="0" min="-2" pref="226" max="-2" attributes="0"/>
                                   <Component id="SepUsuario" alignment="0" min="-2" pref="215" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -129,7 +129,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="usuario" min="-2" max="-2" attributes="0"/>
+                      <Component id="us" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="TFUsuario" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -140,7 +140,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="usuario">
+            <Component class="javax.swing.JLabel" name="us">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="Estilos.getFuenteCuerpo()" type="code"/>
@@ -662,7 +662,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="Estilos.getFuenteCuerpo()" type="code"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value=" Curso *"/>
+                <Property name="text" type="java.lang.String" value="Curso *"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="TFCurso">

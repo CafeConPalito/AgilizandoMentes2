@@ -37,7 +37,7 @@ public class Register extends javax.swing.JPanel {
         tienes = new javax.swing.JLabel();
         inicia = new javax.swing.JLabel();
         Usuario = new javax.swing.JPanel();
-        usuario = new javax.swing.JLabel();
+        us = new javax.swing.JLabel();
         TFUsuario = new javax.swing.JTextField();
         SepUsuario = new javax.swing.JSeparator();
         Password = new javax.swing.JPanel();
@@ -114,8 +114,8 @@ public class Register extends javax.swing.JPanel {
 
         Usuario.setBackground(new java.awt.Color(255, 255, 255));
 
-        usuario.setFont(Estilos.getFuenteCuerpo());
-        usuario.setText("Usuario *");
+        us.setFont(Estilos.getFuenteCuerpo());
+        us.setText("Usuario *");
 
         TFUsuario.setFont(Estilos.getFuenteCuerpo());
         TFUsuario.setForeground(new java.awt.Color(204, 204, 204));
@@ -142,7 +142,7 @@ public class Register extends javax.swing.JPanel {
                     .addComponent(TFUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 368, Short.MAX_VALUE)
                     .addGroup(UsuarioLayout.createSequentialGroup()
                         .addGroup(UsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(us, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(SepUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -151,7 +151,7 @@ public class Register extends javax.swing.JPanel {
             UsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(UsuarioLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(usuario)
+                .addComponent(us)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TFUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -446,7 +446,7 @@ public class Register extends javax.swing.JPanel {
         Curso.setBackground(new java.awt.Color(255, 255, 255));
 
         curso.setFont(Estilos.getFuenteCuerpo());
-        curso.setText(" Curso *");
+        curso.setText("Curso *");
 
         TFCurso.setFont(Estilos.getFuenteCuerpo());
         TFCurso.setForeground(new java.awt.Color(204, 204, 204));
@@ -731,14 +731,22 @@ public class Register extends javax.swing.JPanel {
     private void RegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarMouseClicked
         boolean register = true;
         //COMPRUEBO QUE EL USUARIO A INTRODUCIDO TODO LO QUE TIENE QUE INTRODUCIR
-        if ((TFUsuario.getText().isEmpty() || TFUsuario.getText().equals("Inserte su nombre de usuario")) || MetodosRegistro.comprobarNombreUsuario(Main.getCon(), TFUsuario.getText())) {
-            usuario.setForeground(Estilos.getColorFuenteError());
-            register = false;
+
+        //COMPRUEBO EL USUARIO
+        if (!(TFUsuario.getText().isEmpty() || TFUsuario.getText().equals("Inserte su nombre de usuario"))) {
+            if (MetodosRegistro.comprobarNombreUsuario(Main.getCon(), TFUsuario.getText())) {
+                us.setForeground(Estilos.getColorFuenteError());
+                register = false;
+            } else {
+                us.setForeground(Estilos.getColorFuenteCuerpo());
+                register = true;
+            }
+
         } else {
-            usuario.setForeground(Estilos.getColorFuenteCuerpo());
-            register = true;
+            us.setForeground(Estilos.getColorFuenteError());
         }
 
+        //COMPRUEBO LA PRIMERA CONTRASEÑA
         if (String.valueOf(PWF1.getPassword()).isEmpty() || String.valueOf(PWF1.getPassword()).equals("********")) {
             password.setForeground(Estilos.getColorFuenteError());
             register = false;
@@ -747,13 +755,22 @@ public class Register extends javax.swing.JPanel {
             register = true;
         }
 
-        if ((String.valueOf(PWF2.getPassword()).isEmpty() || String.valueOf(PWF2.getPassword()).equals("********")) || !String.valueOf(PWF2.getPassword()).equals(String.valueOf(PWF1.getPassword()))) {
+        //COMPRUEBO LA VALIDACION DE LA CONTRASEÑA
+        if (!(String.valueOf(PWF2.getPassword()).isEmpty() || String.valueOf(PWF2.getPassword()).equals("********"))) {
+            if (!String.valueOf(PWF2.getPassword()).equals(String.valueOf(PWF1.getPassword()))) {
+                password2.setForeground(Estilos.getColorFuenteError());
+                register = false;
+            } else {
+                password2.setForeground(Estilos.getColorFuenteCuerpo());
+                register = true;
+            }
+
+        } else {
             password2.setForeground(Estilos.getColorFuenteError());
             register = false;
-        } else {
-            password2.setForeground(Estilos.getColorFuenteCuerpo());
-            register = true;
         }
+
+        //COMPRUEBO EL ALIAS
         if (!TFalias.getText().equals("Inserte su alias")) {
             if (MetodosRegistro.comprobrarAlias(Main.getCon(), TFalias.getText())) {
                 alias.setForeground(Estilos.getColorFuenteError());
@@ -762,7 +779,23 @@ public class Register extends javax.swing.JPanel {
                 alias.setForeground(Estilos.getColorFuenteCuerpo());
                 register = true;
             }
+        } else {
+            if (!(TFUsuario.getText().isEmpty() || TFUsuario.getText().equals("Inserte su nombre de usuario"))) {
+                if (MetodosRegistro.comprobrarAlias(Main.getCon(), TFUsuario.getText())) {
+                    alias.setForeground(Estilos.getColorFuenteError());
+                    register = false;
+                } else {
+                    alias.setForeground(Estilos.getColorFuenteCuerpo());
+                    register = true;
+                }
+            } else {
+                alias.setForeground(Estilos.getColorFuenteError());
+                register = false;
+            }
+
         }
+
+        //COMPRUEBO EL NOMBRE
         if (TFnombre.getText().isEmpty() || TFnombre.getText().equals("Inserte su nombre")) {
             nombre.setForeground(Estilos.getColorFuenteError());
             register = false;
@@ -771,6 +804,7 @@ public class Register extends javax.swing.JPanel {
             register = true;
         }
 
+        //COMPRUEBO EL APELLIDO 1
         if (TFapellido1.getText().isEmpty() || TFapellido1.getText().equals("Inserte su primer apellido")) {
             apellido1.setForeground(Estilos.getColorFuenteError());
             register = false;
@@ -779,40 +813,69 @@ public class Register extends javax.swing.JPanel {
             register = true;
         }
 
-        if ((TFdni.getText().isEmpty() || TFdni.getText().equals("Inserte su DNI")) || MetodosRegistro.comprobarDNI(Main.getCon(), TFdni.getText())) {
-            dni.setForeground(Estilos.getColorFuenteError());
-            register = false;
-        } else {
-            dni.setForeground(Estilos.getColorFuenteCuerpo());
-            register = true;
-        }
-        try {
-            if ((TFCurso.getText().isEmpty() || TFCurso.getText().equals("Inserte su curso")) || !MetodosRegistro.comprobarCurso(Integer.parseInt(TFCurso.getText()))) {
-                curso.setForeground(Estilos.getColorFuenteError());
+        //COMPRUEBO EL DNI
+        if (!(TFdni.getText().isEmpty() || TFdni.getText().equals("Inserte su DNI"))) {
+            if (!MetodosRegistro.comprobarDNI(Main.getCon(), TFdni.getText())) {
+                dni.setForeground(Estilos.getColorFuenteError());
                 register = false;
             } else {
-                curso.setForeground(Estilos.getColorFuenteCuerpo());
+                dni.setForeground(Estilos.getColorFuenteCuerpo());
                 register = true;
+            }
+
+        } else {
+            dni.setForeground(Estilos.getColorFuenteError());
+            register = false;
+        }
+
+        //COMPRUEBO EL CURSO
+        try {
+            if (!(TFCurso.getText().isEmpty() || TFCurso.getText().equals("Inserte su curso"))) {
+                if (!MetodosRegistro.comprobarCurso(Integer.parseInt(TFCurso.getText()))) {
+                    curso.setForeground(Estilos.getColorFuenteError());
+                    register = false;
+                } else {
+                    curso.setForeground(Estilos.getColorFuenteCuerpo());
+                    register = true;
+                }
+
+            } else {
+                curso.setForeground(Estilos.getColorFuenteError());
+                register = false;
             }
         } catch (NumberFormatException e) {
             curso.setForeground(Estilos.getColorFuenteError());
             register = false;
         }
 
-        if ((TFfechaNac.getText().isEmpty() || TFfechaNac.getText().equals("yyyy-mm-dd")) || !MetodosRegistro.comprobarFecha(TFfechaNac.getText())) {
+        //COMPRUEBO LA FECHA
+        if (!(TFfechaNac.getText().isEmpty() || TFfechaNac.getText().equals("yyyy-mm-dd"))) {
+            if (!MetodosRegistro.comprobarFecha(TFfechaNac.getText())) {
+                fechaNac.setForeground(Estilos.getColorFuenteError());
+                register = false;
+            } else {
+                fechaNac.setForeground(Estilos.getColorFuenteCuerpo());
+                register = true;
+            }
+
+        } else {
             fechaNac.setForeground(Estilos.getColorFuenteError());
             register = false;
-        } else {
-            fechaNac.setForeground(Estilos.getColorFuenteCuerpo());
-            register = true;
         }
 
-        if ((TFemail.getText().isEmpty() || TFemail.getText().equals("ejemplo@ejemplo.com")) || MetodosRegistro.comprobrarEmail(Main.getCon(), TFemail.getText())) {
+        //COMPRUEBO EL EMAIL
+        if (!(TFemail.getText().isEmpty() || TFemail.getText().equals("ejemplo@ejemplo.com"))) {
+            if (MetodosRegistro.comprobrarEmail(Main.getCon(), TFemail.getText())) {
+                email.setForeground(Estilos.getColorFuenteError());
+                register = false;
+            } else {
+                email.setForeground(Estilos.getColorFuenteCuerpo());
+                register = true;
+            }
+
+        } else {
             email.setForeground(Estilos.getColorFuenteError());
             register = false;
-        } else {
-            email.setForeground(Estilos.getColorFuenteCuerpo());
-            register = true;
         }
 
         //SI EL USUARIO A INTRODUCCIDO BIEN LOS DATOS REGISTRO AL USUARIO
@@ -822,6 +885,9 @@ public class Register extends javax.swing.JPanel {
             }
             if (TFapellido2.getText().equals("Inserte su segundo apellido")) {
                 TFapellido2.setText("");
+            }
+            if (profesor.isSelected()) {
+                TFCurso.setText("5");
             }
             MetodosRegistro.registrarUsuario(Main.getCon(), TFUsuario.getText(), String.valueOf(PWF1.getPassword()), TFalias.getText(), TFnombre.getText(), TFapellido1.getText(), TFapellido2.getText(), TFdni.getText(), Integer.parseInt(TFCurso.getText()), TFfechaNac.getText(), TFemail.getText(), profesor.isSelected());
 
@@ -1388,6 +1454,6 @@ public class Register extends javax.swing.JPanel {
     private javax.swing.JLabel registrar;
     private javax.swing.JLabel registro;
     private javax.swing.JLabel tienes;
-    private javax.swing.JLabel usuario;
+    private javax.swing.JLabel us;
     // End of variables declaration//GEN-END:variables
 }
