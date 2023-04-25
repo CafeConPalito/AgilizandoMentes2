@@ -9,7 +9,6 @@ import Usuario.Usuario;
 import Ajustes.*;
 import Main.Main;
 import java.awt.Color;
-import java.awt.ComponentOrientation;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
@@ -41,10 +40,10 @@ public class RestoDiv extends javax.swing.JPanel {
     public void actualizarAlmacenOperaciones(boolean control) {
         if (controlPartida) {
             if (control) {
-                almacenOperaciones = almacenOperaciones + "\nResto: " + juego.getDividendo() + " / " + juego.getDivisor() + " es: " + juego.getRespuesta() + " ★ ";
+                almacenOperaciones = almacenOperaciones + "\n★ Resto: " + juego.getDividendo() + " / " + juego.getDivisor() + " es: " + juego.getRespuesta();
                 jTextAreaAlmacenOperaconiones.setText(almacenOperaciones);
             } else {
-                almacenOperaciones = almacenOperaciones + "\nResto: " + juego.getDividendo() + " / " + juego.getDivisor() + " es: " + juego.getRespuesta() + " ☓ tu respuesta " + TFrespuesta.getText();
+                almacenOperaciones = almacenOperaciones + "\n☓ Resto: " + juego.getDividendo() + " / " + juego.getDivisor() + " es: " + juego.getRespuesta() + ", tu respuesta " + TFrespuesta.getText();
                 jTextAreaAlmacenOperaconiones.setText(almacenOperaciones);
             }
         } else {
@@ -332,9 +331,9 @@ public class RestoDiv extends javax.swing.JPanel {
 
         jLTitulo.setFont(Estilos.getFuenteCuerpo());
         jLTitulo.setForeground(Estilos.getColorFuenteCuerpo());
-        jLTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTitulo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLTitulo.setText("Calcula el resto de una división entera");
-        jPanel1.add(jLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 240, 30));
+        jPanel1.add(jLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 490, 30));
 
         buttonNewPlay.setBackground(Estilos.getColorPanel());
         buttonNewPlay.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -447,7 +446,7 @@ public class RestoDiv extends javax.swing.JPanel {
     }//GEN-LAST:event_buttonNewPlayMouseClicked
 
     private void buttonNewPlayMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonNewPlayMouseEntered
-        buttonNewPlay.setBackground(Estilos.getColorFuenteRegistroLogin());
+        buttonNewPlay.setBackground(Estilos.getColorSobreBoton());
     }//GEN-LAST:event_buttonNewPlayMouseEntered
 
     private void buttonNewPlayMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonNewPlayMouseExited
