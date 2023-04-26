@@ -389,11 +389,6 @@ public class RestoDiv extends javax.swing.JPanel {
                 TFrespuestaMousePressed(evt);
             }
         });
-        TFrespuesta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TFrespuestaActionPerformed(evt);
-            }
-        });
         TFrespuesta.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 TFrespuestaKeyPressed(evt);
@@ -527,10 +522,6 @@ public class RestoDiv extends javax.swing.JPanel {
             TFrespuesta.setForeground(Color.black);
         }
     }//GEN-LAST:event_TFrespuestaMousePressed
-
-    private void TFrespuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFrespuestaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TFrespuestaActionPerformed
 
     private void TFrespuestaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFrespuestaKeyPressed
         // TODO add your handling code here:
