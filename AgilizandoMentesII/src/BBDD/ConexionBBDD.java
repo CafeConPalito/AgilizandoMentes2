@@ -62,11 +62,9 @@ public class ConexionBBDD {
     public void desconectar(){
         
         try {
-            
             con.close();
-
         } catch (SQLException ex) {
-            Logger.getLogger(ConexionBBDD.class.getName()).log(Level.SEVERE,null, ex);
+            Logger.getLogger(ConexionBBDD.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }

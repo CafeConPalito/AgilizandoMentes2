@@ -24,7 +24,7 @@ public class MetodosRegistro {
      */
     public static boolean comprobarDNI(Connection con, String DNI) {
         String DNI2 = DNI.toUpperCase();
-        System.out.println(DNI2);
+        //System.out.println(DNI2);
         PreparedStatement ps = null;
         ResultSet rs = null;
 
@@ -40,14 +40,11 @@ public class MetodosRegistro {
                     ps = con.prepareStatement(selectDNI);
                     ps.setString(1, DNI2);
                     rs = ps.executeQuery();
-                    rs.next();
 
                     //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
                     //una vez en la primera linea podemos obtener la informacion;
-                    if (DNI2.equals(rs.getString(1))) {
-                        System.out.println("TRUE");
+                    if (rs.next() && DNI2.equals(rs.getString(1))) {
                         return true;
-                        
                     }
                     return false;
 
@@ -56,11 +53,11 @@ public class MetodosRegistro {
                     return true;
                 }
             } else {
-                
+
                 return false;
             }
         } else {
-            
+
             return false;
         }
 
@@ -93,8 +90,7 @@ public class MetodosRegistro {
 
                 //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
                 //una vez en la primera linea podemos obtener la informacion;
-                rs.next();
-                if (email.equals(rs.getString(1))) {
+                if (rs.next() && email.equals(rs.getString(1))) {
                     return true;
                 }
                 return false;
@@ -132,11 +128,11 @@ public class MetodosRegistro {
                 ps = con.prepareStatement(selectAlias);
                 ps.setString(1, alias);
                 rs = ps.executeQuery();
-                rs.next();
+                ;
 
                 //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
                 //una vez en la primera linea podemos obtener la informacion;
-                if (alias.equals(rs.getString(1))) {
+                if (rs.next() && alias.equals(rs.getString(1))) {
                     return true;
                 }
                 return false;
@@ -173,11 +169,11 @@ public class MetodosRegistro {
                 ps = con.prepareStatement(selectNombreUsuario);
                 ps.setString(1, nombreUsuario);
                 rs = ps.executeQuery();
-                rs.next();
+                ;
 
                 //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
                 //una vez en la primera linea podemos obtener la informacion;
-                if (nombreUsuario.equals(rs.getString(1))) {
+                if (rs.next() && nombreUsuario.equals(rs.getString(1))) {
                     return true;
                 }
                 return false;
@@ -243,11 +239,22 @@ public class MetodosRegistro {
      * @param curso Curso en el que se encuentra el alumno,0 si es profesor
      * @return True si es un curso valido
      */
-    public static boolean comprobarCurso(int curso) {
-        if (curso >= 0 || curso <= 4) {
-            return true;
+    public static boolean comprobarCurso(String curso) {
+        try {
+            if (!curso.equals("null")) {
+                int curso2 = Integer.parseInt(curso);
+                if (curso2 >= 0 || curso2 <= 4) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return true;
+            }
+        } catch (NumberFormatException e) {
+            return false;
         }
-        return false;
+
     }
 
     /**
