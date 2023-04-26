@@ -35,6 +35,8 @@ public class RestoDiv extends javax.swing.JPanel {
         actualizarClasificacion();
         actualizarMejorePartidas();
         actualizarUltimasPartidas();
+        actualizarNumeroPartidas();
+        actualizarMediaAciertos();
     }
 
     public void actualizarAlmacenOperaciones(boolean control) {
@@ -97,6 +99,14 @@ public class RestoDiv extends javax.swing.JPanel {
         }
 
     }
+    
+    private void actualizarNumeroPartidas(){
+        jLpatidasJugadas.setText("Partidas Jugadas: " + BBDDMetodosRestoDiv.totalPartidas(Main.getCon()));
+    }
+    
+    private void actualizarMediaAciertos(){
+        jLMediaAciertos.setText("Media de aciertos: " + BBDDMetodosRestoDiv.mediaAciertos(Main.getCon()) + " %");
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -113,8 +123,6 @@ public class RestoDiv extends javax.swing.JPanel {
         jLTituloEstadisticas = new javax.swing.JLabel();
         jLpatidasJugadas = new javax.swing.JLabel();
         jLMediaAciertos = new javax.swing.JLabel();
-        jLValorMediaAciertos = new javax.swing.JLabel();
-        jLValorPatidasJugadas = new javax.swing.JLabel();
         jSPranking = new javax.swing.JScrollPane();
         jTclasificacion = new javax.swing.JTable();
         jSPbestPlays = new javax.swing.JScrollPane();
@@ -160,34 +168,13 @@ public class RestoDiv extends javax.swing.JPanel {
         jLMediaAciertos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLMediaAciertos.setText("Media de Aciertos");
 
-        jLValorMediaAciertos.setFont(Estilos.getFuenteCuerpo());
-        jLValorMediaAciertos.setForeground(Estilos.getColorFuenteCuerpo());
-        jLValorMediaAciertos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-
-        jLValorPatidasJugadas.setFont(Estilos.getFuenteCuerpo());
-        jLValorPatidasJugadas.setForeground(Estilos.getColorFuenteCuerpo());
-        jLValorPatidasJugadas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-
         javax.swing.GroupLayout EstadisticasLayout = new javax.swing.GroupLayout(Estadisticas);
         Estadisticas.setLayout(EstadisticasLayout);
         EstadisticasLayout.setHorizontalGroup(
             EstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EstadisticasLayout.createSequentialGroup()
-                .addGroup(EstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLTituloEstadisticas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(EstadisticasLayout.createSequentialGroup()
-                        .addGroup(EstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLMediaAciertos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                            .addComponent(jLpatidasJugadas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(EstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(EstadisticasLayout.createSequentialGroup()
-                                .addComponent(jLValorMediaAciertos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(EstadisticasLayout.createSequentialGroup()
-                                .addComponent(jLValorPatidasJugadas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jLpatidasJugadas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLTituloEstadisticas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLMediaAciertos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
         );
         EstadisticasLayout.setVerticalGroup(
             EstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,15 +182,9 @@ public class RestoDiv extends javax.swing.JPanel {
                 .addContainerGap(20, Short.MAX_VALUE)
                 .addComponent(jLTituloEstadisticas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(EstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(EstadisticasLayout.createSequentialGroup()
-                        .addComponent(jLpatidasJugadas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(jLMediaAciertos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(EstadisticasLayout.createSequentialGroup()
-                        .addComponent(jLValorPatidasJugadas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLValorMediaAciertos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jLpatidasJugadas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(jLMediaAciertos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(58, 58, 58))
         );
 
@@ -349,7 +330,7 @@ public class RestoDiv extends javax.swing.JPanel {
                     .addComponent(jLbestPlays, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jSPranking)
                     .addComponent(jSPbestPlays)
-                    .addComponent(Estadisticas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(Estadisticas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         InformacionLayout.setVerticalGroup(
@@ -600,8 +581,6 @@ public class RestoDiv extends javax.swing.JPanel {
     private javax.swing.JLabel jLResultado;
     private javax.swing.JLabel jLTitulo;
     private javax.swing.JLabel jLTituloEstadisticas;
-    private javax.swing.JLabel jLValorMediaAciertos;
-    private javax.swing.JLabel jLValorPatidasJugadas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLlastPlays;
     private javax.swing.JLabel jLpatidasJugadas;

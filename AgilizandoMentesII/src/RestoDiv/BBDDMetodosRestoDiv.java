@@ -196,27 +196,25 @@ public class BBDDMetodosRestoDiv {
         return lista;
     }
     
-    public static int totalPartidas(Connection con){
-        int totalPartidas = 0;
+    public static String totalPartidas(Connection con){
+        String totalPartidas = "0";
         
         PreparedStatement ps = null;
         ResultSet rs = null;
         
-        //Variable nombre del juego
-        //String nombreJuego = "RestoDiv";
-        
         //SQL
-        String select = "select count(*) from view_resto_div_jugador where id_usuario = ?";
+        String select = "SELECT partidas FROM estadisticas_resto_div where jugador = ? and nivel = ?";
 
         try {
 
             ps = con.prepareStatement(select);
             ps.setInt(1, Usuario.getIdUsuario());
+            ps.setString(2,Usuario.getCurso());
 
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                totalPartidas = rs.getInt(1);
+                totalPartidas = rs.getString(1);
             }
 
         } catch (SQLException ex) {
@@ -226,45 +224,32 @@ public class BBDDMetodosRestoDiv {
         return totalPartidas;
     }
     
-    public static int mediaAciertos(Connection con){
+    public static String mediaAciertos(Connection con){
+        String mediaAciertos = "0";
         
-        /*
-        int numeroPartidas = totalPartidas(con);
-        // si no hay partidas no continua y devuelve 0
-        if (numeroPartidas == 0) {
-            return 0;
-        }
-        
-        
-        // CONTTINIAR POR AQUI!!!!!!!!
-        int mediaAciertos = 0;
         PreparedStatement ps = null;
         ResultSet rs = null;
         
-        //Variable nombre del juego
-        //String nombreJuego = "RestoDiv";
-        
         //SQL
-        String select = "select count(*) from view_resto_div_jugador where id_usuario = ?";
+        String select = "SELECT mediaAciertos FROM estadisticas_resto_div where jugador = ? and nivel = ?";
 
         try {
 
             ps = con.prepareStatement(select);
             ps.setInt(1, Usuario.getIdUsuario());
+            ps.setString(2,Usuario.getCurso());
 
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                totalPartidas = rs.getInt(1);
+                mediaAciertos = rs.getString(1);
             }
 
         } catch (SQLException ex) {
             Logger.getLogger(MetodosCalculo.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        return totalPartidas;
-    */
-        return 0;
+        return mediaAciertos;
     }
 
 }

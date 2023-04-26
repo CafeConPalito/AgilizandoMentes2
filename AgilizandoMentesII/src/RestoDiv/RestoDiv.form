@@ -69,7 +69,7 @@
                           <Component id="jLbestPlays" alignment="0" max="32767" attributes="0"/>
                           <Component id="jSPranking" alignment="0" max="32767" attributes="0"/>
                           <Component id="jSPbestPlays" alignment="0" max="32767" attributes="0"/>
-                          <Component id="Estadisticas" alignment="0" max="32767" attributes="0"/>
+                          <Component id="Estadisticas" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="14" max="32767" attributes="0"/>
                   </Group>
@@ -108,29 +108,9 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLTituloEstadisticas" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="jLMediaAciertos" alignment="0" pref="142" max="32767" attributes="0"/>
-                                      <Component id="jLpatidasJugadas" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="jLValorMediaAciertos" min="-2" pref="40" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="jLValorPatidasJugadas" min="-2" pref="40" max="-2" attributes="0"/>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="jLpatidasJugadas" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLTituloEstadisticas" alignment="1" max="32767" attributes="0"/>
+                      <Component id="jLMediaAciertos" alignment="1" pref="327" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -139,18 +119,9 @@
                           <EmptySpace pref="20" max="32767" attributes="0"/>
                           <Component id="jLTituloEstadisticas" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="jLpatidasJugadas" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                  <Component id="jLMediaAciertos" min="-2" pref="40" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="jLValorPatidasJugadas" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLValorMediaAciertos" min="-2" pref="40" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="jLpatidasJugadas" min="-2" pref="40" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <Component id="jLMediaAciertos" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -191,28 +162,6 @@
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="Media de Aciertos"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLValorMediaAciertos">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="Estilos.getFuenteCuerpo()" type="code"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="Estilos.getColorFuenteCuerpo()" type="code"/>
-                    </Property>
-                    <Property name="horizontalAlignment" type="int" value="2"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="jLValorPatidasJugadas">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="Estilos.getFuenteCuerpo()" type="code"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                      <Connection code="Estilos.getColorFuenteCuerpo()" type="code"/>
-                    </Property>
-                    <Property name="horizontalAlignment" type="int" value="2"/>
                   </Properties>
                 </Component>
               </SubComponents>
