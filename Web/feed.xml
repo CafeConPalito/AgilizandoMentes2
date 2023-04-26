@@ -8,13 +8,25 @@
         <description>Canal de noticias de Cafe Con Palito</description>
         <copyright>CC 4.0 – BY-SA</copyright>
 
+
+        <item>
+            <title>El Gobierno presenta la futura Ley por el Derecho a la Vivienda</title>
+            <link>https://www.lamoncloa.gob.es/consejodeministros/resumenes/Paginas/2021/261021-consejo_ministros.aspx</link>
+            <guid>https://www.lamoncloa.gob.es/consejodeministros/resumenes/Paginas/2021/261021-consejo_ministros.aspx</guid>
+            <description>Novedades de la futura Ley de la</description>
+            <author>mbarriosf02@educantabria.es (Carmen Barrios)</author>
+            <pubDate>Wed, 26 Apr 2023 19:13:00 GMT</pubDate>
+        </item>
+        
+
+
         <item>
             <title>Oracle anuncia la disponibilidad de Java 20</title>
             <link>https://www.muycomputerpro.com/2023/03/23/oracle-java-20</link>
             <guid>https://www.muycomputerpro.com/2023/03/23/oracle-java-20</guid>
             <description>Oracle ha confirmado, en el marco del Oracle DevLive Level Up, la disponibilidad de Java 20, la versión más reciente de la plataforma de desarrollo. Ofrece numerosas mejoras en rendimiento, estabilidad y seguridad.</description>
             <author>adiezd07@educantabria.es (Albano Díez)</author>
-            <pubDate>Mon, 25 Apr 2023 16:17:00 GMT</pubDate>
+            <pubDate>Tue, 25 Apr 2023 16:17:00 GMT</pubDate>
         </item>
         
 
