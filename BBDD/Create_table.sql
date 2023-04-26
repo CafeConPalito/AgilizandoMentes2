@@ -93,4 +93,4 @@ from resto_div inner join reto on id_reto = reto group by jugador,reto order by 
 
 -- VistaEstadisticas Euclides
 create view estadisticas_euclides as select jugador,reto,nivel,count(*) as partidas,sum(aciertos) as totalaciertos, (sum(aciertos) / count(*)) as mediaAciertos 
-from euclides inner join reto on id_reto = reto group by jugador,reto order by jugador;
+from euclides innerestadisticas_resto_div join reto on id_reto = reto group by jugador,reto order by jugador;

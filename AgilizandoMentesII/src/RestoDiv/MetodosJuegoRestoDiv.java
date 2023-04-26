@@ -75,7 +75,7 @@ public class MetodosJuegoRestoDiv {
             }
 
         } catch (NumberFormatException e) {
-            System.err.println("Error de conversion de numero");
+            
         }
         return false;
     }
