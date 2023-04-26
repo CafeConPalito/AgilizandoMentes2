@@ -86,3 +86,11 @@ Create view view_resto_div_jugador as select alias, id_usuario, nombre_reto, ret
 
 -- todo de usuarios
 create view view_info_usuario as select nombre_usuario,contrasena,alias,nombre,apellido1,apellido2,dni,email,curso,fecha_naci,profesor from usuario inner join persona using (id_usuario);
+
+-- VistaEstadisticas RestoDiv
+create view estadisticas_resto_div as select jugador,reto,nivel,count(*) as partidas,sum(aciertos) as totalaciertos, (sum(aciertos) / count(*)) as mediaAciertos 
+from resto_div inner join reto on id_reto = reto group by jugador,reto order by jugador;
+
+-- VistaEstadisticas Euclides
+create view estadisticas_euclides as select jugador,reto,nivel,count(*) as partidas,sum(aciertos) as totalaciertos, (sum(aciertos) / count(*)) as mediaAciertos 
+from euclides inner join reto on id_reto = reto group by jugador,reto order by jugador;
