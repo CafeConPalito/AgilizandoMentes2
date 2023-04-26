@@ -6,6 +6,7 @@ package Alumno;
 
 import Ajustes.*;
 import Calculadora.Calculadora;
+import Euclides.Euclides;
 import java.awt.Container;
 import Main.*;
 import RestoDiv.RestoDiv;
@@ -224,6 +225,13 @@ public class PanelAlumno extends javax.swing.JPanel {
 
     private void Euclides1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Euclides1MouseClicked
         // TODO add your handling code here:
+        Euclides panel = new Euclides();
+        panel.setSize(1070, 720);
+        panel.setLocation(0, 0);
+        Main.getCuerpo().removeAll();
+        Main.getCuerpo().add(panel);
+        Main.getCuerpo().revalidate();
+        Main.getCuerpo().repaint();
     }//GEN-LAST:event_Euclides1MouseClicked
 
     private void RestoDivisionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RestoDivisionMouseClicked
