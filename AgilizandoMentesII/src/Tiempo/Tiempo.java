@@ -22,13 +22,16 @@ public class Tiempo {
      * Inicia el contador de tiempo
      */
     public void iniciarContador() {
-        inicioContador = System.currentTimeMillis();
-        controlInicializacion = true;
+        if (controlInicializacion == false) {
+            inicioContador = System.currentTimeMillis();
+            controlInicializacion = true;
+        }
+
     }
 
     /**
-     * Detiene el contador del tiempo
-     * solo para el contador y almacena el valor si el contador se inicio
+     * Detiene el contador del tiempo solo para el contador y almacena el valor
+     * si el contador se inicio
      */
     public void pararContador() {
         if (controlInicializacion) {
@@ -40,13 +43,11 @@ public class Tiempo {
 
     /**
      * Devuelve el tiempo transcurrido
-     * @return 
+     *
+     * @return
      */
     public int getSecTranscurridos() {
         return secTranscurridos;
     }
-    
-    
-    
-    
+
 }

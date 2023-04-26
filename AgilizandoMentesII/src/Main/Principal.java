@@ -9,7 +9,7 @@ import BBDD.MetodosCalculo;
 import BBDD.MetodosRegistro;
 import BBDD.MetodosUsuario;
 import Calculadora.Calculadora;
-import Euclides.Euclides;
+import Euclides.MetodosJuegoEuclides;
 import Login.Login;
 import RestoDiv.BBDDMetodosRestoDiv;
 import RestoDiv.MetodosJuegoRestoDiv;
@@ -59,7 +59,6 @@ public class Principal {
         //usuario.setUsuario(usuario);
         //MetodosUsuario.generarUsuario(con);
         //System.out.println(Usuario.getAlias() + Usuario.getApellido1() + Usuario.getApellido2() + Usuario.getNombre());
-
         //Calculadora calcu = new Calculadora();
         //calcu.setVisible(true);
         //devuelve la fecha actual
@@ -104,20 +103,19 @@ public class Principal {
         } catch (SQLException e) {
         }
          */
-
         //EUCLIDES
         //Funciona, se crea un objeto de esa clase y se inicializa la partida. esto genera solo los dos numeros iniciales y almacena el Maximo comun divisor.
-        Euclides partida = new Euclides();
-        partida.iniciarJuego();
+        /* MetodosJuegoEuclides partida = new MetodosJuegoEuclides();
+        partida.crearPregunta();
         System.out.println("numero A: " + partida.getNumeroMayor() + ", Numero B: " + partida.getNumeroMenor() + ", Maximo comun divisor: " + partida.getMaximoComunDivisor());
-        
+         */
         //RestoDiv
         /*
         MetodosJuegoRestoDiv juego = new MetodosJuegoRestoDiv();
         System.out.println("dame el resto de la division de estos dos numeros");
         System.out.println("Dividendo: " + juego.getDividendo() + ", divisor " + juego.getDivisor());
         Scanner sc = new Scanner(System.in);
-        juego.iniciarJuego();
+        juego.crearPregunta();
         int respuesta = sc.nextInt();
         juego.terminarJuego();
         if (respuesta == juego.getRespuesta()) {
@@ -131,7 +129,21 @@ public class Principal {
         //RestoDiv
         //BBDDMetodosRestoDiv.selectClasificacion(con);
         
-        
+        //Euclides Ramiro
+        MetodosJuegoEuclides juego = new MetodosJuegoEuclides();
+        Scanner lectura = new Scanner(System.in);
+        do {
+            juego.iniciarJuego();
+            juego.crearPregunta();
+            System.out.println("Inserta el máximo común divisor de " + juego.getNumeroMayor() + " y " + juego.getNumeroMenor());
+            if (juego.comprobarRespuesta(lectura.nextLine())) {
+                System.out.println("acertaste");
+            } else {
+                System.out.println("fallaste, la respuesta correcta es: " + juego.getMaximoComunDivisor());
+            }
+        } while (juego.comprobarQuedanIntentos());
+            juego.terminarJuego();
+            System.out.println("numero de aciertos: " + juego.getAciertos() + " tiempo transcurrido " + juego.getTiempoPartida());
         conBD.desconectar();
     }
 }
