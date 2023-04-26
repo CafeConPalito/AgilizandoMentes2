@@ -25,7 +25,7 @@ constraint fk_usuario_persona foreign key (id_usuario) references usuario(id_usu
 
 create table if not exists ajuste (
 id_ajuste int(7) unsigned auto_increment not null,
-usuario int(7) unsigned not null,
+usuario int(7) unsigned unique not null,
 tamaño enum('1','2','3') default '2',
 idioma enum('Espanol','Ingles') default 'Espanol',
 sonido boolean not null,
