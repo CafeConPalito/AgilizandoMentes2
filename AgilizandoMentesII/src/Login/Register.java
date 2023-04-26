@@ -829,21 +829,16 @@ public class Register extends javax.swing.JPanel {
         }
 
         //COMPRUEBO EL CURSO
-        try {
-            if (!(TFCurso.getText().isEmpty() || TFCurso.getText().equals("Inserte su curso"))) {
-                if (!MetodosRegistro.comprobarCurso(Integer.parseInt(TFCurso.getText()))) {
-                    curso.setForeground(Estilos.getColorFuenteError());
-                    register = false;
-                } else {
-                    curso.setForeground(Estilos.getColorFuenteCuerpo());
-                    register = true;
-                }
-
-            } else {
+        if (!(TFCurso.getText().isEmpty() || TFCurso.getText().equals("Inserte su curso"))) {
+            if (!MetodosRegistro.comprobarCurso(TFCurso.getText())) {
                 curso.setForeground(Estilos.getColorFuenteError());
                 register = false;
+            } else {
+                curso.setForeground(Estilos.getColorFuenteCuerpo());
+                register = true;
             }
-        } catch (NumberFormatException e) {
+
+        } else {
             curso.setForeground(Estilos.getColorFuenteError());
             register = false;
         }
