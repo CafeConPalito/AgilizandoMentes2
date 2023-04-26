@@ -23,7 +23,7 @@ public class ConexionBBDD {
     
     //IP PARA TRABAJAR EN EL SERVER
     static final String IP = "192.168.24.16";
-    
+
     //IP PARA TRABAJAR EN LOCAL
     //static final String IP = "127.0.0.1";
     //static final String IP = "localhost";
