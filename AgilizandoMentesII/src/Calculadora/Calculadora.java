@@ -27,19 +27,20 @@ public class Calculadora extends javax.swing.JFrame {
         5 para raiz cuadrada
      */
     private int maxCaracteres = 20;
+
     /**
      * Creates new form Calculadora2
      */
     public Calculadora() {
         initComponents();
-       
+
     }
-    
+
     @Override
     public Image getIconImage() {
-    Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Images/calculadora.png"));
-    return retValue;
-}
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Images/calculadora.png"));
+        return retValue;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -96,7 +97,7 @@ public class Calculadora extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("calculadora");
-        setIconImages(getIconImages());
+        setIconImage(getIconImage());
         setLocation(new java.awt.Point(20, 20));
         setResizable(false);
         addKeyListener(new java.awt.event.KeyAdapter() {
@@ -810,7 +811,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_sumaMouseExited
 
     private void b1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b1MouseEntered
-       b1.setBackground(Estilos.getColorSobreBoton());
+        b1.setBackground(Estilos.getColorSobreBoton());
     }//GEN-LAST:event_b1MouseEntered
 
     private void b1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b1MouseExited
@@ -818,7 +819,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_b1MouseExited
 
     private void b2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b2MouseEntered
-       b2.setBackground(Estilos.getColorSobreBoton());
+        b2.setBackground(Estilos.getColorSobreBoton());
     }//GEN-LAST:event_b2MouseEntered
 
     private void b2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b2MouseExited
@@ -858,7 +859,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_b6MouseExited
 
     private void restaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_restaMouseEntered
-       resta.setBackground(Estilos.getColorSobreBoton());
+        resta.setBackground(Estilos.getColorSobreBoton());
     }//GEN-LAST:event_restaMouseEntered
 
     private void restaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_restaMouseExited
@@ -874,7 +875,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_multiMouseExited
 
     private void dividirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dividirMouseEntered
-       dividir.setBackground(Estilos.getColorSobreBoton());
+        dividir.setBackground(Estilos.getColorSobreBoton());
     }//GEN-LAST:event_dividirMouseEntered
 
     private void dividirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dividirMouseExited
@@ -890,7 +891,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_b0MouseExited
 
     private void bcMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bcMouseEntered
-       bc.setBackground(Estilos.getColorSobreBoton());
+        bc.setBackground(Estilos.getColorSobreBoton());
     }//GEN-LAST:event_bcMouseEntered
 
     private void bcMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bcMouseExited
@@ -910,7 +911,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_salirMouseEntered
 
     private void salirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirMouseExited
-       salir.setBackground(Estilos.getColorPanel());
+        salir.setBackground(Estilos.getColorPanel());
     }//GEN-LAST:event_salirMouseExited
 
     private void raizMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_raizMouseEntered
@@ -918,7 +919,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_raizMouseEntered
 
     private void raizMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_raizMouseExited
-       raiz.setBackground(Estilos.getColorPanel());
+        raiz.setBackground(Estilos.getColorPanel());
     }//GEN-LAST:event_raizMouseExited
 
     private void igualMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_igualMouseEntered
@@ -930,7 +931,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_igualMouseExited
 
     private void sumaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sumaMouseClicked
-          // TODO add your handling code here:
+        // TODO add your handling code here:
         limpiarError();
         capturarValorInput();
         operacion = 1;
@@ -963,11 +964,11 @@ public class Calculadora extends javax.swing.JFrame {
         } catch (NumberFormatException e) {
             output.setText("ERROR");
         }
-        */
+         */
     }//GEN-LAST:event_restaMouseClicked
 
     private void multiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_multiMouseClicked
-         // TODO add your handling code here:
+        // TODO add your handling code here:
         limpiarError();
         capturarValorInput();
         operacion = 3;
@@ -975,7 +976,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_multiMouseClicked
 
     private void dividirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dividirMouseClicked
-         // TODO add your handling code here:
+        // TODO add your handling code here:
         limpiarError();
         capturarValorInput();
         operacion = 4;
@@ -998,12 +999,12 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_salirMouseClicked
 
     private void raizMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_raizMouseClicked
-       // TODO add your handling code here:
+        // TODO add your handling code here:
         limpiarError();
         capturarValorInput();
-        operacion =5;
+        operacion = 5;
         operaciones();
-        output.setText("√"+valor1 + "");
+        output.setText("√" + valor1 + "");
     }//GEN-LAST:event_raizMouseClicked
 
     private void b1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b1MouseClicked
@@ -1016,7 +1017,7 @@ public class Calculadora extends javax.swing.JFrame {
     }//GEN-LAST:event_b1MouseClicked
 
     private void b2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b2MouseClicked
-         // TODO add your handling code here:
+        // TODO add your handling code here:
         limpiarError();
         limparCerosIzquierda();
         if (input.getText().length() < maxCaracteres) {
@@ -1026,7 +1027,7 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void b3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b3MouseClicked
         // TODO add your handling code here:
-         limpiarError();
+        limpiarError();
         limparCerosIzquierda();
         if (input.getText().length() < maxCaracteres) {
             input.setText(input.getText() + "3");
@@ -1035,7 +1036,7 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void b4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b4MouseClicked
         // TODO add your handling code here:
-         limpiarError();
+        limpiarError();
         limparCerosIzquierda();
         if (input.getText().length() < maxCaracteres) {
             input.setText(input.getText() + "4");
@@ -1044,7 +1045,7 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void b5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b5MouseClicked
         // TODO add your handling code here:
-         limpiarError();
+        limpiarError();
         limparCerosIzquierda();
         if (input.getText().length() < maxCaracteres) {
             input.setText(input.getText() + "5");
@@ -1053,7 +1054,7 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void b6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b6MouseClicked
         // TODO add your handling code here:
-         limpiarError();
+        limpiarError();
         limparCerosIzquierda();
         if (input.getText().length() < maxCaracteres) {
             input.setText(input.getText() + "6");
@@ -1062,7 +1063,7 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void b7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b7MouseClicked
         // TODO add your handling code here:
-         limpiarError();
+        limpiarError();
         limparCerosIzquierda();
         if (input.getText().length() < maxCaracteres) {
             input.setText(input.getText() + "7");
@@ -1071,7 +1072,7 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void b8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b8MouseClicked
         // TODO add your handling code here:
-         limpiarError();
+        limpiarError();
         limparCerosIzquierda();
         if (input.getText().length() < maxCaracteres) {
             input.setText(input.getText() + "8");
@@ -1080,7 +1081,7 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void b9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b9MouseClicked
         // TODO add your handling code here:
-         limpiarError();
+        limpiarError();
         limparCerosIzquierda();
         if (input.getText().length() < maxCaracteres) {
             input.setText(input.getText() + "9");
@@ -1089,7 +1090,7 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void b0MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b0MouseClicked
         // TODO add your handling code here:
-         limpiarError();
+        limpiarError();
         limparCerosIzquierda();
         if (input.getText().length() < maxCaracteres) {
             input.setText(input.getText() + "0");
@@ -1098,7 +1099,7 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void bcMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bcMouseClicked
         // TODO add your handling code here:
-         limpiarError();
+        limpiarError();
         if (input.getText().length() < maxCaracteres) {
             if (input.getText().length() == 0) {
                 input.setText("0.");
@@ -1110,9 +1111,9 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void igualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_igualMouseClicked
         // TODO add your handling code here:
-          if (operacion != -1) {
+        if (operacion != -1) {
             try {
-                if (!input.getText().isEmpty()&& !input.getText().equalsIgnoreCase("0")) {
+                if (!input.getText().isEmpty() && !input.getText().equalsIgnoreCase("0")) {
                     valor2 = Double.parseDouble(input.getText());
                 }
                 operaciones();
@@ -1124,13 +1125,13 @@ public class Calculadora extends javax.swing.JFrame {
             } catch (NumberFormatException e) {
                 input.setText("ERROR");
             }
-            
-        } 
+
+        }
     }//GEN-LAST:event_igualMouseClicked
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         int key = evt.getKeyCode();
-        if (key == KeyEvent.VK_ENTER){
+        if (key == KeyEvent.VK_ENTER) {
             //No puedo llamar a los metodos de arriba
         }
     }//GEN-LAST:event_formKeyPressed
@@ -1168,7 +1169,7 @@ public class Calculadora extends javax.swing.JFrame {
                 }
                 break;
             case 5://RaizCuadrada
-                if (valor1 >0) {
+                if (valor1 > 0) {
                     resultado = Math.sqrt(valor1);
                     valor1 = resultado;
                 } else {
@@ -1180,9 +1181,9 @@ public class Calculadora extends javax.swing.JFrame {
                 break;
         }
     }
-    
+
     // metodo para capturar el valor del input
-    public void capturarValorInput(){
+    public void capturarValorInput() {
         try {
             if (!input.getText().isEmpty() && !input.getText().equalsIgnoreCase("ERROR") && output.getText().isEmpty()) { // si el input tiene valor y el output no tiene nada sube el valor y coloca el simbolo
                 valor1 = Double.parseDouble(input.getText());
@@ -1192,21 +1193,22 @@ public class Calculadora extends javax.swing.JFrame {
             output.setText("ERROR");
         }
     }
-    
-     //metodo para limpiar si tiene un error.
-    public void limpiarError(){
-        if (input.getText().equalsIgnoreCase("ERROR")){// si tiene un error limpia para volver a colocar numeros ;)
+
+    //metodo para limpiar si tiene un error.
+    public void limpiarError() {
+        if (input.getText().equalsIgnoreCase("ERROR")) {// si tiene un error limpia para volver a colocar numeros ;)
             input.setText("0");
             output.setText("");
         }
     }
-    
-     //metodo para quitar ceros a la izquierda
-    public void limparCerosIzquierda (){
+
+    //metodo para quitar ceros a la izquierda
+    public void limparCerosIzquierda() {
         if (input.getText().equalsIgnoreCase("0")) {
             input.setText("");
         }
     }
+
     /**
      * @param args the command line arguments
      */

@@ -36,6 +36,12 @@ public class Main extends javax.swing.JFrame {
     private static ConexionBBDD conBD = new ConexionBBDD();
     private static Connection con = conBD.conectar();
 
+    @Override
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Images/logo.png"));
+        return retValue;
+    }
+
     public static Connection getCon() {
         return con;
     }
@@ -97,6 +103,7 @@ public class Main extends javax.swing.JFrame {
         Cuerpo = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
         setUndecorated(true);
         setSize(new java.awt.Dimension(1280, 720));
 
