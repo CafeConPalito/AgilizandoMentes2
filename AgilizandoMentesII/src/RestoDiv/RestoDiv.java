@@ -24,6 +24,7 @@ public class RestoDiv extends javax.swing.JPanel {
     MetodosJuegoRestoDiv juego = null;
     boolean controlPartida = false; // partida no iniciada , en true iniciada
     private String almacenOperaciones = "";
+    private final String NOMBREDEJUEGO= "resto_div"; //nombre que tiene la tabla en la BBDD
 
     /**
      * Creates new form NewJPanel
@@ -60,7 +61,7 @@ public class RestoDiv extends javax.swing.JPanel {
         DefaultTableModel modelC = (DefaultTableModel) jTclasificacion.getModel();
         modelC.setRowCount(0);
         Object[] row = new Object[4];
-        ArrayList<ObjetoJuegoBBDD> lista = MetodosJuegoBBDD.selectClasificacion(Main.getCon());
+        ArrayList<ObjetoJuegoBBDD> lista = MetodosJuegoBBDD.selectClasificacion(Main.getCon(), NOMBREDEJUEGO);
         for (int i = 0; i < lista.size(); i++) {
             row[0] = lista.get(i).getAlias();
             row[1] = lista.get(i).getTiempoPartida();
@@ -75,7 +76,7 @@ public class RestoDiv extends javax.swing.JPanel {
         DefaultTableModel modelB = (DefaultTableModel) jTmejoresPartidas.getModel();
         modelB.setRowCount(0);
         Object[] row = new Object[4];
-        ArrayList<ObjetoJuegoBBDD> lista = MetodosJuegoBBDD.selectJugadorMejoresPartidas(Main.getCon());
+        ArrayList<ObjetoJuegoBBDD> lista = MetodosJuegoBBDD.selectJugadorMejoresPartidas(Main.getCon(), NOMBREDEJUEGO);
         for (int i = 0; i < lista.size(); i++) {
             row[0] = lista.get(i).getAlias();
             row[1] = lista.get(i).getTiempoPartida();
@@ -91,7 +92,7 @@ public class RestoDiv extends javax.swing.JPanel {
         DefaultTableModel modelL = (DefaultTableModel) jTultimasPartidas.getModel();
         modelL.setRowCount(0);
         Object[] row = new Object[4];
-        ArrayList<ObjetoJuegoBBDD> lista = MetodosJuegoBBDD.selectJugadorUltimasPartidas(Main.getCon());
+        ArrayList<ObjetoJuegoBBDD> lista = MetodosJuegoBBDD.selectJugadorUltimasPartidas(Main.getCon(), NOMBREDEJUEGO);
         for (int i = 0; i < lista.size(); i++) {
             row[0] = lista.get(i).getAlias();
             row[1] = lista.get(i).getTiempoPartida();
@@ -103,11 +104,11 @@ public class RestoDiv extends javax.swing.JPanel {
     }
     
     private void actualizarNumeroPartidas(){
-        jLpatidasJugadas.setText("Partidas Jugadas: " + MetodosJuegoBBDD.totalPartidas(Main.getCon()));
+        jLpatidasJugadas.setText("Partidas Jugadas: " + MetodosJuegoBBDD.totalPartidas(Main.getCon(), NOMBREDEJUEGO));
     }
     
     private void actualizarMediaAciertos(){
-        jLMediaAciertos.setText("Media de aciertos: " + MetodosJuegoBBDD.mediaAciertos(Main.getCon()) + " %");
+        jLMediaAciertos.setText("Media de aciertos: " + MetodosJuegoBBDD.mediaAciertos(Main.getCon(), NOMBREDEJUEGO) + " %");
     }
 
     /**
@@ -551,7 +552,7 @@ public class RestoDiv extends javax.swing.JPanel {
                 TFrespuesta.setText(" Inserta una respueta");
                 TFrespuesta.setForeground(new Color(204, 204, 204));
                 jLOperacion.setText("Aciertos: " + juego.getAciertos() + ", Tiempo: " + juego.getTiempoPartida() + " sec");
-                MetodosJuegoBBDD.insertResultado(Main.getCon(), juego.getAciertos(), juego.getTiempoPartida());
+                MetodosJuegoBBDD.insertResultado(Main.getCon(), juego.getAciertos(), juego.getTiempoPartida(),NOMBREDEJUEGO);
                 // actualiza la informacion de las tablas
                 actualizarTablas();
             }

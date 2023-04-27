@@ -24,17 +24,14 @@ public class MetodosJuegoBBDD {
      * @param aciertos se pasan los aciertos del jugador
      * @param tiempo_partida se pasan los segundos como entero
      */
-    public static void insertResultado(Connection con, int aciertos, int tiempo_partida) {
+    public static void insertResultado(Connection con, int aciertos, int tiempo_partida, String nombreJuego) {
         PreparedStatement ps = null;
         PreparedStatement psBusqueda = null;
         ResultSet rs = null;
 
-        //Variable nombre del juego
-        String nombreJuego = "RestoDiv";
-
         //SQL
         String select = "select id_reto from reto where nombre_reto = ? and nivel = ?";
-        String insert = "insert into resto_div(jugador,reto,aciertos,tiempo_partida) values (?,?,?,sec_to_time(?))";
+        String insert = "insert into "+nombreJuego+"(jugador,reto,aciertos,tiempo_partida) values (?,?,?,sec_to_time(?))";
 
         try {
 
@@ -43,9 +40,11 @@ public class MetodosJuegoBBDD {
             psBusqueda.setString(1, nombreJuego);
             psBusqueda.setInt(2, Integer.parseInt(Usuario.getCurso()));
             rs = psBusqueda.executeQuery();
-
+            System.out.println(nombreJuego +  Usuario.getCurso());
             // si existe reto para ese jugador lo inserta.
             if (rs.next()) {
+                System.out.println("Id Juego" + rs.getString(1));
+                
                 ps = con.prepareStatement(insert);
                 ps.setInt(1, Usuario.getIdUsuario());
                 ps.setString(2, rs.getString(1));
@@ -62,6 +61,7 @@ public class MetodosJuegoBBDD {
         } catch (NumberFormatException e) {
             System.err.println("Error de conversion de numero");
         } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
         }
 
     }
@@ -73,16 +73,15 @@ public class MetodosJuegoBBDD {
      * @param con
      * @return ArrayList con las 5 mejores partidas del jugador
      */
-    public static ArrayList selectJugadorMejoresPartidas(Connection con) {
+    public static ArrayList selectJugadorMejoresPartidas(Connection con,String nombreJuego) {
 
         PreparedStatement ps = null;
         ResultSet rs = null;
         ArrayList<ObjetoJuegoBBDD> lista = new ArrayList();
 
-        //Variable nombre del juego
-        //String nombreJuego = "RestoDiv";
+        
         //SQL
-        String select = "select alias, time_to_sec(tiempo_partida), aciertos, fecha_hora from resto_div inner join usuario on id_usuario = jugador where id_usuario = ? order by aciertos desc, tiempo_partida asc limit 5";
+        String select = "select alias, time_to_sec(tiempo_partida), aciertos, fecha_hora from view_"+nombreJuego+"_tablas where id_usuario = ? order by aciertos desc, tiempo_partida asc limit 5";
 
         try {
 
@@ -111,7 +110,7 @@ public class MetodosJuegoBBDD {
      * @param con
      * @return ArrayList con las 5 ultimas partidas del jugador
      */
-    public static ArrayList selectJugadorUltimasPartidas(Connection con) {
+    public static ArrayList selectJugadorUltimasPartidas(Connection con,String nombreJuego) {
         PreparedStatement ps = null;
         ResultSet rs = null;
         ArrayList<ObjetoJuegoBBDD> lista = new ArrayList();
@@ -119,7 +118,7 @@ public class MetodosJuegoBBDD {
         //Variable nombre del juego
         //String nombreJuego = "RestoDiv";
         //SQL
-        String select = "select alias, time_to_sec(tiempo_partida), aciertos, fecha_hora from resto_div inner join usuario on id_usuario = jugador where id_usuario = ? order by fecha_hora desc limit 5";
+        String select = "select alias, time_to_sec(tiempo_partida), aciertos, fecha_hora from view_"+nombreJuego+"_tablas where id_usuario = ? order by fecha_hora desc limit 5";
 
         try {
 
@@ -131,6 +130,7 @@ public class MetodosJuegoBBDD {
             while (rs.next()) {
                 ObjetoJuegoBBDD jugador = new ObjetoJuegoBBDD(rs.getString(1), rs.getInt(2), rs.getInt(3), rs.getString(4));
                 lista.add(jugador);
+                
             }
 
         } catch (NumberFormatException e) {
@@ -148,7 +148,7 @@ public class MetodosJuegoBBDD {
      * @param con
      * @return ArrayList con los 5 mejores calificados
      */
-    public static ArrayList selectClasificacion(Connection con) {
+    public static ArrayList selectClasificacion(Connection con, String nombreJuego) {
 
         PreparedStatement ps = null;
         PreparedStatement psBusqueda = null;
@@ -156,12 +156,10 @@ public class MetodosJuegoBBDD {
         ResultSet rsBusqueda = null;
         ArrayList<ObjetoJuegoBBDD> lista = new ArrayList();
 
-        //Variable nombre del juego
-        String nombreJuego = "RestoDiv";
 
         //SQL
         String selectReto = "select id_reto from reto where nombre_reto = ? and nivel = ?";
-        String select = "select alias, time_to_sec(tiempo_partida), aciertos, fecha_hora from resto_div inner join usuario on id_usuario = jugador where reto = ? order by aciertos desc, tiempo_partida asc limit 5";
+        String select = "select alias, time_to_sec(tiempo_partida), aciertos, fecha_hora from view_"+nombreJuego+"_tablas where reto = ? order by aciertos desc, tiempo_partida asc limit 5";
 
         try {
 
@@ -193,14 +191,14 @@ public class MetodosJuegoBBDD {
         return lista;
     }
     
-    public static String totalPartidas(Connection con){
+    public static String totalPartidas(Connection con, String nombreJuego){
         String totalPartidas = "0";
         
         PreparedStatement ps = null;
         ResultSet rs = null;
         
         //SQL
-        String select = "SELECT partidas FROM estadisticas_resto_div where jugador = ? and nivel = ?";
+        String select = "SELECT partidas FROM estadisticas_"+nombreJuego+" where jugador = ? and nivel = ?";
 
         try {
 
@@ -221,14 +219,14 @@ public class MetodosJuegoBBDD {
         return totalPartidas;
     }
     
-    public static String mediaAciertos(Connection con){
+    public static String mediaAciertos(Connection con, String nombreJuego){
         String mediaAciertos = "0";
         
         PreparedStatement ps = null;
         ResultSet rs = null;
         
         //SQL
-        String select = "SELECT mediaAciertos FROM estadisticas_resto_div where jugador = ? and nivel = ?";
+        String select = "SELECT mediaAciertos FROM estadisticas_"+nombreJuego+" where jugador = ? and nivel = ?";
 
         try {
 
