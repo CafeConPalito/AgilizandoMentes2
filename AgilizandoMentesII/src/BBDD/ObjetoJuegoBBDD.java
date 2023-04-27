@@ -2,20 +2,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package RestoDiv;
+package BBDD;
 
 /**
  *
  * @author produccion
  */
-public class objetosBBDDRestoDiv {
+public class ObjetoJuegoBBDD {
 
     private String alias;
     private int tiempoPartida;
     private int aciertos;
     private String fecha_hora;
 
-    public objetosBBDDRestoDiv(String alias, int tiempoPartida, int aciertos, String fecha_hora) {
+    /**
+     * Constructor con parametros para crear objetos con la informacion referente a la Base de datos
+     * @param alias
+     * @param tiempoPartida
+     * @param aciertos
+     * @param fecha_hora 
+     */
+    public ObjetoJuegoBBDD(String alias, int tiempoPartida, int aciertos, String fecha_hora) {
         this.alias = alias;
         this.tiempoPartida = tiempoPartida;
         this.aciertos = aciertos;

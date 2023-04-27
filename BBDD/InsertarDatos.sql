@@ -72,7 +72,7 @@ insert into reto (nombre_reto,nivel) values
 ('RestoDiv',4);
 
 -- Generados aleatoriamente datos para la tabla calculo.
-insert into calculo(jugador,reto,fecha_hora,puntos,tiempo_partida) values
+insert into calculo(jugador,reto,fecha_hora,aciertos,tiempo_partida) values
 ((select id_usuario from usuario where nombre_usuario='Cbarrios'),(select id_reto from reto inner join persona on nivel = curso inner join usuario using (id_usuario) where nombre_reto = 'Calcula25' and nombre_usuario = 'Cbarrios'),'2022-11-24 10:34:14',5,sec_to_time(53)),
 ((select id_usuario from usuario where nombre_usuario='Despinosa'),(select id_reto from reto inner join persona on nivel = curso inner join usuario using (id_usuario) where nombre_reto = 'Calcula25' and nombre_usuario = 'Despinosa'),'2022-05-06 13:13:15',7,sec_to_time(59)),
 ((select id_usuario from usuario where nombre_usuario='Rgutierrez'),(select id_reto from reto inner join persona on nivel = curso inner join usuario using (id_usuario) where nombre_reto = 'Calcula25' and nombre_usuario = 'Rgutierrez'),'2022-05-04 08:26:25',8,sec_to_time(35)),

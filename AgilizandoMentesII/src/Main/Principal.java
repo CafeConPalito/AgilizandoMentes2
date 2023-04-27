@@ -5,13 +5,12 @@
 package Main;
 
 import BBDD.ConexionBBDD;
-import BBDD.MetodosCalculo;
 import BBDD.MetodosRegistro;
 import BBDD.MetodosUsuario;
 import Calculadora.Calculadora;
 import Euclides.MetodosJuegoEuclides;
 import Login.Login;
-import RestoDiv.BBDDMetodosRestoDiv;
+import BBDD.MetodosJuegoBBDD;
 import RestoDiv.MetodosJuegoRestoDiv;
 import Tiempo.Tiempo;
 import Usuario.Usuario;
