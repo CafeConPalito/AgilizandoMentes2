@@ -24,7 +24,7 @@ public class alumnos extends javax.swing.JPanel {
         
         DefaultTableModel modelC = (DefaultTableModel) jTable1.getModel();
         modelC.setRowCount(0);
-        Object[] row = new Object[8];
+        Object[] row = new Object[9];
 
         
         ArrayList<ObjetoAlumnoBBDD> lista = MetodosAlumnoBBDD.selectAlumnos(Main.getCon(), "%", "%", "%", "%", "%", "%", "%", "%") ;
@@ -34,10 +34,10 @@ public class alumnos extends javax.swing.JPanel {
             row[2] = lista.get(i).getNombre();
             row[3] = lista.get(i).getApellido1();
             row[4] = lista.get(i).getApellido2();
-            row[4] = lista.get(i).getDni();
-            row[5] = lista.get(i).getEmail();
-            row[6] = lista.get(i).getCurso();
-            row[7] = lista.get(i).getFecha();
+            row[5] = lista.get(i).getDni();
+            row[6] = lista.get(i).getEmail();
+            row[7] = lista.get(i).getCurso();
+            row[8] = lista.get(i).getFecha();
             modelC.addRow(row);
         }
     }
@@ -94,7 +94,6 @@ public class alumnos extends javax.swing.JPanel {
 
         background.setBackground(Estilos.getColorPanelBlanco());
 
-        jTable1.setFont(Estilos.getFuenteCuerpo());
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null},
@@ -723,7 +722,7 @@ public class alumnos extends javax.swing.JPanel {
             TFNombre.setText("Inserte Nombre");
         }
         if (TFUsuario.getText().isEmpty()) {
-            TFUsuario.setText("nserte nombre de usuario");
+            TFUsuario.setText("Inserte nombre de usuario");
         }
         if (TFApellido1.getText().isEmpty()) {
             TFApellido1.setText("Inserte Apellido 1");
@@ -859,7 +858,7 @@ public class alumnos extends javax.swing.JPanel {
         
         DefaultTableModel modelC = (DefaultTableModel) jTable1.getModel();
         modelC.setRowCount(0);
-        Object[] row = new Object[8];
+        Object[] row = new Object[9];
 
         
         ArrayList<ObjetoAlumnoBBDD> lista = MetodosAlumnoBBDD.selectAlumnos(Main.getCon(), objeto.getUsuario(), objeto.getAlias(), objeto.getNombre(), objeto.getApellido1(), objeto.getApellido2(), objeto.getDni(), objeto.getEmail(), objeto.getCurso()) ;
@@ -869,10 +868,10 @@ public class alumnos extends javax.swing.JPanel {
             row[2] = lista.get(i).getNombre();
             row[3] = lista.get(i).getApellido1();
             row[4] = lista.get(i).getApellido2();
-            row[4] = lista.get(i).getDni();
-            row[5] = lista.get(i).getEmail();
-            row[6] = lista.get(i).getCurso();
-            row[7] = lista.get(i).getFecha();
+            row[5] = lista.get(i).getDni();
+            row[6] = lista.get(i).getEmail();
+            row[7] = lista.get(i).getCurso();
+            row[8] = lista.get(i).getFecha();
             modelC.addRow(row);
         }
     }
@@ -882,51 +881,51 @@ public class alumnos extends javax.swing.JPanel {
      */
     private ObjetoAlumnoBBDD buscador(){
         ObjetoAlumnoBBDD objeto = new ObjetoAlumnoBBDD();
-        if (TFUsuario.getText().equals("Inserte nombre de usuario")) {
+        if (TFUsuario.getText().equals("Inserte nombre de usuario") || TFUsuario.getText().isEmpty()) {
             objeto.setUsuario("%");
         } else {
-            objeto.setUsuario(TFUsuario.getText());
+            objeto.setUsuario("%"+TFUsuario.getText()+"%");
         }
 
-        if (TFAlias.getText().equals("Inserte Alias")) {
+        if (TFAlias.getText().equals("Inserte Alias") || TFAlias.getText().isEmpty()) {
             objeto.setAlias("%");
         } else {
-            objeto.setAlias(TFAlias.getText());
+            objeto.setAlias("%"+TFAlias.getText()+"%");
         }
         
-        if (TFNombre.getText().equals("Inserte Nombre")) {
+        if (TFNombre.getText().equals("Inserte Nombre")|| TFNombre.getText().isEmpty()) {
             objeto.setNombre("%");
         } else {
-            objeto.setNombre(TFNombre.getText());
+            objeto.setNombre("%"+TFNombre.getText()+"%");
         }
         
-        if (TFApellido1.getText().equals("Inserte Apellido 1")) {
+        if (TFApellido1.getText().equals("Inserte Apellido 1") || TFApellido1.getText().isEmpty()) {
             objeto.setApellido1("%");
         } else {
-            objeto.setApellido1(TFApellido1.getText());
+            objeto.setApellido1("%"+TFApellido1.getText()+"%");
         }
         
-        if (TFApellido2.getText().equals("Inserte Apellido 2")) {
+        if (TFApellido2.getText().equals("Inserte Apellido 2") || TFApellido2.getText().isEmpty()) {
             objeto.setApellido2("%");
         }else {
-            objeto.setApellido2(TFApellido2.getText());
+            objeto.setApellido2("%"+TFApellido2.getText()+"%");
         }
         
-        if (TFDni.getText().equals("Inserte DNI")) {
+        if (TFDni.getText().equals("Inserte DNI") || TFDni.getText().isEmpty()) {
             objeto.setDni("%");
         }else {
-            objeto.setDni(TFDni.getText());
+            objeto.setDni("%"+TFDni.getText()+"%");
         }
         
-        if (TFEmail.getText().equals("Inserte Email")) {
+        if (TFEmail.getText().equals("Inserte Email") || TFEmail.getText().isEmpty()) {
             objeto.setEmail("%");
         }else {
-            objeto.setEmail(TFEmail.getText());
+            objeto.setEmail("%"+TFEmail.getText()+"%");
         }
-        if (TFCurso.getText().equals("Inserte Curso")) {
+        if (TFCurso.getText().equals("Inserte Curso") || TFCurso.getText().isEmpty()) {
             objeto.setCurso("%");
         }else {
-            objeto.setCurso(TFCurso.getText());
+            objeto.setCurso("%"+TFCurso.getText()+"%");
         }
         return objeto;
     }

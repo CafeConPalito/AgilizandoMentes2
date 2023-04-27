@@ -98,6 +98,13 @@ public class ObjetoAlumnoBBDD {
     public void setCurso(String curso) {
         this.curso = curso;
     }
+
+    @Override
+    public String toString() {
+        return usuario+alias+nombre+apellido1+apellido2+dni+email+fecha+curso;// Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+    
+    
     
     
 }

@@ -18,13 +18,13 @@ public class MetodosAlumnoBBDD {
         ResultSet rs = null;
         ArrayList<ObjetoAlumnoBBDD> lista = new ArrayList();
 
-        String select = "select nombre_usuario,alias,nombre,apellido1,apellido2,dni,email,curso,fecha_naci from view_info_alumnos where nombre_usuario like '?' and alias like '?' and nombre like'?' and apellido1 like '?' and apellido2 like '?' and dni like '?' and email like '?' and curso like '?'";
+        String select = "select nombre_usuario,alias,nombre,apellido1,apellido2,dni,email,curso,fecha_naci from view_info_alumnos where nombre_usuario like ? and alias like ? and nombre like ? and apellido1 like ? and apellido2 like ? and dni like ? and email like ? and curso like ?";
 
         try {
             
             ps = con.prepareStatement(select);
             
-            //ME PETA EL METODO AQUI PREGUNTAR DANIEL
+            
             ps.setString(1, usuario);
             ps.setString(2, alias);
             ps.setString(3, nombre);
