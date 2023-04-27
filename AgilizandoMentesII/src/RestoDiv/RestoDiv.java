@@ -4,6 +4,8 @@
  */
 package RestoDiv;
 
+import BBDD.ObjetoJuegoBBDD;
+import BBDD.MetodosJuegoBBDD;
 import Alumno.*;
 import Usuario.Usuario;
 import Ajustes.*;
@@ -58,7 +60,7 @@ public class RestoDiv extends javax.swing.JPanel {
         DefaultTableModel modelC = (DefaultTableModel) jTclasificacion.getModel();
         modelC.setRowCount(0);
         Object[] row = new Object[4];
-        ArrayList<objetosBBDDRestoDiv> lista = BBDDMetodosRestoDiv.selectClasificacion(Main.getCon());
+        ArrayList<ObjetoJuegoBBDD> lista = MetodosJuegoBBDD.selectClasificacion(Main.getCon());
         for (int i = 0; i < lista.size(); i++) {
             row[0] = lista.get(i).getAlias();
             row[1] = lista.get(i).getTiempoPartida();
@@ -73,7 +75,7 @@ public class RestoDiv extends javax.swing.JPanel {
         DefaultTableModel modelB = (DefaultTableModel) jTmejoresPartidas.getModel();
         modelB.setRowCount(0);
         Object[] row = new Object[4];
-        ArrayList<objetosBBDDRestoDiv> lista = BBDDMetodosRestoDiv.selectJugadorMejoresPartidas(Main.getCon());
+        ArrayList<ObjetoJuegoBBDD> lista = MetodosJuegoBBDD.selectJugadorMejoresPartidas(Main.getCon());
         for (int i = 0; i < lista.size(); i++) {
             row[0] = lista.get(i).getAlias();
             row[1] = lista.get(i).getTiempoPartida();
@@ -89,7 +91,7 @@ public class RestoDiv extends javax.swing.JPanel {
         DefaultTableModel modelL = (DefaultTableModel) jTultimasPartidas.getModel();
         modelL.setRowCount(0);
         Object[] row = new Object[4];
-        ArrayList<objetosBBDDRestoDiv> lista = BBDDMetodosRestoDiv.selectJugadorUltimasPartidas(Main.getCon());
+        ArrayList<ObjetoJuegoBBDD> lista = MetodosJuegoBBDD.selectJugadorUltimasPartidas(Main.getCon());
         for (int i = 0; i < lista.size(); i++) {
             row[0] = lista.get(i).getAlias();
             row[1] = lista.get(i).getTiempoPartida();
@@ -101,11 +103,11 @@ public class RestoDiv extends javax.swing.JPanel {
     }
     
     private void actualizarNumeroPartidas(){
-        jLpatidasJugadas.setText("Partidas Jugadas: " + BBDDMetodosRestoDiv.totalPartidas(Main.getCon()));
+        jLpatidasJugadas.setText("Partidas Jugadas: " + MetodosJuegoBBDD.totalPartidas(Main.getCon()));
     }
     
     private void actualizarMediaAciertos(){
-        jLMediaAciertos.setText("Media de aciertos: " + BBDDMetodosRestoDiv.mediaAciertos(Main.getCon()) + " %");
+        jLMediaAciertos.setText("Media de aciertos: " + MetodosJuegoBBDD.mediaAciertos(Main.getCon()) + " %");
     }
 
     /**
@@ -549,7 +551,7 @@ public class RestoDiv extends javax.swing.JPanel {
                 TFrespuesta.setText(" Inserta una respueta");
                 TFrespuesta.setForeground(new Color(204, 204, 204));
                 jLOperacion.setText("Aciertos: " + juego.getAciertos() + ", Tiempo: " + juego.getTiempoPartida() + " sec");
-                BBDDMetodosRestoDiv.insertResultado(Main.getCon(), juego.getAciertos(), juego.getTiempoPartida());
+                MetodosJuegoBBDD.insertResultado(Main.getCon(), juego.getAciertos(), juego.getTiempoPartida());
                 // actualiza la informacion de las tablas
                 actualizarTablas();
             }

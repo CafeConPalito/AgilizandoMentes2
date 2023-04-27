@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package RestoDiv;
+package BBDD;
 
-import BBDD.MetodosCalculo;
+
 import Usuario.Usuario;
 import java.sql.*;
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  *
  * @author CafeConPalito
  */
-public class BBDDMetodosRestoDiv {
+public class MetodosJuegoBBDD {
 
     /**
      * Inserta en la BBDD la puntuacion del jugador para el juego Resto Division
@@ -62,7 +62,6 @@ public class BBDDMetodosRestoDiv {
         } catch (NumberFormatException e) {
             System.err.println("Error de conversion de numero");
         } catch (SQLException ex) {
-            Logger.getLogger(MetodosCalculo.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -78,7 +77,7 @@ public class BBDDMetodosRestoDiv {
 
         PreparedStatement ps = null;
         ResultSet rs = null;
-        ArrayList<objetosBBDDRestoDiv> lista = new ArrayList();
+        ArrayList<ObjetoJuegoBBDD> lista = new ArrayList();
 
         //Variable nombre del juego
         //String nombreJuego = "RestoDiv";
@@ -93,14 +92,13 @@ public class BBDDMetodosRestoDiv {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                objetosBBDDRestoDiv jugador = new objetosBBDDRestoDiv(rs.getString(1), rs.getInt(2), rs.getInt(3), rs.getString(4));
+                ObjetoJuegoBBDD jugador = new ObjetoJuegoBBDD(rs.getString(1), rs.getInt(2), rs.getInt(3), rs.getString(4));
                 lista.add(jugador);
             }
 
         } catch (NumberFormatException e) {
             System.err.println("Error de conversion de numero");
         } catch (SQLException ex) {
-            Logger.getLogger(MetodosCalculo.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return lista;
@@ -116,7 +114,7 @@ public class BBDDMetodosRestoDiv {
     public static ArrayList selectJugadorUltimasPartidas(Connection con) {
         PreparedStatement ps = null;
         ResultSet rs = null;
-        ArrayList<objetosBBDDRestoDiv> lista = new ArrayList();
+        ArrayList<ObjetoJuegoBBDD> lista = new ArrayList();
 
         //Variable nombre del juego
         //String nombreJuego = "RestoDiv";
@@ -131,14 +129,13 @@ public class BBDDMetodosRestoDiv {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                objetosBBDDRestoDiv jugador = new objetosBBDDRestoDiv(rs.getString(1), rs.getInt(2), rs.getInt(3), rs.getString(4));
+                ObjetoJuegoBBDD jugador = new ObjetoJuegoBBDD(rs.getString(1), rs.getInt(2), rs.getInt(3), rs.getString(4));
                 lista.add(jugador);
             }
 
         } catch (NumberFormatException e) {
             System.err.println("Error de conversion de numero");
         } catch (SQLException ex) {
-            Logger.getLogger(MetodosCalculo.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return lista;
@@ -157,7 +154,7 @@ public class BBDDMetodosRestoDiv {
         PreparedStatement psBusqueda = null;
         ResultSet rs = null;
         ResultSet rsBusqueda = null;
-        ArrayList<objetosBBDDRestoDiv> lista = new ArrayList();
+        ArrayList<ObjetoJuegoBBDD> lista = new ArrayList();
 
         //Variable nombre del juego
         String nombreJuego = "RestoDiv";
@@ -181,7 +178,7 @@ public class BBDDMetodosRestoDiv {
                 rs = ps.executeQuery();
 
                 while (rs.next()) {
-                    objetosBBDDRestoDiv jugador = new objetosBBDDRestoDiv(rs.getString(1), rs.getInt(2), rs.getInt(3), rs.getString(4));
+                    ObjetoJuegoBBDD jugador = new ObjetoJuegoBBDD(rs.getString(1), rs.getInt(2), rs.getInt(3), rs.getString(4));
                     lista.add(jugador);
                 }
 
@@ -190,7 +187,7 @@ public class BBDDMetodosRestoDiv {
         } catch (NumberFormatException e) {
             System.err.println("Error de conversion de numero");
         } catch (SQLException ex) {
-            Logger.getLogger(MetodosCalculo.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
 
         return lista;
@@ -218,7 +215,7 @@ public class BBDDMetodosRestoDiv {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(MetodosCalculo.class.getName()).log(Level.SEVERE, null, ex);
+
         }
 
         return totalPartidas;
@@ -246,7 +243,7 @@ public class BBDDMetodosRestoDiv {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(MetodosCalculo.class.getName()).log(Level.SEVERE, null, ex);
+
         }
 
         return mediaAciertos;
