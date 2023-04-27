@@ -173,6 +173,7 @@ public class Calculadora extends javax.swing.JFrame {
         });
 
         t1.setFont(Estilos.getFuenteCuerpo());
+        t1.setForeground(Estilos.getColorPanelBlanco());
         t1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         t1.setText("1");
 
@@ -204,6 +205,7 @@ public class Calculadora extends javax.swing.JFrame {
         });
 
         t2.setFont(Estilos.getFuenteCuerpo());
+        t2.setForeground(Estilos.getColorPanelBlanco());
         t2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         t2.setText("2");
 
@@ -235,6 +237,7 @@ public class Calculadora extends javax.swing.JFrame {
         });
 
         t7.setFont(Estilos.getFuenteCuerpo());
+        t7.setForeground(Estilos.getColorPanelBlanco());
         t7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         t7.setText("7");
 
@@ -266,6 +269,7 @@ public class Calculadora extends javax.swing.JFrame {
         });
 
         t8.setFont(Estilos.getFuenteCuerpo());
+        t8.setForeground(Estilos.getColorPanelBlanco());
         t8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         t8.setText("8");
 
@@ -297,6 +301,7 @@ public class Calculadora extends javax.swing.JFrame {
         });
 
         t9.setFont(Estilos.getFuenteCuerpo());
+        t9.setForeground(Estilos.getColorPanelBlanco());
         t9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         t9.setText("9");
 
@@ -328,6 +333,7 @@ public class Calculadora extends javax.swing.JFrame {
         });
 
         t10.setFont(Estilos.getFuenteCuerpo());
+        t10.setForeground(Estilos.getColorPanelBlanco());
         t10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         t10.setText("+");
 
@@ -359,6 +365,7 @@ public class Calculadora extends javax.swing.JFrame {
         });
 
         t3.setFont(Estilos.getFuenteCuerpo());
+        t3.setForeground(Estilos.getColorPanelBlanco());
         t3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         t3.setText("3");
 
@@ -390,6 +397,7 @@ public class Calculadora extends javax.swing.JFrame {
         });
 
         t4.setFont(Estilos.getFuenteCuerpo());
+        t4.setForeground(Estilos.getColorPanelBlanco());
         t4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         t4.setText("4");
 
@@ -421,6 +429,7 @@ public class Calculadora extends javax.swing.JFrame {
         });
 
         t5.setFont(Estilos.getFuenteCuerpo());
+        t5.setForeground(Estilos.getColorPanelBlanco());
         t5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         t5.setText("5");
 
@@ -452,6 +461,7 @@ public class Calculadora extends javax.swing.JFrame {
         });
 
         t6.setFont(Estilos.getFuenteCuerpo());
+        t6.setForeground(Estilos.getColorPanelBlanco());
         t6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         t6.setText("6");
 
@@ -483,6 +493,7 @@ public class Calculadora extends javax.swing.JFrame {
         });
 
         t11.setFont(Estilos.getFuenteCuerpo());
+        t11.setForeground(Estilos.getColorPanelBlanco());
         t11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         t11.setText("-");
 
@@ -514,6 +525,7 @@ public class Calculadora extends javax.swing.JFrame {
         });
 
         t12.setFont(Estilos.getFuenteCuerpo());
+        t12.setForeground(Estilos.getColorPanelBlanco());
         t12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         t12.setText("*");
 
@@ -545,6 +557,7 @@ public class Calculadora extends javax.swing.JFrame {
         });
 
         t13.setFont(Estilos.getFuenteCuerpo());
+        t13.setForeground(Estilos.getColorPanelBlanco());
         t13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         t13.setText("/");
 
@@ -576,6 +589,7 @@ public class Calculadora extends javax.swing.JFrame {
         });
 
         t0.setFont(Estilos.getFuenteCuerpo());
+        t0.setForeground(Estilos.getColorPanelBlanco());
         t0.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         t0.setText("0");
 
@@ -607,6 +621,7 @@ public class Calculadora extends javax.swing.JFrame {
         });
 
         tc.setFont(Estilos.getFuenteCuerpo());
+        tc.setForeground(Estilos.getColorPanelBlanco());
         tc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tc.setText(",");
 
@@ -638,6 +653,7 @@ public class Calculadora extends javax.swing.JFrame {
         });
 
         tc1.setFont(Estilos.getFuenteCuerpo());
+        tc1.setForeground(Estilos.getColorPanelBlanco());
         tc1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tc1.setText("C");
 
@@ -669,6 +685,7 @@ public class Calculadora extends javax.swing.JFrame {
         });
 
         tc2.setFont(Estilos.getFuenteCuerpo());
+        tc2.setForeground(Estilos.getColorPanelBlanco());
         tc2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tc2.setText("SALIR");
 
@@ -700,6 +717,7 @@ public class Calculadora extends javax.swing.JFrame {
         });
 
         t14.setFont(Estilos.getFuenteCuerpo());
+        t14.setForeground(Estilos.getColorPanelBlanco());
         t14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         t14.setText("√");
 
@@ -732,6 +750,7 @@ public class Calculadora extends javax.swing.JFrame {
 
         t16.setBackground(Estilos.getColorSobreBoton());
         t16.setFont(Estilos.getFuenteCuerpo());
+        t16.setForeground(Estilos.getColorPanelBlanco());
         t16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         t16.setText("=");
 
@@ -932,65 +951,27 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void sumaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sumaMouseClicked
         // TODO add your handling code here:
-        limpiarError();
-        capturarValorInput();
-        operacion = 1;
-        output.setText(valor1 + " +");
+        suma();
     }//GEN-LAST:event_sumaMouseClicked
 
     private void restaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_restaMouseClicked
         // TODO add your handling code here:
-        limpiarError();
-        capturarValorInput();
-        operacion = 2;
-        output.setText(valor1 + " -");
-        /*
-        try {
-            if (!input.getText().isEmpty() && output.getText().isEmpty()) { // si el input tiene valor y el output no tiene nada sube el valor y coloca el simbolo
-                valor1 = Double.parseDouble(input.getText());
-                output.setText(valor1 + " -");
-                input.setText("0");
-                operacion = 2;
-            } else if (!input.getText().isEmpty() && !output.getText().isEmpty()) { //si el input tiene valor y el output ya tiene valor realiza la operacion y limpia el input
-                valor2 = Double.parseDouble(input.getText());
-                operaciones();
-                output.setText(resultado + " -");
-                input.setText("0");
-                operacion = 2;
-            } else if (input.getText().isEmpty() && !output.getText().isEmpty()) { //si el input esta vacio y el output ya tiene valor cambia la operacion
-                output.setText(valor1 + " -");
-                operacion = 2;
-            }
-        } catch (NumberFormatException e) {
-            output.setText("ERROR");
-        }
-         */
+        resta();
     }//GEN-LAST:event_restaMouseClicked
 
     private void multiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_multiMouseClicked
         // TODO add your handling code here:
-        limpiarError();
-        capturarValorInput();
-        operacion = 3;
-        output.setText(valor1 + " *");
+        multi();
     }//GEN-LAST:event_multiMouseClicked
 
     private void dividirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dividirMouseClicked
         // TODO add your handling code here:
-        limpiarError();
-        capturarValorInput();
-        operacion = 4;
-        output.setText(valor1 + " /");
+        dividir();
     }//GEN-LAST:event_dividirMouseClicked
 
     private void bc1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bc1MouseClicked
         // TODO add your handling code here:
-        input.setText("0");
-        output.setText("");
-        valor1 = 0;
-        valor2 = 0;
-        resultado = -1;
-        operacion = -1;
+        clear();
     }//GEN-LAST:event_bc1MouseClicked
 
     private void salirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirMouseClicked
@@ -1009,130 +990,117 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void b1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b1MouseClicked
         // TODO add your handling code here:
-        limpiarError();
-        limparCerosIzquierda();
-        if (input.getText().length() < maxCaracteres) {
-            input.setText(input.getText() + "1");
-        }
+        i1();
     }//GEN-LAST:event_b1MouseClicked
 
     private void b2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b2MouseClicked
         // TODO add your handling code here:
-        limpiarError();
-        limparCerosIzquierda();
-        if (input.getText().length() < maxCaracteres) {
-            input.setText(input.getText() + "2");
-        }
+        i2();
     }//GEN-LAST:event_b2MouseClicked
 
     private void b3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b3MouseClicked
         // TODO add your handling code here:
-        limpiarError();
-        limparCerosIzquierda();
-        if (input.getText().length() < maxCaracteres) {
-            input.setText(input.getText() + "3");
-        }
+        i3();
     }//GEN-LAST:event_b3MouseClicked
 
     private void b4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b4MouseClicked
         // TODO add your handling code here:
-        limpiarError();
-        limparCerosIzquierda();
-        if (input.getText().length() < maxCaracteres) {
-            input.setText(input.getText() + "4");
-        }
+        i4();
     }//GEN-LAST:event_b4MouseClicked
 
     private void b5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b5MouseClicked
         // TODO add your handling code here:
-        limpiarError();
-        limparCerosIzquierda();
-        if (input.getText().length() < maxCaracteres) {
-            input.setText(input.getText() + "5");
-        }
+        i5();
     }//GEN-LAST:event_b5MouseClicked
 
     private void b6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b6MouseClicked
         // TODO add your handling code here:
-        limpiarError();
-        limparCerosIzquierda();
-        if (input.getText().length() < maxCaracteres) {
-            input.setText(input.getText() + "6");
-        }
+        i6();
     }//GEN-LAST:event_b6MouseClicked
 
     private void b7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b7MouseClicked
         // TODO add your handling code here:
-        limpiarError();
-        limparCerosIzquierda();
-        if (input.getText().length() < maxCaracteres) {
-            input.setText(input.getText() + "7");
-        }
+        i7();
     }//GEN-LAST:event_b7MouseClicked
 
     private void b8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b8MouseClicked
         // TODO add your handling code here:
-        limpiarError();
-        limparCerosIzquierda();
-        if (input.getText().length() < maxCaracteres) {
-            input.setText(input.getText() + "8");
-        }
+        i8();
     }//GEN-LAST:event_b8MouseClicked
 
     private void b9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b9MouseClicked
         // TODO add your handling code here:
-        limpiarError();
-        limparCerosIzquierda();
-        if (input.getText().length() < maxCaracteres) {
-            input.setText(input.getText() + "9");
-        }
+        i9();
     }//GEN-LAST:event_b9MouseClicked
 
     private void b0MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_b0MouseClicked
         // TODO add your handling code here:
-        limpiarError();
-        limparCerosIzquierda();
-        if (input.getText().length() < maxCaracteres) {
-            input.setText(input.getText() + "0");
-        }
+        i0();
     }//GEN-LAST:event_b0MouseClicked
 
     private void bcMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bcMouseClicked
         // TODO add your handling code here:
-        limpiarError();
-        if (input.getText().length() < maxCaracteres) {
-            if (input.getText().length() == 0) {
-                input.setText("0.");
-            } else if (!input.getText().contains(".")) {
-                input.setText(input.getText() + ".");
-            }
-        }
+        coma();
+
     }//GEN-LAST:event_bcMouseClicked
 
     private void igualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_igualMouseClicked
         // TODO add your handling code here:
-        if (operacion != -1) {
-            try {
-                if (!input.getText().isEmpty() && !input.getText().equalsIgnoreCase("0")) {
-                    valor2 = Double.parseDouble(input.getText());
-                }
-                operaciones();
-                if (control) {
-                    output.setText(resultado + "");
-                    input.setText("0");
-                    control = true;
-                }
-            } catch (NumberFormatException e) {
-                input.setText("ERROR");
-            }
-
-        }
+        igual();
     }//GEN-LAST:event_igualMouseClicked
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         int key = evt.getKeyCode();
         if (key == KeyEvent.VK_ENTER) {
-            //No puedo llamar a los metodos de arriba
+            igual();
+        }
+        if (key == KeyEvent.VK_COMMA || key == KeyEvent.VK_DECIMAL) {
+            coma();
+        }
+        if (key == KeyEvent.VK_ESCAPE) {
+            clear();
+        }
+        if (key == KeyEvent.VK_DIVIDE) {
+            dividir();
+        }
+        if (key == KeyEvent.VK_MULTIPLY) {
+            multi();
+        }
+        if (key == KeyEvent.VK_SUBTRACT) {
+            resta();
+        }
+        if (key == KeyEvent.VK_ADD) {
+            suma();
+        }
+        if (key == KeyEvent.VK_0 || key == KeyEvent.VK_NUMPAD0) {
+            i0();
+        }
+        if (key == KeyEvent.VK_1 || key == KeyEvent.VK_NUMPAD1) {
+            i1();
+        }
+        if (key == KeyEvent.VK_2 || key == KeyEvent.VK_NUMPAD2) {
+            i2();
+        }
+        if (key == KeyEvent.VK_3 || key == KeyEvent.VK_NUMPAD3) {
+            i3();
+        }
+        if (key == KeyEvent.VK_4 || key == KeyEvent.VK_NUMPAD4) {
+            i4();
+        }
+        if (key == KeyEvent.VK_5 || key == KeyEvent.VK_NUMPAD5) {
+            i5();
+        }
+        if (key == KeyEvent.VK_6 || key == KeyEvent.VK_NUMPAD6) {
+            i6();
+        }
+        if (key == KeyEvent.VK_7 || key == KeyEvent.VK_NUMPAD7) {
+            i7();
+        }
+        if (key == KeyEvent.VK_8 || key == KeyEvent.VK_NUMPAD8) {
+            i8();
+        }
+        if (key == KeyEvent.VK_9 || key == KeyEvent.VK_NUMPAD9) {
+            i9();
         }
     }//GEN-LAST:event_formKeyPressed
 
@@ -1207,6 +1175,177 @@ public class Calculadora extends javax.swing.JFrame {
         if (input.getText().equalsIgnoreCase("0")) {
             input.setText("");
         }
+    }
+
+    private void igual() {
+        if (operacion != -1) {
+            try {
+                if (!input.getText().isEmpty() && !input.getText().equalsIgnoreCase("0")) {
+                    valor2 = Double.parseDouble(input.getText());
+                }
+                operaciones();
+                if (control) {
+                    output.setText(resultado + "");
+                    input.setText("0");
+                    control = true;
+                }
+            } catch (NumberFormatException e) {
+                input.setText("ERROR");
+            }
+
+        }
+    }
+
+    private void dividir() {
+        limpiarError();
+        capturarValorInput();
+        operacion = 4;
+        output.setText(valor1 + " /");
+    }
+
+    private void multi() {
+        limpiarError();
+        capturarValorInput();
+        operacion = 3;
+        output.setText(valor1 + " *");
+    }
+
+    private void resta() {
+        limpiarError();
+        capturarValorInput();
+        operacion = 2;
+        output.setText(valor1 + " -");
+        /*
+        try {
+            if (!input.getText().isEmpty() && output.getText().isEmpty()) { // si el input tiene valor y el output no tiene nada sube el valor y coloca el simbolo
+                valor1 = Double.parseDouble(input.getText());
+                output.setText(valor1 + " -");
+                input.setText("0");
+                operacion = 2;
+            } else if (!input.getText().isEmpty() && !output.getText().isEmpty()) { //si el input tiene valor y el output ya tiene valor realiza la operacion y limpia el input
+                valor2 = Double.parseDouble(input.getText());
+                operaciones();
+                output.setText(resultado + " -");
+                input.setText("0");
+                operacion = 2;
+            } else if (input.getText().isEmpty() && !output.getText().isEmpty()) { //si el input esta vacio y el output ya tiene valor cambia la operacion
+                output.setText(valor1 + " -");
+                operacion = 2;
+            }
+        } catch (NumberFormatException e) {
+            output.setText("ERROR");
+        }
+         */
+    }
+    private void suma(){
+        limpiarError();
+        capturarValorInput();
+        operacion = 1;
+        output.setText(valor1 + " +");
+    }
+
+    private void coma() {
+        limpiarError();
+        if (input.getText().length() < maxCaracteres) {
+            if (input.getText().length() == 0) {
+                input.setText("0.");
+            } else if (!input.getText().contains(".")) {
+                input.setText(input.getText() + ".");
+            }
+        }
+    }
+
+    private void clear() {
+        input.setText("0");
+        output.setText("");
+        valor1 = 0;
+        valor2 = 0;
+        resultado = -1;
+        operacion = -1;
+    }
+
+    private void i0() {
+        limpiarError();
+        limparCerosIzquierda();
+        if (input.getText().length() < maxCaracteres) {
+            input.setText(input.getText() + "0");
+        }
+    }
+
+    private void i1() {
+        limpiarError();
+        limparCerosIzquierda();
+        if (input.getText().length() < maxCaracteres) {
+            input.setText(input.getText() + "1");
+        }
+    }
+
+    private void i2() {
+        limpiarError();
+        limparCerosIzquierda();
+        if (input.getText().length() < maxCaracteres) {
+            input.setText(input.getText() + "2");
+        }
+    }
+
+    private void i3() {
+        limpiarError();
+        limparCerosIzquierda();
+        if (input.getText().length() < maxCaracteres) {
+            input.setText(input.getText() + "3");
+        }
+    }
+
+    private void i4() {
+        limpiarError();
+        limparCerosIzquierda();
+        if (input.getText().length() < maxCaracteres) {
+            input.setText(input.getText() + "4");
+        }
+    }
+
+    private void i5() {
+        limpiarError();
+        limparCerosIzquierda();
+        if (input.getText().length() < maxCaracteres) {
+            input.setText(input.getText() + "5");
+        }
+    }
+
+    private void i6() {
+        limpiarError();
+        limparCerosIzquierda();
+        if (input.getText().length() < maxCaracteres) {
+            input.setText(input.getText() + "6");
+        }
+    }
+
+    private void i7() {
+        limpiarError();
+        limparCerosIzquierda();
+        if (input.getText().length() < maxCaracteres) {
+            input.setText(input.getText() + "7");
+        }
+    }
+
+    private void i8() {
+        limpiarError();
+        limparCerosIzquierda();
+        if (input.getText().length() < maxCaracteres) {
+            input.setText(input.getText() + "8");
+        }
+    }
+
+    private void i9() {
+        limpiarError();
+        limparCerosIzquierda();
+        if (input.getText().length() < maxCaracteres) {
+            input.setText(input.getText() + "9");
+        }
+    }
+
+    private void raiz() {
+
     }
 
     /**
