@@ -82,10 +82,11 @@ constraint fk_resto_reto foreign key (reto) references reto (id_reto) on delete 
 );
 
 -- Vista Resto_Div 
-Create view view_resto_div_jugador as select alias, id_usuario, nombre_reto, reto,nivel,fecha_hora,aciertos,tiempo_partida from resto_div inner join reto on reto = id_reto inner join usuario on id_usuario = jugador;
-
--- todo de usuarios
-create view view_info_usuario as select nombre_usuario,contrasena,alias,nombre,apellido1,apellido2,dni,email,curso,fecha_naci,profesor from usuario inner join persona using (id_usuario);
+Create view view_resto_div_tablas as select alias, time_to_sec(tiempo_partida), aciertos, fecha_hora,nivel,id_usuario from resto_div inner join usuario on id_usuario = jugador inner join reto on id_reto=reto;
+-- vista euclides
+Create view view_euclides_tablas as select alias, time_to_sec(tiempo_partida), aciertos, fecha_hora,nivel,id_usuario from resto_div inner join usuario on id_usuario = jugador inner join reto on id_reto=reto;
+-- vista calculo
+Create view view_calculo_tablas as select alias, time_to_sec(tiempo_partida), aciertos, fecha_hora,nivel,id_usuario from resto_div inner join usuario on id_usuario = jugador inner join reto on id_reto=reto;
 
 -- VistaEstadisticas RestoDiv
 create view estadisticas_resto_div as select jugador,reto,nivel,count(*) as partidas,sum(aciertos) as totalaciertos, (sum(aciertos) / count(*)) as mediaAciertos 
@@ -93,4 +94,12 @@ from resto_div inner join reto on id_reto = reto group by jugador,reto order by 
 
 -- VistaEstadisticas Euclides
 create view estadisticas_euclides as select jugador,reto,nivel,count(*) as partidas,sum(aciertos) as totalaciertos, (sum(aciertos) / count(*)) as mediaAciertos 
-from euclides innerestadisticas_resto_div join reto on id_reto = reto group by jugador,reto order by jugador;
+from euclides inner join reto on id_reto = reto group by jugador,reto order by jugador;
+
+-- VistaEstadisticas Calculo
+create view estadisticas_calculo as select jugador,reto,nivel,count(*) as partidas,sum(aciertos) as totalaciertos, (sum(aciertos) / count(*)) as mediaAciertos 
+from calculo inner join reto on id_reto = reto group by jugador,reto order by jugador;
+
+-- Vista Info Alumnos
+create view view_info_alumnos as select nombre_usuario,alias,nombre,apellido1,apellido2,dni,email,curso,fecha_naci 
+from usuario inner join persona using(id_usuario) where profesor=0;
