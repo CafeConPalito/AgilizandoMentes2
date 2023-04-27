@@ -6,7 +6,6 @@ package Euclides;
 
 import BBDD.MetodosJuegoBBDD;
 import BBDD.ObjetoJuegoBBDD;
-import RestoDiv.*;
 import Alumno.*;
 import Usuario.Usuario;
 import Ajustes.*;
@@ -25,6 +24,7 @@ public class Euclides extends javax.swing.JPanel {
     MetodosJuegoEuclides juego = null;
     boolean controlPartida = false; // partida no iniciada , en true iniciada
     private String almacenOperaciones = "";
+    private final String NOMBREDEJUEGO= "euclides"; //nombre que tiene la tabla en la BBDD
 
     /**
      * Creates new form NewJPanel
@@ -61,7 +61,7 @@ public class Euclides extends javax.swing.JPanel {
         DefaultTableModel modelC = (DefaultTableModel) jTclasificacion.getModel();
         modelC.setRowCount(0);
         Object[] row = new Object[4];
-        ArrayList<ObjetoJuegoBBDD> lista = MetodosJuegoBBDD.selectClasificacion(Main.getCon());
+        ArrayList<ObjetoJuegoBBDD> lista = MetodosJuegoBBDD.selectClasificacion(Main.getCon(),NOMBREDEJUEGO);
         for (int i = 0; i < lista.size(); i++) {
             row[0] = lista.get(i).getAlias();
             row[1] = lista.get(i).getTiempoPartida();
@@ -76,7 +76,7 @@ public class Euclides extends javax.swing.JPanel {
         DefaultTableModel modelB = (DefaultTableModel) jTmejoresPartidas.getModel();
         modelB.setRowCount(0);
         Object[] row = new Object[4];
-        ArrayList<ObjetoJuegoBBDD> lista = MetodosJuegoBBDD.selectJugadorMejoresPartidas(Main.getCon());
+        ArrayList<ObjetoJuegoBBDD> lista = MetodosJuegoBBDD.selectJugadorMejoresPartidas(Main.getCon(),NOMBREDEJUEGO);
         for (int i = 0; i < lista.size(); i++) {
             row[0] = lista.get(i).getAlias();
             row[1] = lista.get(i).getTiempoPartida();
@@ -92,7 +92,7 @@ public class Euclides extends javax.swing.JPanel {
         DefaultTableModel modelL = (DefaultTableModel) jTultimasPartidas.getModel();
         modelL.setRowCount(0);
         Object[] row = new Object[4];
-        ArrayList<ObjetoJuegoBBDD> lista = MetodosJuegoBBDD.selectJugadorUltimasPartidas(Main.getCon());
+        ArrayList<ObjetoJuegoBBDD> lista = MetodosJuegoBBDD.selectJugadorUltimasPartidas(Main.getCon(), NOMBREDEJUEGO);
         for (int i = 0; i < lista.size(); i++) {
             row[0] = lista.get(i).getAlias();
             row[1] = lista.get(i).getTiempoPartida();
@@ -104,11 +104,11 @@ public class Euclides extends javax.swing.JPanel {
     }
     
     private void actualizarNumeroPartidas(){
-        jLpatidasJugadas.setText("Partidas Jugadas: " + MetodosJuegoBBDD.totalPartidas(Main.getCon()));
+        jLpatidasJugadas.setText("Partidas Jugadas: " + MetodosJuegoBBDD.totalPartidas(Main.getCon(),NOMBREDEJUEGO));
     }
     
     private void actualizarMediaAciertos(){
-        jLMediaAciertos.setText("Media de aciertos: " + MetodosJuegoBBDD.mediaAciertos(Main.getCon()) + " %");
+        jLMediaAciertos.setText("Media de aciertos: " + MetodosJuegoBBDD.mediaAciertos(Main.getCon(), NOMBREDEJUEGO) + " %");
     }
 
     /**
@@ -361,7 +361,7 @@ public class Euclides extends javax.swing.JPanel {
         jLTitulo.setFont(Estilos.getFuenteCuerpo());
         jLTitulo.setForeground(Estilos.getColorFuenteCuerpo());
         jLTitulo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLTitulo.setText("Calcula el resto de una división entera");
+        jLTitulo.setText("Calcula el máximo común divisor");
         jPanel1.add(jLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 490, 40));
 
         jScrollPane1.setBorder(null);
@@ -440,7 +440,7 @@ public class Euclides extends javax.swing.JPanel {
         jLOperacion.setFont(Estilos.getFuenteCuerpo());
         jLOperacion.setForeground(Estilos.getColorFuenteCuerpo());
         jLOperacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLOperacion.setText("Operacion");
+        jLOperacion.setText("Operación");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -552,9 +552,9 @@ public class Euclides extends javax.swing.JPanel {
                 TFrespuesta.setText(" Inserta una respueta");
                 TFrespuesta.setForeground(new Color(204, 204, 204));
                 jLOperacion.setText("Aciertos: " + juego.getAciertos() + ", Tiempo: " + juego.getTiempoPartida() + " sec");
-                //BBDDMetodosRestoDiv.insertResultado(Main.getCon(), juego.getAciertos(), juego.getTiempoPartida());
+                MetodosJuegoBBDD.insertResultado(Main.getCon(), juego.getAciertos(), juego.getTiempoPartida(),NOMBREDEJUEGO);
                 // actualiza la informacion de las tablas
-                //actualizarTablas();
+                actualizarTablas();
             }
         }
     }//GEN-LAST:event_TFrespuestaKeyPressed
