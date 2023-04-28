@@ -7,7 +7,8 @@ package Profesor;
 import Ajustes.*;
 import Calculadora.Calculadora;
 import Main.Main;
-import tablaalumno.alumnos;
+import tablas.alumnos;
+import tablas.clasificacion;
 
 /**
  *
@@ -175,7 +176,13 @@ public class PanelProfesor extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ClasificacionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClasificacionesMouseClicked
-        // TODO add your handling code here:
+        clasificacion c1 = new clasificacion();
+        c1.setSize(1070, 720);
+        c1.setLocation(0, 0);
+        Main.getCuerpo().removeAll();
+        Main.getCuerpo().add(c1);
+        Main.getCuerpo().revalidate();
+        Main.getCuerpo().repaint();
     }//GEN-LAST:event_ClasificacionesMouseClicked
 
     private void AlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AlumnosMouseClicked

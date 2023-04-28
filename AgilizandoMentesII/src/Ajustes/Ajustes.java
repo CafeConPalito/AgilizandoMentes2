@@ -196,7 +196,7 @@ public class Ajustes extends javax.swing.JPanel {
         Configuracion.setTamano((byte)texto.getValue());
         switch (Configuracion.getTamano()) {
             case 1:
-                Estilos.setSizeCuerpo(12);
+                Estilos.setSizeCuerpo(14);
                 
                 break;
             case 2:
@@ -204,7 +204,7 @@ public class Ajustes extends javax.swing.JPanel {
               
                 break;
             case 3:
-                Estilos.setSizeCuerpo(24);
+                Estilos.setSizeCuerpo(22);
              
                 break;
         }

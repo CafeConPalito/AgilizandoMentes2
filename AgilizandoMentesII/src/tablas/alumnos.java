@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package tablaalumno;
+package tablas;
 
+import BBDD.ObjetoAlumnoBBDD;
+import BBDD.MetodosAlumnoBBDD;
 import Ajustes.Estilos;
 import Main.Main;
 import java.awt.Color;
@@ -21,8 +23,14 @@ public class alumnos extends javax.swing.JPanel {
      */
     public alumnos() {
         initComponents();
+        jTable1.getTableHeader().setOpaque(false);
+        //NO RULA
+        
+        //jTable1.getTableHeader().setBackground(Estilos.getColorPanel());
+        //jTable1.getTableHeader().setForeground(Estilos.getColorFuentePanel());
         
         DefaultTableModel modelC = (DefaultTableModel) jTable1.getModel();
+        
         modelC.setRowCount(0);
         Object[] row = new Object[9];
 
@@ -102,7 +110,7 @@ public class alumnos extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Usuario", "Alias", "Nombre", "Apellido 1", "Apellido 2", "DNI", "Email", "Curso", "Nacimiento"
+                "Usuario", "Alias", "Nombre", "1º Apellido", "2º Apellido ", "DNI", "Email", "Curso", "Nacimiento"
             }
         ) {
             Class[] types = new Class [] {
@@ -113,18 +121,12 @@ public class alumnos extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
+        jTable1.setFocusable(false);
+        jTable1.setRowHeight(25);
+        jTable1.setSelectionBackground(Estilos.getColorSobreBoton());
+        jTable1.setSelectionForeground(Estilos.getColorFuentePanel());
+        jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setHeaderValue("Usuario");
-            jTable1.getColumnModel().getColumn(1).setHeaderValue("Alias");
-            jTable1.getColumnModel().getColumn(2).setHeaderValue("Nombre");
-            jTable1.getColumnModel().getColumn(3).setHeaderValue("Apellido 1");
-            jTable1.getColumnModel().getColumn(4).setHeaderValue("Apellido 2");
-            jTable1.getColumnModel().getColumn(5).setHeaderValue("DNI");
-            jTable1.getColumnModel().getColumn(6).setHeaderValue("Email");
-            jTable1.getColumnModel().getColumn(7).setHeaderValue("Curso");
-            jTable1.getColumnModel().getColumn(8).setHeaderValue("Nacimiento");
-        }
 
         datos.setBackground(Estilos.getColorPanelBlanco());
         datos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
