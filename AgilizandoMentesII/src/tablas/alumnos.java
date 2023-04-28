@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package tablaalumno;
+package tablas;
 
+import BBDD.ObjetoAlumnoBBDD;
+import BBDD.MetodosAlumnoBBDD;
 import Ajustes.Estilos;
 import Main.Main;
 import java.awt.Color;
@@ -21,8 +23,14 @@ public class alumnos extends javax.swing.JPanel {
      */
     public alumnos() {
         initComponents();
+        jTable1.getTableHeader().setOpaque(false);
+        //NO RULA
+        
+        //jTable1.getTableHeader().setBackground(Estilos.getColorPanel());
+        //jTable1.getTableHeader().setForeground(Estilos.getColorFuentePanel());
         
         DefaultTableModel modelC = (DefaultTableModel) jTable1.getModel();
+        
         modelC.setRowCount(0);
         Object[] row = new Object[9];
 
@@ -113,6 +121,11 @@ public class alumnos extends javax.swing.JPanel {
                 return types [columnIndex];
             }
         });
+        jTable1.setFocusable(false);
+        jTable1.setRowHeight(25);
+        jTable1.setSelectionBackground(Estilos.getColorSobreBoton());
+        jTable1.setSelectionForeground(Estilos.getColorFuentePanel());
+        jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(0).setHeaderValue("Usuario");
