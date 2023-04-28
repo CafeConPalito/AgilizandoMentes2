@@ -15,7 +15,7 @@ public class MetodosJuegoEuclides {
 
     private int numeroMayor;
     private int numeroMenor;
-    private int maximoComunDivisor;
+    private int respuesta;
     private int contador = 5;
     private Tiempo tiempo = new Tiempo();
     private int nivelA=10;
@@ -29,8 +29,8 @@ public class MetodosJuegoEuclides {
      * inicia el algoritmo de MetodosJuegoEuclides que nos dara el maximo comun
      * divisor de los dos numeros
      */
-    public void crearPregunta() {
-        //implementarNivel();
+    public void crearPregunta(int nivel) {
+        implementarNivel(nivel);
         numeroMayor = (int) (Math.random() * nivelA + 1);
         numeroMenor = (int) (Math.random() * nivelB + 1);
 
@@ -38,7 +38,7 @@ public class MetodosJuegoEuclides {
             numeroMenor = (int) (Math.random() * nivelB + 1);
         }
 
-        euclides(numeroMayor, numeroMenor);
+        euclides(numeroMayor, numeroMenor, nivel);
     }
 
     /**
@@ -47,19 +47,19 @@ public class MetodosJuegoEuclides {
      * @param x
      * @param y
      */
-    private void euclides(int x, int y) {
+    private void euclides(int x, int y,int nivel) {
         while (y != 0) {
             int temp = x;
             x = y;
             y = temp % y;
         }
-        maximoComunDivisor = x;
+        respuesta = x;
 
         // Para evitar que el MaximoComunDivisor sea 1, pasa casi siempre,
         // se coloca un contador y condicion para volver a intentarlo y volver a lanzar el juego
-        if (maximoComunDivisor == 1 && contador > 0) {
+        if (respuesta == 1 && contador > 0) {
             contador--;
-            crearPregunta();
+            crearPregunta(nivel);
         }
 
     }
@@ -67,7 +67,7 @@ public class MetodosJuegoEuclides {
     public boolean comprobarRespuesta(String respuesta) {
         try {
             int aux = Integer.parseInt(respuesta);
-            if (this.maximoComunDivisor == aux) {
+            if (this.respuesta == aux) {
                 aciertos++;
                 return true;
             }
@@ -90,27 +90,35 @@ public class MetodosJuegoEuclides {
         tiempoPartida = tiempo.getSecTranscurridos();
     }
 
-    public void implementarNivel() {
-        switch (Usuario.getCurso()) {
-            case "1":
+    public void implementarNivel(int nivel) {
+        switch (nivel) {
+            case 1:
                 nivelA = 10;
                 nivelB = 10;
                 break;
-            case "2":
+            case 2:
                 nivelA = 100;
                 nivelB = 10;
                 break;
-            case "3":
+            case 3:
                 nivelA = 100;
                 nivelB = 100;
                 break;
-            case "4":
+            case 4:
                 nivelA = 1000;
                 nivelB = 100;
                 break;
             default:
                 throw new AssertionError();
         }
+    }
+    
+    public String textoPregunta(){
+        return "El MCD de " +numeroMayor + " y " + numeroMenor+ " es:";
+    }
+    
+    public String textoAlmacenRespuesta(){
+        return "MCD: " + numeroMayor + " / " + numeroMenor + " es: " + respuesta;  
     }
 
     public int getNumeroMayor() {
@@ -121,8 +129,8 @@ public class MetodosJuegoEuclides {
         return numeroMenor;
     }
 
-    public int getMaximoComunDivisor() {
-        return maximoComunDivisor;
+    public int getRespuesta() {
+        return respuesta;
     }
 
     public int getTiempoPartida() {

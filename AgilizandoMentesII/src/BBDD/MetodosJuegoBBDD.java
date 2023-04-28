@@ -23,7 +23,7 @@ public class MetodosJuegoBBDD {
      * @param tiempo_partida se pasan los segundos como entero
      * @param nombreJuego
      */
-    public static void insertResultado(Connection con, int aciertos, int tiempo_partida, String nombreJuego, String nivel) {
+    public static void insertResultado(Connection con, int aciertos, int tiempo_partida, String nombreJuego, int nivel) {
         PreparedStatement ps = null;
         PreparedStatement psBusqueda = null;
         ResultSet rs = null;
@@ -37,7 +37,7 @@ public class MetodosJuegoBBDD {
             //ejecuta esta sentencia para buscar ID del reto corresponde con el jugador. Pensado por si añadimos mas cosas al mismo reto 
             psBusqueda = con.prepareStatement(select);
             psBusqueda.setString(1, nombreJuego);
-            psBusqueda.setInt(2, Integer.parseInt(Usuario.getCurso()));
+            psBusqueda.setInt(2, nivel);
             rs = psBusqueda.executeQuery();
             // si existe reto para ese jugador lo inserta.
             if (rs.next()) {
@@ -54,8 +54,6 @@ public class MetodosJuegoBBDD {
                 System.err.println("FALLO EN LA BUSQUEDA, ERROR AL INSERTAR DATOS");
             }
 
-        } catch (NumberFormatException e) {
-            System.err.println("Error de conversion de numero");
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -70,7 +68,7 @@ public class MetodosJuegoBBDD {
      * @param nombreJuego
      * @return ArrayList con las 5 mejores partidas del jugador
      */
-    public static ArrayList selectJugadorMejoresPartidas(Connection con, String nombreJuego ,String nivel) {
+    public static ArrayList selectJugadorMejoresPartidas(Connection con, String nombreJuego ,int nivel) {
 
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -83,7 +81,7 @@ public class MetodosJuegoBBDD {
 
             ps = con.prepareStatement(select);
             ps.setInt(1, Usuario.getIdUsuario());
-            ps.setString(2, Usuario.getCurso());
+            ps.setInt(2, nivel);
 
             rs = ps.executeQuery();
 
@@ -92,8 +90,6 @@ public class MetodosJuegoBBDD {
                 lista.add(jugador);
             }
 
-        } catch (NumberFormatException e) {
-            System.err.println("Error de conversion de numero");
         } catch (SQLException ex) {
             System.err.println("Error selectJugadorMejoresPartidas");
         }
@@ -110,7 +106,7 @@ public class MetodosJuegoBBDD {
      * @param nivel
      * @return ArrayList con las 5 ultimas partidas del jugador
      */
-    public static ArrayList selectJugadorUltimasPartidas(Connection con, String nombreJuego,String nivel) {
+    public static ArrayList selectJugadorUltimasPartidas(Connection con, String nombreJuego,int nivel) {
         PreparedStatement ps = null;
         ResultSet rs = null;
         ArrayList<ObjetoJuegoBBDD> lista = new ArrayList();
@@ -124,7 +120,7 @@ public class MetodosJuegoBBDD {
 
             ps = con.prepareStatement(select);
             ps.setInt(1, Usuario.getIdUsuario());
-            ps.setString(2, Usuario.getCurso());
+            ps.setInt(2, nivel);
 
             rs = ps.executeQuery();
 
@@ -134,8 +130,6 @@ public class MetodosJuegoBBDD {
                 lista.add(jugador);
             }
 
-        } catch (NumberFormatException e) {
-            System.err.println("Error de conversion de numero");
         } catch (SQLException ex) {
             System.err.println("Error selectJugadorUltimasPartidas");
         }
@@ -151,7 +145,7 @@ public class MetodosJuegoBBDD {
      * @param nombreJuego
      * @return ArrayList con los 5 mejores calificados
      */
-    public static ArrayList selectClasificacion(Connection con, String nombreJuego, String nivel) {
+    public static ArrayList selectClasificacion(Connection con, String nombreJuego, int nivel) {
 
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -164,7 +158,7 @@ public class MetodosJuegoBBDD {
 
             //si encuentra resultado del reto de ese jugador busca la info
             ps = con.prepareStatement(select);
-            ps.setString(1, Usuario.getCurso());
+            ps.setInt(1, nivel);
 
             rs = ps.executeQuery();
 
@@ -174,8 +168,6 @@ public class MetodosJuegoBBDD {
 
             }
 
-        } catch (NumberFormatException e) {
-            System.err.println("Error de conversion de numero");
         } catch (SQLException ex) {
             System.err.println("Error selectClasificacion");
 
@@ -184,7 +176,7 @@ public class MetodosJuegoBBDD {
         return lista;
     }
 
-    public static String totalPartidas(Connection con, String nombreJuego, String nivel) {
+    public static String totalPartidas(Connection con, String nombreJuego, int nivel) {
         String totalPartidas = "0";
 
         PreparedStatement ps = null;
@@ -197,7 +189,7 @@ public class MetodosJuegoBBDD {
 
             ps = con.prepareStatement(select);
             ps.setInt(1, Usuario.getIdUsuario());
-            ps.setString(2, Usuario.getCurso());
+            ps.setInt(2, nivel);
 
             rs = ps.executeQuery();
 
@@ -212,7 +204,7 @@ public class MetodosJuegoBBDD {
         return totalPartidas;
     }
 
-    public static String mediaAciertos(Connection con, String nombreJuego, String nivel) {
+    public static String mediaAciertos(Connection con, String nombreJuego, int nivel) {
         String mediaAciertos = "0";
 
         PreparedStatement ps = null;
@@ -225,7 +217,7 @@ public class MetodosJuegoBBDD {
 
             ps = con.prepareStatement(select);
             ps.setInt(1, Usuario.getIdUsuario());
-            ps.setString(2, Usuario.getCurso());
+            ps.setInt(2, nivel);
 
             rs = ps.executeQuery();
 

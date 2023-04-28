@@ -6,7 +6,6 @@ package RestoDiv;
 
 import BBDD.ObjetoJuegoBBDD;
 import BBDD.MetodosJuegoBBDD;
-import Alumno.*;
 import Usuario.Usuario;
 import Ajustes.*;
 import Main.Main;
@@ -24,16 +23,21 @@ public class RestoDiv extends javax.swing.JPanel {
     MetodosJuegoRestoDiv juego = null;
     boolean controlPartida = false; // partida no iniciada , en true iniciada
     private String almacenOperaciones = "";
-    private final String NOMBREDEJUEGO= "resto_div"; //nombre que tiene la tabla en la BBDD
-    
-    private String nivel = "1"; // implementado para pasar un nivel sin pasar...
+    private final String NOMBREDEJUEGO = "resto_div"; //nombre que tiene la tabla en la BBDD
+    private int nivel;// implementado para pasar un nivel 
 
     /**
      * Creates new form NewJPanel
      */
     public RestoDiv() {
         initComponents();
+        try {
+            nivel = Integer.parseInt(Usuario.getCurso());
+        } catch (NumberFormatException e) {
+        }
+        jLnivelActual.setText("Nivel " + nivel);
         actualizarTablas();
+
     }
 
     public void actualizarTablas() {
@@ -47,16 +51,42 @@ public class RestoDiv extends javax.swing.JPanel {
     public void actualizarAlmacenOperaciones(boolean control) {
         if (controlPartida) {
             if (control) {
-                almacenOperaciones = almacenOperaciones + "\n★ Resto: " + juego.getDividendo() + " / " + juego.getDivisor() + " es: " + juego.getRespuesta();
+                almacenOperaciones = almacenOperaciones + "\n★ " + juego.textoAlmacenRespuesta();
                 jTextPaneAlmacenOperaciones.setText(almacenOperaciones);
             } else {
-                almacenOperaciones = almacenOperaciones + "\n☓ Resto: " + juego.getDividendo() + " / " + juego.getDivisor() + " es: " + juego.getRespuesta() + ", tu respuesta " + TFrespuesta.getText();
+                almacenOperaciones = almacenOperaciones + "\n☓ " + juego.textoAlmacenRespuesta() + ", tu respuesta " + TFrespuesta.getText();
                 jTextPaneAlmacenOperaciones.setText(almacenOperaciones);
             }
         } else {
             jTextPaneAlmacenOperaciones.setText("");
         }
 
+    }
+    /**
+     * Segun el valor pasado modifica el nivel, entre 1 y 4, controla que la partida no este inicializada con el booleano de controlPartida.
+     * 
+     * @param opcion valor '1' para subir un nivel, valor '2' para bajar nivel
+     */
+    public void modificarNivel(int opcion) {
+        if (controlPartida == false) {
+            switch (opcion) {
+                case 1:
+                    if (nivel <4) {
+                        nivel ++;
+                    }
+                    jLnivelActual.setText("Nivel " + nivel);
+                    break;
+                case 2:
+                    if (nivel >1) {
+                        nivel --;
+                    }
+                    jLnivelActual.setText("Nivel " + nivel);
+                    break;
+                default:
+                    throw new AssertionError();
+            }
+            actualizarTablas(); // al modificar el nivel se cambia la tabla de clasificacion por la actual ;)
+        }
     }
 
     private void actualizarClasificacion() {
@@ -104,12 +134,12 @@ public class RestoDiv extends javax.swing.JPanel {
         }
 
     }
-    
-    private void actualizarNumeroPartidas(){
+
+    private void actualizarNumeroPartidas() {
         jLpatidasJugadas.setText("Partidas Jugadas: " + MetodosJuegoBBDD.totalPartidas(Main.getCon(), NOMBREDEJUEGO, nivel));
     }
-    
-    private void actualizarMediaAciertos(){
+
+    private void actualizarMediaAciertos() {
         jLMediaAciertos.setText("Media de aciertos: " + MetodosJuegoBBDD.mediaAciertos(Main.getCon(), NOMBREDEJUEGO, nivel) + " %");
     }
 
@@ -147,6 +177,11 @@ public class RestoDiv extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLResultado = new javax.swing.JLabel();
         jLOperacion = new javax.swing.JLabel();
+        botonSubirNivel = new javax.swing.JPanel();
+        jLsubirNivel = new javax.swing.JLabel();
+        botonBajarNivel = new javax.swing.JPanel();
+        jLbajarNivel = new javax.swing.JLabel();
+        jLnivelActual = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1070, 720));
 
@@ -419,13 +454,13 @@ public class RestoDiv extends javax.swing.JPanel {
         jLabel1.setFont(Estilos.getFuenteCuerpo());
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Nueva Partida");
+        jLabel1.setText("Jugar");
 
         javax.swing.GroupLayout buttonNewPlayLayout = new javax.swing.GroupLayout(buttonNewPlay);
         buttonNewPlay.setLayout(buttonNewPlayLayout);
         buttonNewPlayLayout.setHorizontalGroup(
             buttonNewPlayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
         );
         buttonNewPlayLayout.setVerticalGroup(
             buttonNewPlayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -444,37 +479,128 @@ public class RestoDiv extends javax.swing.JPanel {
         jLOperacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLOperacion.setText("Operacion");
 
+        botonSubirNivel.setBackground(Estilos.getColorPanel());
+        botonSubirNivel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonSubirNivel.setPreferredSize(new java.awt.Dimension(22, 22));
+        botonSubirNivel.setRequestFocusEnabled(false);
+        botonSubirNivel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonSubirNivelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                botonSubirNivelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                botonSubirNivelMouseExited(evt);
+            }
+        });
+
+        jLsubirNivel.setFont(Estilos.getFuenteCuerpo());
+        jLsubirNivel.setForeground(new java.awt.Color(255, 255, 255));
+        jLsubirNivel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLsubirNivel.setText("+");
+        jLsubirNivel.setPreferredSize(new java.awt.Dimension(25, 25));
+
+        javax.swing.GroupLayout botonSubirNivelLayout = new javax.swing.GroupLayout(botonSubirNivel);
+        botonSubirNivel.setLayout(botonSubirNivelLayout);
+        botonSubirNivelLayout.setHorizontalGroup(
+            botonSubirNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLsubirNivel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+        );
+        botonSubirNivelLayout.setVerticalGroup(
+            botonSubirNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(botonSubirNivelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLsubirNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 10, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        botonBajarNivel.setBackground(Estilos.getColorPanel());
+        botonBajarNivel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonBajarNivel.setPreferredSize(new java.awt.Dimension(22, 22));
+        botonBajarNivel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonBajarNivelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                botonBajarNivelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                botonBajarNivelMouseExited(evt);
+            }
+        });
+
+        jLbajarNivel.setFont(Estilos.getFuenteCuerpo());
+        jLbajarNivel.setForeground(new java.awt.Color(255, 255, 255));
+        jLbajarNivel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLbajarNivel.setText("-");
+        jLbajarNivel.setPreferredSize(new java.awt.Dimension(25, 25));
+
+        javax.swing.GroupLayout botonBajarNivelLayout = new javax.swing.GroupLayout(botonBajarNivel);
+        botonBajarNivel.setLayout(botonBajarNivelLayout);
+        botonBajarNivelLayout.setHorizontalGroup(
+            botonBajarNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLbajarNivel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+        );
+        botonBajarNivelLayout.setVerticalGroup(
+            botonBajarNivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(botonBajarNivelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLbajarNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 10, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jLnivelActual.setBackground(new java.awt.Color(255, 255, 255));
+        jLnivelActual.setFont(Estilos.getFuenteCuerpo());
+        jLnivelActual.setForeground(Estilos.getColorFuenteCuerpo());
+        jLnivelActual.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLnivelActual.setText("Nivel");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(28, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jSeparator1)
                             .addComponent(TFrespuesta, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
-                        .addComponent(buttonNewPlay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLResultado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLOperacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE)))
-                .addGap(27, 27, 27))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonNewPlay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLnivelActual, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLResultado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLOperacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 485, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(botonSubirNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonBajarNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLOperacion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
+                .addGap(37, 37, 37)
                 .addComponent(jLResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TFrespuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonNewPlay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(buttonNewPlay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(TFrespuesta))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLnivelActual, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(botonSubirNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(botonBajarNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 560, 200));
@@ -499,10 +625,10 @@ public class RestoDiv extends javax.swing.JPanel {
             controlPartida = true;
             // inicia el juego
             juego = new MetodosJuegoRestoDiv();
-            juego.crearPregunta();
+            juego.crearPregunta(nivel);
             juego.iniciarJuego();
             //se coloca la pregunta en el panel
-            jLOperacion.setText("El resto de la division de " + juego.getDividendo() + " entre " + juego.getDivisor() + " es:");
+            jLOperacion.setText(juego.textoPregunta());
             jLResultado.setText("");
             TFrespuesta.setText("");
             //
@@ -533,11 +659,11 @@ public class RestoDiv extends javax.swing.JPanel {
         int key = evt.getKeyCode();
         if (key == KeyEvent.VK_ENTER && controlPartida == true) {
             if (juego.comprobarRespuesta(TFrespuesta.getText())) {
-                jLResultado.setForeground(Color.GREEN);
+                jLResultado.setForeground(Estilos.getColorRespuestaCorrecta());
                 jLResultado.setText("¡Correcto!");
                 actualizarAlmacenOperaciones(true);
             } else {
-                jLResultado.setForeground(Color.RED);
+                jLResultado.setForeground(Estilos.getColorRespuestaIncorrecta());
                 jLResultado.setText("Incorrecto, la respuesta es: " + juego.getRespuesta());
                 actualizarAlmacenOperaciones(false);
             }
@@ -546,15 +672,15 @@ public class RestoDiv extends javax.swing.JPanel {
             TFrespuesta.requestFocus();
 
             if (juego.comprobarQuedanIntentos()) {
-                juego.crearPregunta();
-                jLOperacion.setText("El resto de la division de " + juego.getDividendo() + " entre " + juego.getDivisor() + " es:");
+                juego.crearPregunta(nivel);
+                jLOperacion.setText(juego.textoPregunta());
             } else {
                 juego.terminarJuego();
                 controlPartida = false;
                 TFrespuesta.setText(" Inserta una respueta");
                 TFrespuesta.setForeground(new Color(204, 204, 204));
                 jLOperacion.setText("Aciertos: " + juego.getAciertos() + ", Tiempo: " + juego.getTiempoPartida() + " sec");
-                MetodosJuegoBBDD.insertResultado(Main.getCon(), juego.getAciertos(), juego.getTiempoPartida(),NOMBREDEJUEGO, nivel);
+                MetodosJuegoBBDD.insertResultado(Main.getCon(), juego.getAciertos(), juego.getTiempoPartida(), NOMBREDEJUEGO, nivel);
                 // actualiza la informacion de las tablas
                 actualizarTablas();
             }
@@ -567,10 +693,42 @@ public class RestoDiv extends javax.swing.JPanel {
         TFrespuesta.setForeground(Color.black);
     }//GEN-LAST:event_TFrespuestaFocusGained
 
+    private void botonSubirNivelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonSubirNivelMouseClicked
+        // TODO add your handling code here:
+        modificarNivel(1);
+    }//GEN-LAST:event_botonSubirNivelMouseClicked
+
+    private void botonSubirNivelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonSubirNivelMouseEntered
+        // TODO add your handling code here:
+        botonSubirNivel.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_botonSubirNivelMouseEntered
+
+    private void botonSubirNivelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonSubirNivelMouseExited
+        // TODO add your handling code here:
+        botonSubirNivel.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_botonSubirNivelMouseExited
+
+    private void botonBajarNivelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonBajarNivelMouseClicked
+        // TODO add your handling code here:
+        modificarNivel(2);
+    }//GEN-LAST:event_botonBajarNivelMouseClicked
+
+    private void botonBajarNivelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonBajarNivelMouseEntered
+        // TODO add your handling code here:
+        botonBajarNivel.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_botonBajarNivelMouseEntered
+
+    private void botonBajarNivelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonBajarNivelMouseExited
+        // TODO add your handling code here:
+        botonBajarNivel.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_botonBajarNivelMouseExited
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Estadisticas;
     private javax.swing.JPanel Informacion;
     private javax.swing.JTextField TFrespuesta;
+    private javax.swing.JPanel botonBajarNivel;
+    private javax.swing.JPanel botonSubirNivel;
     private javax.swing.JPanel buttonNewPlay;
     private javax.swing.JLabel jLMediaAciertos;
     private javax.swing.JLabel jLOperacion;
@@ -578,9 +736,12 @@ public class RestoDiv extends javax.swing.JPanel {
     private javax.swing.JLabel jLTitulo;
     private javax.swing.JLabel jLTituloEstadisticas;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLbajarNivel;
     private javax.swing.JLabel jLlastPlays;
+    private javax.swing.JLabel jLnivelActual;
     private javax.swing.JLabel jLpatidasJugadas;
     private javax.swing.JLabel jLranking;
+    private javax.swing.JLabel jLsubirNivel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jSPbestPlays;

@@ -25,8 +25,8 @@ public class MetodosJuegoRestoDiv {
     private int nivelB;
     private Tiempo tiempo = new Tiempo();
 
-    public void crearPregunta() {
-        implementarNivel();
+    public void crearPregunta(int nivel ) {
+        implementarNivel(nivel);
         dividendo = (int) (Math.random() * nivelA + 1);
         divisor = (int) (Math.random() * nivelB + 1);
         while (divisor > dividendo) {
@@ -35,21 +35,21 @@ public class MetodosJuegoRestoDiv {
         respuesta = dividendo % divisor;
     }
 
-    private void implementarNivel() {
-        switch (Usuario.getCurso()) {
-            case "1":
+    private void implementarNivel( int nivel) {
+        switch (nivel) {
+            case 1:
                 nivelA = 10;
                 nivelB = 10;
                 break;
-            case "2":
+            case 2:
                 nivelA = 100;
                 nivelB = 10;
                 break;
-            case "3":
+            case 3:
                 nivelA = 100;
                 nivelB = 100;
                 break;
-            case "4":
+            case 4:
                 nivelA = 1000;
                 nivelB = 100;
                 break;
@@ -85,6 +85,15 @@ public class MetodosJuegoRestoDiv {
         return intentos != 0;
     }
 
+    public String textoPregunta(){
+        return "El resto de la division de " +dividendo + " entre " + divisor + " es:";
+    }
+    
+    public String textoAlmacenRespuesta(){
+        return "Resto: " + dividendo + " / " + divisor + " es: " + respuesta;  
+    }
+    
+    
     public void iniciarJuego() {
         tiempo.iniciarContador();
     }
