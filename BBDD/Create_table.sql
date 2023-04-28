@@ -89,16 +89,16 @@ Create view view_euclides_tablas as select alias, time_to_sec(tiempo_partida) as
 Create view view_calculo_tablas as select alias, time_to_sec(tiempo_partida) as tiempo_partida, aciertos, fecha_hora,nivel,id_usuario from calculo inner join usuario on id_usuario = jugador inner join reto on id_reto=reto;
 
 -- VistaEstadisticas RestoDiv
-create view estadisticas_resto_div as select jugador,reto,nivel,count(*) as partidas,sum(aciertos) as totalaciertos, (sum(aciertos) / count(*)) as mediaAciertos 
-from resto_div inner join reto on id_reto = reto group by jugador,reto order by jugador;
+create view estadisticas_resto_div as select jugador,reto,nivel,count(*) as partidas,sum(aciertos) as totalaciertos, (sum(aciertos) / count(*)) as mediaAciertos , nombre, apellido1,apellido2
+from resto_div inner join reto on id_reto = reto inner join persona on jugador = id_usuario group by jugador,reto order by jugador;
 
 -- VistaEstadisticas Euclides
-create view estadisticas_euclides as select jugador,reto,nivel,count(*) as partidas,sum(aciertos) as totalaciertos, (sum(aciertos) / count(*)) as mediaAciertos 
-from euclides inner join reto on id_reto = reto group by jugador,reto order by jugador;
+create view estadisticas_euclides as select jugador,reto,nivel,count(*) as partidas,sum(aciertos) as totalaciertos, (sum(aciertos) / count(*)) as mediaAciertos , nombre, apellido1,apellido2
+from euclides inner join reto on id_reto = reto inner join persona on jugador = id_usuario group by jugador,reto order by jugador;
 
 -- VistaEstadisticas Calculo
-create view estadisticas_calculo as select jugador,reto,nivel,count(*) as partidas,sum(aciertos) as totalaciertos, (sum(aciertos) / count(*)) as mediaAciertos 
-from calculo inner join reto on id_reto = reto group by jugador,reto order by jugador;
+create view estadisticas_calculo as select jugador,reto,nivel,count(*) as partidas,sum(aciertos) as totalaciertos, (sum(aciertos) / count(*)) as mediaAciertos , nombre, apellido1,apellido2
+from calculo inner join reto on id_reto = reto inner join persona on jugador = id_usuario group by jugador,reto order by jugador;
 
 -- Vista Info Alumnos
 create view view_info_alumnos as select nombre_usuario,alias,nombre,apellido1,apellido2,dni,email,curso,fecha_naci 

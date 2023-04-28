@@ -27,6 +27,8 @@ public class Estilos {
     private static Color colorFuenteError = new Color(255,50,0) ;// ROJO
     private static Color colorFuentePanel = new Color(255,255,255); //BLANCO
     private static Color colorFuenteCuerpo = new Color(0,0,0); //NEGRO
+    private static Color colorRespuestaCorrecta = new Color(51, 204, 51); // Verde
+    private static Color colorRespuestaIncorrecta = new Color(255,0,0); // Rojo      
     
     
     //Gradiente
@@ -80,6 +82,14 @@ public class Estilos {
     public static void setSizeCuerpo(int sizeCuerpo) {
         Estilos.sizeCuerpo = sizeCuerpo;
         fuenteCuerpo = new Font("Roboto Medium", 0, Estilos.sizeCuerpo);
+    }
+
+    public static Color getColorRespuestaCorrecta() {
+        return colorRespuestaCorrecta;
+    }
+
+    public static Color getColorRespuestaIncorrecta() {
+        return colorRespuestaIncorrecta;
     }
 
 }

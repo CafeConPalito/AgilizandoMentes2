@@ -127,8 +127,8 @@ public class Principal {
          */
         //RestoDiv
         //BBDDMetodosRestoDiv.selectClasificacion(con);
-        
         //Euclides Ramiro
+        /*
         MetodosJuegoEuclides juego = new MetodosJuegoEuclides();
         Scanner lectura = new Scanner(System.in);
         do {
@@ -143,6 +143,7 @@ public class Principal {
         } while (juego.comprobarQuedanIntentos());
             juego.terminarJuego();
             System.out.println("numero de aciertos: " + juego.getAciertos() + " tiempo transcurrido " + juego.getTiempoPartida());
+         */
         conBD.desconectar();
     }
 }
