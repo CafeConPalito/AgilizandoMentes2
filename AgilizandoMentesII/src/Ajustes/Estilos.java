@@ -13,7 +13,7 @@ import java.awt.GradientPaint;
  * @author damt111
  */
 public class Estilos {
-    private static int  sizeCuerpo =24;
+    private static int  sizeCuerpo =22;
             
     //FUENTES
     private static Font fuenteCuerpo = new Font("Roboto Medium", 0, sizeCuerpo);
