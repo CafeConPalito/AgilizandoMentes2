@@ -9,7 +9,18 @@ package BBDD;
  * @author terciodemarte
  */
 public class ObjetoClasificacionBBDD {
-    private String nivel,partidas,totalaciertos,mediaAciertos,nombre,apellido1,apellido2;
+    private String nivel,partidas,totalaciertos,mediaAciertos,nombre,apellido1,apellido2,juego;
+
+    public ObjetoClasificacionBBDD(String nivel, String partidas, String totalaciertos, String mediaAciertos, String nombre, String apellido1, String apellido2,String juego) {
+        this.nivel = nivel;
+        this.partidas = partidas;
+        this.totalaciertos = totalaciertos;
+        this.mediaAciertos = mediaAciertos;
+        this.nombre = nombre;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
+        this.juego =juego;
+    }
 
     public ObjetoClasificacionBBDD(String nivel, String partidas, String totalaciertos, String mediaAciertos, String nombre, String apellido1, String apellido2) {
         this.nivel = nivel;
@@ -20,6 +31,7 @@ public class ObjetoClasificacionBBDD {
         this.apellido1 = apellido1;
         this.apellido2 = apellido2;
     }
+    
 
     public ObjetoClasificacionBBDD() {
     }
@@ -80,21 +92,13 @@ public class ObjetoClasificacionBBDD {
         this.apellido2 = apellido2;
     }
 
-    @Override
-    public String toString() {
-        return "ObjetoClasificacionBBDD{" + "nivel=" + nivel + ", partidas=" + partidas + ", totalaciertos=" + totalaciertos + ", mediaAciertos=" + mediaAciertos + ", nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + '}';
+    public String getJuego() {
+        return juego;
     }
-    
-    
-    
-    
-  
 
- 
-    
-
-    
-    
+    public void setJuego(String juego) {
+        this.juego = juego;
+    }
     
     
 }

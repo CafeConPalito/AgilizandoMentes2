@@ -42,10 +42,6 @@ public class clasificacion extends javax.swing.JPanel {
         ap1 = new javax.swing.JLabel();
         TFApellido1 = new javax.swing.JTextField();
         SepUsuario3 = new javax.swing.JSeparator();
-        Nivel = new javax.swing.JPanel();
-        cu = new javax.swing.JLabel();
-        TFNivel = new javax.swing.JTextField();
-        SepUsuario7 = new javax.swing.JSeparator();
         Apellido2 = new javax.swing.JPanel();
         ap2 = new javax.swing.JLabel();
         TFApellido2 = new javax.swing.JTextField();
@@ -56,9 +52,12 @@ public class clasificacion extends javax.swing.JPanel {
         SepUsuario2 = new javax.swing.JSeparator();
         buscar = new javax.swing.JPanel();
         buscartxt = new javax.swing.JLabel();
-        Juego = new javax.swing.JPanel();
-        selector = new javax.swing.JComboBox<>();
+        Nivel = new javax.swing.JPanel();
+        selectorNivel = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
+        Juego = new javax.swing.JPanel();
+        selectorJuego = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -66,17 +65,14 @@ public class clasificacion extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "Nivel", "Nº Partidas", "Total Aciertos", "Media Aciertos", "Nombre", "Apellido 1", "Apellido 2"
+                "Nombre", "1º Apellido ", "2º Apellido", "Nivel", "Nº Partidas", "Total Aciertos", "Media Aciertos"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -141,55 +137,6 @@ public class clasificacion extends javax.swing.JPanel {
         );
 
         datos.add(Apellido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 344, -1));
-
-        Nivel.setBackground(new java.awt.Color(255, 255, 255));
-
-        cu.setFont(Estilos.getFuenteCuerpo());
-        cu.setText("Nivel");
-
-        TFNivel.setFont(Estilos.getFuenteCuerpo());
-        TFNivel.setForeground(new java.awt.Color(204, 204, 204));
-        TFNivel.setText("Inserte Nivel");
-        TFNivel.setBorder(null);
-        TFNivel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                TFNivelMousePressed(evt);
-            }
-        });
-        TFNivel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TFNivelActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout NivelLayout = new javax.swing.GroupLayout(Nivel);
-        Nivel.setLayout(NivelLayout);
-        NivelLayout.setHorizontalGroup(
-            NivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(NivelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(NivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TFNivel)
-                    .addGroup(NivelLayout.createSequentialGroup()
-                        .addGroup(NivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cu, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SepUsuario7, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 92, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        NivelLayout.setVerticalGroup(
-            NivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(NivelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cu)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TFNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SepUsuario7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        datos.add(Nivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 330, -1));
 
         Apellido2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -321,14 +268,46 @@ public class clasificacion extends javax.swing.JPanel {
 
         datos.add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 120, 210, -1));
 
+        Nivel.setBackground(Estilos.getColorPanelBlanco());
+        Nivel.setFont(Estilos.getFuenteCuerpo());
+
+        selectorNivel.setFont(Estilos.getFuenteCuerpo());
+        selectorNivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "Todos" }));
+
+        jLabel1.setFont(Estilos.getFuenteCuerpo());
+        jLabel1.setText("Nivel");
+
+        javax.swing.GroupLayout NivelLayout = new javax.swing.GroupLayout(Nivel);
+        Nivel.setLayout(NivelLayout);
+        NivelLayout.setHorizontalGroup(
+            NivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NivelLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                .addComponent(selectorNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75))
+        );
+        NivelLayout.setVerticalGroup(
+            NivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, NivelLayout.createSequentialGroup()
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addGroup(NivelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(selectorNivel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15))
+        );
+
+        datos.add(Nivel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 340, 60));
+
         Juego.setBackground(Estilos.getColorPanelBlanco());
         Juego.setFont(Estilos.getFuenteCuerpo());
 
-        selector.setFont(Estilos.getFuenteCuerpo());
-        selector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "calculo", "euclides", "resto_div" }));
+        selectorJuego.setFont(Estilos.getFuenteCuerpo());
+        selectorJuego.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Calculo25", "Euclides", "Resto División" }));
 
-        jLabel1.setFont(Estilos.getFuenteCuerpo());
-        jLabel1.setText("Juego");
+        jLabel2.setFont(Estilos.getFuenteCuerpo());
+        jLabel2.setText("Juego");
 
         javax.swing.GroupLayout JuegoLayout = new javax.swing.GroupLayout(Juego);
         Juego.setLayout(JuegoLayout);
@@ -336,9 +315,9 @@ public class clasificacion extends javax.swing.JPanel {
             JuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JuegoLayout.createSequentialGroup()
                 .addGap(45, 45, 45)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
-                .addComponent(selector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addComponent(selectorJuego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(75, 75, 75))
         );
         JuegoLayout.setVerticalGroup(
@@ -346,8 +325,8 @@ public class clasificacion extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JuegoLayout.createSequentialGroup()
                 .addContainerGap(21, Short.MAX_VALUE)
                 .addGroup(JuegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(selector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2)
+                    .addComponent(selectorJuego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15))
         );
 
@@ -389,9 +368,7 @@ public class clasificacion extends javax.swing.JPanel {
         if (TFApellido2.getText().isEmpty()) {
             TFApellido2.setText("Inserte Apellido 2");
         }
-        if (TFNivel.getText().isEmpty()) {
-            TFNivel.setText("Inserte Nivel");
-        }
+
     }//GEN-LAST:event_TFNombreMousePressed
 
     private void TFNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFNombreActionPerformed
@@ -412,9 +389,7 @@ public class clasificacion extends javax.swing.JPanel {
         if (TFApellido2.getText().isEmpty()) {
             TFApellido2.setText("Inserte Apellido 2");
         }
-        if (TFNivel.getText().isEmpty()) {
-            TFNivel.setText("Inserte Nivel");
-        }
+
     }//GEN-LAST:event_TFApellido1MousePressed
 
     private void TFApellido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFApellido1ActionPerformed
@@ -433,37 +408,12 @@ public class clasificacion extends javax.swing.JPanel {
         if (TFApellido1.getText().isEmpty()) {
             TFApellido1.setText("Inserte Apellido 1");
         }
-        if (TFNivel.getText().isEmpty()) {
-            TFNivel.setText("Inserte Nivel");
-        }
+
     }//GEN-LAST:event_TFApellido2MousePressed
 
     private void TFApellido2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFApellido2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TFApellido2ActionPerformed
-
-    private void TFNivelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFNivelMousePressed
-        // TODO add your handling code here:
-        if (TFNivel.getText().equals("Inserte Nivel")) {
-            TFNivel.setText("");
-            TFNivel.setForeground(Color.gray);
-        }
-      
-        if (TFNombre.getText().isEmpty()) {
-            TFNombre.setText("Inserte Nombre");
-        }
-        if (TFApellido1.getText().isEmpty()) {
-            TFApellido1.setText("Inserte Apellido 1");
-        }
-        if (TFApellido2.getText().isEmpty()) {
-            TFApellido2.setText("Inserte Apellido 2");
-        }
-       
-    }//GEN-LAST:event_TFNivelMousePressed
-
-    private void TFNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFNivelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TFNivelActionPerformed
 
     private void buscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscarMouseClicked
         actualizar();
@@ -481,55 +431,65 @@ public class clasificacion extends javax.swing.JPanel {
      * Metodo para actualizar la tabla
      */
     private void actualizar() {
-        ObjetoClasificacionBBDD objeto=buscador();
-        
+        ObjetoClasificacionBBDD objeto = buscador();
+
         DefaultTableModel modelC = (DefaultTableModel) jTable1.getModel();
         modelC.setRowCount(0);
         Object[] row = new Object[8];
 
-        
-        ArrayList<ObjetoClasificacionBBDD> lista = MetodosClasificacionBBDD.selectClasificacion(Main.getCon(), objeto.getNombre(),objeto.getApellido1(), objeto.getApellido2(),objeto.getNivel(),selector.getSelectedItem().toString()) ;
+        ArrayList<ObjetoClasificacionBBDD> lista = MetodosClasificacionBBDD.selectClasificacion(Main.getCon(), objeto.getNombre(), objeto.getApellido1(), objeto.getApellido2(), objeto.getNivel(), objeto.getJuego());
         for (int i = 0; i < lista.size(); i++) {
-            row[0] = lista.get(i).getNivel();
-            row[1] = lista.get(i).getPartidas();
-            row[2] = lista.get(i).getTotalaciertos();
-            row[3] = lista.get(i).getMediaAciertos();
-            row[4] = lista.get(i).getNombre();
-            row[5] = lista.get(i).getApellido1();
-            row[6] = lista.get(i).getApellido2();
+            row[0] = lista.get(i).getNombre();
+            row[1] = lista.get(i).getApellido1();
+            row[2] = lista.get(i).getApellido2();
+            row[3] = lista.get(i).getNivel();
+            row[4] = lista.get(i).getPartidas();
+            row[5] = lista.get(i).getTotalaciertos();
+            row[6] = lista.get(i).getMediaAciertos();
+
             modelC.addRow(row);
         }
     }
+
     /**
      * Metodo para coger los parametros de la busqueda
-     * @return Objeto de la clase MetodosClasificacionBBDD para almacenar todos los parametros de la busqueda
+     *
+     * @return Objeto de la clase MetodosClasificacionBBDD para almacenar todos
+     * los parametros de la busqueda
      */
-    private ObjetoClasificacionBBDD buscador(){
+    private ObjetoClasificacionBBDD buscador() {
         ObjetoClasificacionBBDD objeto = new ObjetoClasificacionBBDD();
-        
-        if (TFNombre.getText().equals("Inserte Nombre")|| TFNombre.getText().isEmpty()) {
+
+        if (TFNombre.getText().equals("Inserte Nombre") || TFNombre.getText().isEmpty()) {
             objeto.setNombre("%");
         } else {
-            objeto.setNombre("%"+TFNombre.getText()+"%");
+            objeto.setNombre("%" + TFNombre.getText() + "%");
         }
-        
+
         if (TFApellido1.getText().equals("Inserte Apellido 1") || TFApellido1.getText().isEmpty()) {
             objeto.setApellido1("%");
         } else {
-            objeto.setApellido1("%"+TFApellido1.getText()+"%");
+            objeto.setApellido1("%" + TFApellido1.getText() + "%");
         }
-        
+
         if (TFApellido2.getText().equals("Inserte Apellido 2") || TFApellido2.getText().isEmpty()) {
             objeto.setApellido2("%");
-        }else {
-            objeto.setApellido2("%"+TFApellido2.getText()+"%");
+        } else {
+            objeto.setApellido2("%" + TFApellido2.getText() + "%");
         }
-        if (TFNivel.getText().equals("Inserte Nivel") || TFNivel.getText().isEmpty()) {
+        if (selectorNivel.getSelectedItem().toString().equals("Todos")) {
             objeto.setNivel("%");
-        }else {
-            objeto.setNivel("%"+TFNivel.getText()+"%");
+        } else {
+            objeto.setNivel(selectorNivel.getSelectedItem().toString());
         }
-        
+
+        if (selectorJuego.getSelectedItem().toString().equals("Calculo25")) {
+            objeto.setJuego("calculo");
+        } else if (selectorJuego.getSelectedItem().toString().equals("Euclides")) {
+            objeto.setJuego("euclides");
+        } else {
+            objeto.setJuego("resto_div");
+        }
         return objeto;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -541,22 +501,21 @@ public class clasificacion extends javax.swing.JPanel {
     private javax.swing.JSeparator SepUsuario2;
     private javax.swing.JSeparator SepUsuario3;
     private javax.swing.JSeparator SepUsuario4;
-    private javax.swing.JSeparator SepUsuario7;
     private javax.swing.JTextField TFApellido1;
     private javax.swing.JTextField TFApellido2;
-    private javax.swing.JTextField TFNivel;
     private javax.swing.JTextField TFNombre;
     private javax.swing.JLabel ap1;
     private javax.swing.JLabel ap2;
     private javax.swing.JPanel background;
     private javax.swing.JPanel buscar;
     private javax.swing.JLabel buscartxt;
-    private javax.swing.JLabel cu;
     private javax.swing.JPanel datos;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel no;
-    private javax.swing.JComboBox<String> selector;
+    private javax.swing.JComboBox<String> selectorJuego;
+    private javax.swing.JComboBox<String> selectorNivel;
     // End of variables declaration//GEN-END:variables
 }
