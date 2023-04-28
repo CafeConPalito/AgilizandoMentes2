@@ -82,11 +82,11 @@ constraint fk_resto_reto foreign key (reto) references reto (id_reto) on delete 
 );
 
 -- Vista Resto_Div 
-Create view view_resto_div_tablas as select alias, time_to_sec(tiempo_partida), aciertos, fecha_hora,nivel,id_usuario from resto_div inner join usuario on id_usuario = jugador inner join reto on id_reto=reto;
+Create view view_resto_div_tablas as select alias, time_to_sec(tiempo_partida)  as tiempo_partida, aciertos, fecha_hora,nivel,id_usuario from resto_div inner join usuario on id_usuario = jugador inner join reto on id_reto=reto;
 -- vista euclides
-Create view view_euclides_tablas as select alias, time_to_sec(tiempo_partida), aciertos, fecha_hora,nivel,id_usuario from resto_div inner join usuario on id_usuario = jugador inner join reto on id_reto=reto;
+Create view view_euclides_tablas as select alias, time_to_sec(tiempo_partida) as tiempo_partida, aciertos, fecha_hora,nivel,id_usuario from euclides inner join usuario on id_usuario = jugador inner join reto on id_reto=reto;
 -- vista calculo
-Create view view_calculo_tablas as select alias, time_to_sec(tiempo_partida), aciertos, fecha_hora,nivel,id_usuario from resto_div inner join usuario on id_usuario = jugador inner join reto on id_reto=reto;
+Create view view_calculo_tablas as select alias, time_to_sec(tiempo_partida) as tiempo_partida, aciertos, fecha_hora,nivel,id_usuario from calculo inner join usuario on id_usuario = jugador inner join reto on id_reto=reto;
 
 -- VistaEstadisticas RestoDiv
 create view estadisticas_resto_div as select jugador,reto,nivel,count(*) as partidas,sum(aciertos) as totalaciertos, (sum(aciertos) / count(*)) as mediaAciertos 
