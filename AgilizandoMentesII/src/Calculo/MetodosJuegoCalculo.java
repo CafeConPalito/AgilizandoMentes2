@@ -73,14 +73,15 @@ public class MetodosJuegoCalculo {
         }
     }
 
-}
-
-public boolean comprobarRespuesta(String respuesta) {
+    public boolean comprobarRespuesta(String respuesta) {
         try {
             int aux = Integer.parseInt(respuesta);
             if (this.resultado == aux) {
                 aciertos++;
                 return true;
+            } else{
+                fallos++;
+                return false;
             }
         } catch (NumberFormatException nfe) {
         }
