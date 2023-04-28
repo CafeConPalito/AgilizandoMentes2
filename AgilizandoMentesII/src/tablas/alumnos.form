@@ -70,8 +70,8 @@
                     <Column editable="true" title="Usuario" type="java.lang.String"/>
                     <Column editable="true" title="Alias" type="java.lang.String"/>
                     <Column editable="true" title="Nombre" type="java.lang.String"/>
-                    <Column editable="true" title="Apellido 1" type="java.lang.String"/>
-                    <Column editable="true" title="Apellido 2" type="java.lang.String"/>
+                    <Column editable="true" title="1&#xba; Apellido" type="java.lang.String"/>
+                    <Column editable="true" title="2&#xba; Apellido " type="java.lang.String"/>
                     <Column editable="true" title="DNI" type="java.lang.String"/>
                     <Column editable="true" title="Email" type="java.lang.String"/>
                     <Column editable="true" title="Curso" type="java.lang.Integer"/>
@@ -81,47 +81,47 @@
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="Usuario"/>
+                      <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="Alias"/>
+                      <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="Nombre"/>
+                      <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="Apellido 1"/>
+                      <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="Apellido 2"/>
+                      <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="DNI"/>
+                      <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="Email"/>
+                      <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="Curso"/>
+                      <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                      <Title value="Nacimiento"/>
+                      <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>

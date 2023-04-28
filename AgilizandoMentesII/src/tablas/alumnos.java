@@ -110,7 +110,7 @@ public class alumnos extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Usuario", "Alias", "Nombre", "Apellido 1", "Apellido 2", "DNI", "Email", "Curso", "Nacimiento"
+                "Usuario", "Alias", "Nombre", "1º Apellido", "2º Apellido ", "DNI", "Email", "Curso", "Nacimiento"
             }
         ) {
             Class[] types = new Class [] {
@@ -127,17 +127,6 @@ public class alumnos extends javax.swing.JPanel {
         jTable1.setSelectionForeground(Estilos.getColorFuentePanel());
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setHeaderValue("Usuario");
-            jTable1.getColumnModel().getColumn(1).setHeaderValue("Alias");
-            jTable1.getColumnModel().getColumn(2).setHeaderValue("Nombre");
-            jTable1.getColumnModel().getColumn(3).setHeaderValue("Apellido 1");
-            jTable1.getColumnModel().getColumn(4).setHeaderValue("Apellido 2");
-            jTable1.getColumnModel().getColumn(5).setHeaderValue("DNI");
-            jTable1.getColumnModel().getColumn(6).setHeaderValue("Email");
-            jTable1.getColumnModel().getColumn(7).setHeaderValue("Curso");
-            jTable1.getColumnModel().getColumn(8).setHeaderValue("Nacimiento");
-        }
 
         datos.setBackground(Estilos.getColorPanelBlanco());
         datos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
