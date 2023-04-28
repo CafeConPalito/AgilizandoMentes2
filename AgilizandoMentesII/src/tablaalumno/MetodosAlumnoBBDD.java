@@ -12,7 +12,21 @@ import java.sql.*;
  * @author terciodemarte
  */
 public class MetodosAlumnoBBDD {
-    public static ArrayList selectAlumnos(Connection con,String usuario,String alias,String nombre,String apellido1,String apellido2,String dni,String email,String curso){
+
+    /**
+     * Metodo para buscar alumnos en la vista view_info_alumnos
+     * @param con
+     * @param usuario
+     * @param alias
+     * @param nombre
+     * @param apellido1
+     * @param apellido2
+     * @param dni
+     * @param email
+     * @param curso
+     * @return Array de objetos ObjetoAlumnoBBDD
+     */
+    public static ArrayList selectAlumnos(Connection con, String usuario, String alias, String nombre, String apellido1, String apellido2, String dni, String email, String curso) {
 
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -23,7 +37,7 @@ public class MetodosAlumnoBBDD {
         try {
             
             ps = con.prepareStatement(select);
-            
+
             
             ps.setString(1, usuario);
             ps.setString(2, alias);
@@ -33,20 +47,16 @@ public class MetodosAlumnoBBDD {
             ps.setString(6, dni);
             ps.setString(7, email);
             ps.setString(8, curso);
-            
-            
-            
+
             rs = ps.executeQuery();
 
             //si encuentra resultado del reto de ese jugador busca la info
            
-            if (rs.next()) {
-                while (rs.next()) {
-                    ObjetoAlumnoBBDD oa= new ObjetoAlumnoBBDD(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
-                            rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(9), rs.getString(8));
-                    lista.add(oa);
-                }
 
+            while (rs.next()) {
+                ObjetoAlumnoBBDD oa = new ObjetoAlumnoBBDD(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
+                        rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(9), rs.getString(8));
+                lista.add(oa);
             }
 
         } catch (NumberFormatException e) {

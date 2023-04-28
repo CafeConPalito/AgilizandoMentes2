@@ -853,6 +853,9 @@ public class alumnos extends javax.swing.JPanel {
         buscar.setBackground(Estilos.getColorPanel());
     }//GEN-LAST:event_buscarMouseExited
 
+    /**
+     * Metodo para actualizar la tabla
+     */
     private void actualizar() {
         ObjetoAlumnoBBDD objeto=buscador();
         
