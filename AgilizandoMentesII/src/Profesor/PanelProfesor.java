@@ -7,8 +7,6 @@ package Profesor;
 import Ajustes.*;
 import Calculadora.Calculadora;
 import Main.Main;
-import tablas.alumnos;
-import tablas.clasificacion;
 
 /**
  *
