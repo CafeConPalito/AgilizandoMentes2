@@ -372,13 +372,9 @@ public class RestoDiv extends javax.swing.JPanel {
         jSPranking.setViewportView(jTclasificacion);
         if (jTclasificacion.getColumnModel().getColumnCount() > 0) {
             jTclasificacion.getColumnModel().getColumn(0).setResizable(false);
-            jTclasificacion.getColumnModel().getColumn(0).setHeaderValue("Jugador");
             jTclasificacion.getColumnModel().getColumn(1).setPreferredWidth(25);
-            jTclasificacion.getColumnModel().getColumn(1).setHeaderValue("Tiempo (sec)");
             jTclasificacion.getColumnModel().getColumn(2).setPreferredWidth(25);
-            jTclasificacion.getColumnModel().getColumn(2).setHeaderValue("Aciertos");
             jTclasificacion.getColumnModel().getColumn(3).setResizable(false);
-            jTclasificacion.getColumnModel().getColumn(3).setHeaderValue("Fecha y Hora");
         }
 
         jSPbestPlays.setBorder(null);
@@ -557,7 +553,7 @@ public class RestoDiv extends javax.swing.JPanel {
         jSeparator1.setForeground(new java.awt.Color(204, 204, 204));
 
         botonJugar.setBackground(Estilos.getColorPanel());
-        botonJugar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonJugar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         botonJugar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 botonJugarMouseClicked(evt);
@@ -599,7 +595,7 @@ public class RestoDiv extends javax.swing.JPanel {
         jLOperacion.setText("Operacion");
 
         botonSubirNivel.setBackground(Estilos.getColorPanel());
-        botonSubirNivel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonSubirNivel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         botonSubirNivel.setPreferredSize(new java.awt.Dimension(22, 22));
         botonSubirNivel.setRequestFocusEnabled(false);
         botonSubirNivel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -635,7 +631,7 @@ public class RestoDiv extends javax.swing.JPanel {
         );
 
         botonBajarNivel.setBackground(Estilos.getColorPanel());
-        botonBajarNivel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonBajarNivel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         botonBajarNivel.setPreferredSize(new java.awt.Dimension(22, 22));
         botonBajarNivel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

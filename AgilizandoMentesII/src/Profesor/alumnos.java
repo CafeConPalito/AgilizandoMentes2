@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package tablas;
+package Profesor;
 
 import BBDD.ObjetoAlumnoBBDD;
 import BBDD.MetodosAlumnoBBDD;
@@ -25,11 +25,8 @@ public class alumnos extends javax.swing.JPanel {
     public alumnos() {
         initComponents();
         jTable1.getTableHeader().setDefaultRenderer(new HeaderColor());
-        //NO RULA
-        
-        //jTable1.getTableHeader().setBackground(Estilos.getColorPanel());
-        //jTable1.getTableHeader().setForeground(Estilos.getColorFuentePanel());
-        
+        jTable1.setAutoCreateRowSorter(true);
+                
         DefaultTableModel modelC = (DefaultTableModel) jTable1.getModel();
         
         modelC.setRowCount(0);

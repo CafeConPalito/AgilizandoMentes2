@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package tablas;
+package Profesor;
 
 import BBDD.ObjetoClasificacionBBDD;
 import BBDD.MetodosClasificacionBBDD;
@@ -25,6 +25,7 @@ public class clasificacion extends javax.swing.JPanel {
     public clasificacion() {
         initComponents();
         jTable1.getTableHeader().setDefaultRenderer(new HeaderColor());
+        jTable1.setAutoCreateRowSorter(true);
     }
 
     /**
