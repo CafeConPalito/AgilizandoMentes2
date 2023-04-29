@@ -30,6 +30,52 @@ public class Principal {
      */
     public static void main(String[] args) {
 
+        /*
+        CLASES CON JAVA DOC
+        
+        Pendientes de Revisar:
+            *Tiempo autor Daniel, revisa ?????
+            *RestoDiv  autor Daniel, revisa ?????
+            *MetodosJuegoRestoDic  autor Daniel, revisa ?????
+        
+        QuedanPendientes:
+        
+            * Main
+            * Usuario
+            * Cambio
+            * AjusteUsuario
+            * PanelProfesor
+            * BienvenidaP
+            * Login
+            * Register
+            * AjustesLogin
+            * MetodosJuegoEuclides
+            * MetodosJuegoCalculo
+            * Calculadora
+            * BienvenidaA
+            * PanelAlumno
+            * Ajustes
+            * Configuracion
+            * Estilos
+            * Calculo (no revisar ya que va a ser un copia y pega de RestoDiv)
+            * Euclides (no revisar ya que va a ser un copia y pega de RestoDiv)
+            *BBDD
+                * ConexionBBDD
+                * MetodosAjusteBBDD
+                * MetodosAlumnoBBDD
+                * MetodosClasificacionBBDD
+                * MetodosJuegoBBDD
+                * MetodosRegistroBBDD
+                * MetodosUpdateBBDD
+                * MetodosUsuarioBBDD
+                * ObjetoAlumnoBBDD
+                * ObejetoClasificacionBBDD
+                * Objeto JuegoBBDD
+        
+        Terminados:
+
+        
+         */
         //Main a1 = new Main();
         //a1.setVisible(true);
         ConexionBBDD conBD = new ConexionBBDD();

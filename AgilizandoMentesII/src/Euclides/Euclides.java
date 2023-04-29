@@ -426,6 +426,9 @@ public class Euclides extends javax.swing.JPanel {
             }
         });
         TFrespuesta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TFrespuestaMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 TFrespuestaMousePressed(evt);
             }
@@ -723,6 +726,13 @@ public class Euclides extends javax.swing.JPanel {
         // TODO add your handling code here:
         botonBajarNivel.setBackground(Estilos.getColorPanel());
     }//GEN-LAST:event_botonBajarNivelMouseExited
+
+    private void TFrespuestaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFrespuestaMouseClicked
+        // TODO add your handling code here:
+        TFrespuesta.requestFocus();
+        TFrespuesta.setText("");
+        TFrespuesta.setForeground(Color.black);
+    }//GEN-LAST:event_TFrespuestaMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Estadisticas;
