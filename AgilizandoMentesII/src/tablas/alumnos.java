@@ -7,6 +7,7 @@ package tablas;
 import BBDD.ObjetoAlumnoBBDD;
 import BBDD.MetodosAlumnoBBDD;
 import Ajustes.Estilos;
+import Ajustes.HeaderColor;
 import Main.Main;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class alumnos extends javax.swing.JPanel {
      */
     public alumnos() {
         initComponents();
-        jTable1.getTableHeader().setOpaque(false);
+        jTable1.getTableHeader().setDefaultRenderer(new HeaderColor());
         //NO RULA
         
         //jTable1.getTableHeader().setBackground(Estilos.getColorPanel());

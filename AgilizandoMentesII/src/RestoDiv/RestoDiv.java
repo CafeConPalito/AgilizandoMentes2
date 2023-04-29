@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
 /**
- * 
+ *
  * @author damt111
  */
 public class RestoDiv extends javax.swing.JPanel {
@@ -34,6 +34,11 @@ public class RestoDiv extends javax.swing.JPanel {
      */
     public RestoDiv() {
         initComponents();
+        //Esta linea aplica el color al header desde la clase HeaderColor del paquete Ajustes
+        jTclasificacion.getTableHeader().setDefaultRenderer(new HeaderColor());
+        jTmejoresPartidas.getTableHeader().setDefaultRenderer(new HeaderColor());
+        jTultimasPartidas.getTableHeader().setDefaultRenderer(new HeaderColor());
+        
         try {
             nivel = Integer.parseInt(Usuario.getCurso());
         } catch (NumberFormatException e) {
@@ -760,8 +765,10 @@ public class RestoDiv extends javax.swing.JPanel {
     }//GEN-LAST:event_tFrespuestaMousePressed
 
     /**
-     * Al escribir en el tFrespuesta comprueba que se presiona Enter si se va al método partida, el cual controla el desarrollo de la misma
-     * @param evt 
+     * Al escribir en el tFrespuesta comprueba que se presiona Enter si se va al
+     * método partida, el cual controla el desarrollo de la misma
+     *
+     * @param evt
      */
     private void tFrespuestaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tFrespuestaKeyPressed
         // TODO add your handling code here:

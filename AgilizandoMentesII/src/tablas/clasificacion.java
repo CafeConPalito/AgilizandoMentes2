@@ -7,6 +7,7 @@ package tablas;
 import BBDD.ObjetoClasificacionBBDD;
 import BBDD.MetodosClasificacionBBDD;
 import Ajustes.Estilos;
+import Ajustes.HeaderColor;
 import Main.Main;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -23,6 +24,7 @@ public class clasificacion extends javax.swing.JPanel {
      */
     public clasificacion() {
         initComponents();
+        jTable1.getTableHeader().setDefaultRenderer(new HeaderColor());
     }
 
     /**
