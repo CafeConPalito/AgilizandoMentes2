@@ -43,7 +43,7 @@ public class Tiempo {
     /**
      * Devuelve el tiempo transcurrido
      *
-     * @return int
+     * @return int Devuelve el tiempo transcurrido
      */
     public int getSecTranscurridos() {
         return secTranscurridos;

@@ -196,7 +196,7 @@ public class RestoDiv extends javax.swing.JPanel {
      * pantalla dependiendo de la respuesta y finaliza la partida si al jugador
      * no le quedan intentos. volviendo al estado inicial el panel.
      *
-     * @param control re
+     * @param control recibe un boolean 
      */
     private void partida(boolean control) {
 
@@ -741,7 +741,7 @@ public class RestoDiv extends javax.swing.JPanel {
      * falso para iniciar el juego Evita que se pueda presionar el botón de
      * juego con una partida iniciada
      *
-     * @param evt
+     * @param evt MouseEvent Clicked
      */
     private void botonJugarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonJugarMouseClicked
         if (!controlPartida) {
@@ -768,7 +768,7 @@ public class RestoDiv extends javax.swing.JPanel {
      * Al escribir en el tFrespuesta comprueba que se presiona Enter si se va al
      * método partida, el cual controla el desarrollo de la misma
      *
-     * @param evt
+     * @param evt MouseEvent Clicked
      */
     private void tFrespuestaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tFrespuestaKeyPressed
         // TODO add your handling code here:

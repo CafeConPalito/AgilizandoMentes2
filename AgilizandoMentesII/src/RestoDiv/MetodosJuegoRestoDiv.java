@@ -46,7 +46,7 @@ public class MetodosJuegoRestoDiv {
      * Recibe como parámetro el nivel de dificultad de la partida, en funcion de
      * este nivel se decide la dificultad del juego.
      *
-     * @param nivel
+     * @param nivel valor entero entre 1 y 4 ambos incluidos
      */
     private void implementarNivel(int nivel) {
         switch (nivel) {
@@ -95,7 +95,7 @@ public class MetodosJuegoRestoDiv {
 
     /**
      * Método que resta 1 a contador de intentos  y devuelve true o false si quedan intentos
-     * @return 
+     * @return boolean 
      */
     public boolean comprobarQuedanIntentos() {
         intentos--;
