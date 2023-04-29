@@ -6,7 +6,9 @@ package Usuario;
 
 import Login.*;
 import Ajustes.Ajustes;
+import Ajustes.Configuracion;
 import Ajustes.Estilos;
+import BBDD.MetodosAjustes;
 import Main.Main;
 import java.awt.BorderLayout;
 
@@ -133,6 +135,10 @@ public class AjustesUsuario extends javax.swing.JPanel {
 
     private void signoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signoutMouseClicked
         Main.setIslogin(false);
+        Configuracion.setTamano((byte)2);
+        Configuracion.setIdioma("Español");
+        Configuracion.setSonido(false);
+        MetodosAjustes.actualizarletra();
         
         Login L1 = new Login();
         L1.setSize(1070, 720);
