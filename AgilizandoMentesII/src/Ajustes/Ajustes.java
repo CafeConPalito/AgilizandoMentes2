@@ -7,6 +7,17 @@ public class Ajustes extends javax.swing.JPanel {
 
     public Ajustes() {
         initComponents();
+        valortexto.setText(Byte.toString(Configuracion.getTamano()));
+        texto.setValue(Configuracion.getTamano());
+        selectidioma.removeAllItems();
+        if (Configuracion.getIdioma().equals("Español")) {
+            selectidioma.addItem("Español");
+            selectidioma.addItem("Ingles");
+        } else {
+            selectidioma.addItem("Ingles");
+            selectidioma.addItem("Español");
+        }
+        Si.setSelected(Configuracion.isSonido());
     }
 
     /**
@@ -178,7 +189,7 @@ public class Ajustes extends javax.swing.JPanel {
 
     private void aplicarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aplicarMouseEntered
         aplicar.setBackground(new Color(69, 212, 252));
-        
+
         //CONFIGURACION PARA ACTIVAR SONIDO
         if (Configuracion.isSonido()) {
             Configuracion.sonar("aplicar");
@@ -189,26 +200,26 @@ public class Ajustes extends javax.swing.JPanel {
     private void aplicarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aplicarMouseExited
         aplicar.setBackground(new Color(0, 155, 155));
         Configuracion.parar();
-        
+
     }//GEN-LAST:event_aplicarMouseExited
 
     private void aplicarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aplicarMouseClicked
-        Configuracion.setTamano((byte)texto.getValue());
+        Configuracion.setTamano((byte) texto.getValue());
         switch (Configuracion.getTamano()) {
             case 1:
                 Estilos.setSizeCuerpo(14);
-                
+
                 break;
             case 2:
                 Estilos.setSizeCuerpo(18);
-              
+
                 break;
             case 3:
                 Estilos.setSizeCuerpo(22);
-             
+
                 break;
         }
-        
+
         Configuracion.setIdioma(selectidioma.getSelectedItem().toString());
         if (Si.isSelected()) {
             Configuracion.setSonido(true);
@@ -216,9 +227,9 @@ public class Ajustes extends javax.swing.JPanel {
         } else {
             Configuracion.setSonido(false);
         }
-        
+
         Ajustes a1 = new Ajustes();
-        a1.setSize(1070,720);
+        a1.setSize(1070, 720);
         a1.setLocation(0, 0);
         Main.getCuerpo().removeAll();
         Main.getCuerpo().add(a1);
@@ -232,15 +243,15 @@ public class Ajustes extends javax.swing.JPanel {
     }//GEN-LAST:event_textoStateChanged
 
     private void tituloMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tituloMouseEntered
-        
+
         //CONFIGURACION PARA ACTIVAR SONIDO
         if (Configuracion.isSonido()) {
-          Configuracion.sonar("ajustes");
+            Configuracion.sonar("ajustes");
         }
     }//GEN-LAST:event_tituloMouseEntered
 
     private void tamanoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tamanoMouseEntered
-        
+
         //CONFIGURACION PARA ACTIVAR SONIDO
         if (Configuracion.isSonido()) {
             Configuracion.sonar("tamaño_texto");
@@ -248,7 +259,7 @@ public class Ajustes extends javax.swing.JPanel {
     }//GEN-LAST:event_tamanoMouseEntered
 
     private void idiomaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idiomaMouseEntered
-        
+
         //CONFIGURACION PARA ACTIVAR SONIDO
         if (Configuracion.isSonido()) {
             Configuracion.sonar("idioma");
@@ -256,7 +267,7 @@ public class Ajustes extends javax.swing.JPanel {
     }//GEN-LAST:event_idiomaMouseEntered
 
     private void sonidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sonidoMouseEntered
-        
+
         //CONFIGURACION PARA ACTIVAR SONIDO
         if (Configuracion.isSonido()) {
             Configuracion.sonar("sonido");
@@ -268,7 +279,7 @@ public class Ajustes extends javax.swing.JPanel {
     }//GEN-LAST:event_SiActionPerformed
 
     private void SiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SiMouseEntered
-       
+
         //CONFIGURACION PARA ACTIVAR SONIDO
         if (Configuracion.isSonido()) {
             Configuracion.sonar("si");
@@ -276,23 +287,23 @@ public class Ajustes extends javax.swing.JPanel {
     }//GEN-LAST:event_SiMouseEntered
 
     private void tituloMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tituloMouseExited
-      Configuracion.parar();
+        Configuracion.parar();
     }//GEN-LAST:event_tituloMouseExited
 
     private void tamanoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tamanoMouseExited
-       Configuracion.parar();
+        Configuracion.parar();
     }//GEN-LAST:event_tamanoMouseExited
 
     private void idiomaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idiomaMouseExited
-       Configuracion.parar();
+        Configuracion.parar();
     }//GEN-LAST:event_idiomaMouseExited
 
     private void sonidoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sonidoMouseExited
-       Configuracion.parar();
+        Configuracion.parar();
     }//GEN-LAST:event_sonidoMouseExited
 
     private void SiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SiMouseExited
-       Configuracion.parar();
+        Configuracion.parar();
     }//GEN-LAST:event_SiMouseExited
 
 

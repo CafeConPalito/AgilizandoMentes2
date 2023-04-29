@@ -17,7 +17,7 @@ import javax.sound.sampled.UnsupportedAudioFileException;
  */
 public class Configuracion {
     private static byte tamano=2;
-    private static String idioma="Espanol";
+    private static String idioma="Español";
     private static boolean sonido=false;
     private static Clip clip;
     private static AudioInputStream audioInputStream;

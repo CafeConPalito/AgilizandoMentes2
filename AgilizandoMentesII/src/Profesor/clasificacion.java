@@ -26,6 +26,7 @@ public class clasificacion extends javax.swing.JPanel {
         initComponents();
         jTable1.getTableHeader().setDefaultRenderer(new HeaderColor());
         jTable1.setAutoCreateRowSorter(true);
+
     }
 
     /**
