@@ -126,7 +126,6 @@ public class alumnos extends javax.swing.JPanel {
         jTable1.setRowHeight(25);
         jTable1.setSelectionBackground(Estilos.getColorSobreBoton());
         jTable1.setSelectionForeground(Estilos.getColorFuentePanel());
-        jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
 
         datos.setBackground(Estilos.getColorPanelBlanco());
