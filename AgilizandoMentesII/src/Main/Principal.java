@@ -74,8 +74,34 @@ public class Principal {
         
         Terminados:
 
-        
          */
+        
+        /* PARA ALBANO
+        
+        https://www.youtube.com/watch?v=RXhMdUPk12k en el video en las respuesta explican como hacerlo funcionar!
+        
+        you have to add this method :
+        public class HeaderColor extends DefaultTableCellRenderer {
+
+            public HeaderColor() {
+                setOpaque(true);
+            }
+
+            public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focused, int row, int column) {
+                super.getTableCellRendererComponent(table, value, selected, focused, row, column);
+
+               setBackground(new java.awt.Color(32, 136, 203));
+        //you can change the color that u want 
+                return this;
+            }
+
+        }
+        plus you have to add this to ur constructor
+        <table_name>.getTableHeader().setDefaultRenderer(new HeaderColor());
+        and it wil automatically ask u to implement some libraries
+
+        */
+        
         //Main a1 = new Main();
         //a1.setVisible(true);
         ConexionBBDD conBD = new ConexionBBDD();
