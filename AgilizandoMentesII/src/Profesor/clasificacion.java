@@ -25,6 +25,8 @@ public class clasificacion extends javax.swing.JPanel {
     public clasificacion() {
         initComponents();
         jTable1.getTableHeader().setDefaultRenderer(new HeaderColor());
+        jTable1.setAutoCreateRowSorter(true);
+
     }
 
     /**

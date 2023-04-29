@@ -25,11 +25,10 @@ public class alumnos extends javax.swing.JPanel {
     public alumnos() {
         initComponents();
         jTable1.getTableHeader().setDefaultRenderer(new HeaderColor());
-        //NO RULA
-        
-        //jTable1.getTableHeader().setBackground(Estilos.getColorPanel());
-        //jTable1.getTableHeader().setForeground(Estilos.getColorFuentePanel());
-        
+
+        jTable1.setAutoCreateRowSorter(true);
+                
+
         DefaultTableModel modelC = (DefaultTableModel) jTable1.getModel();
         
         modelC.setRowCount(0);
@@ -126,6 +125,9 @@ public class alumnos extends javax.swing.JPanel {
         jTable1.setRowHeight(25);
         jTable1.setSelectionBackground(Estilos.getColorSobreBoton());
         jTable1.setSelectionForeground(Estilos.getColorFuentePanel());
+
+        jTable1.getTableHeader().setReorderingAllowed(false);
+
         jScrollPane1.setViewportView(jTable1);
 
         datos.setBackground(Estilos.getColorPanelBlanco());
