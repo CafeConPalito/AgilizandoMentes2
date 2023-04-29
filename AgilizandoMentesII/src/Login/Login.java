@@ -8,6 +8,7 @@ import Main.Main;
 import java.awt.Color;
 import Ajustes.*;
 import Alumno.*;
+import BBDD.MetodosAjustes;
 import BBDD.MetodosUsuario;
 import Profesor.BienvenidaP;
 import Profesor.PanelProfesor;
@@ -303,6 +304,8 @@ public class Login extends javax.swing.JPanel {
                     //Confirmo que se ha logueado para que no vuelva atras
                     Usuario.setUsuario(TFUsuario.getText());
                     MetodosUsuario.generarUsuario(Main.getCon());
+                    MetodosAjustes.cargarAjustes(Main.getCon());
+                    MetodosAjustes.actualizarletra();
 
                     //Muestro los paneles del alumno
                     PanelAlumno pa1 = new PanelAlumno();
@@ -336,6 +339,8 @@ public class Login extends javax.swing.JPanel {
                     //Confirmo que se ha logueado para que no vuelva atras
                     Usuario.setUsuario(TFUsuario.getText());
                     MetodosUsuario.generarUsuario(Main.getCon());
+                    MetodosAjustes.cargarAjustes(Main.getCon());
+                    MetodosAjustes.actualizarletra();
 
                     //Muestro los paneles del profesor
                     PanelProfesor pp1 = new PanelProfesor();
@@ -428,6 +433,8 @@ public class Login extends javax.swing.JPanel {
                         //Confirmo que se ha logueado para que no vuelva atras
                         Usuario.setUsuario(TFUsuario.getText());
                         MetodosUsuario.generarUsuario(Main.getCon());
+                        MetodosAjustes.cargarAjustes(Main.getCon());
+                        MetodosAjustes.actualizarletra();
 
                         //Muestro los paneles del alumno
                         PanelAlumno pa1 = new PanelAlumno();
@@ -461,6 +468,8 @@ public class Login extends javax.swing.JPanel {
                         //Confirmo que se ha logueado para que no vuelva atras
                         Usuario.setUsuario(TFUsuario.getText());
                         MetodosUsuario.generarUsuario(Main.getCon());
+                        MetodosAjustes.cargarAjustes(Main.getCon());
+                        MetodosAjustes.actualizarletra();
 
                         //Muestro los paneles del profesor
                         PanelProfesor pp1 = new PanelProfesor();

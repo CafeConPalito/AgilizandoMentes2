@@ -4,6 +4,7 @@
  */
 package BBDD;
 
+import Ajustes.Configuracion;
 import java.sql.*;
 import java.util.HashMap;
 
@@ -169,7 +170,6 @@ public class MetodosRegistro {
                 ps = con.prepareStatement(selectNombreUsuario);
                 ps.setString(1, nombreUsuario);
                 rs = ps.executeQuery();
-                ;
 
                 //Es necesario usar el Next Para pasar a la primera Linea de la busqueda
                 //una vez en la primera linea podemos obtener la informacion;
@@ -277,6 +277,7 @@ public class MetodosRegistro {
         PreparedStatement ps1 = null;
         PreparedStatement ps2 = null;
         PreparedStatement ps3 = null;
+        PreparedStatement ps4 = null;
         ResultSet rs = null;
         int id = 0;
 
@@ -284,6 +285,7 @@ public class MetodosRegistro {
         String select = "select id_usuario from usuario where nombre_usuario = ?";
         String insert1 = "insert into usuario(nombre_usuario,contrasena,alias) values (?,md5(?),?)";
         String insert2 = "insert into persona(id_usuario,nombre,apellido1,apellido2,dni,email,curso,fecha_naci,profesor) values (?,?,?,?,?,?,?,?,?)";
+        String insert3= "insert into ajuste(usuario,tamaño,idioma,sonido) values (?,?,?,?)";
 
         try {
 
@@ -293,17 +295,17 @@ public class MetodosRegistro {
             ps1.setString(2, password);
             ps1.setString(3, alias);
 
-            //Ejecuto el primer insert
+            //Ejecuto el primer insert tabla Usuario
             ps1.executeUpdate();
 
-            //Busco el id del nuevo usuario
+            //Busco el id del nuevo usuario 
             ps2 = con.prepareStatement(select);
             ps2.setString(1, usuario);
             rs = ps2.executeQuery();
             rs.next();
             id = rs.getInt(1);
 
-            //Preparo el segundo insert
+            //Preparo el segundo insert tabla datos personales
             ps3 = con.prepareStatement(insert2);
             ps3.setInt(1, id);
             ps3.setString(2, nombre);
@@ -317,6 +319,21 @@ public class MetodosRegistro {
 
             //Ejecuto el segundo insert
             ps3.executeUpdate();
+            
+            //Preparo el tercer insert tabla ajustes
+            ps4 = con.prepareStatement(insert3);
+            ps4.setInt(1, id);
+            ps4.setString(2, Byte.toString(Configuracion.getTamano()));
+            if (Configuracion.getIdioma().equals("Español")) {
+                ps4.setString(3,"Espanol");
+            }else{
+                ps4.setString(3,"Ingles");
+            }
+            ps4.setBoolean(4, Configuracion.isSonido());
+            
+            //Ejecuto el tercer insert
+            ps4.executeUpdate();
+            
 
         } catch (NumberFormatException e) {
             //System.err.println("Error de conversion de numero");

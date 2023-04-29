@@ -1,5 +1,6 @@
 package Ajustes;
 
+import BBDD.MetodosAjustes;
 import Main.Main;
 import java.awt.Color;
 
@@ -7,17 +8,33 @@ public class Ajustes extends javax.swing.JPanel {
 
     public Ajustes() {
         initComponents();
-        valortexto.setText(Byte.toString(Configuracion.getTamano()));
-        texto.setValue(Configuracion.getTamano());
-        selectidioma.removeAllItems();
-        if (Configuracion.getIdioma().equals("Español")) {
-            selectidioma.addItem("Español");
-            selectidioma.addItem("Ingles");
+        if (!Main.isIslogin()) {
+            valortexto.setText(Byte.toString(Configuracion.getTamano()));
+            texto.setValue(Configuracion.getTamano());
+            selectidioma.removeAllItems();
+            if (Configuracion.getIdioma().equals("Español")) {
+                selectidioma.addItem("Español");
+                selectidioma.addItem("Ingles");
+            } else {
+                selectidioma.addItem("Ingles");
+                selectidioma.addItem("Español");
+            }
+            Si.setSelected(Configuracion.isSonido());
         } else {
-            selectidioma.addItem("Ingles");
-            selectidioma.addItem("Español");
+            MetodosAjustes.cargarAjustes(Main.getCon());
+            valortexto.setText(Byte.toString(Configuracion.getTamano()));
+            texto.setValue(Configuracion.getTamano());
+            selectidioma.removeAllItems();
+            if (Configuracion.getIdioma().equals("Español")) {
+                selectidioma.addItem("Español");
+                selectidioma.addItem("Ingles");
+            } else {
+                selectidioma.addItem("Ingles");
+                selectidioma.addItem("Español");
+            }
+            Si.setSelected(Configuracion.isSonido());
         }
-        Si.setSelected(Configuracion.isSonido());
+
     }
 
     /**
@@ -205,20 +222,7 @@ public class Ajustes extends javax.swing.JPanel {
 
     private void aplicarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aplicarMouseClicked
         Configuracion.setTamano((byte) texto.getValue());
-        switch (Configuracion.getTamano()) {
-            case 1:
-                Estilos.setSizeCuerpo(14);
-
-                break;
-            case 2:
-                Estilos.setSizeCuerpo(18);
-
-                break;
-            case 3:
-                Estilos.setSizeCuerpo(22);
-
-                break;
-        }
+        MetodosAjustes.actualizarletra();
 
         Configuracion.setIdioma(selectidioma.getSelectedItem().toString());
         if (Si.isSelected()) {
@@ -227,6 +231,8 @@ public class Ajustes extends javax.swing.JPanel {
         } else {
             Configuracion.setSonido(false);
         }
+        
+        MetodosAjustes.guardarAjustes(Main.getCon());
 
         Ajustes a1 = new Ajustes();
         a1.setSize(1070, 720);
