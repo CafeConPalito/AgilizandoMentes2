@@ -44,8 +44,6 @@ public class Principal {
             * Usuario
             * Cambio
             * AjusteUsuario
-            * PanelProfesor
-            * BienvenidaP
             * Login
             * Register
             * AjustesLogin
@@ -57,6 +55,11 @@ public class Principal {
             * Ajustes
             * Configuracion
             * Estilos
+            *Profesor
+                * PanelProfesor
+                * BienvenidaP
+                * alumnos
+                * clasificacion
             * Calculo (no revisar ya que va a ser un copia y pega de RestoDiv)
             * Euclides (no revisar ya que va a ser un copia y pega de RestoDiv)
             *BBDD
