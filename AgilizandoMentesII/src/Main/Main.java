@@ -113,7 +113,7 @@ public class Main extends javax.swing.JFrame {
         BarraLateral.setBackground(Estilos.getColorPanel());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/augusto-logo-peq.png"))); // NOI18N
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -135,7 +135,7 @@ public class Main extends javax.swing.JFrame {
         );
 
         Ajustes.setBackground(Estilos.getColorPanel());
-        Ajustes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Ajustes.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Ajustes.setPreferredSize(new java.awt.Dimension(210, 50));
         Ajustes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -233,6 +233,14 @@ public class Main extends javax.swing.JFrame {
         });
 
         exit.setBackground(new java.awt.Color(255, 255, 255));
+        exit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                exitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                exitMouseExited(evt);
+            }
+        });
 
         xtxt.setFont(new java.awt.Font("Roboto Medium", 1, 24)); // NOI18N
         xtxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -415,6 +423,14 @@ public class Main extends javax.swing.JFrame {
             Cuerpo.repaint();
         }
     }//GEN-LAST:event_LoginTXTMouseClicked
+
+    private void exitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_exitMouseEntered
+
+    private void exitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_exitMouseExited
 
     /**
      * @param args the command line arguments
