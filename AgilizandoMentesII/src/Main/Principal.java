@@ -30,6 +30,78 @@ public class Principal {
      */
     public static void main(String[] args) {
 
+        /*
+        CLASES CON JAVA DOC
+        
+        Pendientes de Revisar:
+            *Tiempo autor Daniel, revisa ?????
+            *RestoDiv  autor Daniel, revisa ?????
+            *MetodosJuegoRestoDic  autor Daniel, revisa ?????
+        
+        QuedanPendientes:
+        
+            * Main
+            * Usuario
+            * Cambio
+            * AjusteUsuario
+            * PanelProfesor
+            * BienvenidaP
+            * Login
+            * Register
+            * AjustesLogin
+            * MetodosJuegoEuclides
+            * MetodosJuegoCalculo
+            * Calculadora
+            * BienvenidaA
+            * PanelAlumno
+            * Ajustes
+            * Configuracion
+            * Estilos
+            * Calculo (no revisar ya que va a ser un copia y pega de RestoDiv)
+            * Euclides (no revisar ya que va a ser un copia y pega de RestoDiv)
+            *BBDD
+                * ConexionBBDD
+                * MetodosAjusteBBDD
+                * MetodosAlumnoBBDD
+                * MetodosClasificacionBBDD
+                * MetodosJuegoBBDD
+                * MetodosRegistroBBDD
+                * MetodosUpdateBBDD
+                * MetodosUsuarioBBDD
+                * ObjetoAlumnoBBDD
+                * ObejetoClasificacionBBDD
+                * Objeto JuegoBBDD
+        
+        Terminados:
+
+         */
+        
+        /* PARA ALBANO
+        
+        https://www.youtube.com/watch?v=RXhMdUPk12k en el video en las respuesta explican como hacerlo funcionar!
+        
+        you have to add this method :
+        public class HeaderColor extends DefaultTableCellRenderer {
+
+            public HeaderColor() {
+                setOpaque(true);
+            }
+
+            public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focused, int row, int column) {
+                super.getTableCellRendererComponent(table, value, selected, focused, row, column);
+
+               setBackground(new java.awt.Color(32, 136, 203));
+        //you can change the color that u want 
+                return this;
+            }
+
+        }
+        plus you have to add this to ur constructor
+        <table_name>.getTableHeader().setDefaultRenderer(new HeaderColor());
+        and it wil automatically ask u to implement some libraries
+
+        */
+        
         //Main a1 = new Main();
         //a1.setVisible(true);
         ConexionBBDD conBD = new ConexionBBDD();

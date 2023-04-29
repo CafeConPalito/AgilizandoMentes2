@@ -5,10 +5,9 @@
 package RestoDiv;
 
 import Tiempo.Tiempo;
-import Usuario.*;
 
 /**
- *
+ * Clase que permite generar la partida y controlar el Juego Resto de una división 
  * @author CafeConPalito
  */
 public class MetodosJuegoRestoDiv {
@@ -21,11 +20,19 @@ public class MetodosJuegoRestoDiv {
     private int tiempoPartida;
     private int aciertos = 0;
     private int intentos = 5;
-    private int nivelA;
-    private int nivelB;
+    private int nivelA; // Nivel de complejidad del juego
+    private int nivelB; // Nivel de complejidad del juego
     private Tiempo tiempo = new Tiempo();
 
-    public void crearPregunta(int nivel ) {
+    /**
+     * Recibe como parámetro el nivel de dificultad de la partida. Utiliza el
+     * método implementarNivel para decidir el nivel de dificultad del Juego. A
+     * partir de esto crea los valores dividendo, divisor y la respuesta, en
+     * este caso el Resto de una división entera.
+     *
+     * @param nivel Nivel de dificultad seleccionado
+     */
+    public void crearPregunta(int nivel) {
         implementarNivel(nivel);
         dividendo = (int) (Math.random() * nivelA + 1);
         divisor = (int) (Math.random() * nivelB + 1);
@@ -35,7 +42,13 @@ public class MetodosJuegoRestoDiv {
         respuesta = dividendo % divisor;
     }
 
-    private void implementarNivel( int nivel) {
+    /**
+     * Recibe como parámetro el nivel de dificultad de la partida, en funcion de
+     * este nivel se decide la dificultad del juego.
+     *
+     * @param nivel
+     */
+    private void implementarNivel(int nivel) {
         switch (nivel) {
             case 1:
                 nivelA = 10;
@@ -58,13 +71,13 @@ public class MetodosJuegoRestoDiv {
         }
 
     }
-    
+
     /**
-     * Metodo que comprueba si la respuesta es correcta, y añade 1 a los
+     * Método que comprueba si la respuesta es correcta, y añade 1 a los
      * aciertos
      *
-     * @param respuesta
-     * @return boolean si la respuesta es correcta
+     * @param respuesta 
+     * @return boolean true si la respuesta es correcta
      */
     public boolean comprobarRespuesta(String respuesta) {
         try {
@@ -75,40 +88,50 @@ public class MetodosJuegoRestoDiv {
             }
 
         } catch (NumberFormatException e) {
-            
+
         }
         return false;
     }
 
+    /**
+     * Método que resta 1 a contador de intentos  y devuelve true o false si quedan intentos
+     * @return 
+     */
     public boolean comprobarQuedanIntentos() {
         intentos--;
         return intentos != 0;
     }
 
-    public String textoPregunta(){
-        return "El resto de la division de " +dividendo + " entre " + divisor + " es:";
+    /**
+     * Método que devuelve un String con la pregunta que se va a realizar al usuario
+     * @return String
+     */
+    public String textoPregunta() {
+        return "El resto de la division de " + dividendo + " entre " + divisor + " es:";
     }
-    
-    public String textoAlmacenRespuesta(){
-        return "Resto: " + dividendo + " / " + divisor + " es: " + respuesta;  
+
+     /**
+     * Método que devuelve un String con la respuesta correcta
+     * @return String
+     */
+    public String textoAlmacenRespuesta() {
+        return "Resto: " + dividendo + " / " + divisor + " es: " + respuesta;
     }
-    
-    
+
+    /**
+     * Método para iniciar el contador de tiempo
+     */
     public void iniciarJuego() {
         tiempo.iniciarContador();
     }
 
+    /**
+     * Método para detener el contador de tiempo
+     * y almacenar el tiempo transcurrido en segundos
+     */
     public void terminarJuego() {
         tiempo.pararContador();
         tiempoPartida = tiempo.getSecTranscurridos();
-    }
-
-    public int getDividendo() {
-        return dividendo;
-    }
-
-    public int getDivisor() {
-        return divisor;
     }
 
     public int getRespuesta() {
@@ -121,10 +144,6 @@ public class MetodosJuegoRestoDiv {
 
     public int getAciertos() {
         return aciertos;
-    }
-
-    public int getIntentos() {
-        return intentos;
     }
 
 }

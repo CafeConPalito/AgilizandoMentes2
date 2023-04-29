@@ -22,10 +22,10 @@ public class ConexionBBDD {
     //la direccion para conectar a la bbdd se le pasa como parametro "BD"
     
     //IP PARA TRABAJAR EN EL SERVER
-    static final String IP = "192.168.24.16";
+    //static final String IP = "192.168.24.16";
 
     //IP PARA TRABAJAR EN LOCAL
-    //static final String IP = "127.0.0.1";
+    static final String IP = "127.0.0.1";
     //static final String IP = "localhost";
     
     //Todos los parametros para conectar a la BBDD

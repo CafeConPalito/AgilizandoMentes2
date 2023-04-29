@@ -5,21 +5,20 @@
 package Tiempo;
 
 /**
+ * Clase que controla todo lo que tiene que ver con los tiempos de las partidas.
  *
  * @author CafeConPalito
  */
 public class Tiempo {
 
-    /* no los declaro estaticos para tener que inicializar un objeto con cada partida
-    asi se pueden evitar posibles errores si no se termina bien la partida y queda mal almacenado un valor
-     */
     private long inicioContador;
     private long finContador;
     private int secTranscurridos;
-    private boolean controlInicializacion = false; // Creo que lo puedo quitar
+    private boolean controlInicializacion = false; // Controla que el temporizador no este inicializado, para evitar inicializarlo varias veces por error.
 
     /**
-     * Inicia el contador de tiempo
+     * Inicia el contador de tiempo, no permite inicializarlo si ya esta
+     * inicializado
      */
     public void iniciarContador() {
         if (controlInicializacion == false) {
@@ -30,8 +29,8 @@ public class Tiempo {
     }
 
     /**
-     * Detiene el contador del tiempo solo para el contador y almacena el valor
-     * si el contador se inicio
+     * Detiene el contador del tiempo, solo detiene el contador y almacena el
+     * valor si el contador se inicializo
      */
     public void pararContador() {
         if (controlInicializacion) {
@@ -44,7 +43,7 @@ public class Tiempo {
     /**
      * Devuelve el tiempo transcurrido
      *
-     * @return
+     * @return int
      */
     public int getSecTranscurridos() {
         return secTranscurridos;

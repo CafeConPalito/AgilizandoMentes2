@@ -6,7 +6,6 @@ package Ajustes;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.GradientPaint;
 
 /**
  *
@@ -30,14 +29,6 @@ public class Estilos {
     private static Color colorRespuestaCorrecta = new Color(51, 204, 51); // Verde
     private static Color colorRespuestaIncorrecta = new Color(255,0,0); // Rojo      
     
-    
-    //Gradiente
-    //new GradientPaint(0,0, colorPanelBlanco, 0, colorPanel);
-    private static GradientPaint colorDegradado = new GradientPaint(0, 0, colorPanel, 0, 0, colorPanelBlanco);
-
-    public static GradientPaint getColorDegradado() {
-        return colorDegradado;
-    }
 
     public static Color getColorSobreBoton() {
         return colorSobreBoton;
