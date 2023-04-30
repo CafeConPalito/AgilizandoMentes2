@@ -16,9 +16,9 @@ public class MetodosJuegoCalculo {
 
     private int numero1;
     private int numero2;
-    private int resultado;
-    private int auxsigno;
-    private String signo;
+    private int respuesta;
+    private int auxoperacion;
+    private String operacion;
     private Tiempo tiempo = new Tiempo();
     private int nivelA = 10;
     private int nivelB = 10;
@@ -30,14 +30,15 @@ public class MetodosJuegoCalculo {
     /**
      * inicializa los dos valores numéricos y el signo para crear una
      * operación(pregunta)
+     * @param nivel
      */
-    public void crearPregunta() {
-        //implementarNivel();
+    public void crearPregunta(int nivel) {
+        implementarNivel(nivel);
         numero1 = (int) (Math.random() * nivelA + 1);
         numero2 = (int) (Math.random() * nivelB + 1);
-        auxsigno = (int) (Math.random() * 4 + 1);
+        auxoperacion = (int) (Math.random() * 4 + 1);
 
-        calculo(numero1, numero2, auxsigno);
+        calculo(numero1, numero2, auxoperacion, nivel);
     }
 
     /**
@@ -47,28 +48,28 @@ public class MetodosJuegoCalculo {
      * @param y
      * @param aux
      */
-    private void calculo(int num1, int num2, int auxsigno) {
+    private void calculo(int num1, int num2, int auxsigno, int nivel) {
 
         switch (auxsigno) {
             case 1:
-                signo = "+";
-                resultado = num1 + num2;
+                operacion = "+";
+                respuesta = num1 + num2;
                 break;
             case 2:
-                signo = "-";
-                resultado = num1 - num2;
+                operacion = "-";
+                respuesta = num1 - num2;
                 break;
             case 3:
-                signo = "X";
-                resultado = num1 * num2;
+                operacion = "X";
+                respuesta = num1 * num2;
                 break;
             case 4:
                 while (num1 % num2 != 0) {
                     numero1 = (int) (Math.random() * nivelA + 1);
                     numero2 = (int) (Math.random() * nivelB + 1);
                 }
-                signo = "/";
-                resultado = num1 / num2;
+                operacion = "/";
+                respuesta = num1 / num2;
                 break;
         }
     }
@@ -76,7 +77,7 @@ public class MetodosJuegoCalculo {
     public boolean comprobarRespuesta(String respuesta) {
         try {
             int aux = Integer.parseInt(respuesta);
-            if (this.resultado == aux) {
+            if (this.respuesta == aux) {
                 aciertos++;
                 return true;
             } else{
@@ -102,7 +103,7 @@ public class MetodosJuegoCalculo {
         tiempoPartida = tiempo.getSecTranscurridos();
     }
 
-    public void implementarNivel() {
+    public void implementarNivel(int nivel) {
         switch (Usuario.getCurso()) {
             case "1":
                 nivelA = 10;
@@ -124,6 +125,13 @@ public class MetodosJuegoCalculo {
                 throw new AssertionError();
         }
     }
+    public String textoPregunta(){
+        return "El resultado de " +numero1 + "  " + operacion + "  " +numero2+ " es:";
+    }
+    
+    public String textoAlmacenRespuesta(){
+        return "El resultado de " +numero1 + "  " + operacion + "  " +numero2+ " es:" + respuesta;  
+    }
 
     public int getNumero1() {
         return numero1;
@@ -133,12 +141,12 @@ public class MetodosJuegoCalculo {
         return numero2;
     }
 
-    public int getResultado() {
-        return resultado;
+    public int getRespuesta() {
+        return respuesta;
     }
 
-    public String getSigno() {
-        return signo;
+    public String getOperacion() {
+        return operacion;
     }
 
     public Tiempo getTiempo() {
