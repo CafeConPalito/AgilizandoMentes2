@@ -38,7 +38,7 @@ public class MetodosJuegoCalculo {
         numero2 = (int) (Math.random() * nivelB + 1);
         auxoperacion = (int) (Math.random() * 4 + 1);
 
-        calculo(numero1, numero2, auxoperacion, nivel);
+        calculo(auxoperacion, nivel);
     }
 
     /**
@@ -48,28 +48,28 @@ public class MetodosJuegoCalculo {
      * @param y
      * @param aux
      */
-    private void calculo(int num1, int num2, int auxsigno, int nivel) {
+    private void calculo(int auxsigno, int nivel) {
 
         switch (auxsigno) {
             case 1:
                 operacion = "+";
-                respuesta = num1 + num2;
+                respuesta = numero1 + numero2;
                 break;
             case 2:
                 operacion = "-";
-                respuesta = num1 - num2;
+                respuesta = numero1 - numero2;
                 break;
             case 3:
                 operacion = "X";
-                respuesta = num1 * num2;
+                respuesta = numero1 * numero2;
                 break;
             case 4:
-                while (num1 % num2 != 0) {
-                    numero1 = (int) (Math.random() * nivelA + 1);
+                numero1 = (int) (Math.random() * nivelA + 1);
+                while ((numero1 % numero2) != 0) {
                     numero2 = (int) (Math.random() * nivelB + 1);
                 }
                 operacion = "/";
-                respuesta = num1 / num2;
+                respuesta = numero1 / numero2;
                 break;
         }
     }
@@ -100,7 +100,7 @@ public class MetodosJuegoCalculo {
 
     public void terminarJuego() {
         tiempo.pararContador();
-        tiempoPartida = tiempo.getSecTranscurridos();
+        tiempoPartida = (tiempo.getSecTranscurridos()+(fallos*5));
     }
 
     public void implementarNivel(int nivel) {
@@ -126,11 +126,11 @@ public class MetodosJuegoCalculo {
         }
     }
     public String textoPregunta(){
-        return "El resultado de " +numero1 + "  " + operacion + "  " +numero2+ " es:";
+        return "El resultado de " +numero1 + "  " + operacion + "  " +numero2+ " es: ";
     }
     
     public String textoAlmacenRespuesta(){
-        return "El resultado de " +numero1 + "  " + operacion + "  " +numero2+ " es:" + respuesta;  
+        return "El resultado de " +numero1 + "  " + operacion + "  " +numero2+ " es: " + respuesta;  
     }
 
     public int getNumero1() {
