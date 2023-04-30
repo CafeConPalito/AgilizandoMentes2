@@ -12,7 +12,7 @@ import java.util.HashMap;
  *
  * @author terciodemarte
  */
-public class MetodosRegistro {
+public class MetodosRegistroBBDD {
 
     /**
      * Comprueba si el DNI contiene 8 numeros y Una letra mayuscula, pasado

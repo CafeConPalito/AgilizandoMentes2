@@ -8,9 +8,9 @@ import Main.Main;
 import java.awt.Color;
 import Ajustes.*;
 import Alumno.*;
-import BBDD.MetodosAjustes;
-import BBDD.MetodosUsuario;
-import Profesor.BienvenidaP;
+import BBDD.MetodosAjustesBBDD;
+import BBDD.MetodosUsuarioBBDD;
+import Profesor.ProfesorBienvenida;
 import Profesor.PanelProfesor;
 import Usuario.AjustesUsuario;
 import Usuario.Usuario;
@@ -295,20 +295,20 @@ public class Login extends javax.swing.JPanel {
         errorC.setVisible(false);
 
         //Compruebo que existe el usuario
-        if (MetodosUsuario.loginUsuario(Main.getCon(), TFUsuario.getText())) {
+        if (MetodosUsuarioBBDD.loginUsuario(Main.getCon(), TFUsuario.getText())) {
             //Compruebo que introduce bien la contraseña
-            if (MetodosUsuario.loginContrasena(Main.getCon(), TFUsuario.getText(), String.copyValueOf(PWF.getPassword()))) {
+            if (MetodosUsuarioBBDD.loginContrasena(Main.getCon(), TFUsuario.getText(), String.copyValueOf(PWF.getPassword()))) {
                 //Compruebo si es alumno
-                if (!MetodosUsuario.comprobarEsProfesor(Main.getCon(), TFUsuario.getText())) {
+                if (!MetodosUsuarioBBDD.comprobarEsProfesor(Main.getCon(), TFUsuario.getText())) {
 
                     //Confirmo que se ha logueado para que no vuelva atras
                     Usuario.setUsuario(TFUsuario.getText());
-                    MetodosUsuario.generarUsuario(Main.getCon());
-                    MetodosAjustes.cargarAjustes(Main.getCon());
-                    MetodosAjustes.actualizarletra();
+                    MetodosUsuarioBBDD.generarUsuario(Main.getCon());
+                    MetodosAjustesBBDD.cargarAjustes(Main.getCon());
+                    MetodosAjustesBBDD.actualizarletra();
 
                     //Muestro los paneles del alumno
-                    PanelAlumno pa1 = new PanelAlumno();
+                    AlumnoPanel pa1 = new AlumnoPanel();
                     pa1.setSize(210, 400);
                     pa1.setLocation(0, 0);
                     Main.getPanelVacio().removeAll();
@@ -316,7 +316,7 @@ public class Login extends javax.swing.JPanel {
                     Main.getPanelVacio().revalidate();
                     Main.getPanelVacio().repaint();
 
-                    BienvenidaA bienvenidaA = new BienvenidaA();
+                    AlumnoBienvenida bienvenidaA = new AlumnoBienvenida();
                     bienvenidaA.setSize(1070, 720);
                     bienvenidaA.setLocation(0, 0);
                     Main.getCuerpo().removeAll();
@@ -338,9 +338,9 @@ public class Login extends javax.swing.JPanel {
 
                     //Confirmo que se ha logueado para que no vuelva atras
                     Usuario.setUsuario(TFUsuario.getText());
-                    MetodosUsuario.generarUsuario(Main.getCon());
-                    MetodosAjustes.cargarAjustes(Main.getCon());
-                    MetodosAjustes.actualizarletra();
+                    MetodosUsuarioBBDD.generarUsuario(Main.getCon());
+                    MetodosAjustesBBDD.cargarAjustes(Main.getCon());
+                    MetodosAjustesBBDD.actualizarletra();
 
                     //Muestro los paneles del profesor
                     PanelProfesor pp1 = new PanelProfesor();
@@ -351,7 +351,7 @@ public class Login extends javax.swing.JPanel {
                     Main.getPanelVacio().revalidate();
                     Main.getPanelVacio().repaint();
 
-                    BienvenidaP bienvenidaP = new BienvenidaP();
+                    ProfesorBienvenida bienvenidaP = new ProfesorBienvenida();
                     bienvenidaP.setSize(1070, 720);
                     bienvenidaP.setLocation(0, 0);
                     Main.getCuerpo().removeAll();
@@ -424,20 +424,20 @@ public class Login extends javax.swing.JPanel {
         int key = evt.getKeyCode();
         if (key == KeyEvent.VK_ENTER && !String.valueOf(PWF.getPassword()).equals("********")) {
             //Compruebo que existe el usuario
-            if (MetodosUsuario.loginUsuario(Main.getCon(), TFUsuario.getText())) {
+            if (MetodosUsuarioBBDD.loginUsuario(Main.getCon(), TFUsuario.getText())) {
                 //Compruebo que introduce bien la contraseña
-                if (MetodosUsuario.loginContrasena(Main.getCon(), TFUsuario.getText(), String.copyValueOf(PWF.getPassword()))) {
+                if (MetodosUsuarioBBDD.loginContrasena(Main.getCon(), TFUsuario.getText(), String.copyValueOf(PWF.getPassword()))) {
                     //Compruebo si es alumno
-                    if (!MetodosUsuario.comprobarEsProfesor(Main.getCon(), TFUsuario.getText())) {
+                    if (!MetodosUsuarioBBDD.comprobarEsProfesor(Main.getCon(), TFUsuario.getText())) {
 
                         //Confirmo que se ha logueado para que no vuelva atras
                         Usuario.setUsuario(TFUsuario.getText());
-                        MetodosUsuario.generarUsuario(Main.getCon());
-                        MetodosAjustes.cargarAjustes(Main.getCon());
-                        MetodosAjustes.actualizarletra();
+                        MetodosUsuarioBBDD.generarUsuario(Main.getCon());
+                        MetodosAjustesBBDD.cargarAjustes(Main.getCon());
+                        MetodosAjustesBBDD.actualizarletra();
 
                         //Muestro los paneles del alumno
-                        PanelAlumno pa1 = new PanelAlumno();
+                        AlumnoPanel pa1 = new AlumnoPanel();
                         pa1.setSize(210, 400);
                         pa1.setLocation(0, 0);
                         Main.getPanelVacio().removeAll();
@@ -445,7 +445,7 @@ public class Login extends javax.swing.JPanel {
                         Main.getPanelVacio().revalidate();
                         Main.getPanelVacio().repaint();
 
-                        BienvenidaA bienvenidaA = new BienvenidaA();
+                        AlumnoBienvenida bienvenidaA = new AlumnoBienvenida();
                         bienvenidaA.setSize(1070, 720);
                         bienvenidaA.setLocation(0, 0);
                         Main.getCuerpo().removeAll();
@@ -467,9 +467,9 @@ public class Login extends javax.swing.JPanel {
 
                         //Confirmo que se ha logueado para que no vuelva atras
                         Usuario.setUsuario(TFUsuario.getText());
-                        MetodosUsuario.generarUsuario(Main.getCon());
-                        MetodosAjustes.cargarAjustes(Main.getCon());
-                        MetodosAjustes.actualizarletra();
+                        MetodosUsuarioBBDD.generarUsuario(Main.getCon());
+                        MetodosAjustesBBDD.cargarAjustes(Main.getCon());
+                        MetodosAjustesBBDD.actualizarletra();
 
                         //Muestro los paneles del profesor
                         PanelProfesor pp1 = new PanelProfesor();
@@ -480,7 +480,7 @@ public class Login extends javax.swing.JPanel {
                         Main.getPanelVacio().revalidate();
                         Main.getPanelVacio().repaint();
 
-                        BienvenidaP bienvenidaP = new BienvenidaP();
+                        ProfesorBienvenida bienvenidaP = new ProfesorBienvenida();
                         bienvenidaP.setSize(1070, 720);
                         bienvenidaP.setLocation(0, 0);
                         Main.getCuerpo().removeAll();
@@ -513,6 +513,7 @@ public class Login extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Boton;
+    private javax.swing.JLabel Fondo;
     private javax.swing.JLabel JLContra;
     private javax.swing.JLabel JLUsuario;
     private javax.swing.JPasswordField PWF;
@@ -524,6 +525,7 @@ public class Login extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanelFondo;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel registra;

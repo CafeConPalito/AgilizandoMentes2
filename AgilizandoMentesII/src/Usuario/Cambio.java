@@ -7,8 +7,8 @@ package Usuario;
 import Main.Main;
 import java.awt.Color;
 import Ajustes.*;
-import BBDD.MetodosRegistro;
-import BBDD.MetodosUpdate;
+import BBDD.MetodosRegistroBBDD;
+import BBDD.MetodosUpdateBBDD;
 
 /**
  *
@@ -490,16 +490,16 @@ public class Cambio extends javax.swing.JPanel {
         } else if (String.valueOf(PWF2.getPassword()).equals("********")) {
             password2.setForeground(Estilos.getColorFuenteCuerpo());
         } else {
-            MetodosUpdate.updatePassword(Main.getCon(), String.valueOf(PWF2.getPassword()));
+            MetodosUpdateBBDD.updatePassword(Main.getCon(), String.valueOf(PWF2.getPassword()));
             password2.setForeground(Estilos.getColorFuenteCuerpo());
         }
 
         //Update Alias
         if (!TFalias.getText().equals("Inserte su alias")) {
-            if (MetodosRegistro.comprobrarAlias(Main.getCon(), TFalias.getText())) {
+            if (MetodosRegistroBBDD.comprobrarAlias(Main.getCon(), TFalias.getText())) {
                 alias.setForeground(Estilos.getColorFuenteError());
             } else {
-                MetodosUpdate.updateAlias(Main.getCon(), TFalias.getText());
+                MetodosUpdateBBDD.updateAlias(Main.getCon(), TFalias.getText());
                 alias.setForeground(Estilos.getColorFuenteCuerpo());
             }
         } else {
@@ -514,7 +514,7 @@ public class Cambio extends javax.swing.JPanel {
             nombre.setForeground(Estilos.getColorFuenteCuerpo());
         } else {
             nombre.setForeground(Estilos.getColorFuenteCuerpo());
-            MetodosUpdate.updateNombre(Main.getCon(), TFnombre.getText());
+            MetodosUpdateBBDD.updateNombre(Main.getCon(), TFnombre.getText());
         }
 
         //Update apellido1
@@ -524,7 +524,7 @@ public class Cambio extends javax.swing.JPanel {
             apellido1.setForeground(Estilos.getColorFuenteCuerpo());
         } else {
             apellido1.setForeground(Estilos.getColorFuenteCuerpo());
-            MetodosUpdate.updateApellido1(Main.getCon(), TFapellido1.getText());
+            MetodosUpdateBBDD.updateApellido1(Main.getCon(), TFapellido1.getText());
         }
 
         //Update apellido2
@@ -534,16 +534,16 @@ public class Cambio extends javax.swing.JPanel {
             apellido2.setForeground(Estilos.getColorFuenteCuerpo());
         } else {
             apellido2.setForeground(Estilos.getColorFuenteCuerpo());
-            MetodosUpdate.updateApellido1(Main.getCon(), TFapellido1.getText());
+            MetodosUpdateBBDD.updateApellido1(Main.getCon(), TFapellido1.getText());
         }
         //Update email
         if (!TFemail.getText().equals("ejemplo@ejemplo.com")) {
-            if ((TFemail.getText().isEmpty() || MetodosRegistro.comprobrarEmail(Main.getCon(), TFemail.getText()))) {
+            if ((TFemail.getText().isEmpty() || MetodosRegistroBBDD.comprobrarEmail(Main.getCon(), TFemail.getText()))) {
                 email.setForeground(Estilos.getColorFuenteError());
 
             } else {
                 email.setForeground(Estilos.getColorFuenteCuerpo());
-                MetodosUpdate.updateEmail(Main.getCon(), TFemail.getText());
+                MetodosUpdateBBDD.updateEmail(Main.getCon(), TFemail.getText());
             }
         }
 

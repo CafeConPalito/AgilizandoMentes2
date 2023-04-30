@@ -176,7 +176,7 @@ public class RestoDiv extends javax.swing.JPanel {
      * de su nivel, actualizando la información desde la BBDD
      */
     private void actualizarNumeroPartidas() {
-        jLpatidasJugadas.setText("Partidas Jugadas: " + MetodosJuegoBBDD.totalPartidas(Main.getCon(), NOMBREDEJUEGO, nivel));
+        jLpatidasJugadas.setText("Partidas jugadas: " + MetodosJuegoBBDD.totalPartidas(Main.getCon(), NOMBREDEJUEGO, nivel));
     }
 
     /**
@@ -184,7 +184,7 @@ public class RestoDiv extends javax.swing.JPanel {
      * de su nivel, actualizando la información desde la BBDD
      */
     private void actualizarMediaAciertos() {
-        jLMediaAciertos.setText("Media de aciertos: " + MetodosJuegoBBDD.mediaAciertos(Main.getCon(), NOMBREDEJUEGO, nivel) + " %");
+        jLMediaAciertos.setText("Media de aciertos: " + MetodosJuegoBBDD.mediaAciertos(Main.getCon(), NOMBREDEJUEGO, nivel));
     }
 
     /**
@@ -292,31 +292,37 @@ public class RestoDiv extends javax.swing.JPanel {
         botonBajarNivel = new javax.swing.JPanel();
         jLbajarNivel = new javax.swing.JLabel();
         jLnivelActual = new javax.swing.JLabel();
+        jPanelFondo = new javax.swing.JPanel();
+        Fondo = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1070, 720));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setOpaque(false);
         jPanel1.setPreferredSize(new java.awt.Dimension(1070, 720));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Informacion.setBackground(new java.awt.Color(255, 255, 255));
+        Informacion.setOpaque(false);
 
         Estadisticas.setBackground(new java.awt.Color(255, 255, 255));
+        Estadisticas.setOpaque(false);
 
         jLTituloEstadisticas.setFont(Estilos.getFuenteCuerpo());
-        jLTituloEstadisticas.setForeground(Estilos.getColorFuenteCuerpo());
+        jLTituloEstadisticas.setForeground(Estilos.getColorFuentePanel());
         jLTituloEstadisticas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLTituloEstadisticas.setText("Estadisticas");
+        jLTituloEstadisticas.setText("Estadísticas");
 
         jLpatidasJugadas.setFont(Estilos.getFuenteCuerpo());
-        jLpatidasJugadas.setForeground(Estilos.getColorFuenteCuerpo());
+        jLpatidasJugadas.setForeground(Estilos.getColorFuentePanel());
         jLpatidasJugadas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLpatidasJugadas.setText("Partidas Jugadas");
+        jLpatidasJugadas.setText("Partidas jugadas");
 
         jLMediaAciertos.setFont(Estilos.getFuenteCuerpo());
-        jLMediaAciertos.setForeground(Estilos.getColorFuenteCuerpo());
+        jLMediaAciertos.setForeground(Estilos.getColorFuentePanel());
         jLMediaAciertos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLMediaAciertos.setText("Media de Aciertos");
+        jLMediaAciertos.setText("Media de aciertos");
 
         javax.swing.GroupLayout EstadisticasLayout = new javax.swing.GroupLayout(Estadisticas);
         Estadisticas.setLayout(EstadisticasLayout);
@@ -324,12 +330,12 @@ public class RestoDiv extends javax.swing.JPanel {
             EstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLpatidasJugadas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLTituloEstadisticas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLMediaAciertos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
+            .addComponent(jLMediaAciertos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
         );
         EstadisticasLayout.setVerticalGroup(
             EstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(EstadisticasLayout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLTituloEstadisticas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLpatidasJugadas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -455,19 +461,16 @@ public class RestoDiv extends javax.swing.JPanel {
         jLlastPlays.setForeground(Estilos.getColorFuenteCuerpo());
         jLlastPlays.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLlastPlays.setText("Tus ultimas 5 partidas");
-        jLlastPlays.setToolTipText("");
 
         jLbestPlays.setFont(Estilos.getFuenteCuerpo());
         jLbestPlays.setForeground(Estilos.getColorFuenteCuerpo());
         jLbestPlays.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLbestPlays.setText("Tus mejores partidas");
-        jLbestPlays.setToolTipText("");
 
         jLranking.setFont(Estilos.getFuenteCuerpo());
         jLranking.setForeground(Estilos.getColorFuenteCuerpo());
         jLranking.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLranking.setText("Clasificacion");
-        jLranking.setToolTipText("");
+        jLranking.setText("Clasificación");
 
         javax.swing.GroupLayout InformacionLayout = new javax.swing.GroupLayout(Informacion);
         Informacion.setLayout(InformacionLayout);
@@ -475,43 +478,51 @@ public class RestoDiv extends javax.swing.JPanel {
             InformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(InformacionLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(InformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLranking, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSPlastPlays, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
-                    .addComponent(jLlastPlays, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLbestPlays, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSPranking)
-                    .addComponent(jSPbestPlays)
-                    .addComponent(Estadisticas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addGroup(InformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(InformacionLayout.createSequentialGroup()
+                        .addGroup(InformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jSPlastPlays, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
+                            .addComponent(jLlastPlays, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLbestPlays, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jSPranking)
+                            .addComponent(jSPbestPlays))
+                        .addGap(0, 8, Short.MAX_VALUE))
+                    .addComponent(jLranking, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InformacionLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Estadisticas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
         InformacionLayout.setVerticalGroup(
             InformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(InformacionLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Estadisticas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLranking, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addComponent(Estadisticas, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSPranking, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLranking, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
+                .addComponent(jSPranking, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLbestPlays, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSPbestPlays, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSPbestPlays, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLlastPlays, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSPlastPlays, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addGap(12, 12, 12)
+                .addComponent(jSPlastPlays, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jPanel1.add(Informacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 490, 720));
 
+        jLTitulo.setBackground(Estilos.getColorPanel());
         jLTitulo.setFont(Estilos.getFuenteCuerpo());
-        jLTitulo.setForeground(Estilos.getColorFuenteCuerpo());
+        jLTitulo.setForeground(Estilos.getColorFuentePanel());
         jLTitulo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLTitulo.setText("Calcula el resto de una división entera");
-        jPanel1.add(jLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 490, 40));
+        jLTitulo.setText(" Calcula el resto de una división entera");
+        jLTitulo.setOpaque(true);
+        jPanel1.add(jLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 500, 40));
 
         jScrollPane1.setBorder(null);
 
@@ -592,7 +603,6 @@ public class RestoDiv extends javax.swing.JPanel {
         jLOperacion.setFont(Estilos.getFuenteCuerpo());
         jLOperacion.setForeground(Estilos.getColorFuenteCuerpo());
         jLOperacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLOperacion.setText("Operacion");
 
         botonSubirNivel.setBackground(Estilos.getColorPanel());
         botonSubirNivel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -720,16 +730,25 @@ public class RestoDiv extends javax.swing.JPanel {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 560, 200));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jPanelFondo.setBackground(Estilos.getColorPanelBlanco());
+        jPanelFondo.setPreferredSize(new java.awt.Dimension(1070, 720));
+
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/FondoClaro.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanelFondoLayout = new javax.swing.GroupLayout(jPanelFondo);
+        jPanelFondo.setLayout(jPanelFondoLayout);
+        jPanelFondoLayout.setHorizontalGroup(
+            jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        jPanelFondoLayout.setVerticalGroup(
+            jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        add(jPanelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -821,6 +840,7 @@ public class RestoDiv extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Estadisticas;
+    private javax.swing.JLabel Fondo;
     private javax.swing.JPanel Informacion;
     private javax.swing.JPanel botonBajarNivel;
     private javax.swing.JPanel botonJugar;
@@ -839,6 +859,7 @@ public class RestoDiv extends javax.swing.JPanel {
     private javax.swing.JLabel jLsubirNivel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanelFondo;
     private javax.swing.JScrollPane jSPbestPlays;
     private javax.swing.JScrollPane jSPlastPlays;
     private javax.swing.JScrollPane jSPranking;

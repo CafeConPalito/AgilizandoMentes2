@@ -7,7 +7,7 @@ package Login;
 import Main.Main;
 import java.awt.Color;
 import Ajustes.*;
-import BBDD.MetodosRegistro;
+import BBDD.MetodosRegistroBBDD;
 import java.awt.Container;
 
 /**
@@ -734,7 +734,7 @@ public class Register extends javax.swing.JPanel {
 
         //COMPRUEBO EL USUARIO
         if (!(TFUsuario.getText().isEmpty() || TFUsuario.getText().equals("Inserte su nombre de usuario"))) {
-            if (MetodosRegistro.comprobarNombreUsuario(Main.getCon(), TFUsuario.getText())) {
+            if (MetodosRegistroBBDD.comprobarNombreUsuario(Main.getCon(), TFUsuario.getText())) {
                 us.setForeground(Estilos.getColorFuenteError());
                 register = false;
             } else {
@@ -772,7 +772,7 @@ public class Register extends javax.swing.JPanel {
 
         //COMPRUEBO EL ALIAS
         if (!TFalias.getText().equals("Inserte su alias")) {
-            if (MetodosRegistro.comprobrarAlias(Main.getCon(), TFalias.getText())) {
+            if (MetodosRegistroBBDD.comprobrarAlias(Main.getCon(), TFalias.getText())) {
                 alias.setForeground(Estilos.getColorFuenteError());
                 register = false;
             } else {
@@ -781,7 +781,7 @@ public class Register extends javax.swing.JPanel {
             }
         } else {
             if (!(TFUsuario.getText().isEmpty() || TFUsuario.getText().equals("Inserte su nombre de usuario"))) {
-                if (MetodosRegistro.comprobrarAlias(Main.getCon(), TFUsuario.getText())) {
+                if (MetodosRegistroBBDD.comprobrarAlias(Main.getCon(), TFUsuario.getText())) {
                     alias.setForeground(Estilos.getColorFuenteError());
                     register = false;
                 } else {
@@ -815,7 +815,7 @@ public class Register extends javax.swing.JPanel {
 
         //COMPRUEBO EL DNI
         if (!(TFdni.getText().isEmpty() || TFdni.getText().equals("Inserte su DNI"))) {
-            if (!MetodosRegistro.comprobarDNI(Main.getCon(), TFdni.getText())) {
+            if (!MetodosRegistroBBDD.comprobarDNI(Main.getCon(), TFdni.getText())) {
                 dni.setForeground(Estilos.getColorFuenteError());
                 register = false;
             } else {
@@ -830,7 +830,7 @@ public class Register extends javax.swing.JPanel {
 
         //COMPRUEBO EL CURSO
         if (!(TFCurso.getText().isEmpty() || TFCurso.getText().equals("Inserte su curso"))) {
-            if (!MetodosRegistro.comprobarCurso(TFCurso.getText())) {
+            if (!MetodosRegistroBBDD.comprobarCurso(TFCurso.getText())) {
                 curso.setForeground(Estilos.getColorFuenteError());
                 register = false;
             } else {
@@ -845,7 +845,7 @@ public class Register extends javax.swing.JPanel {
 
         //COMPRUEBO LA FECHA
         if (!(TFfechaNac.getText().isEmpty() || TFfechaNac.getText().equals("yyyy-mm-dd"))) {
-            if (!MetodosRegistro.comprobarFecha(TFfechaNac.getText())) {
+            if (!MetodosRegistroBBDD.comprobarFecha(TFfechaNac.getText())) {
                 fechaNac.setForeground(Estilos.getColorFuenteError());
                 register = false;
             } else {
@@ -860,7 +860,7 @@ public class Register extends javax.swing.JPanel {
 
         //COMPRUEBO EL EMAIL
         if (!(TFemail.getText().isEmpty() || TFemail.getText().equals("ejemplo@ejemplo.com"))) {
-            if (MetodosRegistro.comprobrarEmail(Main.getCon(), TFemail.getText())) {
+            if (MetodosRegistroBBDD.comprobrarEmail(Main.getCon(), TFemail.getText())) {
                 email.setForeground(Estilos.getColorFuenteError());
                 register = false;
             } else {
@@ -884,7 +884,7 @@ public class Register extends javax.swing.JPanel {
             if (profesor.isSelected()) {
                 TFCurso.setText("5");
             }
-            MetodosRegistro.registrarUsuario(Main.getCon(), TFUsuario.getText(), String.valueOf(PWF1.getPassword()), TFalias.getText(), TFnombre.getText(), TFapellido1.getText(), TFapellido2.getText(), TFdni.getText(), Integer.parseInt(TFCurso.getText()), TFfechaNac.getText(), TFemail.getText(), profesor.isSelected());
+            MetodosRegistroBBDD.registrarUsuario(Main.getCon(), TFUsuario.getText(), String.valueOf(PWF1.getPassword()), TFalias.getText(), TFnombre.getText(), TFapellido1.getText(), TFapellido2.getText(), TFdni.getText(), Integer.parseInt(TFCurso.getText()), TFfechaNac.getText(), TFemail.getText(), profesor.isSelected());
 
             Container Cuerpo2 = this.getParent();
             Login l1 = new Login();
