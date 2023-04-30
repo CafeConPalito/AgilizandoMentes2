@@ -79,9 +79,9 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
         TFAlias = new javax.swing.JTextField();
         SepUsuario1 = new javax.swing.JSeparator();
         curso = new javax.swing.JPanel();
+        SepUsuario7 = new javax.swing.JSeparator();
         cu = new javax.swing.JLabel();
         TFCurso = new javax.swing.JTextField();
-        SepUsuario7 = new javax.swing.JSeparator();
         DNI = new javax.swing.JPanel();
         dni = new javax.swing.JLabel();
         TFDni = new javax.swing.JTextField();
@@ -528,10 +528,10 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
         );
         buscarLayout.setVerticalGroup(
             buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(buscartxt, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
+            .addComponent(buscartxt, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        datos.add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(716, 168, -1, -1));
+        datos.add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(716, 184, -1, 50));
 
         jPLimpiar.setBackground(new java.awt.Color(0, 155, 155));
         jPLimpiar.setPreferredSize(new java.awt.Dimension(150, 16));
@@ -564,7 +564,7 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
             .addComponent(jLlimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        datos.add(jPLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 168, -1, 66));
+        datos.add(jPLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 184, -1, 50));
 
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
         background.setLayout(backgroundLayout);
