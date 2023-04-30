@@ -20,13 +20,14 @@ public class MetodosJuegoCalculo {
     private int auxoperacion;
     private String operacion;
     private Tiempo tiempo = new Tiempo();
-    private int nivelA = 10;
+    private int nivelA = 100;
     private int nivelB = 10;
     private int tiempoPartida;
     private int aciertos = 0;
     private int fallos = 0;
     private int intentos = 25;
-    private int penalizacion = 0;
+    private static int penalizacion;
+
 
     /**
      * inicializa los dos valores numéricos y el signo para crear una
@@ -107,25 +108,22 @@ public class MetodosJuegoCalculo {
     public void implementarNivel(int nivel) {
         switch (nivel) {
             case 1:
-                nivelA = 10;
-                nivelB = 10;
+                penalizacion=2;
                 break;
             case 2:
-                nivelA = 100;
-                nivelB = 10;
+                penalizacion=3;
                 break;
             case 3:
-                nivelA = 100;
-                nivelB = 100;
+                penalizacion=4;
                 break;
             case 4:
-                nivelA = 1000;
-                nivelB = 100;
+                penalizacion=5;
                 break;
             default:
                 throw new AssertionError();
         }
     }
+    
     public String textoPregunta(){
         return "El resultado de " +numero1 + "  " + operacion + "  " +numero2+ " es: ";
     }
