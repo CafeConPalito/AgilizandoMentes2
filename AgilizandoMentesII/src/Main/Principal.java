@@ -31,6 +31,19 @@ public class Principal {
     public static void main(String[] args) {
 
         /*
+        Me queda por poner sonido a:
+            -Register
+            -MAIN
+            -PanelProfesor
+            -ProfesorBienvenida
+            -ProfesorInfoAlumnos
+            -ProfesorInfoClasificacionAlumnos
+            -Calculo
+            -RestoDiv
+            -Cambio
+        
+        */
+        /*
         CLASES CON JAVA DOC y Ortografía
         
         Leyenda 

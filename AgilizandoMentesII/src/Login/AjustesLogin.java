@@ -5,6 +5,7 @@
 package Login;
 
 import Ajustes.Ajustes;
+import Ajustes.Configuracion;
 import Ajustes.Estilos;
 import Main.Main;
 import java.awt.BorderLayout;
@@ -57,6 +58,14 @@ public class AjustesLogin extends javax.swing.JPanel {
         LoginTXT2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/ajustesblanco.png"))); // NOI18N
         LoginTXT2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         LoginTXT2.setPreferredSize(new java.awt.Dimension(210, 50));
+        LoginTXT2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                LoginTXT2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                LoginTXT2MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout AjustesLayout = new javax.swing.GroupLayout(Ajustes);
         Ajustes.setLayout(AjustesLayout);
@@ -81,7 +90,7 @@ public class AjustesLogin extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Ajustes, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
+            .addComponent(Ajustes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -103,6 +112,18 @@ public class AjustesLogin extends javax.swing.JPanel {
     private void AjustesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AjustesMouseExited
         Ajustes.setBackground(Estilos.getColorPanel());
     }//GEN-LAST:event_AjustesMouseExited
+
+    private void LoginTXT2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginTXT2MouseEntered
+        // TODO add your handling code here:
+         if (Configuracion.isSonido()) {
+            Configuracion.sonar("ajustes");
+        }
+    }//GEN-LAST:event_LoginTXT2MouseEntered
+
+    private void LoginTXT2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginTXT2MouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_LoginTXT2MouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -314,16 +314,40 @@ public class Euclides extends javax.swing.JPanel {
         jLTituloEstadisticas.setForeground(Estilos.getColorFuentePanel());
         jLTituloEstadisticas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLTituloEstadisticas.setText("Estadísticas");
+        jLTituloEstadisticas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLTituloEstadisticasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLTituloEstadisticasMouseExited(evt);
+            }
+        });
 
         jLpatidasJugadas.setFont(Estilos.getFuenteCuerpo());
         jLpatidasJugadas.setForeground(Estilos.getColorFuentePanel());
         jLpatidasJugadas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLpatidasJugadas.setText("Partidas jugadas");
+        jLpatidasJugadas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLpatidasJugadasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLpatidasJugadasMouseExited(evt);
+            }
+        });
 
         jLMediaAciertos.setFont(Estilos.getFuenteCuerpo());
         jLMediaAciertos.setForeground(Estilos.getColorFuentePanel());
         jLMediaAciertos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLMediaAciertos.setText("Media de aciertos");
+        jLMediaAciertos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLMediaAciertosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLMediaAciertosMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout EstadisticasLayout = new javax.swing.GroupLayout(Estadisticas);
         Estadisticas.setLayout(EstadisticasLayout);
@@ -462,16 +486,40 @@ public class Euclides extends javax.swing.JPanel {
         jLlastPlays.setForeground(Estilos.getColorFuenteCuerpo());
         jLlastPlays.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLlastPlays.setText("Tus ultimas 5 partidas");
+        jLlastPlays.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLlastPlaysMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLlastPlaysMouseExited(evt);
+            }
+        });
 
         jLbestPlays.setFont(Estilos.getFuenteCuerpo());
         jLbestPlays.setForeground(Estilos.getColorFuenteCuerpo());
         jLbestPlays.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLbestPlays.setText("Tus mejores partidas");
+        jLbestPlays.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLbestPlaysMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLbestPlaysMouseExited(evt);
+            }
+        });
 
         jLranking.setFont(Estilos.getFuenteCuerpo());
         jLranking.setForeground(Estilos.getColorFuenteCuerpo());
         jLranking.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLranking.setText("Clasificación");
+        jLranking.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLrankingMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLrankingMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout InformacionLayout = new javax.swing.GroupLayout(Informacion);
         Informacion.setLayout(InformacionLayout);
@@ -523,6 +571,14 @@ public class Euclides extends javax.swing.JPanel {
         jLTitulo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLTitulo.setText(" Calcula el máximo común divisor");
         jLTitulo.setOpaque(true);
+        jLTitulo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLTituloMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLTituloMouseExited(evt);
+            }
+        });
         jPanel1.add(jLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 500, 40));
 
         jScrollPane1.setBorder(null);
@@ -681,6 +737,14 @@ public class Euclides extends javax.swing.JPanel {
         jLnivelActual.setForeground(Estilos.getColorFuenteCuerpo());
         jLnivelActual.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLnivelActual.setText("Nivel");
+        jLnivelActual.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLnivelActualMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLnivelActualMouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -767,10 +831,14 @@ public class Euclides extends javax.swing.JPanel {
 
     private void botonJugarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonJugarMouseEntered
         botonJugar.setBackground(Estilos.getColorSobreBoton());
+         if (Configuracion.isSonido()) {
+            Configuracion.sonar("jugar");
+        }
     }//GEN-LAST:event_botonJugarMouseEntered
 
     private void botonJugarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonJugarMouseExited
         botonJugar.setBackground(Estilos.getColorPanel());
+        Configuracion.parar();
     }//GEN-LAST:event_botonJugarMouseExited
 
     private void tFrespuestaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tFrespuestaMousePressed
@@ -838,6 +906,100 @@ public class Euclides extends javax.swing.JPanel {
             tFrespuesta.setForeground(Color.black);
         }
     }//GEN-LAST:event_tFrespuestaMouseClicked
+
+    private void jLTituloMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLTituloMouseEntered
+         if (Configuracion.isSonido()) {
+            Configuracion.sonar("calcula_euclides");
+        }
+    }//GEN-LAST:event_jLTituloMouseEntered
+
+    private void jLTituloMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLTituloMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_jLTituloMouseExited
+
+    private void jLnivelActualMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLnivelActualMouseEntered
+         if (Configuracion.isSonido()) {
+            Configuracion.sonar("nivel");
+        }
+    }//GEN-LAST:event_jLnivelActualMouseEntered
+
+    private void jLnivelActualMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLnivelActualMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_jLnivelActualMouseExited
+
+    private void jLTituloEstadisticasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLTituloEstadisticasMouseEntered
+        // TODO add your handling code here:
+         if (Configuracion.isSonido()) {
+            Configuracion.sonar("estadisticas");
+        }
+    }//GEN-LAST:event_jLTituloEstadisticasMouseEntered
+
+    private void jLTituloEstadisticasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLTituloEstadisticasMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_jLTituloEstadisticasMouseExited
+
+    private void jLpatidasJugadasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLpatidasJugadasMouseEntered
+        // TODO add your handling code here:
+         if (Configuracion.isSonido()) {
+            Configuracion.sonar("partidas_jugadas");
+        }
+    }//GEN-LAST:event_jLpatidasJugadasMouseEntered
+
+    private void jLpatidasJugadasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLpatidasJugadasMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_jLpatidasJugadasMouseExited
+
+    private void jLMediaAciertosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLMediaAciertosMouseEntered
+        // TODO add your handling code here:
+         if (Configuracion.isSonido()) {
+            Configuracion.sonar("media_aciertos");
+        }
+    }//GEN-LAST:event_jLMediaAciertosMouseEntered
+
+    private void jLMediaAciertosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLMediaAciertosMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_jLMediaAciertosMouseExited
+
+    private void jLrankingMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLrankingMouseEntered
+        // TODO add your handling code here:
+         if (Configuracion.isSonido()) {
+            Configuracion.sonar("clasificacion");
+        }
+    }//GEN-LAST:event_jLrankingMouseEntered
+
+    private void jLrankingMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLrankingMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_jLrankingMouseExited
+
+    private void jLbestPlaysMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbestPlaysMouseEntered
+        // TODO add your handling code here:
+         if (Configuracion.isSonido()) {
+            Configuracion.sonar("mejores_partidas");
+        }
+    }//GEN-LAST:event_jLbestPlaysMouseEntered
+
+    private void jLbestPlaysMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLbestPlaysMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_jLbestPlaysMouseExited
+
+    private void jLlastPlaysMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLlastPlaysMouseEntered
+        // TODO add your handling code here:
+         if (Configuracion.isSonido()) {
+            Configuracion.sonar("ultimas_partidas");
+        }
+    }//GEN-LAST:event_jLlastPlaysMouseEntered
+
+    private void jLlastPlaysMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLlastPlaysMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_jLlastPlaysMouseExited
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Estadisticas;

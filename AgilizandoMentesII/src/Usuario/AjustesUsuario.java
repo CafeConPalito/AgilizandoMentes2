@@ -103,7 +103,7 @@ public class AjustesUsuario extends javax.swing.JPanel {
         );
         signoutLayout.setVerticalGroup(
             signoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(LoginTXT3, javax.swing.GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
+            .addComponent(LoginTXT3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -118,7 +118,7 @@ public class AjustesUsuario extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Ajustes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(signout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(signout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -166,18 +166,25 @@ public class AjustesUsuario extends javax.swing.JPanel {
 
     private void AjustesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AjustesMouseEntered
         Ajustes.setBackground(Estilos.getColorSobreBoton());
+          if (Configuracion.isSonido()) {
+            Configuracion.sonar("ajustes");
+        }
     }//GEN-LAST:event_AjustesMouseEntered
 
     private void AjustesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AjustesMouseExited
         Ajustes.setBackground(Estilos.getColorPanel());
+          Configuracion.parar();
     }//GEN-LAST:event_AjustesMouseExited
 
     private void signoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signoutMouseEntered
         signout.setBackground(Estilos.getColorSobreBoton());
+          if (Configuracion.isSonido()) {
+        }
     }//GEN-LAST:event_signoutMouseEntered
 
     private void signoutMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signoutMouseExited
         signout.setBackground(Estilos.getColorPanel());
+          Configuracion.parar();
     }//GEN-LAST:event_signoutMouseExited
 
 

@@ -62,10 +62,26 @@ public class Login extends javax.swing.JPanel {
 
         iniciar.setFont(Estilos.getFuenteCuerpo());
         iniciar.setText("INICIAR SESIÓN");
+        iniciar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                iniciarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                iniciarMouseExited(evt);
+            }
+        });
         background.add(iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, -1, -1));
 
         tienes.setFont(Estilos.getFuenteCuerpo());
         tienes.setText("¿NO TIENES CUENTA?");
+        tienes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                tienesMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                tienesMouseExited(evt);
+            }
+        });
         background.add(tienes, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 570, -1, -1));
 
         registra.setFont(Estilos.getFuenteCuerpo());
@@ -79,6 +95,9 @@ public class Login extends javax.swing.JPanel {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 registraMouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                registraMouseExited(evt);
+            }
         });
         background.add(registra, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 570, -1, -1));
 
@@ -86,6 +105,14 @@ public class Login extends javax.swing.JPanel {
 
         JLContra.setFont(Estilos.getFuenteCuerpo());
         JLContra.setText("Contraseña");
+        JLContra.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JLContraMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                JLContraMouseExited(evt);
+            }
+        });
 
         PWF.setForeground(new java.awt.Color(204, 204, 204));
         PWF.setText("********");
@@ -146,6 +173,14 @@ public class Login extends javax.swing.JPanel {
 
         JLUsuario.setFont(Estilos.getFuenteCuerpo());
         JLUsuario.setText("Usuario");
+        JLUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JLUsuarioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                JLUsuarioMouseExited(evt);
+            }
+        });
 
         TFUsuario.setFont(Estilos.getFuenteCuerpo());
         TFUsuario.setForeground(new java.awt.Color(204, 204, 204));
@@ -384,6 +419,9 @@ public class Login extends javax.swing.JPanel {
 
     private void registraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registraMouseEntered
         registra.setFont(Estilos.getFuenteCuerpo());
+          if (Configuracion.isSonido()) {
+            Configuracion.sonar("no_cuenta");
+        }
     }//GEN-LAST:event_registraMouseEntered
 
     private void registraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registraMouseClicked
@@ -509,6 +547,58 @@ public class Login extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_PWFKeyPressed
+
+    private void iniciarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarMouseEntered
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("iniciar_sesion");
+        }
+    }//GEN-LAST:event_iniciarMouseEntered
+
+    private void iniciarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_iniciarMouseExited
+
+    private void JLUsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLUsuarioMouseEntered
+        // TODO add your handling code here:
+          if (Configuracion.isSonido()) {
+            Configuracion.sonar("usuario");
+        }
+    }//GEN-LAST:event_JLUsuarioMouseEntered
+
+    private void JLUsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLUsuarioMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_JLUsuarioMouseExited
+
+    private void JLContraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLContraMouseEntered
+        // TODO add your handling code here:
+          if (Configuracion.isSonido()) {
+            Configuracion.sonar("contrasena");
+        }
+    }//GEN-LAST:event_JLContraMouseEntered
+
+    private void JLContraMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLContraMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_JLContraMouseExited
+
+    private void tienesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tienesMouseEntered
+        // TODO add your handling code here:
+          if (Configuracion.isSonido()) {
+            Configuracion.sonar("no_cuenta");
+        }
+    }//GEN-LAST:event_tienesMouseEntered
+
+    private void tienesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tienesMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_tienesMouseExited
+
+    private void registraMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registraMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_registraMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

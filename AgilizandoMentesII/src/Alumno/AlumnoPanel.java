@@ -260,34 +260,50 @@ public class AlumnoPanel extends javax.swing.JPanel {
 
     private void CálculoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CálculoMouseEntered
         Cálculo.setBackground(Estilos.getColorSobreBoton());
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("calculo");
+        }
     }//GEN-LAST:event_CálculoMouseEntered
 
     private void CálculoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CálculoMouseExited
         Cálculo.setBackground(Estilos.getColorPanel());
+        Configuracion.parar();
     }//GEN-LAST:event_CálculoMouseExited
 
     private void RestoDivisionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RestoDivisionMouseEntered
         RestoDivision.setBackground(Estilos.getColorSobreBoton());
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("resto_division");
+        }
     }//GEN-LAST:event_RestoDivisionMouseEntered
 
     private void RestoDivisionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RestoDivisionMouseExited
-       RestoDivision.setBackground(Estilos.getColorPanel());
+        RestoDivision.setBackground(Estilos.getColorPanel());
+        Configuracion.parar();
     }//GEN-LAST:event_RestoDivisionMouseExited
 
     private void Euclides1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Euclides1MouseEntered
         Euclides1.setBackground(Estilos.getColorSobreBoton());
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("euclides");
+        }
     }//GEN-LAST:event_Euclides1MouseEntered
 
     private void Euclides1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Euclides1MouseExited
         Euclides1.setBackground(Estilos.getColorPanel());
+        Configuracion.parar();
     }//GEN-LAST:event_Euclides1MouseExited
 
     private void CalculadoraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CalculadoraMouseEntered
-         Calculadora.setBackground(Estilos.getColorSobreBoton());
+        Calculadora.setBackground(Estilos.getColorSobreBoton());
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("calculadora");
+        }
     }//GEN-LAST:event_CalculadoraMouseEntered
 
     private void CalculadoraMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CalculadoraMouseExited
         Calculadora.setBackground(Estilos.getColorPanel());
+        Configuracion.parar();
     }//GEN-LAST:event_CalculadoraMouseExited
 
 

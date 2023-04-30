@@ -49,6 +49,14 @@ public class AlumnoBienvenida extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(Estilos.getColorPanel());
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel2MouseExited(evt);
+            }
+        });
 
         bienvenido1.setFont(Estilos.getFuenteCuerpo());
         bienvenido1.setForeground(Estilos.getColorFuentePanel());
@@ -91,6 +99,14 @@ public class AlumnoBienvenida extends javax.swing.JPanel {
         bienvenido.setForeground(Estilos.getColorFuenteCuerpo());
         bienvenido.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         bienvenido.setText("Selecciona una actividad en el menú de la izquierda");
+        bienvenido.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bienvenidoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bienvenidoMouseExited(evt);
+            }
+        });
         jPanel1.add(bienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 670, 40));
 
         jPanelFondo.setBackground(Estilos.getColorPanelBlanco());
@@ -130,6 +146,26 @@ public class AlumnoBienvenida extends javax.swing.JPanel {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jPanel2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseEntered
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("bienvenido");
+        }
+    }//GEN-LAST:event_jPanel2MouseEntered
+
+    private void jPanel2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseExited
+        Configuracion.parar();
+    }//GEN-LAST:event_jPanel2MouseExited
+
+    private void bienvenidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bienvenidoMouseEntered
+         if (Configuracion.isSonido()) {
+            Configuracion.sonar("selecciona_izquierda");
+        }
+    }//GEN-LAST:event_bienvenidoMouseEntered
+
+    private void bienvenidoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bienvenidoMouseExited
+        Configuracion.parar();
+    }//GEN-LAST:event_bienvenidoMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
