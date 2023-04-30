@@ -39,7 +39,7 @@ public class Calculo extends javax.swing.JPanel {
         jTclasificacion.getTableHeader().setDefaultRenderer(new HeaderColor());
         jTmejoresPartidas.getTableHeader().setDefaultRenderer(new HeaderColor());
         jTultimasPartidas.getTableHeader().setDefaultRenderer(new HeaderColor());
-        
+
         try {
             nivel = Integer.parseInt(Usuario.getCurso());
         } catch (NumberFormatException e) {
@@ -59,6 +59,7 @@ public class Calculo extends javax.swing.JPanel {
         actualizarUltimasPartidas();
         actualizarNumeroPartidas();
         actualizarMediaAciertos();
+        actualizarPenalizacion();
     }
 
     /**
@@ -83,6 +84,10 @@ public class Calculo extends javax.swing.JPanel {
             jTextPaneAlmacenOperaciones.setText("");
         }
 
+    }
+
+    public void actualizarPenalizacion() {
+        jLTitulo.setText(" Los fallos penalizan " + (nivel+1) + " segundos");
     }
 
     /**
@@ -197,7 +202,7 @@ public class Calculo extends javax.swing.JPanel {
      * pantalla dependiendo de la respuesta y finaliza la partida si al jugador
      * no le quedan intentos. volviendo al estado inicial el panel.
      *
-     * @param control recibe un boolean 
+     * @param control recibe un boolean
      */
     private void partida(boolean control) {
 
