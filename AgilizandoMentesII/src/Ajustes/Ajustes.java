@@ -5,7 +5,10 @@ import Main.Main;
 import java.awt.Color;
 
 public class Ajustes extends javax.swing.JPanel {
-
+    
+    /**
+     * Inicializa los componentes de panel Ajustes
+     */
     public Ajustes() {
         initComponents();
         if (!Main.isIslogin()) {
@@ -51,16 +54,19 @@ public class Ajustes extends javax.swing.JPanel {
         sonido = new javax.swing.JLabel();
         aplicar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        titulo = new javax.swing.JLabel();
         tamano = new javax.swing.JLabel();
         idioma = new javax.swing.JLabel();
         selectidioma = new javax.swing.JComboBox<>();
         texto = new javax.swing.JSlider();
         valortexto = new javax.swing.JLabel();
         Si = new javax.swing.JCheckBox();
+        jPanel2 = new javax.swing.JPanel();
+        bienvenido1 = new javax.swing.JLabel();
         jPanelFondo = new javax.swing.JPanel();
         Fondo = new javax.swing.JLabel();
 
+        setMaximumSize(new java.awt.Dimension(1070, 720));
+        setMinimumSize(new java.awt.Dimension(1070, 720));
         setPreferredSize(new java.awt.Dimension(1070, 720));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -70,7 +76,7 @@ public class Ajustes extends javax.swing.JPanel {
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         sonido.setFont(Estilos.getFuenteCuerpo());
-        sonido.setText("SONIDO");
+        sonido.setText("Sonido");
         sonido.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 sonidoMouseEntered(evt);
@@ -116,20 +122,8 @@ public class Ajustes extends javax.swing.JPanel {
 
         background.add(aplicar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, 130, -1));
 
-        titulo.setFont(Estilos.getFuenteCuerpo());
-        titulo.setText("AJUSTES");
-        titulo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                tituloMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                tituloMouseExited(evt);
-            }
-        });
-        background.add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 49, -1, -1));
-
         tamano.setFont(Estilos.getFuenteCuerpo());
-        tamano.setText("TAMAÑO TEXTO");
+        tamano.setText("Tamaño del texto");
         tamano.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 tamanoMouseEntered(evt);
@@ -141,7 +135,7 @@ public class Ajustes extends javax.swing.JPanel {
         background.add(tamano, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
 
         idioma.setFont(Estilos.getFuenteCuerpo());
-        idioma.setText("IDIOMA");
+        idioma.setText("Idioma");
         idioma.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 idiomaMouseEntered(evt);
@@ -191,6 +185,33 @@ public class Ajustes extends javax.swing.JPanel {
             }
         });
         background.add(Si, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, -1, -1));
+
+        jPanel2.setBackground(Estilos.getColorPanel());
+
+        bienvenido1.setFont(Estilos.getFuenteCuerpo());
+        bienvenido1.setForeground(Estilos.getColorFuentePanel());
+        bienvenido1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        bienvenido1.setText("Ajustes");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 460, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(bienvenido1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(14, Short.MAX_VALUE)))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(bienvenido1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
+        );
+
+        background.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 460, 40));
 
         add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -257,14 +278,6 @@ public class Ajustes extends javax.swing.JPanel {
         valortexto.setText(Integer.toString(texto.getValue()));
     }//GEN-LAST:event_textoStateChanged
 
-    private void tituloMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tituloMouseEntered
-
-        //CONFIGURACION PARA ACTIVAR SONIDO
-        if (Configuracion.isSonido()) {
-            Configuracion.sonar("ajustes");
-        }
-    }//GEN-LAST:event_tituloMouseEntered
-
     private void tamanoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tamanoMouseEntered
 
         //CONFIGURACION PARA ACTIVAR SONIDO
@@ -301,10 +314,6 @@ public class Ajustes extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_SiMouseEntered
 
-    private void tituloMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tituloMouseExited
-        Configuracion.parar();
-    }//GEN-LAST:event_tituloMouseExited
-
     private void tamanoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tamanoMouseExited
         Configuracion.parar();
     }//GEN-LAST:event_tamanoMouseExited
@@ -327,15 +336,16 @@ public class Ajustes extends javax.swing.JPanel {
     private javax.swing.JCheckBox Si;
     private javax.swing.JPanel aplicar;
     private javax.swing.JPanel background;
+    private javax.swing.JLabel bienvenido1;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel idioma;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanelFondo;
     private javax.swing.JComboBox<String> selectidioma;
     private javax.swing.JLabel sonido;
     private javax.swing.JLabel tamano;
     private javax.swing.JSlider texto;
-    private javax.swing.JLabel titulo;
     private javax.swing.JLabel valortexto;
     // End of variables declaration//GEN-END:variables
 }

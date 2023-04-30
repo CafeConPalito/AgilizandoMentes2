@@ -28,7 +28,7 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
         //fija el texto de todos los campos de busqueda
         RestaurarTodo();
         
-        // Arranque de la tabla
+        // Arranque de la tabla con toda la informacion de los Alumnos
         jTable1.getTableHeader().setDefaultRenderer(new HeaderColor());
         jTable1.setAutoCreateRowSorter(true);
         DefaultTableModel modelC = (DefaultTableModel) jTable1.getModel();
@@ -590,6 +590,9 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
         add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 720));
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Método que vacía todos los campos de la búsqueda
+     */
     private void limpiarCamposTodos() {
         TFUsuario.setText("");
         TFAlias.setText("");
@@ -601,6 +604,9 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
         TFCurso.setText("");
     }
 
+    /**
+     * Método que devuelve todos los campos de búsqueda vacíos a su estado Inicial
+     */
     private void RestaurarTodo() {
 
         if (TFUsuario.getText().isEmpty()) {
@@ -770,7 +776,7 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
     }//GEN-LAST:event_jPLimpiarMouseExited
 
     /**
-     * Metodo para actualizar la tabla
+     * Método de búsqueda que actualiza la información de la tabla con la información de la BBDD
      */
     private void actualizar() {
         ObjetoAlumnoBBDD objeto = buscador();
@@ -795,7 +801,7 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
     }
 
     /**
-     * Metodo para coger los parametros de la busqueda
+     * Método que toma los parámetros de los campos de búsqueda para poder realizar la busqueda 
      *
      * @return Objeto de la clase MetodosAlumnoBBDD para almacenar todos los
      * parametros de la busqueda

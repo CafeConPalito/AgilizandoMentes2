@@ -14,6 +14,7 @@ import java.sql.*;
  */
 public class ConexionBBDD {
     
+    //Datos necesarios para configurar la conexión a la base de datos
     static Connection con;
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver"; // esto por lo que entiendo utiliza el driver que bajamos (el jar)
     static final String USER = "root"; 

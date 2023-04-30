@@ -47,7 +47,7 @@ public class Configuracion {
     }
     
     /**
-     * Metodo para hacer sonar un archivo .wav
+     * Metodo para reproducir un archivo .wav
      * @param nombre Nombre del archivo
      */
     public static void sonar(String nombre){
@@ -68,7 +68,7 @@ public class Configuracion {
             }
     }
     /**
-     * Metodo para parar el audio que este sonando
+     * Metodo para detener el audio que se este reproduciendo
      */
     public static void parar(){
         if (clip!=null) {
