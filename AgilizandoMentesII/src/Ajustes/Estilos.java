@@ -55,9 +55,20 @@ public class Estilos {
     /**
      * Texto Rojo Respuesta Incorrecta Juegos
      */
-    private static Color colorRespuestaIncorrecta = new Color(255,0,0); // Rojo      
-    
+    private static Color colorRespuestaIncorrecta = new Color(255,0,0); // Rojo
+    /**
+     * Texto Rojo Respuesta Incorrecta Juegos
+     */
+    private static Color colorGrisEsperandoRespuesta = new Color(204, 204, 204); // Gris Claro 
 
+    
+    
+    
+    
+    public static Color getColorGrisEsperandoRespuesta() {
+        return colorGrisEsperandoRespuesta;
+    }
+  
     public static Color getColorSobreBoton() {
         return colorSobreBoton;
     }

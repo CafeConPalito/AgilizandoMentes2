@@ -90,7 +90,7 @@ public class AlumnoBienvenida extends javax.swing.JPanel {
         bienvenido.setFont(Estilos.getFuenteCuerpo());
         bienvenido.setForeground(Estilos.getColorFuenteCuerpo());
         bienvenido.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        bienvenido.setText("Selecciona una actividad en el menú de la izquierda.");
+        bienvenido.setText("Selecciona una actividad en el menú de la izquierda");
         jPanel1.add(bienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 670, 40));
 
         jPanelFondo.setBackground(Estilos.getColorPanelBlanco());

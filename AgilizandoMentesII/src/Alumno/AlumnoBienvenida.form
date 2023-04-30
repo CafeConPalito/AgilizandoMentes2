@@ -152,7 +152,7 @@
               <Connection code="Estilos.getColorFuenteCuerpo()" type="code"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="2"/>
-            <Property name="text" type="java.lang.String" value="Selecciona una actividad en el men&#xfa; de la izquierda."/>
+            <Property name="text" type="java.lang.String" value="Selecciona una actividad en el men&#xfa; de la izquierda"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

@@ -70,7 +70,7 @@ public class Login extends javax.swing.JPanel {
 
         registra.setFont(Estilos.getFuenteCuerpo());
         registra.setForeground(new java.awt.Color(0, 153, 255));
-        registra.setText("Registrate aquí.");
+        registra.setText("Regístrate aquí.");
         registra.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         registra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -513,7 +513,6 @@ public class Login extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Boton;
-    private javax.swing.JLabel Fondo;
     private javax.swing.JLabel JLContra;
     private javax.swing.JLabel JLUsuario;
     private javax.swing.JPasswordField PWF;
@@ -525,7 +524,6 @@ public class Login extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanelFondo;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel registra;
