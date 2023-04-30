@@ -46,6 +46,10 @@ public class Configuracion {
         Configuracion.sonido = sonido;
     }
     
+    /**
+     * Metodo para hacer sonar un archivo .wav
+     * @param nombre Nombre del archivo
+     */
     public static void sonar(String nombre){
         try {
                 audioInputStream = AudioSystem.getAudioInputStream(new File("src/Audios/"+nombre+".wav"));
@@ -63,6 +67,9 @@ public class Configuracion {
                 Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
+    /**
+     * Metodo para parar el audio que este sonando
+     */
     public static void parar(){
         if (clip!=null) {
             clip.stop();
