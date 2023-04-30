@@ -371,11 +371,6 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
                 TFCursoMousePressed(evt);
             }
         });
-        TFCurso.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TFCursoActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout cursoLayout = new javax.swing.GroupLayout(curso);
         curso.setLayout(cursoLayout);
@@ -398,7 +393,7 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
                 .addComponent(cu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TFCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(SepUsuario7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -567,7 +562,7 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
         datos.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(716, 0, -1, -1));
 
         buscar.setBackground(new java.awt.Color(0, 155, 155));
-        buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         buscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 buscarMouseClicked(evt);
@@ -600,7 +595,7 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
         datos.add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(716, 184, -1, 50));
 
         jPLimpiar.setBackground(new java.awt.Color(0, 155, 155));
-        jPLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPLimpiar.setPreferredSize(new java.awt.Dimension(150, 16));
         jPLimpiar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -690,11 +685,11 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
             TFNombre.setForeground(Estilos.getColorGrisEsperandoRespuesta());
         }
         if (TFApellido1.getText().isEmpty()) {
-            TFApellido1.setText("Inserte Apellido 1");
+            TFApellido1.setText("Inserte Primer Apellido");
             TFApellido1.setForeground(Estilos.getColorGrisEsperandoRespuesta());
         }
         if (TFApellido2.getText().isEmpty()) {
-            TFApellido2.setText("Inserte Apellido 2");
+            TFApellido2.setText("Inserte Segundo Apellido");
             TFApellido2.setForeground(Estilos.getColorGrisEsperandoRespuesta());
         }
         if (TFDni.getText().isEmpty()) {
@@ -752,7 +747,7 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
     private void TFApellido1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFApellido1MousePressed
         // TODO add your handling code here:
         RestaurarTodo();
-        if (TFApellido1.getText().equals("Inserte Apellido 1")) {
+        if (TFApellido1.getText().equals("Inserte Primer Apellido")) {
             TFApellido1.setText("");
             TFApellido1.setForeground(Color.BLACK);
         }
@@ -765,7 +760,7 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
     private void TFApellido2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFApellido2MousePressed
         // TODO add your handling code here:
         RestaurarTodo();
-        if (TFApellido2.getText().equals("Inserte Apellido 2")) {
+        if (TFApellido2.getText().equals("Inserte Segundo Apellido")) {
             TFApellido2.setText("");
             TFApellido2.setForeground(Color.BLACK);
         }
@@ -810,12 +805,10 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_TFCursoMousePressed
 
-    private void TFCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFCursoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TFCursoActionPerformed
-
     private void buscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscarMouseClicked
         actualizar();
+        RestaurarTodo();
+        buscar.requestFocus();
     }//GEN-LAST:event_buscarMouseClicked
 
     private void buscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscarMouseEntered
@@ -834,6 +827,7 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
         // TODO add your handling code here:
         limpiarCamposTodos();
         RestaurarTodo();
+        jPLimpiar.requestFocus();
     }//GEN-LAST:event_jPLimpiarMouseClicked
 
     private void jPLimpiarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPLimpiarMouseEntered
@@ -997,13 +991,13 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
             objeto.setNombre("%" + TFNombre.getText() + "%");
         }
 
-        if (TFApellido1.getText().equals("Inserte Apellido 1") || TFApellido1.getText().isEmpty()) {
+        if (TFApellido1.getText().equals("Inserte Primer Apellido") || TFApellido1.getText().isEmpty()) {
             objeto.setApellido1("%");
         } else {
             objeto.setApellido1("%" + TFApellido1.getText() + "%");
         }
 
-        if (TFApellido2.getText().equals("Inserte Apellido 2") || TFApellido2.getText().isEmpty()) {
+        if (TFApellido2.getText().equals("Inserte Segundo Apellido") || TFApellido2.getText().isEmpty()) {
             objeto.setApellido2("%");
         } else {
             objeto.setApellido2("%" + TFApellido2.getText() + "%");

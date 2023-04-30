@@ -37,9 +37,9 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
     private void limpiar() {
         TFNombre.setText("Inserte Nombre");
         TFNombre.setForeground(Estilos.getColorGrisEsperandoRespuesta());
-        TFApellido1.setText("Inserte Apellido 1");
+        TFApellido1.setText("Inserte Primer Apellido");
         TFApellido1.setForeground(Estilos.getColorGrisEsperandoRespuesta());
-        TFApellido2.setText("Inserte Apellido 2");
+        TFApellido2.setText("Inserte Segundo Apellido");
         TFApellido2.setForeground(Estilos.getColorGrisEsperandoRespuesta());
 
         DefaultTableModel modelC = (DefaultTableModel) jTable1.getModel();
@@ -56,11 +56,11 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
             TFNombre.setForeground(Estilos.getColorGrisEsperandoRespuesta());
         }
         if (TFApellido1.getText().isEmpty()) {
-            TFApellido1.setText("Inserte Apellido 1");
+            TFApellido1.setText("Inserte Primer Apellido");
             TFApellido1.setForeground(Estilos.getColorGrisEsperandoRespuesta());
         }
         if (TFApellido2.getText().isEmpty()) {
-            TFApellido2.setText("Inserte Apellido 2");
+            TFApellido2.setText("Inserte Segundo Apellido");
             TFApellido2.setForeground(Estilos.getColorGrisEsperandoRespuesta());
         }
     }
@@ -142,7 +142,7 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
         });
 
         ap1.setFont(Estilos.getFuenteCuerpo());
-        ap1.setText("1º Apellido");
+        ap1.setText("Primer Apellido");
 
         TFApellido1.setFont(Estilos.getFuenteCuerpo());
         TFApellido1.setForeground(new java.awt.Color(204, 204, 204));
@@ -167,10 +167,9 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
                 .addGroup(Apellido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TFApellido1)
                     .addGroup(Apellido1Layout.createSequentialGroup()
-                        .addGroup(Apellido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ap1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SepUsuario3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(ap1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 106, Short.MAX_VALUE))
+                    .addComponent(SepUsuario3))
                 .addContainerGap())
         );
         Apellido1Layout.setVerticalGroup(
@@ -198,7 +197,7 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
         });
 
         ap2.setFont(Estilos.getFuenteCuerpo());
-        ap2.setText("2º Apellido");
+        ap2.setText("Segundo Apellido");
 
         TFApellido2.setFont(Estilos.getFuenteCuerpo());
         TFApellido2.setForeground(new java.awt.Color(204, 204, 204));
@@ -223,10 +222,9 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
                 .addGroup(Apellido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TFApellido2)
                     .addGroup(Apellido2Layout.createSequentialGroup()
-                        .addGroup(Apellido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ap2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SepUsuario4, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(ap2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 82, Short.MAX_VALUE))
+                    .addComponent(SepUsuario4))
                 .addContainerGap())
         );
         Apellido2Layout.setVerticalGroup(
@@ -279,10 +277,9 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
                 .addGroup(NombreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TFNombre)
                     .addGroup(NombreLayout.createSequentialGroup()
-                        .addGroup(NombreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(no, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SepUsuario2, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(no, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 92, Short.MAX_VALUE))
+                    .addComponent(SepUsuario2))
                 .addContainerGap())
         );
         NombreLayout.setVerticalGroup(
@@ -300,7 +297,7 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
         datos.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, -1));
 
         buscar.setBackground(new java.awt.Color(0, 155, 155));
-        buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         buscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 buscarMouseClicked(evt);
@@ -317,7 +314,7 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
         buscartxt.setForeground(new java.awt.Color(255, 255, 255));
         buscartxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         buscartxt.setText("Buscar");
-        buscartxt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buscartxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout buscarLayout = new javax.swing.GroupLayout(buscar);
         buscar.setLayout(buscarLayout);
@@ -345,7 +342,7 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
 
         selectorNivel.setFont(Estilos.getFuenteCuerpo());
         selectorNivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "Todos" }));
-        selectorNivel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        selectorNivel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel1.setFont(Estilos.getFuenteCuerpo());
         jLabel1.setText("Nivel");
@@ -386,7 +383,7 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
 
         selectorJuego.setFont(Estilos.getFuenteCuerpo());
         selectorJuego.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Calculo25", "Euclides", "Resto División" }));
-        selectorJuego.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        selectorJuego.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel2.setFont(Estilos.getFuenteCuerpo());
         jLabel2.setText("Juego");
@@ -415,7 +412,7 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
         datos.add(Juego, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, 340, 60));
 
         Limpiar.setBackground(new java.awt.Color(0, 155, 155));
-        Limpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Limpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Limpiar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 LimpiarMouseClicked(evt);
@@ -464,8 +461,8 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
                 .addGap(21, 21, 21)
                 .addComponent(datos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(231, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(200, Short.MAX_VALUE))
         );
 
         add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, -1));
@@ -476,7 +473,7 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
         predeterminado();
         if (TFNombre.getText().equals("Inserte Nombre")) {
             TFNombre.setText("");
-            TFNombre.setForeground(Color.gray);
+            TFNombre.setForeground(Color.BLACK);
         }
 
     }//GEN-LAST:event_TFNombreMousePressed
@@ -488,9 +485,9 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
     private void TFApellido1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFApellido1MousePressed
         // TODO add your handling code here:
         predeterminado();
-        if (TFApellido1.getText().equals("Inserte Apellido 1")) {
+        if (TFApellido1.getText().equals("Inserte Primer Apellido")) {
             TFApellido1.setText("");
-            TFApellido1.setForeground(Color.gray);
+            TFApellido1.setForeground(Color.BLACK);
         }
     }//GEN-LAST:event_TFApellido1MousePressed
 
@@ -501,9 +498,9 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
     private void TFApellido2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFApellido2MousePressed
         // TODO add your handling code here:
         predeterminado();
-        if (TFApellido2.getText().equals("Inserte Apellido 2")) {
+        if (TFApellido2.getText().equals("Inserte Segundo Apellido")) {
             TFApellido2.setText("");
-            TFApellido2.setForeground(Color.gray);
+            TFApellido2.setForeground(Color.BLACK);
         }
     }//GEN-LAST:event_TFApellido2MousePressed
 
@@ -639,13 +636,13 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
             objeto.setNombre("%" + TFNombre.getText() + "%");
         }
 
-        if (TFApellido1.getText().equals("Inserte Apellido 1") || TFApellido1.getText().isEmpty()) {
+        if (TFApellido1.getText().equals("Inserte Primer Apellido") || TFApellido1.getText().isEmpty()) {
             objeto.setApellido1("%");
         } else {
             objeto.setApellido1("%" + TFApellido1.getText() + "%");
         }
 
-        if (TFApellido2.getText().equals("Inserte Apellido 2") || TFApellido2.getText().isEmpty()) {
+        if (TFApellido2.getText().equals("Inserte Segundo Apellido") || TFApellido2.getText().isEmpty()) {
             objeto.setApellido2("%");
         } else {
             objeto.setApellido2("%" + TFApellido2.getText() + "%");

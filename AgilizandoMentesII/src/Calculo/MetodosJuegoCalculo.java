@@ -26,6 +26,7 @@ public class MetodosJuegoCalculo {
     private int aciertos = 0;
     private int fallos = 0;
     private int intentos = 25;
+    private int penalizacion = 0;
 
     /**
      * inicializa los dos valores numéricos y el signo para crear una

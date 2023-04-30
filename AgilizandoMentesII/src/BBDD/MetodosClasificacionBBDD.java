@@ -22,7 +22,7 @@ public class MetodosClasificacionBBDD {
      * @param apellido2 2º Apellido de usuario
      * @param nivel nivel del juego
      * @param juego nombre del juego
-     * @return 
+     * @return ArrayList de objetos ObjetoClasificacionBBDD
      */
     public static ArrayList selectClasificacion(Connection con,String nombre, String apellido1, String apellido2, String nivel, String juego ) {
 

@@ -44,66 +44,66 @@ public class Principal {
         
         Pendientes de Revisar: SI DA TIEMPO QUE OTRO LO COMPRUEBE
             
-            *Tiempo
-                - Tiempo: Daniel JavaDoc y Ortografía. segundo chequeo:
-        
-            *RestoDiv
-                - RestoDiv: Daniel JavaDoc y Ortografía. segundo chequeo:
-                - MetodosJuegoRestoDiv: Daniel JavaDoc y Ortografía. segundo chequeo:
-        
-            Euclides
-                - MetodosJuegoEuclides: Daniel JavaDoc y Ortografía. segundo chequeo:
-                - Euclides (no revisar ya que va a ser un copia y pega de RestoDiv)
-        
-            *Alumno
-                - AlumnoBienvenida: Daniel JavaDoc y Ortografía. segundo chequeo:
-                - AlumnoPanel: Daniel JavaDoc y Ortografía. segundo chequeo:
-        
-            * Calculadora
-                - Calculadora: Daniel JavaDoc y Ortografía. segundo chequeo:
-            
-            *Main
-                - Main Albano Javadoc No requiere javadoc
-        
-            * Usuario
-                - Usuario Albano Javadoc No requiere javadoc
-                - Cambio Albano Javadoc No requiere javadoc
-                - AjusteUsuario Albano Javadoc No requiere javadoc
-        
-            * Login
-                - Login Albano Javadoc No requiere javadoc
-                - Register Albano Javadoc No requiere javadoc
-                - AjustesLogin Albano Javadoc No requiere javadoc
+                * Tiempo
+                    - Tiempo: Daniel JavaDoc y Ortografía. segundo chequeo:
 
-            * Ajustes
-                - Ajustes Albano Javadoc No requiere javadoc
-                - Configuracion: Daniel JavaDoc y Ortografía. segundo chequeo: 
-                - Estilos: Daniel JavaDoc y Ortografía. segundo chequeo:
+                * RestoDiv
+                    - RestoDiv: Daniel JavaDoc y Ortografía. segundo chequeo:
+                    - MetodosJuegoRestoDiv: Daniel JavaDoc y Ortografía. segundo chequeo:
+
+                * Euclides
+                    - MetodosJuegoEuclides: Daniel JavaDoc y Ortografía. segundo chequeo:
+                    - Euclides (no revisar ya que va a ser un copia y pega de RestoDiv)
+
+                * Alumno
+                    - AlumnoBienvenida: Daniel JavaDoc y Ortografía. segundo chequeo:
+                    - AlumnoPanel: Daniel JavaDoc y Ortografía. segundo chequeo:
+
+                * Calculadora
+                    - Calculadora: Daniel JavaDoc y Ortografía. segundo chequeo:
+
+                * Usuario
+                    TERMINADO - Usuario: Albano Javadoc No requiere javadoc
+SIMPLIFICAR CODIGO  - Cambio: Albano Javadoc No requiere javadoc // SE PUEDE SIMPLIFACAR y UNIFICAR CODIGO....
+                    TERMINADO - AjusteUsuario: Albano Javadoc No requiere javadoc
+
+                * Profesor
+                    - ProfesorBienvenida: Daniel JavaDoc y Ortografía. segundo chequeo:
+                    - PanelProfesor autor: Daniel JavaDoc y Ortografía. segundo chequeo:
+                    - ProfesorInfoAlumnos: Daniel JavaDoc y Ortografía. segundo chequeo:
+                    TERMINADO - ProfesorInfoClasificacionAlumnos: Albano Javadoc. segundo Chequeo: Daniel 
+
+                * Calculo
+                    - MetodosJuegoCalculo
+                    TERMINADO - Calculo (no revisar ya que va a ser un copia y pega de RestoDiv)
+
+                * BBDD
+                    - ConexionBBDD: Daniel JavaDoc y Ortografía. segundo chequeo:
+                    - ObjetoJuegoBBDD: Daniel JavaDoc y Ortografía. segundo chequeo:
+                    - MetodosJuegoBBDD: Daniel JavaDoc y Ortografía. segundo chequeo:
+                    TERMINADO - MetodosRegistroBBDD: Albano Javadoc. segundo Chequeo: Daniel
+                    TERMINADO - MetodosUpdateBBDD: Albano Javadoc. segundo Chequeo: Daniel
+                    TERMINADO - MetodosUsuarioBBDD: Albano Javadoc. segundo Chequeo: Daniel
+                    TERMINADO - ObjetoAlumnoBBDD No requiere javadoc. segundo Chequeo: Daniel
+                    TERMINADO - MetodosAjusteBBDD: Albano Javadoc. segundo Chequeo: Daniel
+                    TERMINADO - MetodosAlumnoBBDD: Albano Javadoc. segundo Chequeo: Daniel
+                    TERMINADO - MetodosClasificacionBBDD: Albano Javadoc. segundo Chequeo: Daniel   
+                    TERMINADO - ObejetoClasificacionBBDD No requiere javadoc
         
-            *Profesor
-                - ProfesorBienvenida: Daniel JavaDoc y Ortografía. segundo chequeo:
-                - PanelProfesor autor: Daniel JavaDoc y Ortografía. segundo chequeo:
-                - ProfesorInfoAlumnos: Daniel JavaDoc y Ortografía. segundo chequeo:
-                - ProfesorInfoAlumnosClasificacion Albano Javadoc
+        
+        
+                TERMINADO * Login
+                    TERMINADO - Login: Albano Javadoc No requiere javadoc
+SIMPLIFICAR CODIGO  TERMINADO - Register: Albano Javadoc No requiere javadoc // SE PUEDE SIMPLIFACAR y UNIFICAR CODIGO....
+                    TERMINADO - AjustesLogin: Albano Javadoc No requiere javadoc
             
-             Calculo
-                - MetodosJuegoCalculo
-                - Calculo (no revisar ya que va a ser un copia y pega de RestoDiv)
+                TERMINADO * Main
+                    TERMINADO - Main Albano: Albano Javadoc No requiere javadoc 
         
-            *BBDD
-                - ConexionBBDD: Daniel JavaDoc y Ortografía. segundo chequeo:
-                - MetodosAjusteBBDD Albano Javadoc
-                - MetodosAlumnoBBDD Albano Javadoc
-                - MetodosClasificacionBBDD Albano Javadoc
-                - MetodosJuegoBBDD
-                - MetodosRegistroBBDD Albano Javadoc
-                - MetodosUpdateBBDD Albano Javadoc
-                - MetodosUsuarioBBDD Albano Javadoc
-                - ObjetoAlumnoBBDD No requiere javadoc
-                - ObejetoClasificacionBBDD No requiere javadoc
-                - ObjetoJuegoBBDD: Daniel JavaDoc y Ortografía. segundo chequeo:
-        
-        Terminados:
+                TERMINADO * Ajustes
+                    TERMINADO - Ajustes: Albano Javadoc No requiere javadoc
+                    TERMINADO - Configuracion: Daniel JavaDoc y Ortografía. segundo chequeo: 
+                    TERMINADO - Estilos: Daniel JavaDoc y Ortografía. segundo chequeo:
 
          */
         
