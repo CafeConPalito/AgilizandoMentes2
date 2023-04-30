@@ -185,7 +185,7 @@ public class Euclides extends javax.swing.JPanel {
      * de su nivel, actualizando la información desde la BBDD
      */
     private void actualizarMediaAciertos() {
-        jLMediaAciertos.setText("Media de aciertos: " + MetodosJuegoBBDD.mediaAciertos(Main.getCon(), NOMBREDEJUEGO, nivel));
+        jLMediaAciertos.setText("Media de aciertos: " + MetodosJuegoBBDD.mediaAciertos(Main.getCon(), NOMBREDEJUEGO, nivel) + " / 5");
     }
 
     /**
@@ -242,7 +242,7 @@ public class Euclides extends javax.swing.JPanel {
                 juego.terminarJuego();
                 controlPartida = false;
                 tFrespuesta.setText(" Inserta una respueta");
-                tFrespuesta.setForeground(new Color(204, 204, 204));
+                tFrespuesta.setForeground(Estilos.getColorGrisEsperandoRespuesta());
                 tFrespuesta.setEnabled(controlPartida);
                 jLOperacion.setText("Aciertos: " + juego.getAciertos() + ", Tiempo: " + juego.getTiempoPartida() + " sec");
                 MetodosJuegoBBDD.insertResultado(Main.getCon(), juego.getAciertos(), juego.getTiempoPartida(), NOMBREDEJUEGO, nivel);
@@ -539,7 +539,7 @@ public class Euclides extends javax.swing.JPanel {
         jPanel2.setBackground(new java.awt.Color(243, 243, 243));
 
         tFrespuesta.setFont(Estilos.getFuenteCuerpo());
-        tFrespuesta.setForeground(new java.awt.Color(204, 204, 204));
+        tFrespuesta.setForeground(Estilos.getColorGrisEsperandoRespuesta());
         tFrespuesta.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         tFrespuesta.setText(" Inserta una respuesta");
         tFrespuesta.setBorder(null);

@@ -31,7 +31,7 @@ public class Principal {
     public static void main(String[] args) {
 
         /*
-        CLASES CON JAVA DOC
+        CLASES CON JAVA DOC y Ortografía
         
         Leyenda 
         " * " Paquete
@@ -39,27 +39,24 @@ public class Principal {
         
         Pendientes de Revisar: SI DA TIEMPO QUE OTRO LO COMPRUEBE
             
-            
-            
             *Tiempo
-                - Tiempo autor Daniel, revisa ortografia
+                - Tiempo: Daniel JavaDoc y Ortografía. segundo chequeo:
         
             *RestoDiv
-                - RestoDiv  autor Daniel, revisa ortografia
-                - MetodosJuegoRestoDiv  autor Daniel, revisa ortografia
+                - RestoDiv: Daniel JavaDoc y Ortografía. segundo chequeo:
+                - MetodosJuegoRestoDiv: Daniel JavaDoc y Ortografía. segundo chequeo:
         
             Euclides
-                - MetodosJuegoEuclides
+                - MetodosJuegoEuclides: Daniel JavaDoc y Ortografía. segundo chequeo:
                 - Euclides (no revisar ya que va a ser un copia y pega de RestoDiv)
         
             *Alumno
-                - AlumnoBienvenida autor Daniel, revisa ortografia
-                - AlumnoPanel autor Daniel, revisa ortografia
+                - AlumnoBienvenida: Daniel JavaDoc y Ortografía. segundo chequeo:
+                - AlumnoPanel: Daniel JavaDoc y Ortografía. segundo chequeo:
         
             * Calculadora
-                - Calculadora autor Daniel, revisa ortografia
+                - Calculadora: Daniel JavaDoc y Ortografía. segundo chequeo:
             
-        QuedanPendientes:
             *Main
                 - Main
         
@@ -79,8 +76,8 @@ public class Principal {
                 - Estilos
         
             *Profesor
-                - ProfesorBienvenida autor Daniel, revisa ortografia
-                - PanelProfesor !
+                - ProfesorBienvenida: Daniel JavaDoc y Ortografía. segundo chequeo:
+                - PanelProfesor autor: Daniel JavaDoc y Ortografía. segundo chequeo:
                 - ProfesorInfoAlumnos 
                 - ProfesorInfoAlumnosClasificacion
             
@@ -88,10 +85,6 @@ public class Principal {
                 - MetodosJuegoCalculo
                 - Calculo (no revisar ya que va a ser un copia y pega de RestoDiv)
         
-            * CLASES SUELTAS  
-                
-
-
             *BBDD
                 - ConexionBBDD
                 - MetodosAjusteBBDD
