@@ -5,6 +5,7 @@
 package Calculadora;
 
 import Ajustes.Estilos;
+import Main.Main;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
@@ -33,7 +34,7 @@ public class Calculadora extends javax.swing.JFrame {
      */
     public Calculadora() {
         initComponents();
-
+         this.setLocationRelativeTo(Main.getCuerpo());
     }
 
     @Override
