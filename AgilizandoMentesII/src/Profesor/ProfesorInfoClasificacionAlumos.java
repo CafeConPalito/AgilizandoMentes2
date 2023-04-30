@@ -24,9 +24,44 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
      */
     public ProfesorInfoClasificacionAlumos() {
         initComponents();
+        predeterminado();
         jTable1.getTableHeader().setDefaultRenderer(new HeaderColor());
         jTable1.setAutoCreateRowSorter(true);
 
+    }
+
+    /**
+     * Metodo para limpiar la busqueda
+     */
+    private void limpiar() {
+        TFNombre.setText("Inserte Nombre");
+        TFNombre.setForeground(Estilos.getColorGrisEsperandoRespuesta());
+        TFApellido1.setText("Inserte Apellido 1");
+        TFApellido1.setForeground(Estilos.getColorGrisEsperandoRespuesta());
+        TFApellido2.setText("Inserte Apellido 2");
+        TFApellido2.setForeground(Estilos.getColorGrisEsperandoRespuesta());
+        
+        DefaultTableModel modelC = (DefaultTableModel) jTable1.getModel();
+        modelC.setRowCount(0);
+
+    }
+
+    /**
+     * Metodo para poner texto predeterminado a los campos
+     */
+    private void predeterminado() {
+        if (TFNombre.getText().isEmpty()) {
+            TFNombre.setText("Inserte Nombre");
+            TFNombre.setForeground(Estilos.getColorGrisEsperandoRespuesta());
+        }
+        if (TFApellido1.getText().isEmpty()) {
+            TFApellido1.setText("Inserte Apellido 1");
+            TFApellido1.setForeground(Estilos.getColorGrisEsperandoRespuesta());
+        }
+        if (TFApellido2.getText().isEmpty()) {
+            TFApellido2.setText("Inserte Apellido 2");
+            TFApellido2.setForeground(Estilos.getColorGrisEsperandoRespuesta());
+        }
     }
 
     /**
@@ -62,6 +97,8 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
         Juego = new javax.swing.JPanel();
         selectorJuego = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
+        Limpiar = new javax.swing.JPanel();
+        limpiartxt = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -100,7 +137,6 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
 
         TFApellido1.setFont(Estilos.getFuenteCuerpo());
         TFApellido1.setForeground(new java.awt.Color(204, 204, 204));
-        TFApellido1.setText("Inserte Apellido 1");
         TFApellido1.setBorder(null);
         TFApellido1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -149,7 +185,6 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
 
         TFApellido2.setFont(Estilos.getFuenteCuerpo());
         TFApellido2.setForeground(new java.awt.Color(204, 204, 204));
-        TFApellido2.setText("Inserte Apellido 2");
         TFApellido2.setBorder(null);
         TFApellido2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -198,7 +233,6 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
 
         TFNombre.setFont(Estilos.getFuenteCuerpo());
         TFNombre.setForeground(new java.awt.Color(204, 204, 204));
-        TFNombre.setText("Inserte Nombre");
         TFNombre.setBorder(null);
         TFNombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -270,7 +304,7 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
             .addComponent(buscartxt, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
         );
 
-        datos.add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 120, 210, -1));
+        datos.add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 110, 140, -1));
 
         Nivel.setBackground(Estilos.getColorPanelBlanco());
         Nivel.setFont(Estilos.getFuenteCuerpo());
@@ -336,6 +370,38 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
 
         datos.add(Juego, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, 340, 60));
 
+        Limpiar.setBackground(new java.awt.Color(0, 155, 155));
+        Limpiar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LimpiarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                LimpiarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                LimpiarMouseExited(evt);
+            }
+        });
+
+        limpiartxt.setFont(Estilos.getFuentePanel());
+        limpiartxt.setForeground(new java.awt.Color(255, 255, 255));
+        limpiartxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        limpiartxt.setText("Limpiar");
+        limpiartxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
+        javax.swing.GroupLayout LimpiarLayout = new javax.swing.GroupLayout(Limpiar);
+        Limpiar.setLayout(LimpiarLayout);
+        LimpiarLayout.setHorizontalGroup(
+            LimpiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(limpiartxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        LimpiarLayout.setVerticalGroup(
+            LimpiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(limpiartxt, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
+        );
+
+        datos.add(Limpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 110, 140, -1));
+
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
         background.setLayout(backgroundLayout);
         backgroundLayout.setHorizontalGroup(
@@ -362,15 +428,10 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
 
     private void TFNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFNombreMousePressed
         // TODO add your handling code here:
+        predeterminado();
         if (TFNombre.getText().equals("Inserte Nombre")) {
             TFNombre.setText("");
             TFNombre.setForeground(Color.gray);
-        }
-        if (TFApellido1.getText().isEmpty()) {
-            TFApellido1.setText("Inserte Apellido 1");
-        }
-        if (TFApellido2.getText().isEmpty()) {
-            TFApellido2.setText("Inserte Apellido 2");
         }
 
     }//GEN-LAST:event_TFNombreMousePressed
@@ -381,19 +442,11 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
 
     private void TFApellido1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFApellido1MousePressed
         // TODO add your handling code here:
+        predeterminado();
         if (TFApellido1.getText().equals("Inserte Apellido 1")) {
             TFApellido1.setText("");
             TFApellido1.setForeground(Color.gray);
         }
-
-        if (TFNombre.getText().isEmpty()) {
-            TFNombre.setText("Inserte Nombre");
-        }
-
-        if (TFApellido2.getText().isEmpty()) {
-            TFApellido2.setText("Inserte Apellido 2");
-        }
-
     }//GEN-LAST:event_TFApellido1MousePressed
 
     private void TFApellido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFApellido1ActionPerformed
@@ -402,17 +455,11 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
 
     private void TFApellido2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFApellido2MousePressed
         // TODO add your handling code here:
+        predeterminado();
         if (TFApellido2.getText().equals("Inserte Apellido 2")) {
             TFApellido2.setText("");
             TFApellido2.setForeground(Color.gray);
         }
-        if (TFNombre.getText().isEmpty()) {
-            TFNombre.setText("Inserte Nombre");
-        }
-        if (TFApellido1.getText().isEmpty()) {
-            TFApellido1.setText("Inserte Apellido 1");
-        }
-
     }//GEN-LAST:event_TFApellido2MousePressed
 
     private void TFApellido2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFApellido2ActionPerformed
@@ -430,6 +477,18 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
     private void buscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscarMouseExited
         buscar.setBackground(Estilos.getColorPanel());
     }//GEN-LAST:event_buscarMouseExited
+
+    private void LimpiarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LimpiarMouseClicked
+        limpiar();
+    }//GEN-LAST:event_LimpiarMouseClicked
+
+    private void LimpiarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LimpiarMouseEntered
+        Limpiar.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_LimpiarMouseEntered
+
+    private void LimpiarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LimpiarMouseExited
+        Limpiar.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_LimpiarMouseExited
 
     /**
      * Metodo para actualizar la tabla
@@ -491,8 +550,10 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
             objeto.setJuego("calculo");
         } else if (selectorJuego.getSelectedItem().toString().equals("Euclides")) {
             objeto.setJuego("euclides");
-        } else {
+        } else if (selectorJuego.getSelectedItem().toString().equals("Resto División")) {
             objeto.setJuego("resto_div");
+        } else {
+            objeto.setJuego("%");
         }
         return objeto;
     }
@@ -500,6 +561,7 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
     private javax.swing.JPanel Apellido1;
     private javax.swing.JPanel Apellido2;
     private javax.swing.JPanel Juego;
+    private javax.swing.JPanel Limpiar;
     private javax.swing.JPanel Nivel;
     private javax.swing.JPanel Nombre;
     private javax.swing.JSeparator SepUsuario2;
@@ -518,6 +580,7 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel limpiartxt;
     private javax.swing.JLabel no;
     private javax.swing.JComboBox<String> selectorJuego;
     private javax.swing.JComboBox<String> selectorNivel;
