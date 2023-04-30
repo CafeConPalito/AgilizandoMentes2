@@ -85,13 +85,13 @@ public class Principal {
 
             * Ajustes
                 - Ajustes
-                - Configuracion
-                - Estilos
+                - Configuracion: Daniel JavaDoc y Ortografía. segundo chequeo: 
+                - Estilos: Daniel JavaDoc y Ortografía. segundo chequeo:
         
             *Profesor
                 - ProfesorBienvenida: Daniel JavaDoc y Ortografía. segundo chequeo:
                 - PanelProfesor autor: Daniel JavaDoc y Ortografía. segundo chequeo:
-                - ProfesorInfoAlumnos 
+                - ProfesorInfoAlumnos: Daniel JavaDoc y Ortografía. segundo chequeo:
                 - ProfesorInfoAlumnosClasificacion
             
              Calculo
@@ -99,7 +99,7 @@ public class Principal {
                 - Calculo (no revisar ya que va a ser un copia y pega de RestoDiv)
         
             *BBDD
-                - ConexionBBDD
+                - ConexionBBDD: Daniel JavaDoc y Ortografía. segundo chequeo:
                 - MetodosAjusteBBDD
                 - MetodosAlumnoBBDD
                 - MetodosClasificacionBBDD
@@ -109,7 +109,7 @@ public class Principal {
                 - MetodosUsuarioBBDD
                 - ObjetoAlumnoBBDD
                 - ObejetoClasificacionBBDD
-                - Objeto JuegoBBDD
+                - ObjetoJuegoBBDD: Daniel JavaDoc y Ortografía. segundo chequeo:
         
         Terminados:
 

@@ -17,10 +17,10 @@ public class ObjetoJuegoBBDD {
 
     /**
      * Constructor con parametros para crear objetos con la informacion referente a la Base de datos
-     * @param alias
-     * @param tiempoPartida
-     * @param aciertos
-     * @param fecha_hora 
+     * @param alias alias del Usuario
+     * @param tiempoPartida tiempo total transcurrido en la partida
+     * @param aciertos numero de aciertos
+     * @param fecha_hora fecha y hora de la partida jugada
      */
     public ObjetoJuegoBBDD(String alias, int tiempoPartida, int aciertos, String fecha_hora) {
         this.alias = alias;
