@@ -11,7 +11,7 @@ import java.sql.*;
  *
  * @author CafeConPalito
  */
-public class MetodosUsuario {
+public class MetodosUsuarioBBDD {
 
     /**
      * Metodo para buscar un usuario en la BBDD

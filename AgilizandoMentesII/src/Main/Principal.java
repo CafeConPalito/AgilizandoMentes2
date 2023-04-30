@@ -5,8 +5,8 @@
 package Main;
 
 import BBDD.ConexionBBDD;
-import BBDD.MetodosRegistro;
-import BBDD.MetodosUsuario;
+import BBDD.MetodosRegistroBBDD;
+import BBDD.MetodosUsuarioBBDD;
 import Calculadora.Calculadora;
 import Euclides.MetodosJuegoEuclides;
 import Login.Login;
@@ -31,49 +31,72 @@ public class Principal {
     public static void main(String[] args) {
 
         /*
-        CLASES CON JAVA DOC
+        CLASES CON JAVA DOC y Ortografía
         
-        Pendientes de Revisar:
-            *Tiempo autor Daniel, revisa ortografia
-            *RestoDiv  autor Daniel, revisa ortografia
-            *MetodosJuegoRestoDiv  autor Daniel, revisa ortografia
+        Leyenda 
+        " * " Paquete
+        " - " Clase
         
-        QuedanPendientes:
+        Pendientes de Revisar: SI DA TIEMPO QUE OTRO LO COMPRUEBE
+            
+            *Tiempo
+                - Tiempo: Daniel JavaDoc y Ortografía. segundo chequeo:
         
-            * Main
-            * Usuario
-            * Cambio
-            * AjusteUsuario
-            * Login
-            * Register
-            * AjustesLogin
-            * MetodosJuegoEuclides
-            * MetodosJuegoCalculo
+            *RestoDiv
+                - RestoDiv: Daniel JavaDoc y Ortografía. segundo chequeo:
+                - MetodosJuegoRestoDiv: Daniel JavaDoc y Ortografía. segundo chequeo:
+        
+            Euclides
+                - MetodosJuegoEuclides: Daniel JavaDoc y Ortografía. segundo chequeo:
+                - Euclides (no revisar ya que va a ser un copia y pega de RestoDiv)
+        
+            *Alumno
+                - AlumnoBienvenida: Daniel JavaDoc y Ortografía. segundo chequeo:
+                - AlumnoPanel: Daniel JavaDoc y Ortografía. segundo chequeo:
+        
             * Calculadora
-            * BienvenidaA
-            * PanelAlumno
+                - Calculadora: Daniel JavaDoc y Ortografía. segundo chequeo:
+            
+            *Main
+                - Main
+        
+            * Usuario
+                - Usuario
+                - Cambio
+                - AjusteUsuario
+        
+            * Login
+                - Login
+                - Register
+                - AjustesLogin
+
             * Ajustes
-            * Configuracion
-            * Estilos
+                - Ajustes
+                - Configuracion
+                - Estilos
+        
             *Profesor
-                * PanelProfesor
-                * BienvenidaP
-                * alumnos
-                * clasificacion
-            * Calculo (no revisar ya que va a ser un copia y pega de RestoDiv)
-            * Euclides (no revisar ya que va a ser un copia y pega de RestoDiv)
+                - ProfesorBienvenida: Daniel JavaDoc y Ortografía. segundo chequeo:
+                - PanelProfesor autor: Daniel JavaDoc y Ortografía. segundo chequeo:
+                - ProfesorInfoAlumnos 
+                - ProfesorInfoAlumnosClasificacion
+            
+             Calculo
+                - MetodosJuegoCalculo
+                - Calculo (no revisar ya que va a ser un copia y pega de RestoDiv)
+        
             *BBDD
-                * ConexionBBDD
-                * MetodosAjusteBBDD
-                * MetodosAlumnoBBDD
-                * MetodosClasificacionBBDD
-                * MetodosJuegoBBDD
-                * MetodosRegistroBBDD
-                * MetodosUpdateBBDD
-                * MetodosUsuarioBBDD
-                * ObjetoAlumnoBBDD
-                * ObejetoClasificacionBBDD
-                * Objeto JuegoBBDD
+                - ConexionBBDD
+                - MetodosAjusteBBDD
+                - MetodosAlumnoBBDD
+                - MetodosClasificacionBBDD
+                - MetodosJuegoBBDD
+                - MetodosRegistroBBDD
+                - MetodosUpdateBBDD
+                - MetodosUsuarioBBDD
+                - ObjetoAlumnoBBDD
+                - ObejetoClasificacionBBDD
+                - Objeto JuegoBBDD
         
         Terminados:
 
@@ -96,13 +119,13 @@ public class Principal {
         String email = "123@asd.es";
         String alias = "AliasDaniel";
         String nombreUsuario ="Amartinez";
-        System.out.println("Login Usuario " + MetodosUsuario.loginUsuario(con, usuario));
-        System.out.println("Login Contraseña " + MetodosUsuario.loginContrasena(con, usuario, contrasena));
-        System.out.println("DNI " + MetodosUsuario.comprobarDNI(con, DNI));
-        System.out.println("Email " + MetodosUsuario.compobrarEmail(con, email));
-        System.out.println("Alias " + MetodosUsuario.compobrarAlias(con, alias));
-        System.out.println("Nombre Usuario " + MetodosUsuario.comprobarNombreUsuario(con, nombreUsuario));
-        System.out.println("Es Profesor " + MetodosUsuario.comprobarEsProfesor(con, nombreUsuario));    
+        System.out.println("Login Usuario " + MetodosUsuarioBBDD.loginUsuario(con, usuario));
+        System.out.println("Login Contraseña " + MetodosUsuarioBBDD.loginContrasena(con, usuario, contrasena));
+        System.out.println("DNI " + MetodosUsuarioBBDD.comprobarDNI(con, DNI));
+        System.out.println("Email " + MetodosUsuarioBBDD.compobrarEmail(con, email));
+        System.out.println("Alias " + MetodosUsuarioBBDD.compobrarAlias(con, alias));
+        System.out.println("Nombre Usuario " + MetodosUsuarioBBDD.comprobarNombreUsuario(con, nombreUsuario));
+        System.out.println("Es Profesor " + MetodosUsuarioBBDD.comprobarEsProfesor(con, nombreUsuario));    
          */
         //usuario.setUsuario(usuario);
         //MetodosUsuario.generarUsuario(con);

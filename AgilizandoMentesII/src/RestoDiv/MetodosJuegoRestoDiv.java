@@ -7,7 +7,9 @@ package RestoDiv;
 import Tiempo.Tiempo;
 
 /**
- * Clase que permite generar la partida y controlar el Juego Resto de una división 
+ * Clase que permite generar la partida y controlar el Juego Resto de una
+ * división
+ *
  * @author CafeConPalito
  */
 public class MetodosJuegoRestoDiv {
@@ -30,7 +32,7 @@ public class MetodosJuegoRestoDiv {
      * partir de esto crea los valores dividendo, divisor y la respuesta, en
      * este caso el Resto de una división entera.
      *
-     * @param nivel Nivel de dificultad seleccionado
+     * @param nivel Nivel de dificultad seleccionado entero del 1 al 4
      */
     public void crearPregunta(int nivel) {
         implementarNivel(nivel);
@@ -74,9 +76,10 @@ public class MetodosJuegoRestoDiv {
 
     /**
      * Método que comprueba si la respuesta es correcta, y añade 1 a los
-     * aciertos
+     * aciertos si es correcta
      *
-     * @param respuesta 
+     * @param respuesta Recibe como String la respuesta introducida por el
+     * usuario
      * @return boolean true si la respuesta es correcta
      */
     public boolean comprobarRespuesta(String respuesta) {
@@ -94,8 +97,10 @@ public class MetodosJuegoRestoDiv {
     }
 
     /**
-     * Método que resta 1 a contador de intentos  y devuelve true o false si quedan intentos
-     * @return boolean 
+     * Método que resta 1 a contador de intentos y devuelve true o false si
+     * quedan intentos
+     *
+     * @return boolean
      */
     public boolean comprobarQuedanIntentos() {
         intentos--;
@@ -103,15 +108,18 @@ public class MetodosJuegoRestoDiv {
     }
 
     /**
-     * Método que devuelve un String con la pregunta que se va a realizar al usuario
+     * Método que devuelve un String con la pregunta que se va a realizar al
+     * usuario
+     *
      * @return String
      */
     public String textoPregunta() {
         return "El resto de la division de " + dividendo + " entre " + divisor + " es:";
     }
 
-     /**
+    /**
      * Método que devuelve un String con la respuesta correcta
+     *
      * @return String
      */
     public String textoAlmacenRespuesta() {
@@ -126,8 +134,8 @@ public class MetodosJuegoRestoDiv {
     }
 
     /**
-     * Método para detener el contador de tiempo
-     * y almacenar el tiempo transcurrido en segundos
+     * Método para detener el contador de tiempo y almacenar el tiempo
+     * transcurrido en segundos
      */
     public void terminarJuego() {
         tiempo.pararContador();

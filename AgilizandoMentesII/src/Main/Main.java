@@ -221,6 +221,7 @@ public class Main extends javax.swing.JFrame {
 
         header.setBackground(new java.awt.Color(255, 255, 255));
         header.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        header.setOpaque(false);
         header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 headerMouseDragged(evt);
@@ -234,6 +235,9 @@ public class Main extends javax.swing.JFrame {
 
         exit.setBackground(new java.awt.Color(255, 255, 255));
         exit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                exitMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 exitMouseEntered(evt);
             }
@@ -246,17 +250,6 @@ public class Main extends javax.swing.JFrame {
         xtxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         xtxt.setText("X");
         xtxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        xtxt.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                xtxtMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                xtxtMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                xtxtMouseExited(evt);
-            }
-        });
 
         javax.swing.GroupLayout exitLayout = new javax.swing.GroupLayout(exit);
         exit.setLayout(exitLayout);
@@ -325,25 +318,6 @@ public class Main extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void xtxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xtxtMouseClicked
-        try {
-            con.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        System.exit(0);
-    }//GEN-LAST:event_xtxtMouseClicked
-
-    private void xtxtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xtxtMouseEntered
-        exit.setBackground(Color.red);
-        xtxt.setForeground(Color.white);
-    }//GEN-LAST:event_xtxtMouseEntered
-
-    private void xtxtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xtxtMouseExited
-        exit.setBackground(Color.white);
-        xtxt.setForeground(Color.black);
-    }//GEN-LAST:event_xtxtMouseExited
 
     private void headerMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_headerMouseDragged
         int x = evt.getXOnScreen();
@@ -426,11 +400,29 @@ public class Main extends javax.swing.JFrame {
 
     private void exitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseEntered
         // TODO add your handling code here:
+        exit.setOpaque(true);
+        exit.setBackground(Color.red);
+        xtxt.setForeground(Color.white);
+        exit.repaint();
     }//GEN-LAST:event_exitMouseEntered
 
     private void exitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseExited
         // TODO add your handling code here:
+        //exit.setBackground(Color.white);
+        exit.setOpaque(false);
+        xtxt.setForeground(Color.black);
+        exit.repaint();
     }//GEN-LAST:event_exitMouseExited
+
+    private void exitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseClicked
+        // TODO add your handling code here:
+        try {
+            con.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.exit(0);
+    }//GEN-LAST:event_exitMouseClicked
 
     /**
      * @param args the command line arguments

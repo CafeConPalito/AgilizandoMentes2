@@ -1,6 +1,6 @@
 package Ajustes;
 
-import BBDD.MetodosAjustes;
+import BBDD.MetodosAjustesBBDD;
 import Main.Main;
 import java.awt.Color;
 
@@ -21,7 +21,7 @@ public class Ajustes extends javax.swing.JPanel {
             }
             Si.setSelected(Configuracion.isSonido());
         } else {
-            MetodosAjustes.cargarAjustes(Main.getCon());
+            MetodosAjustesBBDD.cargarAjustes(Main.getCon());
             valortexto.setText(Byte.toString(Configuracion.getTamano()));
             texto.setValue(Configuracion.getTamano());
             selectidioma.removeAllItems();
@@ -58,10 +58,14 @@ public class Ajustes extends javax.swing.JPanel {
         texto = new javax.swing.JSlider();
         valortexto = new javax.swing.JLabel();
         Si = new javax.swing.JCheckBox();
+        jPanelFondo = new javax.swing.JPanel();
+        Fondo = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1070, 720));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         background.setBackground(new java.awt.Color(255, 255, 255));
+        background.setOpaque(false);
         background.setPreferredSize(new java.awt.Dimension(1070, 720));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -78,7 +82,7 @@ public class Ajustes extends javax.swing.JPanel {
         background.add(sonido, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, -1, -1));
 
         aplicar.setBackground(Estilos.getColorPanel());
-        aplicar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        aplicar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         aplicar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 aplicarMouseClicked(evt);
@@ -95,26 +99,22 @@ public class Ajustes extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("APLICAR");
-        jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         javax.swing.GroupLayout aplicarLayout = new javax.swing.GroupLayout(aplicar);
         aplicar.setLayout(aplicarLayout);
         aplicarLayout.setHorizontalGroup(
             aplicarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(aplicarLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(jLabel1)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                .addContainerGap())
         );
         aplicarLayout.setVerticalGroup(
             aplicarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(aplicarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
         );
 
-        background.add(aplicar, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 440, 130, -1));
+        background.add(aplicar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, 130, -1));
 
         titulo.setFont(Estilos.getFuenteCuerpo());
         titulo.setText("AJUSTES");
@@ -155,14 +155,14 @@ public class Ajustes extends javax.swing.JPanel {
         selectidioma.setFont(Estilos.getFuenteCuerpo());
         selectidioma.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Español", "Ingles" }));
         selectidioma.setBorder(null);
-        selectidioma.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        selectidioma.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         background.add(selectidioma, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, -1));
 
         texto.setFont(Estilos.getFuenteCuerpo());
         texto.setMaximum(3);
         texto.setMinimum(1);
         texto.setValue(2);
-        texto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        texto.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         texto.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 textoStateChanged(evt);
@@ -176,7 +176,7 @@ public class Ajustes extends javax.swing.JPanel {
 
         Si.setFont(Estilos.getFuenteCuerpo());
         Si.setText("Si");
-        Si.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Si.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Si.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 SiMouseEntered(evt);
@@ -192,20 +192,29 @@ public class Ajustes extends javax.swing.JPanel {
         });
         background.add(Si, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jPanelFondo.setBackground(Estilos.getColorPanelBlanco());
+        jPanelFondo.setPreferredSize(new java.awt.Dimension(1070, 720));
+
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Fondo.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanelFondoLayout = new javax.swing.GroupLayout(jPanelFondo);
+        jPanelFondo.setLayout(jPanelFondoLayout);
+        jPanelFondoLayout.setHorizontalGroup(
+            jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        jPanelFondoLayout.setVerticalGroup(
+            jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        add(jPanelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void aplicarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aplicarMouseEntered
-        aplicar.setBackground(new Color(69, 212, 252));
+        aplicar.setBackground(Estilos.getColorSobreBoton());
 
         //CONFIGURACION PARA ACTIVAR SONIDO
         if (Configuracion.isSonido()) {
@@ -215,14 +224,14 @@ public class Ajustes extends javax.swing.JPanel {
     }//GEN-LAST:event_aplicarMouseEntered
 
     private void aplicarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aplicarMouseExited
-        aplicar.setBackground(new Color(0, 155, 155));
+        aplicar.setBackground(Estilos.getColorPanel());
         Configuracion.parar();
 
     }//GEN-LAST:event_aplicarMouseExited
 
     private void aplicarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aplicarMouseClicked
         Configuracion.setTamano((byte) texto.getValue());
-        MetodosAjustes.actualizarletra();
+        MetodosAjustesBBDD.actualizarletra();
 
         Configuracion.setIdioma(selectidioma.getSelectedItem().toString());
         if (Si.isSelected()) {
@@ -232,7 +241,7 @@ public class Ajustes extends javax.swing.JPanel {
             Configuracion.setSonido(false);
         }
         
-        MetodosAjustes.guardarAjustes(Main.getCon());
+        MetodosAjustesBBDD.guardarAjustes(Main.getCon());
 
         Ajustes a1 = new Ajustes();
         a1.setSize(1070, 720);
@@ -314,12 +323,14 @@ public class Ajustes extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Fondo;
     private javax.swing.JCheckBox Si;
     private javax.swing.JPanel aplicar;
     private javax.swing.JPanel background;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel idioma;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanelFondo;
     private javax.swing.JComboBox<String> selectidioma;
     private javax.swing.JLabel sonido;
     private javax.swing.JLabel tamano;

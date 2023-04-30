@@ -28,19 +28,31 @@ public class Euclides extends javax.swing.JPanel {
     private int nivel;// implementado para pasar un nivel 
 
     /**
-     * Creates new form NewJPanel
+     * Creates new form NewJPanel Inicializa el panel Obtiene el nivel / curso
+     * del jugador para mostrarlo en el jLnivelActual Actualiza la información
+     * del usuario
+     *
      */
     public Euclides() {
         initComponents();
+        //Esta linea aplica el color al header desde la clase HeaderColor del paquete Ajustes
+        jTclasificacion.getTableHeader().setDefaultRenderer(new HeaderColor());
+        jTmejoresPartidas.getTableHeader().setDefaultRenderer(new HeaderColor());
+        jTultimasPartidas.getTableHeader().setDefaultRenderer(new HeaderColor());
+        
         try {
             nivel = Integer.parseInt(Usuario.getCurso());
         } catch (NumberFormatException e) {
         }
         jLnivelActual.setText("Nivel " + nivel);
+        tFrespuesta.setEnabled(controlPartida);
         actualizarTablas();
-
     }
 
+    /**
+     * Aglutina todas las actualizaciones de información que se muestra por
+     * pantalla
+     */
     public void actualizarTablas() {
         actualizarClasificacion();
         actualizarMejorePartidas();
@@ -49,13 +61,22 @@ public class Euclides extends javax.swing.JPanel {
         actualizarMediaAciertos();
     }
 
+    /**
+     * Si la partida esta inicializada va añadiendo el resultado de las
+     * operaciones a jTextPaneAlmacenOperaciones, en función de control se
+     * decide que texto colocar, respuesta correcta o incorrecta Si la partida
+     * no esta inicializada borra el contenido de jTextPaneAlmacenOperaciones
+     *
+     * @param control Recibe un booleano que indica si la respuesta es correcta
+     * o incorrecta
+     */
     public void actualizarAlmacenOperaciones(boolean control) {
         if (controlPartida) {
             if (control) {
                 almacenOperaciones = almacenOperaciones + "\n★ " + juego.textoAlmacenRespuesta();
                 jTextPaneAlmacenOperaciones.setText(almacenOperaciones);
             } else {
-                almacenOperaciones = almacenOperaciones + "\n☓ " + juego.textoAlmacenRespuesta() + ", tu respuesta " + TFrespuesta.getText();
+                almacenOperaciones = almacenOperaciones + "\n☓ " + juego.textoAlmacenRespuesta() + ", tu respuesta " + tFrespuesta.getText();
                 jTextPaneAlmacenOperaciones.setText(almacenOperaciones);
             }
         } else {
@@ -63,23 +84,25 @@ public class Euclides extends javax.swing.JPanel {
         }
 
     }
+
     /**
-     * Segun el valor pasado modifica el nivel, entre 1 y 4, controla que la partida no este inicializada con el booleano de controlPartida.
-     * 
+     * Según el valor pasado modifica el nivel, entre 1 y 4, controla que la
+     * partida no este inicializada con el booleano de controlPartida.
+     *
      * @param opcion valor '1' para subir un nivel, valor '2' para bajar nivel
      */
     public void modificarNivel(int opcion) {
         if (controlPartida == false) {
             switch (opcion) {
                 case 1:
-                    if (nivel <4) {
-                        nivel ++;
+                    if (nivel < 4) {
+                        nivel++;
                     }
                     jLnivelActual.setText("Nivel " + nivel);
                     break;
                 case 2:
-                    if (nivel >1) {
-                        nivel --;
+                    if (nivel > 1) {
+                        nivel--;
                     }
                     jLnivelActual.setText("Nivel " + nivel);
                     break;
@@ -90,6 +113,10 @@ public class Euclides extends javax.swing.JPanel {
         }
     }
 
+    /**
+     * Actualiza la tabla jTclasificacion con información del jugador en función
+     * de su nivel, actualizando la información desde la BBDD
+     */
     private void actualizarClasificacion() {
         DefaultTableModel modelC = (DefaultTableModel) jTclasificacion.getModel();
         modelC.setRowCount(0);
@@ -102,8 +129,13 @@ public class Euclides extends javax.swing.JPanel {
             row[3] = lista.get(i).getFecha_hora();
             modelC.addRow(row);
         }
+
     }
 
+    /**
+     * Actualiza la tabla jTmejoresPartidas con información del jugador en
+     * función de su nivel, actualizando la información desde la BBDD
+     */
     private void actualizarMejorePartidas() {
 
         DefaultTableModel modelB = (DefaultTableModel) jTmejoresPartidas.getModel();
@@ -120,6 +152,10 @@ public class Euclides extends javax.swing.JPanel {
 
     }
 
+    /**
+     * Actualiza la tabla jTultimasPartidas con información del jugador en
+     * función de su nivel, actualizando la información desde la BBDD
+     */
     private void actualizarUltimasPartidas() {
 
         DefaultTableModel modelL = (DefaultTableModel) jTultimasPartidas.getModel();
@@ -136,12 +172,86 @@ public class Euclides extends javax.swing.JPanel {
 
     }
 
+    /**
+     * Alcaliza el jLpartidasJugadas con las estadísticas del jugador en función
+     * de su nivel, actualizando la información desde la BBDD
+     */
     private void actualizarNumeroPartidas() {
-        jLpatidasJugadas.setText("Partidas Jugadas: " + MetodosJuegoBBDD.totalPartidas(Main.getCon(), NOMBREDEJUEGO, nivel));
+        jLpatidasJugadas.setText("Partidas jugadas: " + MetodosJuegoBBDD.totalPartidas(Main.getCon(), NOMBREDEJUEGO, nivel));
     }
 
+    /**
+     * Alcaliza el jLMediaAciertos con las estadísticas del jugador en función
+     * de su nivel, actualizando la información desde la BBDD
+     */
     private void actualizarMediaAciertos() {
-        jLMediaAciertos.setText("Media de aciertos: " + MetodosJuegoBBDD.mediaAciertos(Main.getCon(), NOMBREDEJUEGO, nivel) + " %");
+        jLMediaAciertos.setText("Media de aciertos: " + MetodosJuegoBBDD.mediaAciertos(Main.getCon(), NOMBREDEJUEGO, nivel) + " / 5");
+    }
+
+    /**
+     * Controla dentro del panel el desarrollo de la partida y las acciones que
+     * realizan los usuarios en los botones y al insertar respuesta Da inicio a
+     * la partida si el botón Jugar es pulsado y no esta una partida ya
+     * inicializada Si la partida esta inicializada comprueba que la respuesta
+     * introducida en el tFrespuesta es correcta y actualiza los mensajes en
+     * pantalla dependiendo de la respuesta y finaliza la partida si al jugador
+     * no le quedan intentos. volviendo al estado inicial el panel.
+     *
+     * @param control recibe un boolean 
+     */
+    private void partida(boolean control) {
+
+        //al presionar el Boton si la partida no esta iniciada!
+        //Esto evita que una ves precionado el boton de inicio se pueda volver a iniciar una partida
+        if (control == false && controlPartida == false) {
+            actualizarAlmacenOperaciones(controlPartida);
+            controlPartida = true;
+            // inicia el juego
+            juego = new MetodosJuegoEuclides();
+            juego.crearPregunta(nivel);
+            juego.iniciarJuego();
+            //se coloca la pregunta en el panel
+            jLOperacion.setText(juego.textoPregunta());
+            jLResultado.setText("");
+            tFrespuesta.setText("");
+            //
+            almacenOperaciones = "";
+
+            //lleva el teclado al campo de la respuesta
+            tFrespuesta.setEnabled(controlPartida);
+            tFrespuesta.requestFocus();
+
+        } else if (control && controlPartida) {
+            if (juego.comprobarRespuesta(tFrespuesta.getText())) {
+                jLResultado.setForeground(Estilos.getColorRespuestaCorrecta());
+                jLResultado.setText("¡Correcto!");
+                actualizarAlmacenOperaciones(true);
+            } else {
+                jLResultado.setForeground(Estilos.getColorRespuestaIncorrecta());
+                jLResultado.setText("Incorrecto, la respuesta es: " + juego.getRespuesta());
+                actualizarAlmacenOperaciones(false);
+            }
+
+            tFrespuesta.setText("");
+            tFrespuesta.requestFocus();
+
+            if (juego.comprobarQuedanIntentos()) {
+                juego.crearPregunta(nivel);
+                jLOperacion.setText(juego.textoPregunta());
+            } else {
+                juego.terminarJuego();
+                controlPartida = false;
+                tFrespuesta.setText(" Inserta una respueta");
+                tFrespuesta.setForeground(Estilos.getColorGrisEsperandoRespuesta());
+                tFrespuesta.setEnabled(controlPartida);
+                jLOperacion.setText("Aciertos: " + juego.getAciertos() + ", Tiempo: " + juego.getTiempoPartida() + " sec");
+                MetodosJuegoBBDD.insertResultado(Main.getCon(), juego.getAciertos(), juego.getTiempoPartida(), NOMBREDEJUEGO, nivel);
+                // actualiza la informacion de las tablas
+
+                actualizarTablas();
+            }
+        }
+
     }
 
     /**
@@ -172,10 +282,10 @@ public class Euclides extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPaneAlmacenOperaciones = new javax.swing.JTextPane();
         jPanel2 = new javax.swing.JPanel();
-        TFrespuesta = new javax.swing.JTextField();
+        tFrespuesta = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        buttonNewPlay = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        botonJugar = new javax.swing.JPanel();
+        jLjugar = new javax.swing.JLabel();
         jLResultado = new javax.swing.JLabel();
         jLOperacion = new javax.swing.JLabel();
         botonSubirNivel = new javax.swing.JPanel();
@@ -183,31 +293,37 @@ public class Euclides extends javax.swing.JPanel {
         botonBajarNivel = new javax.swing.JPanel();
         jLbajarNivel = new javax.swing.JLabel();
         jLnivelActual = new javax.swing.JLabel();
+        jPanelFondo = new javax.swing.JPanel();
+        Fondo = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1070, 720));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setOpaque(false);
         jPanel1.setPreferredSize(new java.awt.Dimension(1070, 720));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Informacion.setBackground(new java.awt.Color(255, 255, 255));
+        Informacion.setOpaque(false);
 
         Estadisticas.setBackground(new java.awt.Color(255, 255, 255));
+        Estadisticas.setOpaque(false);
 
         jLTituloEstadisticas.setFont(Estilos.getFuenteCuerpo());
-        jLTituloEstadisticas.setForeground(Estilos.getColorFuenteCuerpo());
+        jLTituloEstadisticas.setForeground(Estilos.getColorFuentePanel());
         jLTituloEstadisticas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLTituloEstadisticas.setText("Estadisticas");
+        jLTituloEstadisticas.setText("Estadísticas");
 
         jLpatidasJugadas.setFont(Estilos.getFuenteCuerpo());
-        jLpatidasJugadas.setForeground(Estilos.getColorFuenteCuerpo());
+        jLpatidasJugadas.setForeground(Estilos.getColorFuentePanel());
         jLpatidasJugadas.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLpatidasJugadas.setText("Partidas Jugadas");
+        jLpatidasJugadas.setText("Partidas jugadas");
 
         jLMediaAciertos.setFont(Estilos.getFuenteCuerpo());
-        jLMediaAciertos.setForeground(Estilos.getColorFuenteCuerpo());
+        jLMediaAciertos.setForeground(Estilos.getColorFuentePanel());
         jLMediaAciertos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLMediaAciertos.setText("Media de Aciertos");
+        jLMediaAciertos.setText("Media de aciertos");
 
         javax.swing.GroupLayout EstadisticasLayout = new javax.swing.GroupLayout(Estadisticas);
         Estadisticas.setLayout(EstadisticasLayout);
@@ -215,12 +331,12 @@ public class Euclides extends javax.swing.JPanel {
             EstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLpatidasJugadas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLTituloEstadisticas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLMediaAciertos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
+            .addComponent(jLMediaAciertos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
         );
         EstadisticasLayout.setVerticalGroup(
             EstadisticasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(EstadisticasLayout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLTituloEstadisticas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLpatidasJugadas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -257,6 +373,8 @@ public class Euclides extends javax.swing.JPanel {
         jTclasificacion.setEnabled(false);
         jTclasificacion.setRowSelectionAllowed(false);
         jTclasificacion.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        jTclasificacion.getTableHeader().setOpaque(false);
+        jTclasificacion.getTableHeader().setBackground(new java.awt.Color(255, 25, 25));
         jTclasificacion.getTableHeader().setReorderingAllowed(false);
         jSPranking.setViewportView(jTclasificacion);
         if (jTclasificacion.getColumnModel().getColumnCount() > 0) {
@@ -344,19 +462,16 @@ public class Euclides extends javax.swing.JPanel {
         jLlastPlays.setForeground(Estilos.getColorFuenteCuerpo());
         jLlastPlays.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLlastPlays.setText("Tus ultimas 5 partidas");
-        jLlastPlays.setToolTipText("");
 
         jLbestPlays.setFont(Estilos.getFuenteCuerpo());
         jLbestPlays.setForeground(Estilos.getColorFuenteCuerpo());
         jLbestPlays.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLbestPlays.setText("Tus mejores partidas");
-        jLbestPlays.setToolTipText("");
 
         jLranking.setFont(Estilos.getFuenteCuerpo());
         jLranking.setForeground(Estilos.getColorFuenteCuerpo());
         jLranking.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLranking.setText("Clasificacion");
-        jLranking.setToolTipText("");
+        jLranking.setText("Clasificación");
 
         javax.swing.GroupLayout InformacionLayout = new javax.swing.GroupLayout(Informacion);
         Informacion.setLayout(InformacionLayout);
@@ -364,43 +479,51 @@ public class Euclides extends javax.swing.JPanel {
             InformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(InformacionLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(InformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLranking, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSPlastPlays, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
-                    .addComponent(jLlastPlays, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLbestPlays, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jSPranking)
-                    .addComponent(jSPbestPlays)
-                    .addComponent(Estadisticas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addGroup(InformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(InformacionLayout.createSequentialGroup()
+                        .addGroup(InformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jSPlastPlays, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
+                            .addComponent(jLlastPlays, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLbestPlays, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jSPranking)
+                            .addComponent(jSPbestPlays))
+                        .addGap(0, 8, Short.MAX_VALUE))
+                    .addComponent(jLranking, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InformacionLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Estadisticas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
         InformacionLayout.setVerticalGroup(
             InformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(InformacionLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Estadisticas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLranking, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(48, 48, 48)
+                .addComponent(Estadisticas, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSPranking, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLranking, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
+                .addComponent(jSPranking, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLbestPlays, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSPbestPlays, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jSPbestPlays, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLlastPlays, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSPlastPlays, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addGap(12, 12, 12)
+                .addComponent(jSPlastPlays, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jPanel1.add(Informacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 490, 720));
 
+        jLTitulo.setBackground(Estilos.getColorPanel());
         jLTitulo.setFont(Estilos.getFuenteCuerpo());
-        jLTitulo.setForeground(Estilos.getColorFuenteCuerpo());
+        jLTitulo.setForeground(Estilos.getColorFuentePanel());
         jLTitulo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLTitulo.setText("Calcula el resto de una división entera");
-        jPanel1.add(jLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 490, 40));
+        jLTitulo.setText(" Calcula el máximo común divisor");
+        jLTitulo.setOpaque(true);
+        jPanel1.add(jLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 500, 40));
 
         jScrollPane1.setBorder(null);
 
@@ -415,62 +538,62 @@ public class Euclides extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(243, 243, 243));
 
-        TFrespuesta.setFont(Estilos.getFuenteCuerpo());
-        TFrespuesta.setForeground(new java.awt.Color(204, 204, 204));
-        TFrespuesta.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        TFrespuesta.setText(" Inserta una respuesta");
-        TFrespuesta.setBorder(null);
-        TFrespuesta.addFocusListener(new java.awt.event.FocusAdapter() {
+        tFrespuesta.setFont(Estilos.getFuenteCuerpo());
+        tFrespuesta.setForeground(Estilos.getColorGrisEsperandoRespuesta());
+        tFrespuesta.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        tFrespuesta.setText(" Inserta una respuesta");
+        tFrespuesta.setBorder(null);
+        tFrespuesta.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                TFrespuestaFocusGained(evt);
+                tFrespuestaFocusGained(evt);
             }
         });
-        TFrespuesta.addMouseListener(new java.awt.event.MouseAdapter() {
+        tFrespuesta.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TFrespuestaMouseClicked(evt);
+                tFrespuestaMouseClicked(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                TFrespuestaMousePressed(evt);
+                tFrespuestaMousePressed(evt);
             }
         });
-        TFrespuesta.addKeyListener(new java.awt.event.KeyAdapter() {
+        tFrespuesta.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                TFrespuestaKeyPressed(evt);
+                tFrespuestaKeyPressed(evt);
             }
         });
 
         jSeparator1.setForeground(new java.awt.Color(204, 204, 204));
 
-        buttonNewPlay.setBackground(Estilos.getColorPanel());
-        buttonNewPlay.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonNewPlay.addMouseListener(new java.awt.event.MouseAdapter() {
+        botonJugar.setBackground(Estilos.getColorPanel());
+        botonJugar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        botonJugar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonNewPlayMouseClicked(evt);
+                botonJugarMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                buttonNewPlayMouseEntered(evt);
+                botonJugarMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                buttonNewPlayMouseExited(evt);
+                botonJugarMouseExited(evt);
             }
         });
 
-        jLabel1.setFont(Estilos.getFuenteCuerpo());
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Jugar");
+        jLjugar.setFont(Estilos.getFuenteCuerpo());
+        jLjugar.setForeground(new java.awt.Color(255, 255, 255));
+        jLjugar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLjugar.setText("Jugar");
 
-        javax.swing.GroupLayout buttonNewPlayLayout = new javax.swing.GroupLayout(buttonNewPlay);
-        buttonNewPlay.setLayout(buttonNewPlayLayout);
-        buttonNewPlayLayout.setHorizontalGroup(
-            buttonNewPlayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
+        javax.swing.GroupLayout botonJugarLayout = new javax.swing.GroupLayout(botonJugar);
+        botonJugar.setLayout(botonJugarLayout);
+        botonJugarLayout.setHorizontalGroup(
+            botonJugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLjugar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
         );
-        buttonNewPlayLayout.setVerticalGroup(
-            buttonNewPlayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(buttonNewPlayLayout.createSequentialGroup()
+        botonJugarLayout.setVerticalGroup(
+            botonJugarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(botonJugarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                .addComponent(jLjugar, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -481,10 +604,9 @@ public class Euclides extends javax.swing.JPanel {
         jLOperacion.setFont(Estilos.getFuenteCuerpo());
         jLOperacion.setForeground(Estilos.getColorFuenteCuerpo());
         jLOperacion.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLOperacion.setText("Operacion");
 
         botonSubirNivel.setBackground(Estilos.getColorPanel());
-        botonSubirNivel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonSubirNivel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         botonSubirNivel.setPreferredSize(new java.awt.Dimension(22, 22));
         botonSubirNivel.setRequestFocusEnabled(false);
         botonSubirNivel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -520,7 +642,7 @@ public class Euclides extends javax.swing.JPanel {
         );
 
         botonBajarNivel.setBackground(Estilos.getColorPanel());
-        botonBajarNivel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonBajarNivel.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         botonBajarNivel.setPreferredSize(new java.awt.Dimension(22, 22));
         botonBajarNivel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -570,9 +692,9 @@ public class Euclides extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jSeparator1)
-                            .addComponent(TFrespuesta, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE))
+                            .addComponent(tFrespuesta, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonNewPlay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botonJugar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLnivelActual, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLResultado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -594,8 +716,8 @@ public class Euclides extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(buttonNewPlay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(TFrespuesta))
+                            .addComponent(botonJugar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tFrespuesta))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -609,93 +731,75 @@ public class Euclides extends javax.swing.JPanel {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 520, 560, 200));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jPanelFondo.setBackground(Estilos.getColorPanelBlanco());
+        jPanelFondo.setPreferredSize(new java.awt.Dimension(1070, 720));
+
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/FondoClaro.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanelFondoLayout = new javax.swing.GroupLayout(jPanelFondo);
+        jPanelFondo.setLayout(jPanelFondoLayout);
+        jPanelFondoLayout.setHorizontalGroup(
+            jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        jPanelFondoLayout.setVerticalGroup(
+            jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        add(jPanelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonNewPlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonNewPlayMouseClicked
-        //inserta codigo para iniciar la partida
-        //Esto evita que una ves precionado el boton de inicio se pueda volver a iniciar una partida
-        if (controlPartida == false) {
-            actualizarAlmacenOperaciones(controlPartida);
-            controlPartida = true;
-            // inicia el juego
-            juego = new MetodosJuegoEuclides();
-            juego.crearPregunta(nivel);
-            juego.iniciarJuego();
-            //se coloca la pregunta en el panel
-            jLOperacion.setText(juego.textoPregunta());
-            jLResultado.setText("");
-            TFrespuesta.setText("");
-            //
-            almacenOperaciones = "";
-            //lleva el teclado al campo de la respuesta
-            TFrespuesta.requestFocus();
+    /**
+     * Al presionar el botón de Jugar envía el estado de la partida solo si es
+     * falso para iniciar el juego Evita que se pueda presionar el botón de
+     * juego con una partida iniciada
+     *
+     * @param evt MouseEvent Clicked
+     */
+    private void botonJugarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonJugarMouseClicked
+        if (!controlPartida) {
+            partida(controlPartida);
         }
+    }//GEN-LAST:event_botonJugarMouseClicked
 
-    }//GEN-LAST:event_buttonNewPlayMouseClicked
+    private void botonJugarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonJugarMouseEntered
+        botonJugar.setBackground(Estilos.getColorSobreBoton());
+    }//GEN-LAST:event_botonJugarMouseEntered
 
-    private void buttonNewPlayMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonNewPlayMouseEntered
-        buttonNewPlay.setBackground(Estilos.getColorSobreBoton());
-    }//GEN-LAST:event_buttonNewPlayMouseEntered
+    private void botonJugarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonJugarMouseExited
+        botonJugar.setBackground(Estilos.getColorPanel());
+    }//GEN-LAST:event_botonJugarMouseExited
 
-    private void buttonNewPlayMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonNewPlayMouseExited
-        buttonNewPlay.setBackground(Estilos.getColorPanel());
-    }//GEN-LAST:event_buttonNewPlayMouseExited
-
-    private void TFrespuestaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFrespuestaMousePressed
-        if (TFrespuesta.getText().equals("Inserta una respuesta")) {
-            TFrespuesta.setText("");
-            TFrespuesta.setForeground(Color.black);
+    private void tFrespuestaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tFrespuestaMousePressed
+        if (tFrespuesta.getText().equals("Inserta una respuesta") && controlPartida) {
+            tFrespuesta.setText("");
+            tFrespuesta.setForeground(Color.black);
         }
-    }//GEN-LAST:event_TFrespuestaMousePressed
+    }//GEN-LAST:event_tFrespuestaMousePressed
 
-    private void TFrespuestaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TFrespuestaKeyPressed
+    /**
+     * Al escribir en el tFrespuesta comprueba que se presiona Enter si se va al
+     * método partida, el cual controla el desarrollo de la misma
+     *
+     * @param evt MouseEvent Clicked
+     */
+    private void tFrespuestaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tFrespuestaKeyPressed
         // TODO add your handling code here:
-        int key = evt.getKeyCode();
-        if (key == KeyEvent.VK_ENTER && controlPartida == true) {
-            if (juego.comprobarRespuesta(TFrespuesta.getText())) {
-                jLResultado.setForeground(Estilos.getColorRespuestaCorrecta());
-                jLResultado.setText("¡Correcto!");
-                actualizarAlmacenOperaciones(true);
-            } else {
-                jLResultado.setForeground(Estilos.getColorRespuestaIncorrecta());
-                jLResultado.setText("Incorrecto, la respuesta es: " + juego.getRespuesta());
-                actualizarAlmacenOperaciones(false);
-            }
 
-            TFrespuesta.setText("");
-            TFrespuesta.requestFocus();
+        //envia true si se preciona enter
+        partida(evt.getKeyCode() == KeyEvent.VK_ENTER);
+    }//GEN-LAST:event_tFrespuestaKeyPressed
 
-            if (juego.comprobarQuedanIntentos()) {
-                juego.crearPregunta(nivel);
-                jLOperacion.setText(juego.textoPregunta());
-            } else {
-                juego.terminarJuego();
-                controlPartida = false;
-                TFrespuesta.setText(" Inserta una respueta");
-                TFrespuesta.setForeground(new Color(204, 204, 204));
-                jLOperacion.setText("Aciertos: " + juego.getAciertos() + ", Tiempo: " + juego.getTiempoPartida() + " sec");
-                MetodosJuegoBBDD.insertResultado(Main.getCon(), juego.getAciertos(), juego.getTiempoPartida(), NOMBREDEJUEGO, nivel);
-                // actualiza la informacion de las tablas
-                actualizarTablas();
-            }
-        }
-    }//GEN-LAST:event_TFrespuestaKeyPressed
-
-    private void TFrespuestaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_TFrespuestaFocusGained
+    private void tFrespuestaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tFrespuestaFocusGained
         // TODO add your handling code here:
-        TFrespuesta.setText("");
-        TFrespuesta.setForeground(Color.black);
-    }//GEN-LAST:event_TFrespuestaFocusGained
+        if (controlPartida) {
+            tFrespuesta.setText("");
+            tFrespuesta.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_tFrespuestaFocusGained
 
     private void botonSubirNivelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonSubirNivelMouseClicked
         // TODO add your handling code here:
@@ -727,27 +831,28 @@ public class Euclides extends javax.swing.JPanel {
         botonBajarNivel.setBackground(Estilos.getColorPanel());
     }//GEN-LAST:event_botonBajarNivelMouseExited
 
-    private void TFrespuestaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFrespuestaMouseClicked
+    private void tFrespuestaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tFrespuestaMouseClicked
         // TODO add your handling code here:
-        TFrespuesta.requestFocus();
-        TFrespuesta.setText("");
-        TFrespuesta.setForeground(Color.black);
-    }//GEN-LAST:event_TFrespuestaMouseClicked
+        if (controlPartida) {
+            tFrespuesta.setText("");
+            tFrespuesta.setForeground(Color.black);
+        }
+    }//GEN-LAST:event_tFrespuestaMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Estadisticas;
+    private javax.swing.JLabel Fondo;
     private javax.swing.JPanel Informacion;
-    private javax.swing.JTextField TFrespuesta;
     private javax.swing.JPanel botonBajarNivel;
+    private javax.swing.JPanel botonJugar;
     private javax.swing.JPanel botonSubirNivel;
-    private javax.swing.JPanel buttonNewPlay;
     private javax.swing.JLabel jLMediaAciertos;
     private javax.swing.JLabel jLOperacion;
     private javax.swing.JLabel jLResultado;
     private javax.swing.JLabel jLTitulo;
     private javax.swing.JLabel jLTituloEstadisticas;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLbajarNivel;
+    private javax.swing.JLabel jLjugar;
     private javax.swing.JLabel jLlastPlays;
     private javax.swing.JLabel jLnivelActual;
     private javax.swing.JLabel jLpatidasJugadas;
@@ -755,6 +860,7 @@ public class Euclides extends javax.swing.JPanel {
     private javax.swing.JLabel jLsubirNivel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanelFondo;
     private javax.swing.JScrollPane jSPbestPlays;
     private javax.swing.JScrollPane jSPlastPlays;
     private javax.swing.JScrollPane jSPranking;
@@ -764,5 +870,6 @@ public class Euclides extends javax.swing.JPanel {
     private javax.swing.JTextPane jTextPaneAlmacenOperaciones;
     private javax.swing.JTable jTmejoresPartidas;
     private javax.swing.JTable jTultimasPartidas;
+    private javax.swing.JTextField tFrespuesta;
     // End of variables declaration//GEN-END:variables
 }

@@ -9,7 +9,7 @@ import java.util.logging.Logger;
  *
  * @author terciodemarte
  */
-public class MetodosUpdate {
+public class MetodosUpdateBBDD {
 
     
     /**
@@ -26,7 +26,7 @@ public class MetodosUpdate {
             ps1.setString(1, password);
             ps1.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(MetodosUpdate.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetodosUpdateBBDD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -45,7 +45,7 @@ public class MetodosUpdate {
             ps1.setString(1, alias);
             ps1.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(MetodosUpdate.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetodosUpdateBBDD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -64,7 +64,7 @@ public class MetodosUpdate {
             ps1.setString(1, nombre);
             ps1.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(MetodosUpdate.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetodosUpdateBBDD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -83,7 +83,7 @@ public class MetodosUpdate {
             ps1.setString(1, apellido1);
             ps1.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(MetodosUpdate.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetodosUpdateBBDD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -102,7 +102,7 @@ public class MetodosUpdate {
             ps1.setString(1, apellido2);
             ps1.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(MetodosUpdate.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetodosUpdateBBDD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -122,7 +122,7 @@ public class MetodosUpdate {
             ps1.setString(1, email);
             ps1.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(MetodosUpdate.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MetodosUpdateBBDD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

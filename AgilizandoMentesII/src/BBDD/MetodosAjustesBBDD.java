@@ -13,7 +13,7 @@ import java.sql.*;
  *
  * @author CafeConPalito
  */
-public class MetodosAjustes {
+public class MetodosAjustesBBDD {
 
     /**
      * Metodo para guardar los ajustes del usuario logueado en la BBDD
