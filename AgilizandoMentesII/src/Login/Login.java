@@ -87,7 +87,7 @@ public class Login extends javax.swing.JPanel {
         registra.setFont(Estilos.getFuenteCuerpo());
         registra.setForeground(new java.awt.Color(0, 153, 255));
         registra.setText("Regístrate aquí.");
-        registra.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        registra.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         registra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 registraMouseClicked(evt);
@@ -243,7 +243,7 @@ public class Login extends javax.swing.JPanel {
         background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 380, 120));
 
         Boton.setBackground(Estilos.getColorPanel());
-        Boton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Boton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Boton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BotonMouseClicked(evt);
@@ -294,10 +294,14 @@ public class Login extends javax.swing.JPanel {
 
     private void BotonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMouseEntered
         Boton.setBackground(Estilos.getColorSobreBoton());
+           if (Configuracion.isSonido()) {
+            Configuracion.sonar("entrar");
+        }
     }//GEN-LAST:event_BotonMouseEntered
 
     private void BotonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BotonMouseExited
         Boton.setBackground(Estilos.getColorPanel());
+           Configuracion.parar();
     }//GEN-LAST:event_BotonMouseExited
 
     private void TFUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFUsuarioMousePressed
@@ -420,7 +424,7 @@ public class Login extends javax.swing.JPanel {
     private void registraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registraMouseEntered
         registra.setFont(Estilos.getFuenteCuerpo());
           if (Configuracion.isSonido()) {
-            Configuracion.sonar("no_cuenta");
+            Configuracion.sonar("registrate_aqui");
         }
     }//GEN-LAST:event_registraMouseEntered
 

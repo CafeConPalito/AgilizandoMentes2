@@ -4,6 +4,7 @@
  */
 package Profesor;
 
+import Ajustes.Configuracion;
 import BBDD.ObjetoAlumnoBBDD;
 import BBDD.MetodosAlumnoBBDD;
 import Ajustes.Estilos;
@@ -134,6 +135,14 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
         datos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Usuario.setBackground(new java.awt.Color(255, 255, 255));
+        Usuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                UsuarioMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                UsuarioMouseExited(evt);
+            }
+        });
 
         us.setFont(Estilos.getFuenteCuerpo());
         us.setText("Usuario");
@@ -180,6 +189,14 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
         datos.add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, -1));
 
         Apellido1.setBackground(new java.awt.Color(255, 255, 255));
+        Apellido1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Apellido1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Apellido1MouseExited(evt);
+            }
+        });
 
         ap1.setFont(Estilos.getFuenteCuerpo());
         ap1.setText("Primer Apellido");
@@ -226,6 +243,14 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
         datos.add(Apellido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 84, -1, -1));
 
         email.setBackground(new java.awt.Color(255, 255, 255));
+        email.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                emailMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                emailMouseExited(evt);
+            }
+        });
 
         em.setFont(Estilos.getFuenteCuerpo());
         em.setText("Email");
@@ -272,6 +297,14 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
         datos.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 168, -1, -1));
 
         Alias.setBackground(new java.awt.Color(255, 255, 255));
+        Alias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AliasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AliasMouseExited(evt);
+            }
+        });
 
         al.setFont(Estilos.getFuenteCuerpo());
         al.setText("Alias");
@@ -318,6 +351,14 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
         datos.add(Alias, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 0, -1, -1));
 
         curso.setBackground(new java.awt.Color(255, 255, 255));
+        curso.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                cursoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                cursoMouseExited(evt);
+            }
+        });
 
         cu.setFont(Estilos.getFuenteCuerpo());
         cu.setText("Curso");
@@ -364,6 +405,14 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
         datos.add(curso, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 168, -1, 66));
 
         DNI.setBackground(new java.awt.Color(255, 255, 255));
+        DNI.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                DNIMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                DNIMouseExited(evt);
+            }
+        });
 
         dni.setFont(Estilos.getFuenteCuerpo());
         dni.setText("DNI");
@@ -410,6 +459,14 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
         datos.add(DNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(716, 84, -1, -1));
 
         Apellido2.setBackground(new java.awt.Color(255, 255, 255));
+        Apellido2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Apellido2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Apellido2MouseExited(evt);
+            }
+        });
 
         ap2.setFont(Estilos.getFuenteCuerpo());
         ap2.setText("Segundo Apellido");
@@ -456,6 +513,14 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
         datos.add(Apellido2, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 84, -1, -1));
 
         Nombre.setBackground(new java.awt.Color(255, 255, 255));
+        Nombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                NombreMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                NombreMouseExited(evt);
+            }
+        });
 
         no.setFont(Estilos.getFuenteCuerpo());
         no.setText("Nombre");
@@ -502,6 +567,7 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
         datos.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(716, 0, -1, -1));
 
         buscar.setBackground(new java.awt.Color(0, 155, 155));
+        buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 buscarMouseClicked(evt);
@@ -534,6 +600,7 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
         datos.add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(716, 184, -1, 50));
 
         jPLimpiar.setBackground(new java.awt.Color(0, 155, 155));
+        jPLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPLimpiar.setPreferredSize(new java.awt.Dimension(150, 16));
         jPLimpiar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -753,10 +820,14 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
 
     private void buscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscarMouseEntered
         buscar.setBackground(Estilos.getColorSobreBoton());
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("buscar");
+        }
     }//GEN-LAST:event_buscarMouseEntered
 
     private void buscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscarMouseExited
         buscar.setBackground(Estilos.getColorPanel());
+        Configuracion.parar();
     }//GEN-LAST:event_buscarMouseExited
 
     private void jPLimpiarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPLimpiarMouseClicked
@@ -768,12 +839,112 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
     private void jPLimpiarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPLimpiarMouseEntered
         // TODO add your handling code here:
         jPLimpiar.setBackground(Estilos.getColorSobreBoton());
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("limpiar");
+        }
     }//GEN-LAST:event_jPLimpiarMouseEntered
 
     private void jPLimpiarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPLimpiarMouseExited
         // TODO add your handling code here:
         jPLimpiar.setBackground(Estilos.getColorPanel());
+        Configuracion.parar();
     }//GEN-LAST:event_jPLimpiarMouseExited
+
+    private void UsuarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuarioMouseEntered
+        // TODO add your handling code here:
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("usuario");
+        }
+    }//GEN-LAST:event_UsuarioMouseEntered
+
+    private void UsuarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UsuarioMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_UsuarioMouseExited
+
+    private void AliasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AliasMouseEntered
+        // TODO add your handling code here:
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("alias");
+        }
+    }//GEN-LAST:event_AliasMouseEntered
+
+    private void AliasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AliasMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_AliasMouseExited
+
+    private void NombreMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NombreMouseEntered
+        // TODO add your handling code here:
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("nombre");
+        }
+    }//GEN-LAST:event_NombreMouseEntered
+
+    private void NombreMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NombreMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_NombreMouseExited
+
+    private void Apellido1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Apellido1MouseEntered
+        // TODO add your handling code here:
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("apellido1");
+        }
+    }//GEN-LAST:event_Apellido1MouseEntered
+
+    private void Apellido1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Apellido1MouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_Apellido1MouseExited
+
+    private void Apellido2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Apellido2MouseEntered
+        // TODO add your handling code here:
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("apellido2");
+        }
+    }//GEN-LAST:event_Apellido2MouseEntered
+
+    private void Apellido2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Apellido2MouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_Apellido2MouseExited
+
+    private void DNIMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DNIMouseEntered
+        // TODO add your handling code here:
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("dni");
+        }
+    }//GEN-LAST:event_DNIMouseEntered
+
+    private void DNIMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DNIMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_DNIMouseExited
+
+    private void emailMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emailMouseEntered
+        // TODO add your handling code here:
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("email");
+        }
+    }//GEN-LAST:event_emailMouseEntered
+
+    private void emailMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emailMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_emailMouseExited
+
+    private void cursoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cursoMouseEntered
+        // TODO add your handling code here:
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("curso");
+        }
+    }//GEN-LAST:event_cursoMouseEntered
+
+    private void cursoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cursoMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_cursoMouseExited
 
     /**
      * Método de búsqueda que actualiza la información de la tabla con la información de la BBDD

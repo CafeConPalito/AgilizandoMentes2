@@ -32,16 +32,8 @@ public class Principal {
 
         /*
         Me queda por poner sonido a:
-            -Register
-            -MAIN
-            -PanelProfesor
-            -ProfesorBienvenida
-            -ProfesorInfoAlumnos
-            -ProfesorInfoClasificacionAlumnos
             -Calculo
             -RestoDiv
-            -Cambio
-        
         */
         /*
         CLASES CON JAVA DOC y Ortografía
@@ -71,20 +63,20 @@ public class Principal {
                 - Calculadora: Daniel JavaDoc y Ortografía. segundo chequeo:
             
             *Main
-                - Main
+                - Main Albano Javadoc No requiere javadoc
         
             * Usuario
-                - Usuario
-                - Cambio
-                - AjusteUsuario
+                - Usuario Albano Javadoc No requiere javadoc
+                - Cambio Albano Javadoc No requiere javadoc
+                - AjusteUsuario Albano Javadoc No requiere javadoc
         
             * Login
-                - Login
-                - Register
-                - AjustesLogin
+                - Login Albano Javadoc No requiere javadoc
+                - Register Albano Javadoc No requiere javadoc
+                - AjustesLogin Albano Javadoc No requiere javadoc
 
             * Ajustes
-                - Ajustes
+                - Ajustes Albano Javadoc No requiere javadoc
                 - Configuracion: Daniel JavaDoc y Ortografía. segundo chequeo: 
                 - Estilos: Daniel JavaDoc y Ortografía. segundo chequeo:
         
@@ -92,7 +84,7 @@ public class Principal {
                 - ProfesorBienvenida: Daniel JavaDoc y Ortografía. segundo chequeo:
                 - PanelProfesor autor: Daniel JavaDoc y Ortografía. segundo chequeo:
                 - ProfesorInfoAlumnos: Daniel JavaDoc y Ortografía. segundo chequeo:
-                - ProfesorInfoAlumnosClasificacion
+                - ProfesorInfoAlumnosClasificacion Albano Javadoc
             
              Calculo
                 - MetodosJuegoCalculo
@@ -100,15 +92,15 @@ public class Principal {
         
             *BBDD
                 - ConexionBBDD: Daniel JavaDoc y Ortografía. segundo chequeo:
-                - MetodosAjusteBBDD
-                - MetodosAlumnoBBDD
-                - MetodosClasificacionBBDD
+                - MetodosAjusteBBDD Albano Javadoc
+                - MetodosAlumnoBBDD Albano Javadoc
+                - MetodosClasificacionBBDD Albano Javadoc
                 - MetodosJuegoBBDD
-                - MetodosRegistroBBDD
-                - MetodosUpdateBBDD
-                - MetodosUsuarioBBDD
-                - ObjetoAlumnoBBDD
-                - ObejetoClasificacionBBDD
+                - MetodosRegistroBBDD Albano Javadoc
+                - MetodosUpdateBBDD Albano Javadoc
+                - MetodosUsuarioBBDD Albano Javadoc
+                - ObjetoAlumnoBBDD No requiere javadoc
+                - ObejetoClasificacionBBDD No requiere javadoc
                 - ObjetoJuegoBBDD: Daniel JavaDoc y Ortografía. segundo chequeo:
         
         Terminados:

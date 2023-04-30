@@ -260,18 +260,18 @@ public class MetodosRegistroBBDD {
     /**
      * Metodo para insertar usuario a nuestra base de datos
      *
-     * @param con
-     * @param usuario
-     * @param password
-     * @param alias
-     * @param nombre
-     * @param apellido1
-     * @param apellido2
-     * @param DNI
-     * @param curso
-     * @param fecha
-     * @param email
-     * @param profesor
+     * @param con Conexion a la base de datos
+     * @param usuario usuario
+     * @param password contraseña del usuario
+     * @param alias alias del usuario
+     * @param nombre nombre del usuario
+     * @param apellido1 1º Apellido de usuario
+     * @param apellido2 2º Apellido de usuario
+     * @param DNI DNI del usuario
+     * @param curso Curso del usuario
+     * @param fecha fecha de nacimiento YYYY-MM-DD
+     * @param email email del usaurio
+     * @param profesor Boolean True-profesor False-alumno
      */
     public static void registrarUsuario(Connection con, String usuario, String password, String alias, String nombre, String apellido1, String apellido2, String DNI, int curso, String fecha, String email, boolean profesor) {
         PreparedStatement ps1 = null;
@@ -285,7 +285,7 @@ public class MetodosRegistroBBDD {
         String select = "select id_usuario from usuario where nombre_usuario = ?";
         String insert1 = "insert into usuario(nombre_usuario,contrasena,alias) values (?,md5(?),?)";
         String insert2 = "insert into persona(id_usuario,nombre,apellido1,apellido2,dni,email,curso,fecha_naci,profesor) values (?,?,?,?,?,?,?,?,?)";
-        String insert3= "insert into ajuste(usuario,tamaño,idioma,sonido) values (?,?,?,?)";
+        String insert3 = "insert into ajuste(usuario,tamaño,idioma,sonido) values (?,?,?,?)";
 
         try {
 
@@ -319,21 +319,20 @@ public class MetodosRegistroBBDD {
 
             //Ejecuto el segundo insert
             ps3.executeUpdate();
-            
+
             //Preparo el tercer insert tabla ajustes
             ps4 = con.prepareStatement(insert3);
             ps4.setInt(1, id);
             ps4.setString(2, Byte.toString(Configuracion.getTamano()));
             if (Configuracion.getIdioma().equals("Español")) {
-                ps4.setString(3,"Espanol");
-            }else{
-                ps4.setString(3,"Ingles");
+                ps4.setString(3, "Espanol");
+            } else {
+                ps4.setString(3, "Ingles");
             }
             ps4.setBoolean(4, Configuracion.isSonido());
-            
+
             //Ejecuto el tercer insert
             ps4.executeUpdate();
-            
 
         } catch (NumberFormatException e) {
             //System.err.println("Error de conversion de numero");

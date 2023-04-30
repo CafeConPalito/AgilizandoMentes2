@@ -16,7 +16,7 @@ public class MetodosUsuarioBBDD {
     /**
      * Metodo para buscar un usuario en la BBDD
      *
-     * @param con
+     * @param con Conexion a BBDD
      * @param usuario
      * @return boolean
      */
@@ -45,7 +45,7 @@ public class MetodosUsuarioBBDD {
             return false;
 
         } catch (SQLException e) {
-            System.err.println("ERROR AL LEER Login Usuario");
+            //System.err.println("ERROR AL LEER Login Usuario");
             return false;
         }
 
@@ -55,7 +55,7 @@ public class MetodosUsuarioBBDD {
      * Comprobar que la contraseña de un usuario coincide con la contraseña
      * cifrada de ese usuario en la BBDD
      *
-     * @param con
+     * @param con Conexion a BBDD
      * @param usuario
      * @param contrasena
      * @return boolean
@@ -84,7 +84,7 @@ public class MetodosUsuarioBBDD {
             return false;
 
         } catch (SQLException e) {
-            System.err.println("ERROR AL LEER Loging");
+            //System.err.println("ERROR AL LEER Loging");
             return false;
         }
 
@@ -93,7 +93,7 @@ public class MetodosUsuarioBBDD {
     /**
      * Comprobar si el Usuario es Profesor en la BBDD
      *
-     * @param con
+     * @param con Conexion a BBDD
      * @param nombreUsuario
      * @return boolean
      */
@@ -120,7 +120,7 @@ public class MetodosUsuarioBBDD {
                 }
 
             } catch (SQLException e) {
-                System.err.println("ERROR AL LEER ES Profesor");
+                //System.err.println("ERROR AL LEER ES Profesor");
                 return false;
             }
 
@@ -131,7 +131,7 @@ public class MetodosUsuarioBBDD {
     /**
      * Aglutina todos los metodos que cargan desde la BBDD los datos del usuario.
      * Trae el id_usuario, alias, nombre, apellido1, apellido2, esProfe, el curso.
-     * @param con 
+     * @param con Conexion a BBDD
      */
     public static void generarUsuario(Connection con){
         getid_usuario(con);
@@ -146,7 +146,7 @@ public class MetodosUsuarioBBDD {
     /**
      * Metodo que trae desde la BBDD el id_usuario del usuario Pensado para
      * utilizar despues del Login
-     * @param con
+     * @param con Conexion a BBDD
      */
     public static void getid_usuario(Connection con) {
         PreparedStatement ps = null;
@@ -167,7 +167,7 @@ public class MetodosUsuarioBBDD {
             Usuario.setIdUsuario(rs.getInt(1));
 
         } catch (SQLException e) {
-            System.err.println("ERROR AL LEER id_usuario");
+            //System.err.println("ERROR AL LEER id_usuario");
         }
     }
 
@@ -175,7 +175,7 @@ public class MetodosUsuarioBBDD {
      * Metodo que trae desde la BBDD el nombre del usuario Pensado para utilizar
      * despues del Login
      *
-     * @param con
+     * @param con Conexion a BBDD
      */
     public static void getnombre(Connection con) {
         PreparedStatement ps = null;
@@ -196,7 +196,7 @@ public class MetodosUsuarioBBDD {
             Usuario.setNombre(rs.getString(1));
             
         } catch (SQLException e) {
-            System.err.println("ERROR AL LEER NombreUsuario");
+            //System.err.println("ERROR AL LEER NombreUsuario");
         }
     }
 
@@ -204,7 +204,7 @@ public class MetodosUsuarioBBDD {
      * Metodo que trae desde la BBDD el alias del usuario Pensado para utilizar
      * despues del Login
      *
-     * @param con
+     * @param con Conexion a BBDD
      */
     public static void getalias(Connection con) {
         PreparedStatement ps = null;
@@ -225,7 +225,7 @@ public class MetodosUsuarioBBDD {
             Usuario.setAlias(rs.getString(1));
             
         } catch (SQLException e) {
-            System.err.println("ERROR AL LEER alias");
+            //System.err.println("ERROR AL LEER alias");
         }
     }
 
@@ -233,7 +233,7 @@ public class MetodosUsuarioBBDD {
      * Metodo que trae desde la BBDD el apellido1 del usuario Pensado para
      * utilizar despues del Login
      *
-     * @param con
+     * @param con Conexion a BBDD
      */
     public static void getapellido1(Connection con) {
         PreparedStatement ps = null;
@@ -254,7 +254,7 @@ public class MetodosUsuarioBBDD {
             Usuario.setApellido1(rs.getString(1));
 
         } catch (SQLException e) {
-            System.err.println("ERROR AL LEER apellido1");
+            //System.err.println("ERROR AL LEER apellido1");
         }
     }
 
@@ -262,7 +262,7 @@ public class MetodosUsuarioBBDD {
      * Metodo que trae desde la BBDD el apellido1 del usuario Pensado para
      * utilizar despues del Login
      *
-     * @param con
+     * @param con Conexion a BBDD
      */
     public static void getapellido2(Connection con) {
         PreparedStatement ps = null;
@@ -283,7 +283,7 @@ public class MetodosUsuarioBBDD {
             Usuario.setApellido2(rs.getString(1));
 
         } catch (SQLException e) {
-            System.err.println("ERROR AL LEER apellido2");
+            //System.err.println("ERROR AL LEER apellido2");
         }
     }
 
@@ -291,7 +291,7 @@ public class MetodosUsuarioBBDD {
      * Metodo que trae desde la BBDD si el Usuario es profesor Pensado para
      * utilizar despues del Login
      *
-     * @param con
+     * @param con Conexion a BBDD
      */
     public static void getEsProfe(Connection con) {
         PreparedStatement ps = null;
@@ -316,14 +316,14 @@ public class MetodosUsuarioBBDD {
             }
 
         } catch (SQLException e) {
-            System.err.println("ERROR AL LEER esProfe");
+            //System.err.println("ERROR AL LEER esProfe");
         }
     }
 
     /**
      * Metodo que trae desde la BBDD si el curso del Usuario si el usuario es
      * profesor no se realiza. Pensado para utilizar despues del Login
-     * @param con
+     * @param con Conexion a BBDD
      */
     public static void getCurso(Connection con) {
 
@@ -347,7 +347,7 @@ public class MetodosUsuarioBBDD {
                 Usuario.setCurso(rs.getString(1));
 
             } catch (SQLException e) {
-                System.err.println("ERROR AL LEER Curso");
+                //System.err.println("ERROR AL LEER Curso");
             }
 
         }

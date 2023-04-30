@@ -81,6 +81,14 @@ public class Cambio extends javax.swing.JPanel {
 
         password.setFont(Estilos.getFuenteCuerpo());
         password.setText("Password *");
+        password.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                passwordMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                passwordMouseExited(evt);
+            }
+        });
 
         PWF1.setFont(Estilos.getFuenteCuerpo());
         PWF1.setForeground(new java.awt.Color(204, 204, 204));
@@ -121,6 +129,14 @@ public class Cambio extends javax.swing.JPanel {
 
         alias.setFont(Estilos.getFuenteCuerpo());
         alias.setText("Alias");
+        alias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                aliasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                aliasMouseExited(evt);
+            }
+        });
 
         TFalias.setFont(Estilos.getFuenteCuerpo());
         TFalias.setForeground(new java.awt.Color(204, 204, 204));
@@ -169,6 +185,14 @@ public class Cambio extends javax.swing.JPanel {
 
         nombre.setFont(Estilos.getFuenteCuerpo());
         nombre.setText("Nombre *");
+        nombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                nombreMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                nombreMouseExited(evt);
+            }
+        });
 
         TFnombre.setFont(Estilos.getFuenteCuerpo());
         TFnombre.setForeground(new java.awt.Color(204, 204, 204));
@@ -216,7 +240,15 @@ public class Cambio extends javax.swing.JPanel {
         Apellido1.setBackground(new java.awt.Color(255, 255, 255));
 
         apellido1.setFont(Estilos.getFuenteCuerpo());
-        apellido1.setText("Apellido 1*");
+        apellido1.setText("1º Apellido *");
+        apellido1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                apellido1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                apellido1MouseExited(evt);
+            }
+        });
 
         TFapellido1.setFont(Estilos.getFuenteCuerpo());
         TFapellido1.setForeground(new java.awt.Color(204, 204, 204));
@@ -265,7 +297,15 @@ public class Cambio extends javax.swing.JPanel {
         Apellido2.setBackground(new java.awt.Color(255, 255, 255));
 
         apellido2.setFont(Estilos.getFuenteCuerpo());
-        apellido2.setText("Apellido 2");
+        apellido2.setText("2º Apellido ");
+        apellido2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                apellido2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                apellido2MouseExited(evt);
+            }
+        });
 
         TFapellido2.setFont(Estilos.getFuenteCuerpo());
         TFapellido2.setForeground(new java.awt.Color(204, 204, 204));
@@ -347,6 +387,14 @@ public class Cambio extends javax.swing.JPanel {
 
         email.setFont(Estilos.getFuenteCuerpo());
         email.setText("Email *");
+        email.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                emailMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                emailMouseExited(evt);
+            }
+        });
 
         TFemail.setFont(Estilos.getFuenteCuerpo());
         TFemail.setForeground(new java.awt.Color(204, 204, 204));
@@ -395,6 +443,14 @@ public class Cambio extends javax.swing.JPanel {
 
         password2.setFont(Estilos.getFuenteCuerpo());
         password2.setText("Confirmar Password *");
+        password2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                password2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                password2MouseExited(evt);
+            }
+        });
 
         PWF2.setFont(Estilos.getFuenteCuerpo());
         PWF2.setForeground(new java.awt.Color(204, 204, 204));
@@ -436,6 +492,14 @@ public class Cambio extends javax.swing.JPanel {
 
         registro1.setFont(Estilos.getFuenteCuerpo());
         registro1.setText("CAMBIA TUS DATOS");
+        registro1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                registro1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                registro1MouseExited(evt);
+            }
+        });
         fondoRegistro.add(registro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -547,15 +611,27 @@ public class Cambio extends javax.swing.JPanel {
             }
         }
 
+        Cambio c1 = new Cambio();
+        c1.setSize(1070, 720);
+        c1.setLocation(0, 0);
+        Main.getCuerpo().removeAll();
+        Main.getCuerpo().add(c1);
+        Main.getCuerpo().revalidate();
+        Main.getCuerpo().repaint();
+
 
     }//GEN-LAST:event_RegistrarMouseClicked
 
     private void RegistrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarMouseEntered
         Registrar.setBackground(Estilos.getColorSobreBoton());
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("actualizar");
+        }
     }//GEN-LAST:event_RegistrarMouseEntered
 
     private void RegistrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarMouseExited
         Registrar.setBackground(Estilos.getColorPanel());
+        Configuracion.parar();
     }//GEN-LAST:event_RegistrarMouseExited
 
     private void TFapellido2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFapellido2ActionPerformed
@@ -754,6 +830,95 @@ public class Cambio extends javax.swing.JPanel {
             TFemail.setForeground(Color.gray);
         }
     }//GEN-LAST:event_PWF2MousePressed
+
+    private void registro1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registro1MouseEntered
+        // TODO add your handling code here:
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("cambia_datos");
+        }
+    }//GEN-LAST:event_registro1MouseEntered
+
+    private void registro1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registro1MouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_registro1MouseExited
+
+    private void passwordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMouseEntered
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("contrasena");
+        }
+    }//GEN-LAST:event_passwordMouseEntered
+
+    private void passwordMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_passwordMouseExited
+
+    private void password2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_password2MouseEntered
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("contrasena");
+        }
+    }//GEN-LAST:event_password2MouseEntered
+
+    private void password2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_password2MouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_password2MouseExited
+
+    private void aliasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aliasMouseEntered
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("alias");
+        }
+    }//GEN-LAST:event_aliasMouseEntered
+
+    private void aliasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aliasMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_aliasMouseExited
+
+    private void nombreMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreMouseEntered
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("nombre");
+        }
+    }//GEN-LAST:event_nombreMouseEntered
+
+    private void nombreMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_nombreMouseExited
+
+    private void apellido1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apellido1MouseEntered
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("apellido1");
+        }
+    }//GEN-LAST:event_apellido1MouseEntered
+
+    private void apellido1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apellido1MouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_apellido1MouseExited
+
+    private void apellido2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apellido2MouseEntered
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("apellido2");
+        }
+    }//GEN-LAST:event_apellido2MouseEntered
+
+    private void apellido2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apellido2MouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_apellido2MouseExited
+
+    private void emailMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emailMouseEntered
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("email");
+        }
+    }//GEN-LAST:event_emailMouseEntered
+
+    private void emailMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emailMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_emailMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

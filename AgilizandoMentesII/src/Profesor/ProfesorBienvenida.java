@@ -7,7 +7,6 @@ package Profesor;
 import Usuario.Usuario;
 import Ajustes.*;
 
-
 /**
  *
  * @author damt111
@@ -20,9 +19,9 @@ public class ProfesorBienvenida extends javax.swing.JPanel {
     public ProfesorBienvenida() {
         initComponents();
         alias.setText(Usuario.getAlias());
-        nombre.setText(Usuario.getNombre() + " " + Usuario.getApellido1() +" "+Usuario.getApellido2());
+        nombre.setText(Usuario.getNombre() + " " + Usuario.getApellido1() + " " + Usuario.getApellido2());
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -70,6 +69,14 @@ public class ProfesorBienvenida extends javax.swing.JPanel {
         bienvenido1.setForeground(Estilos.getColorFuentePanel());
         bienvenido1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         bienvenido1.setText("Bienvenido a Agilizando Mentes II");
+        bienvenido1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bienvenido1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bienvenido1MouseExited(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -107,6 +114,14 @@ public class ProfesorBienvenida extends javax.swing.JPanel {
         bienvenido.setForeground(Estilos.getColorFuenteCuerpo());
         bienvenido.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         bienvenido.setText("Selecciona una actividad en el menú de la izquierda.");
+        bienvenido.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bienvenidoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bienvenidoMouseExited(evt);
+            }
+        });
         jPanel1.add(bienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 670, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -130,6 +145,30 @@ public class ProfesorBienvenida extends javax.swing.JPanel {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bienvenidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bienvenidoMouseEntered
+        // TODO add your handling code here:
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("selecciona_izquierda");
+        }
+    }//GEN-LAST:event_bienvenidoMouseEntered
+
+    private void bienvenidoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bienvenidoMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_bienvenidoMouseExited
+
+    private void bienvenido1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bienvenido1MouseEntered
+        // TODO add your handling code here:
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("bienvenido");
+        }
+    }//GEN-LAST:event_bienvenido1MouseEntered
+
+    private void bienvenido1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bienvenido1MouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_bienvenido1MouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

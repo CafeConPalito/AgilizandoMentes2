@@ -15,15 +15,15 @@ public class MetodosAlumnoBBDD {
 
     /**
      * Metodo para buscar alumnos en la vista view_info_alumnos
-     * @param con
-     * @param usuario
-     * @param alias
-     * @param nombre
-     * @param apellido1
-     * @param apellido2
-     * @param dni
-     * @param email
-     * @param curso
+     * @param con Conexion a la base de datos
+     * @param usuario usuario
+     * @param alias alias de usuario
+     * @param nombre nombre del usuario
+     * @param apellido1 1º Apellido de usuario
+     * @param apellido2 2º Apellido de usuario
+     * @param dni DNI del usuario
+     * @param email email del usuario
+     * @param curso Curso del usuario
      * @return Array de objetos ObjetoAlumnoBBDD
      */
     public static ArrayList selectAlumnos(Connection con, String usuario, String alias, String nombre, String apellido1, String apellido2, String dni, String email, String curso) {
@@ -60,9 +60,9 @@ public class MetodosAlumnoBBDD {
             }
 
         } catch (NumberFormatException e) {
-            System.err.println("Error de conversion de numero");
+            //System.err.println("Error de conversion de numero");
         } catch (SQLException ex) {
-            System.err.println("Error en el select");
+            //System.err.println("Error en el select");
         }
 
         return lista;

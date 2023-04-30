@@ -4,6 +4,7 @@
  */
 package Profesor;
 
+import Ajustes.Configuracion;
 import BBDD.ObjetoClasificacionBBDD;
 import BBDD.MetodosClasificacionBBDD;
 import Ajustes.Estilos;
@@ -40,7 +41,7 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
         TFApellido1.setForeground(Estilos.getColorGrisEsperandoRespuesta());
         TFApellido2.setText("Inserte Apellido 2");
         TFApellido2.setForeground(Estilos.getColorGrisEsperandoRespuesta());
-        
+
         DefaultTableModel modelC = (DefaultTableModel) jTable1.getModel();
         modelC.setRowCount(0);
 
@@ -131,9 +132,17 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
         datos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Apellido1.setBackground(new java.awt.Color(255, 255, 255));
+        Apellido1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Apellido1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Apellido1MouseExited(evt);
+            }
+        });
 
         ap1.setFont(Estilos.getFuenteCuerpo());
-        ap1.setText("Apellido 1");
+        ap1.setText("1º Apellido");
 
         TFApellido1.setFont(Estilos.getFuenteCuerpo());
         TFApellido1.setForeground(new java.awt.Color(204, 204, 204));
@@ -179,9 +188,17 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
         datos.add(Apellido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 344, -1));
 
         Apellido2.setBackground(new java.awt.Color(255, 255, 255));
+        Apellido2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                Apellido2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                Apellido2MouseExited(evt);
+            }
+        });
 
         ap2.setFont(Estilos.getFuenteCuerpo());
-        ap2.setText("Apellido 2");
+        ap2.setText("2º Apellido");
 
         TFApellido2.setFont(Estilos.getFuenteCuerpo());
         TFApellido2.setForeground(new java.awt.Color(204, 204, 204));
@@ -227,6 +244,14 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
         datos.add(Apellido2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 0, 320, -1));
 
         Nombre.setBackground(new java.awt.Color(255, 255, 255));
+        Nombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                NombreMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                NombreMouseExited(evt);
+            }
+        });
 
         no.setFont(Estilos.getFuenteCuerpo());
         no.setText("Nombre");
@@ -275,6 +300,7 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
         datos.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 330, -1));
 
         buscar.setBackground(new java.awt.Color(0, 155, 155));
+        buscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buscar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 buscarMouseClicked(evt);
@@ -291,7 +317,7 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
         buscartxt.setForeground(new java.awt.Color(255, 255, 255));
         buscartxt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         buscartxt.setText("Buscar");
-        buscartxt.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        buscartxt.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout buscarLayout = new javax.swing.GroupLayout(buscar);
         buscar.setLayout(buscarLayout);
@@ -308,9 +334,18 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
 
         Nivel.setBackground(Estilos.getColorPanelBlanco());
         Nivel.setFont(Estilos.getFuenteCuerpo());
+        Nivel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                NivelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                NivelMouseExited(evt);
+            }
+        });
 
         selectorNivel.setFont(Estilos.getFuenteCuerpo());
         selectorNivel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "Todos" }));
+        selectorNivel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel1.setFont(Estilos.getFuenteCuerpo());
         jLabel1.setText("Nivel");
@@ -340,9 +375,18 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
 
         Juego.setBackground(Estilos.getColorPanelBlanco());
         Juego.setFont(Estilos.getFuenteCuerpo());
+        Juego.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JuegoMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                JuegoMouseExited(evt);
+            }
+        });
 
         selectorJuego.setFont(Estilos.getFuenteCuerpo());
         selectorJuego.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Calculo25", "Euclides", "Resto División" }));
+        selectorJuego.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jLabel2.setFont(Estilos.getFuenteCuerpo());
         jLabel2.setText("Juego");
@@ -371,6 +415,7 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
         datos.add(Juego, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, 340, 60));
 
         Limpiar.setBackground(new java.awt.Color(0, 155, 155));
+        Limpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Limpiar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 LimpiarMouseClicked(evt);
@@ -472,10 +517,14 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
 
     private void buscarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscarMouseEntered
         buscar.setBackground(Estilos.getColorSobreBoton());
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("buscar");
+        }
     }//GEN-LAST:event_buscarMouseEntered
 
     private void buscarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscarMouseExited
         buscar.setBackground(Estilos.getColorPanel());
+        Configuracion.parar();
     }//GEN-LAST:event_buscarMouseExited
 
     private void LimpiarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LimpiarMouseClicked
@@ -484,11 +533,72 @@ public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
 
     private void LimpiarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LimpiarMouseEntered
         Limpiar.setBackground(Estilos.getColorSobreBoton());
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("limpiar");
+        }
     }//GEN-LAST:event_LimpiarMouseEntered
 
     private void LimpiarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LimpiarMouseExited
         Limpiar.setBackground(Estilos.getColorPanel());
+        Configuracion.parar();
     }//GEN-LAST:event_LimpiarMouseExited
+
+    private void NombreMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NombreMouseEntered
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("nombre");
+        }
+    }//GEN-LAST:event_NombreMouseEntered
+
+    private void NombreMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NombreMouseExited
+        Configuracion.parar();
+    }//GEN-LAST:event_NombreMouseExited
+
+    private void Apellido1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Apellido1MouseEntered
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("apellido1");
+        }
+    }//GEN-LAST:event_Apellido1MouseEntered
+
+    private void Apellido1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Apellido1MouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_Apellido1MouseExited
+
+    private void Apellido2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Apellido2MouseEntered
+        // TODO add your handling code here:
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("apellido2");
+        }
+    }//GEN-LAST:event_Apellido2MouseEntered
+
+    private void Apellido2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Apellido2MouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_Apellido2MouseExited
+
+    private void NivelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NivelMouseEntered
+        // TODO add your handling code here:
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("nivel");
+        }
+    }//GEN-LAST:event_NivelMouseEntered
+
+    private void NivelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_NivelMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_NivelMouseExited
+
+    private void JuegoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JuegoMouseEntered
+        // TODO add your handling code here:
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("juego");
+        }
+    }//GEN-LAST:event_JuegoMouseEntered
+
+    private void JuegoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JuegoMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_JuegoMouseExited
 
     /**
      * Metodo para actualizar la tabla

@@ -16,12 +16,12 @@ public class MetodosClasificacionBBDD {
 
     /**
      * Metodo para sacar los datos de las clasificaciones en los juegos
-     * @param con
-     * @param nombre
-     * @param apellido1
-     * @param apellido2
-     * @param nivel
-     * @param juego
+     * @param con Conexion a la base de datos
+     * @param nombre nombre del usuario
+     * @param apellido1 1º Apellido de usuario
+     * @param apellido2 2º Apellido de usuario
+     * @param nivel nivel del juego
+     * @param juego nombre del juego
      * @return 
      */
     public static ArrayList selectClasificacion(Connection con,String nombre, String apellido1, String apellido2, String nivel, String juego ) {

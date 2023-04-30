@@ -88,7 +88,7 @@ public class Ajustes extends javax.swing.JPanel {
         background.add(sonido, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, -1, -1));
 
         aplicar.setBackground(Estilos.getColorPanel());
-        aplicar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        aplicar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         aplicar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 aplicarMouseClicked(evt);
