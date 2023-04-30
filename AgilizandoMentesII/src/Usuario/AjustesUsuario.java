@@ -179,6 +179,7 @@ public class AjustesUsuario extends javax.swing.JPanel {
     private void signoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signoutMouseEntered
         signout.setBackground(Estilos.getColorSobreBoton());
           if (Configuracion.isSonido()) {
+              Configuracion.sonar("salir");
         }
     }//GEN-LAST:event_signoutMouseEntered
 

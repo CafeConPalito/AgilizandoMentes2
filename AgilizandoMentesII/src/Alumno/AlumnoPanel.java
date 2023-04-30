@@ -53,7 +53,7 @@ public class AlumnoPanel extends javax.swing.JPanel {
         PanelAlumnos.setPreferredSize(new java.awt.Dimension(210, 330));
 
         Cálculo.setBackground(new java.awt.Color(0, 155, 155));
-        Cálculo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Cálculo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Cálculo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CálculoMouseClicked(evt);
@@ -84,7 +84,7 @@ public class AlumnoPanel extends javax.swing.JPanel {
         );
 
         Euclides1.setBackground(new java.awt.Color(0, 155, 155));
-        Euclides1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Euclides1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Euclides1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Euclides1MouseClicked(evt);
@@ -115,7 +115,7 @@ public class AlumnoPanel extends javax.swing.JPanel {
         );
 
         RestoDivision.setBackground(new java.awt.Color(0, 155, 155));
-        RestoDivision.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        RestoDivision.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         RestoDivision.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 RestoDivisionMouseClicked(evt);
@@ -146,7 +146,7 @@ public class AlumnoPanel extends javax.swing.JPanel {
         );
 
         Calculadora.setBackground(new java.awt.Color(0, 155, 155));
-        Calculadora.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Calculadora.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Calculadora.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CalculadoraMouseClicked(evt);

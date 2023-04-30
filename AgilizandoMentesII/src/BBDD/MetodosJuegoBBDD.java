@@ -18,10 +18,10 @@ public class MetodosJuegoBBDD {
     /**
      * Inserta en la BBDD la puntuacion del jugador para el juego Resto Division
      *
-     * @param con
+     * @param con Conexion con la BBDD
      * @param aciertos se pasan los aciertos del jugador
      * @param tiempo_partida se pasan los segundos como entero
-     * @param nombreJuego
+     * @param nombreJuego nombre del juego
      */
     public static void insertResultado(Connection con, int aciertos, int tiempo_partida, String nombreJuego, int nivel) {
         PreparedStatement ps = null;

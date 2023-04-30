@@ -105,6 +105,10 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Password *"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="passwordMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="passwordMouseExited"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JPasswordField" name="PWF1">
               <Properties>
@@ -178,6 +182,10 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Alias"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="aliasMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="aliasMouseExited"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="TFalias">
               <Properties>
@@ -252,6 +260,10 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nombre *"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="nombreMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="nombreMouseExited"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="TFnombre">
               <Properties>
@@ -326,8 +338,12 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="Estilos.getFuenteCuerpo()" type="code"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Apellido 1*"/>
+                <Property name="text" type="java.lang.String" value="1&#xba; Apellido *"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="apellido1MouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="apellido1MouseExited"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="TFapellido1">
               <Properties>
@@ -402,8 +418,12 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
                   <Connection code="Estilos.getFuenteCuerpo()" type="code"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Apellido 2"/>
+                <Property name="text" type="java.lang.String" value="2&#xba; Apellido "/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="apellido2MouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="apellido2MouseExited"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="TFapellido2">
               <Properties>
@@ -525,6 +545,10 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Email *"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="emailMouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="emailMouseExited"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="TFemail">
               <Properties>
@@ -596,6 +620,10 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Confirmar Password *"/>
               </Properties>
+              <Events>
+                <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="password2MouseEntered"/>
+                <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="password2MouseExited"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JPasswordField" name="PWF2">
               <Properties>
@@ -628,6 +656,10 @@
             </Property>
             <Property name="text" type="java.lang.String" value="CAMBIA TUS DATOS"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="registro1MouseEntered"/>
+            <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="registro1MouseExited"/>
+          </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="90" y="80" width="-1" height="-1"/>

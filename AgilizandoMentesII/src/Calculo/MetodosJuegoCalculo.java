@@ -128,15 +128,7 @@ public class MetodosJuegoCalculo {
     }
     
     public String textoAlmacenRespuesta(){
-        return "El resultado de " +numero1 + "  " + operacion + "  " +numero2+ " es: " + respuesta;  
-    }
-
-    public int getNumero1() {
-        return numero1;
-    }
-
-    public int getNumero2() {
-        return numero2;
+        return "Resultado de: " +numero1 + "  " + operacion + "  " +numero2+ " es: " + respuesta;  
     }
 
     public int getRespuesta() {

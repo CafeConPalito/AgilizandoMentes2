@@ -46,6 +46,7 @@ public class PanelProfesor extends javax.swing.JPanel {
         PanelAlumnos.setPreferredSize(new java.awt.Dimension(210, 330));
 
         Clasificaciones.setBackground(new java.awt.Color(0, 155, 155));
+        Clasificaciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Clasificaciones.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ClasificacionesMouseClicked(evt);
@@ -76,6 +77,7 @@ public class PanelProfesor extends javax.swing.JPanel {
         );
 
         Alumnos.setBackground(new java.awt.Color(0, 155, 155));
+        Alumnos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Alumnos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 AlumnosMouseClicked(evt);
@@ -106,6 +108,7 @@ public class PanelProfesor extends javax.swing.JPanel {
         );
 
         Calculadora.setBackground(new java.awt.Color(0, 155, 155));
+        Calculadora.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         Calculadora.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CalculadoraMouseClicked(evt);
@@ -200,22 +203,33 @@ public class PanelProfesor extends javax.swing.JPanel {
 
     private void ClasificacionesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClasificacionesMouseEntered
         Clasificaciones.setBackground(Estilos.getColorSobreBoton());
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("clasificaciones");
+        }
     }//GEN-LAST:event_ClasificacionesMouseEntered
 
     private void ClasificacionesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClasificacionesMouseExited
         Clasificaciones.setBackground(Estilos.getColorPanel());
+        Configuracion.parar();
     }//GEN-LAST:event_ClasificacionesMouseExited
 
     private void AlumnosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AlumnosMouseEntered
         Alumnos.setBackground(Estilos.getColorSobreBoton());
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("alumnos");
+        }
     }//GEN-LAST:event_AlumnosMouseEntered
 
     private void AlumnosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AlumnosMouseExited
         Alumnos.setBackground(Estilos.getColorPanel());
+        Configuracion.parar();
     }//GEN-LAST:event_AlumnosMouseExited
 
     private void CalculadoraMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CalculadoraMouseEntered
         Calculadora.setBackground(Estilos.getColorSobreBoton());
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("calculadora");
+        }
     }//GEN-LAST:event_CalculadoraMouseEntered
 
     private void CalculadoraMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CalculadoraMouseExited

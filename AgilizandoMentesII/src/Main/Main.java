@@ -113,7 +113,7 @@ public class Main extends javax.swing.JFrame {
         BarraLateral.setBackground(Estilos.getColorPanel());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/augusto-logo-peq.png"))); // NOI18N
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -155,6 +155,7 @@ public class Main extends javax.swing.JFrame {
         );
 
         u2.setBackground(Estilos.getColorPanel());
+        u2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         u2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 u2MouseClicked(evt);
@@ -171,12 +172,7 @@ public class Main extends javax.swing.JFrame {
         LoginTXT.setForeground(new java.awt.Color(255, 255, 255));
         LoginTXT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LoginTXT.setText("Usuario ");
-        LoginTXT.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        LoginTXT.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LoginTXTMouseClicked(evt);
-            }
-        });
+        LoginTXT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout u2Layout = new javax.swing.GroupLayout(u2);
         u2.setLayout(u2Layout);
@@ -220,7 +216,7 @@ public class Main extends javax.swing.JFrame {
         Fondo.add(BarraLateral, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 720));
 
         header.setBackground(new java.awt.Color(255, 255, 255));
-        header.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        header.setCursor(new java.awt.Cursor(java.awt.Cursor.MOVE_CURSOR));
         header.setOpaque(false);
         header.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
@@ -344,9 +340,9 @@ public class Main extends javax.swing.JFrame {
         try {
             Desktop.getDesktop().browse(new URI("https://www.iesaglinares.com/"));
         } catch (IOException ex) {
-            System.err.println("Ha ocurrido una IOException");
+            //System.err.println("Ha ocurrido una IOException");
         } catch (URISyntaxException ex) {
-            System.err.println("No ha encontrado la URL");
+            //System.err.println("No ha encontrado la URL");
         }
     }//GEN-LAST:event_jLabel1MouseClicked
 
@@ -372,31 +368,15 @@ public class Main extends javax.swing.JFrame {
 
     private void u2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_u2MouseEntered
         u2.setBackground(Estilos.getColorSobreBoton());
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("usuario");
+        }
     }//GEN-LAST:event_u2MouseEntered
 
     private void u2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_u2MouseExited
         u2.setBackground(Estilos.getColorPanel());
+        Configuracion.parar();
     }//GEN-LAST:event_u2MouseExited
-
-    private void LoginTXTMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginTXTMouseClicked
-        if (!islogin) {
-            Login L1 = new Login();
-            L1.setSize(1070, 720);
-            L1.setLocation(0, 0);
-            Cuerpo.removeAll();
-            Cuerpo.add(L1, BorderLayout.CENTER);
-            Cuerpo.revalidate();
-            Cuerpo.repaint();
-        } else {
-            Cambio c1 = new Cambio();
-            c1.setSize(1070, 720);
-            c1.setLocation(0, 0);
-            Cuerpo.removeAll();
-            Cuerpo.add(c1);
-            Cuerpo.revalidate();
-            Cuerpo.repaint();
-        }
-    }//GEN-LAST:event_LoginTXTMouseClicked
 
     private void exitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitMouseEntered
         // TODO add your handling code here:
@@ -419,7 +399,7 @@ public class Main extends javax.swing.JFrame {
         try {
             con.close();
         } catch (SQLException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
         System.exit(0);
     }//GEN-LAST:event_exitMouseClicked
