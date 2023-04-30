@@ -129,11 +129,13 @@ public class MetodosUsuarioBBDD {
     }
 
     /**
-     * Aglutina todos los metodos que cargan desde la BBDD los datos del usuario.
-     * Trae el id_usuario, alias, nombre, apellido1, apellido2, esProfe, el curso.
+     * Aglutina todos los metodos que cargan desde la BBDD los datos del
+     * usuario. Trae el id_usuario, alias, nombre, apellido1, apellido2,
+     * esProfe, el curso.
+     *
      * @param con Conexion a BBDD
      */
-    public static void generarUsuario(Connection con){
+    public static void generarUsuario(Connection con) {
         getid_usuario(con);
         getalias(con);
         getnombre(con);
@@ -146,6 +148,7 @@ public class MetodosUsuarioBBDD {
     /**
      * Metodo que trae desde la BBDD el id_usuario del usuario Pensado para
      * utilizar despues del Login
+     *
      * @param con Conexion a BBDD
      */
     public static void getid_usuario(Connection con) {
@@ -194,7 +197,7 @@ public class MetodosUsuarioBBDD {
             //una vez en la primera linea podemos obtener la informacion;
             rs.next();
             Usuario.setNombre(rs.getString(1));
-            
+
         } catch (SQLException e) {
             //System.err.println("ERROR AL LEER NombreUsuario");
         }
@@ -223,7 +226,7 @@ public class MetodosUsuarioBBDD {
             //una vez en la primera linea podemos obtener la informacion;
             rs.next();
             Usuario.setAlias(rs.getString(1));
-            
+
         } catch (SQLException e) {
             //System.err.println("ERROR AL LEER alias");
         }
@@ -323,6 +326,7 @@ public class MetodosUsuarioBBDD {
     /**
      * Metodo que trae desde la BBDD si el curso del Usuario si el usuario es
      * profesor no se realiza. Pensado para utilizar despues del Login
+     *
      * @param con Conexion a BBDD
      */
     public static void getCurso(Connection con) {
