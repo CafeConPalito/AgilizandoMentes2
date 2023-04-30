@@ -104,20 +104,20 @@ public class MetodosJuegoCalculo {
     }
 
     public void implementarNivel(int nivel) {
-        switch (Usuario.getCurso()) {
-            case "1":
+        switch (nivel) {
+            case 1:
                 nivelA = 10;
                 nivelB = 10;
                 break;
-            case "2":
+            case 2:
                 nivelA = 100;
                 nivelB = 10;
                 break;
-            case "3":
+            case 3:
                 nivelA = 100;
                 nivelB = 100;
                 break;
-            case "4":
+            case 4:
                 nivelA = 1000;
                 nivelB = 100;
                 break;
@@ -130,15 +130,7 @@ public class MetodosJuegoCalculo {
     }
     
     public String textoAlmacenRespuesta(){
-        return "El resultado de " +numero1 + "  " + operacion + "  " +numero2+ " es: " + respuesta;  
-    }
-
-    public int getNumero1() {
-        return numero1;
-    }
-
-    public int getNumero2() {
-        return numero2;
+        return "Resultado de: " +numero1 + "  " + operacion + "  " +numero2+ " es: " + respuesta;  
     }
 
     public int getRespuesta() {
