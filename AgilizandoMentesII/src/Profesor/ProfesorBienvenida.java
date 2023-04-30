@@ -12,12 +12,12 @@ import Ajustes.*;
  *
  * @author damt111
  */
-public class BienvenidaC extends javax.swing.JPanel {
+public class ProfesorBienvenida extends javax.swing.JPanel {
 
     /**
      * Creates new form NewJPanel
      */
-    public BienvenidaC() {
+    public ProfesorBienvenida() {
         initComponents();
         alias.setText(Usuario.getAlias());
         nombre.setText(Usuario.getNombre() + " " + Usuario.getApellido1() +" "+Usuario.getApellido2());

@@ -17,12 +17,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author terciodemarte
  */
-public class clasificacion extends javax.swing.JPanel {
+public class ProfesorInfoClasificacionAlumos extends javax.swing.JPanel {
 
     /**
      * Creates new form alumnos
      */
-    public clasificacion() {
+    public ProfesorInfoClasificacionAlumos() {
         initComponents();
         jTable1.getTableHeader().setDefaultRenderer(new HeaderColor());
         jTable1.setAutoCreateRowSorter(true);

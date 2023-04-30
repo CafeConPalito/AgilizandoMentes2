@@ -10,7 +10,7 @@ import Ajustes.*;
 import Alumno.*;
 import BBDD.MetodosAjustesBBDD;
 import BBDD.MetodosUsuarioBBDD;
-import Profesor.BienvenidaP;
+import Profesor.ProfesorBienvenida;
 import Profesor.PanelProfesor;
 import Usuario.AjustesUsuario;
 import Usuario.Usuario;
@@ -308,7 +308,7 @@ public class Login extends javax.swing.JPanel {
                     MetodosAjustesBBDD.actualizarletra();
 
                     //Muestro los paneles del alumno
-                    PanelAlumno pa1 = new PanelAlumno();
+                    AlumnoPanel pa1 = new AlumnoPanel();
                     pa1.setSize(210, 400);
                     pa1.setLocation(0, 0);
                     Main.getPanelVacio().removeAll();
@@ -316,7 +316,7 @@ public class Login extends javax.swing.JPanel {
                     Main.getPanelVacio().revalidate();
                     Main.getPanelVacio().repaint();
 
-                    BienvenidaA bienvenidaA = new BienvenidaA();
+                    AlumnoBienvenida bienvenidaA = new AlumnoBienvenida();
                     bienvenidaA.setSize(1070, 720);
                     bienvenidaA.setLocation(0, 0);
                     Main.getCuerpo().removeAll();
@@ -351,7 +351,7 @@ public class Login extends javax.swing.JPanel {
                     Main.getPanelVacio().revalidate();
                     Main.getPanelVacio().repaint();
 
-                    BienvenidaP bienvenidaP = new BienvenidaP();
+                    ProfesorBienvenida bienvenidaP = new ProfesorBienvenida();
                     bienvenidaP.setSize(1070, 720);
                     bienvenidaP.setLocation(0, 0);
                     Main.getCuerpo().removeAll();
@@ -437,7 +437,7 @@ public class Login extends javax.swing.JPanel {
                         MetodosAjustesBBDD.actualizarletra();
 
                         //Muestro los paneles del alumno
-                        PanelAlumno pa1 = new PanelAlumno();
+                        AlumnoPanel pa1 = new AlumnoPanel();
                         pa1.setSize(210, 400);
                         pa1.setLocation(0, 0);
                         Main.getPanelVacio().removeAll();
@@ -445,7 +445,7 @@ public class Login extends javax.swing.JPanel {
                         Main.getPanelVacio().revalidate();
                         Main.getPanelVacio().repaint();
 
-                        BienvenidaA bienvenidaA = new BienvenidaA();
+                        AlumnoBienvenida bienvenidaA = new AlumnoBienvenida();
                         bienvenidaA.setSize(1070, 720);
                         bienvenidaA.setLocation(0, 0);
                         Main.getCuerpo().removeAll();
@@ -480,7 +480,7 @@ public class Login extends javax.swing.JPanel {
                         Main.getPanelVacio().revalidate();
                         Main.getPanelVacio().repaint();
 
-                        BienvenidaP bienvenidaP = new BienvenidaP();
+                        ProfesorBienvenida bienvenidaP = new ProfesorBienvenida();
                         bienvenidaP.setSize(1070, 720);
                         bienvenidaP.setLocation(0, 0);
                         Main.getCuerpo().removeAll();

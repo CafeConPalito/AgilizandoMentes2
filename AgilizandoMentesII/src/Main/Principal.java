@@ -38,13 +38,27 @@ public class Principal {
         " - " Clase
         
         Pendientes de Revisar: SI DA TIEMPO QUE OTRO LO COMPRUEBE
-            - Tiempo autor Daniel, revisa ortografia
-            - RestoDiv  autor Daniel, revisa ortografia
-            - MetodosJuegoRestoDiv  autor Daniel, revisa ortografia
-            - Euclides (no revisar ya que va a ser un copia y pega de RestoDiv)
-            - BienvenidaA autor Daniel, revisa ortografia
-            - BienvenidaP autor Daniel, revisa ortografia
+            
+            
+            
+            *Tiempo
+                - Tiempo autor Daniel, revisa ortografia
         
+            *RestoDiv
+                - RestoDiv  autor Daniel, revisa ortografia
+                - MetodosJuegoRestoDiv  autor Daniel, revisa ortografia
+        
+            Euclides
+                - MetodosJuegoEuclides
+                - Euclides (no revisar ya que va a ser un copia y pega de RestoDiv)
+        
+            *Alumno
+                - AlumnoBienvenida autor Daniel, revisa ortografia
+                - AlumnoPanel autor Daniel, revisa ortografia
+        
+            * Calculadora
+                - Calculadora autor Daniel, revisa ortografia
+            
         QuedanPendientes:
             *Main
                 - Main
@@ -59,24 +73,24 @@ public class Principal {
                 - Register
                 - AjustesLogin
 
-            * Calculadora
-                - BienvenidaA
-            
             * Ajustes
                 - Ajustes
                 - Configuracion
                 - Estilos
         
             *Profesor
-                - PanelProfesor
-                - alumnos
-                - clasificacion
+                - ProfesorBienvenida autor Daniel, revisa ortografia
+                - PanelProfesor !
+                - ProfesorInfoAlumnos 
+                - ProfesorInfoAlumnosClasificacion
             
-            * CLASES SUELTAS
-                - PanelAlumno    
-                - MetodosJuegoEuclides
+             Calculo
                 - MetodosJuegoCalculo
                 - Calculo (no revisar ya que va a ser un copia y pega de RestoDiv)
+        
+            * CLASES SUELTAS  
+                
+
 
             *BBDD
                 - ConexionBBDD

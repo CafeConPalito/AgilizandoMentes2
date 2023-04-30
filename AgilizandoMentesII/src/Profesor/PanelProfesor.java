@@ -174,7 +174,7 @@ public class PanelProfesor extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ClasificacionesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ClasificacionesMouseClicked
-        clasificacion c1 = new clasificacion();
+        ProfesorInfoClasificacionAlumos c1 = new ProfesorInfoClasificacionAlumos();
         c1.setSize(1070, 720);
         c1.setLocation(0, 0);
         Main.getCuerpo().removeAll();
@@ -184,7 +184,7 @@ public class PanelProfesor extends javax.swing.JPanel {
     }//GEN-LAST:event_ClasificacionesMouseClicked
 
     private void AlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AlumnosMouseClicked
-        alumnos a1 = new alumnos();
+        ProfesorInfoAlumnos a1 = new ProfesorInfoAlumnos();
         a1.setSize(1070, 720);
         a1.setLocation(0, 0);
         Main.getCuerpo().removeAll();

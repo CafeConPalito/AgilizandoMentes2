@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package Profesor;
+package Alumno;
 
 import Usuario.Usuario;
 import Ajustes.*;
@@ -12,12 +12,12 @@ import Ajustes.*;
  *
  * @author damt111
  */
-public class BienvenidaP extends javax.swing.JPanel {
+public class AlumnoBienvenida extends javax.swing.JPanel {
 
     /**
      * Creates new form NewJPanel
      */
-    public BienvenidaP() {
+    public AlumnoBienvenida() {
         initComponents();
         alias.setText(Usuario.getAlias());
         nombre.setText(Usuario.getNombre() + " " + Usuario.getApellido1() +" "+Usuario.getApellido2());
@@ -32,32 +32,16 @@ public class BienvenidaP extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanelFondo = new javax.swing.JPanel();
-        Fondo = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         bienvenido1 = new javax.swing.JLabel();
         alias = new javax.swing.JLabel();
         nombre = new javax.swing.JLabel();
         bienvenido = new javax.swing.JLabel();
+        jPanelFondo = new javax.swing.JPanel();
+        Fondo = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1070, 720));
-
-        jPanelFondo.setBackground(Estilos.getColorPanelBlanco());
-        jPanelFondo.setPreferredSize(new java.awt.Dimension(1070, 720));
-
-        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Fondo.png"))); // NOI18N
-
-        javax.swing.GroupLayout jPanelFondoLayout = new javax.swing.GroupLayout(jPanelFondo);
-        jPanelFondo.setLayout(jPanelFondoLayout);
-        jPanelFondoLayout.setHorizontalGroup(
-            jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        jPanelFondoLayout.setVerticalGroup(
-            jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setOpaque(false);
@@ -108,6 +92,22 @@ public class BienvenidaP extends javax.swing.JPanel {
         bienvenido.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         bienvenido.setText("Selecciona una actividad en el menú de la izquierda.");
         jPanel1.add(bienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 670, 40));
+
+        jPanelFondo.setBackground(Estilos.getColorPanelBlanco());
+        jPanelFondo.setPreferredSize(new java.awt.Dimension(1070, 720));
+
+        Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Fondo.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanelFondoLayout = new javax.swing.GroupLayout(jPanelFondo);
+        jPanelFondo.setLayout(jPanelFondoLayout);
+        jPanelFondoLayout.setHorizontalGroup(
+            jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanelFondoLayout.setVerticalGroup(
+            jPanelFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

@@ -17,16 +17,16 @@ public class Calculadora extends javax.swing.JFrame {
 
     //VARIABLES PARA ALMACENAR LOS VALORES;
     private double valor1 = 0, valor2 = 0, resultado = -1;
-    private int operacion = -1;
     boolean control = false;
     /* equivalencia del valor de operaciones
         1 para suma
         2 para resta
-        3 para multiplicacion
-        4 para division
-        5 para raiz cuadrada
+        3 para multiplicación
+        4 para división
+        5 para raíz cuadrada
      */
-    private int maxCaracteres = 20;
+    private int operacion = -1;
+    private int maxCaracteres = 20; // máximo numero de caracteres en pantalla
 
     /**
      * Creates new form Calculadora2
@@ -1104,6 +1104,10 @@ public class Calculadora extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formKeyPressed
 
+    /**
+     * Método que en función de la operación seleccionada realiza la operación
+     * matemática
+     */
     private void operaciones() {
         switch (operacion) {
             case 1://suma                
@@ -1150,7 +1154,9 @@ public class Calculadora extends javax.swing.JFrame {
         }
     }
 
-    // metodo para capturar el valor del input
+    /**
+     * metodo para capturar el valor del input
+     */
     public void capturarValorInput() {
         try {
             if (!input.getText().isEmpty() && !input.getText().equalsIgnoreCase("ERROR") && output.getText().isEmpty()) { // si el input tiene valor y el output no tiene nada sube el valor y coloca el simbolo
@@ -1162,7 +1168,9 @@ public class Calculadora extends javax.swing.JFrame {
         }
     }
 
-    //metodo para limpiar si tiene un error.
+    /**
+     * metodo para limpiar si tiene un error.
+     */
     public void limpiarError() {
         if (input.getText().equalsIgnoreCase("ERROR")) {// si tiene un error limpia para volver a colocar numeros ;)
             input.setText("0");
@@ -1170,13 +1178,19 @@ public class Calculadora extends javax.swing.JFrame {
         }
     }
 
-    //metodo para quitar ceros a la izquierda
+    /**
+     * metodo para quitar ceros a la izquierda
+     */
     public void limparCerosIzquierda() {
         if (input.getText().equalsIgnoreCase("0")) {
             input.setText("");
         }
     }
 
+    /**
+     * Método que al presionar el botón igual “=” realiza la operación
+     * matemática, si se seleccionó una operación
+     */
     private void igual() {
         if (operacion != -1) {
             try {
@@ -1196,6 +1210,10 @@ public class Calculadora extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Método que al presionar el botón dividir “/” almacena la operación
+     * matemática, y la muestra por pantalla
+     */
     private void dividir() {
         limpiarError();
         capturarValorInput();
@@ -1203,6 +1221,10 @@ public class Calculadora extends javax.swing.JFrame {
         output.setText(valor1 + " /");
     }
 
+    /**
+     * Método que al presionar el botón multiplicar “*” almacena la operación
+     * matemática, y la muestra por pantalla
+     */
     private void multi() {
         limpiarError();
         capturarValorInput();
@@ -1210,40 +1232,33 @@ public class Calculadora extends javax.swing.JFrame {
         output.setText(valor1 + " *");
     }
 
+    /**
+     * Método que al presionar el botón restar “-” almacena la operación
+     * matemática, y la muestra por pantalla
+     */
     private void resta() {
         limpiarError();
         capturarValorInput();
         operacion = 2;
         output.setText(valor1 + " -");
-        /*
-        try {
-            if (!input.getText().isEmpty() && output.getText().isEmpty()) { // si el input tiene valor y el output no tiene nada sube el valor y coloca el simbolo
-                valor1 = Double.parseDouble(input.getText());
-                output.setText(valor1 + " -");
-                input.setText("0");
-                operacion = 2;
-            } else if (!input.getText().isEmpty() && !output.getText().isEmpty()) { //si el input tiene valor y el output ya tiene valor realiza la operacion y limpia el input
-                valor2 = Double.parseDouble(input.getText());
-                operaciones();
-                output.setText(resultado + " -");
-                input.setText("0");
-                operacion = 2;
-            } else if (input.getText().isEmpty() && !output.getText().isEmpty()) { //si el input esta vacio y el output ya tiene valor cambia la operacion
-                output.setText(valor1 + " -");
-                operacion = 2;
-            }
-        } catch (NumberFormatException e) {
-            output.setText("ERROR");
-        }
-         */
     }
-    private void suma(){
+
+    /**
+     * Método que al presionar el botón sumar “+” almacena la operación
+     * matemática, y la muestra por pantalla
+     */
+    private void suma() {
         limpiarError();
         capturarValorInput();
         operacion = 1;
         output.setText(valor1 + " +");
     }
 
+    /**
+     * Método que al presionar el botón coma “,” comprueba que no se ha puesto
+     * ya una coma y si es asi la coloca, si ademas no se han introducido
+     * números antes esta completara con “0,”
+     */
     private void coma() {
         limpiarError();
         if (input.getText().length() < maxCaracteres) {
@@ -1255,6 +1270,9 @@ public class Calculadora extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Método que reinicia la calculadora a su estado inicial
+     */
     private void clear() {
         input.setText("0");
         output.setText("");
@@ -1264,6 +1282,9 @@ public class Calculadora extends javax.swing.JFrame {
         operacion = -1;
     }
 
+    /**
+     * Método que coloca en el panel el digito seleccionado por el usuario
+     */
     private void i0() {
         limpiarError();
         limparCerosIzquierda();
@@ -1272,6 +1293,9 @@ public class Calculadora extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Método que coloca en el panel el digito seleccionado por el usuario
+     */
     private void i1() {
         limpiarError();
         limparCerosIzquierda();
@@ -1280,6 +1304,9 @@ public class Calculadora extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Método que coloca en el panel el digito seleccionado por el usuario
+     */
     private void i2() {
         limpiarError();
         limparCerosIzquierda();
@@ -1287,7 +1314,9 @@ public class Calculadora extends javax.swing.JFrame {
             input.setText(input.getText() + "2");
         }
     }
-
+    /**
+     * Método que coloca en el panel el digito seleccionado por el usuario
+     */
     private void i3() {
         limpiarError();
         limparCerosIzquierda();
@@ -1295,7 +1324,9 @@ public class Calculadora extends javax.swing.JFrame {
             input.setText(input.getText() + "3");
         }
     }
-
+    /**
+     * Método que coloca en el panel el digito seleccionado por el usuario
+     */
     private void i4() {
         limpiarError();
         limparCerosIzquierda();
@@ -1303,7 +1334,9 @@ public class Calculadora extends javax.swing.JFrame {
             input.setText(input.getText() + "4");
         }
     }
-
+    /**
+     * Método que coloca en el panel el digito seleccionado por el usuario
+     */
     private void i5() {
         limpiarError();
         limparCerosIzquierda();
@@ -1311,7 +1344,9 @@ public class Calculadora extends javax.swing.JFrame {
             input.setText(input.getText() + "5");
         }
     }
-
+    /**
+     * Método que coloca en el panel el digito seleccionado por el usuario
+     */
     private void i6() {
         limpiarError();
         limparCerosIzquierda();
@@ -1319,7 +1354,9 @@ public class Calculadora extends javax.swing.JFrame {
             input.setText(input.getText() + "6");
         }
     }
-
+    /**
+     * Método que coloca en el panel el digito seleccionado por el usuario
+     */
     private void i7() {
         limpiarError();
         limparCerosIzquierda();
@@ -1327,7 +1364,9 @@ public class Calculadora extends javax.swing.JFrame {
             input.setText(input.getText() + "7");
         }
     }
-
+    /**
+     * Método que coloca en el panel el digito seleccionado por el usuario
+     */
     private void i8() {
         limpiarError();
         limparCerosIzquierda();
@@ -1335,17 +1374,15 @@ public class Calculadora extends javax.swing.JFrame {
             input.setText(input.getText() + "8");
         }
     }
-
+    /**
+     * Método que coloca en el panel el digito seleccionado por el usuario
+     */
     private void i9() {
         limpiarError();
         limparCerosIzquierda();
         if (input.getText().length() < maxCaracteres) {
             input.setText(input.getText() + "9");
         }
-    }
-
-    private void raiz() {
-
     }
 
     /**
