@@ -1,6 +1,6 @@
 package Ajustes;
 
-import BBDD.MetodosAjustes;
+import BBDD.MetodosAjustesBBDD;
 import Main.Main;
 import java.awt.Color;
 
@@ -21,7 +21,7 @@ public class Ajustes extends javax.swing.JPanel {
             }
             Si.setSelected(Configuracion.isSonido());
         } else {
-            MetodosAjustes.cargarAjustes(Main.getCon());
+            MetodosAjustesBBDD.cargarAjustes(Main.getCon());
             valortexto.setText(Byte.toString(Configuracion.getTamano()));
             texto.setValue(Configuracion.getTamano());
             selectidioma.removeAllItems();
@@ -231,7 +231,7 @@ public class Ajustes extends javax.swing.JPanel {
 
     private void aplicarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aplicarMouseClicked
         Configuracion.setTamano((byte) texto.getValue());
-        MetodosAjustes.actualizarletra();
+        MetodosAjustesBBDD.actualizarletra();
 
         Configuracion.setIdioma(selectidioma.getSelectedItem().toString());
         if (Si.isSelected()) {
@@ -241,7 +241,7 @@ public class Ajustes extends javax.swing.JPanel {
             Configuracion.setSonido(false);
         }
         
-        MetodosAjustes.guardarAjustes(Main.getCon());
+        MetodosAjustesBBDD.guardarAjustes(Main.getCon());
 
         Ajustes a1 = new Ajustes();
         a1.setSize(1070, 720);
