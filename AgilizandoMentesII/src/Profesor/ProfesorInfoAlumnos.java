@@ -173,12 +173,11 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
                 .addComponent(us)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TFUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SepUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(SepUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        datos.add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, 340, -1));
+        datos.add(Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, -1));
 
         Apellido1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -203,15 +202,14 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
         Apellido1.setLayout(Apellido1Layout);
         Apellido1Layout.setHorizontalGroup(
             Apellido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Apellido1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Apellido1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(Apellido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TFApellido1)
-                    .addGroup(Apellido1Layout.createSequentialGroup()
-                        .addGroup(Apellido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ap1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SepUsuario3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGroup(Apellido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(SepUsuario3)
+                    .addComponent(TFApellido1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Apellido1Layout.createSequentialGroup()
+                        .addComponent(ap1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 102, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         Apellido1Layout.setVerticalGroup(
@@ -221,12 +219,11 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
                 .addComponent(ap1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TFApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SepUsuario3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(SepUsuario3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        datos.add(Apellido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 76, 340, -1));
+        datos.add(Apellido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 84, -1, -1));
 
         email.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -256,10 +253,9 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
                 .addGroup(emailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TFEmail)
                     .addGroup(emailLayout.createSequentialGroup()
-                        .addGroup(emailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(em, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SepUsuario6, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(em, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 102, Short.MAX_VALUE))
+                    .addComponent(SepUsuario6))
                 .addContainerGap())
         );
         emailLayout.setVerticalGroup(
@@ -269,12 +265,11 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
                 .addComponent(em)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TFEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SepUsuario6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(SepUsuario6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        datos.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 152, 340, -1));
+        datos.add(email, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 168, -1, -1));
 
         Alias.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -304,10 +299,9 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
                 .addGroup(AliasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TFAlias)
                     .addGroup(AliasLayout.createSequentialGroup()
-                        .addGroup(AliasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(al, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SepUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(al, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 110, Short.MAX_VALUE))
+                    .addComponent(SepUsuario1))
                 .addContainerGap())
         );
         AliasLayout.setVerticalGroup(
@@ -317,12 +311,11 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
                 .addComponent(al)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TFAlias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SepUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(SepUsuario1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        datos.add(Alias, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 0, 348, -1));
+        datos.add(Alias, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 0, -1, -1));
 
         curso.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -352,10 +345,9 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
                 .addGroup(cursoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TFCurso)
                     .addGroup(cursoLayout.createSequentialGroup()
-                        .addGroup(cursoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cu, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SepUsuario7, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 110, Short.MAX_VALUE)))
+                        .addComponent(cu, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 110, Short.MAX_VALUE))
+                    .addComponent(SepUsuario7))
                 .addContainerGap())
         );
         cursoLayout.setVerticalGroup(
@@ -365,12 +357,11 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
                 .addComponent(cu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TFCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SepUsuario7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(SepUsuario7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        datos.add(curso, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 152, -1, -1));
+        datos.add(curso, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 168, -1, 66));
 
         DNI.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -400,10 +391,9 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
                 .addGroup(DNILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TFDni)
                     .addGroup(DNILayout.createSequentialGroup()
-                        .addGroup(DNILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(dni, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SepUsuario5, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 92, Short.MAX_VALUE)))
+                        .addComponent(dni, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 86, Short.MAX_VALUE))
+                    .addComponent(SepUsuario5))
                 .addContainerGap())
         );
         DNILayout.setVerticalGroup(
@@ -413,12 +403,11 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
                 .addComponent(dni)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TFDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SepUsuario5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(SepUsuario5, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        datos.add(DNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 76, -1, -1));
+        datos.add(DNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(716, 84, -1, -1));
 
         Apellido2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -448,10 +437,9 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
                 .addGroup(Apellido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TFApellido2)
                     .addGroup(Apellido2Layout.createSequentialGroup()
-                        .addGroup(Apellido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ap2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SepUsuario4, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(ap2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 110, Short.MAX_VALUE))
+                    .addComponent(SepUsuario4))
                 .addContainerGap())
         );
         Apellido2Layout.setVerticalGroup(
@@ -461,12 +449,11 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
                 .addComponent(ap2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TFApellido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SepUsuario4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(12, 12, 12)
+                .addComponent(SepUsuario4, javax.swing.GroupLayout.DEFAULT_SIZE, 10, Short.MAX_VALUE))
         );
 
-        datos.add(Apellido2, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 76, 348, -1));
+        datos.add(Apellido2, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 84, -1, -1));
 
         Nombre.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -496,10 +483,9 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
                 .addGroup(NombreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(TFNombre)
                     .addGroup(NombreLayout.createSequentialGroup()
-                        .addGroup(NombreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(no, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SepUsuario2, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(no, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 86, Short.MAX_VALUE))
+                    .addComponent(SepUsuario2))
                 .addContainerGap())
         );
         NombreLayout.setVerticalGroup(
@@ -509,12 +495,11 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
                 .addComponent(no)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TFNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SepUsuario2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(SepUsuario2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        datos.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 0, 330, -1));
+        datos.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(716, 0, -1, -1));
 
         buscar.setBackground(new java.awt.Color(0, 155, 155));
         buscar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -539,16 +524,17 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
         buscar.setLayout(buscarLayout);
         buscarLayout.setHorizontalGroup(
             buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(buscartxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(buscartxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
         );
         buscarLayout.setVerticalGroup(
             buscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(buscartxt, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addComponent(buscartxt, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
         );
 
-        datos.add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 160, 160, 60));
+        datos.add(buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(716, 168, -1, -1));
 
         jPLimpiar.setBackground(new java.awt.Color(0, 155, 155));
+        jPLimpiar.setPreferredSize(new java.awt.Dimension(150, 16));
         jPLimpiar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPLimpiarMouseClicked(evt);
@@ -571,37 +557,37 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
         jPLimpiar.setLayout(jPLimpiarLayout);
         jPLimpiarLayout.setHorizontalGroup(
             jPLimpiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLlimpiar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLlimpiar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
         );
         jPLimpiarLayout.setVerticalGroup(
             jPLimpiarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLlimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+            .addComponent(jLlimpiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        datos.add(jPLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 160, 160, 60));
+        datos.add(jPLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 168, -1, 66));
 
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
         background.setLayout(backgroundLayout);
         backgroundLayout.setHorizontalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(backgroundLayout.createSequentialGroup()
-                .addContainerGap(7, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1034, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(datos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         backgroundLayout.setVerticalGroup(
             backgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, backgroundLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(datos, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+                .addComponent(datos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
         );
 
-        add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, -1));
+        add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1070, 720));
     }// </editor-fold>//GEN-END:initComponents
 
     private void limpiarCamposTodos() {
