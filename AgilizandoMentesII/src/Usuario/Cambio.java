@@ -35,18 +35,22 @@ public class Cambio extends javax.swing.JPanel {
 
         fondoRegistro = new javax.swing.JPanel();
         aliasupdate = new javax.swing.JLabel();
-        Password = new javax.swing.JPanel();
-        password = new javax.swing.JLabel();
-        PWF1 = new javax.swing.JPasswordField();
-        SepPassword = new javax.swing.JSeparator();
-        Alias = new javax.swing.JPanel();
-        alias = new javax.swing.JLabel();
-        TFalias = new javax.swing.JTextField();
-        SepAlias = new javax.swing.JSeparator();
         Nombre = new javax.swing.JPanel();
         nombre = new javax.swing.JLabel();
         TFnombre = new javax.swing.JTextField();
         SepNombre = new javax.swing.JSeparator();
+        Alias = new javax.swing.JPanel();
+        alias = new javax.swing.JLabel();
+        TFalias = new javax.swing.JTextField();
+        SepAlias = new javax.swing.JSeparator();
+        Password2 = new javax.swing.JPanel();
+        password2 = new javax.swing.JLabel();
+        PWF2 = new javax.swing.JPasswordField();
+        SepPassword1 = new javax.swing.JSeparator();
+        Password = new javax.swing.JPanel();
+        SepPassword = new javax.swing.JSeparator();
+        PWF1 = new javax.swing.JPasswordField();
+        password = new javax.swing.JLabel();
         Apellido1 = new javax.swing.JPanel();
         apellido1 = new javax.swing.JLabel();
         TFapellido1 = new javax.swing.JTextField();
@@ -55,133 +59,25 @@ public class Cambio extends javax.swing.JPanel {
         apellido2 = new javax.swing.JLabel();
         TFapellido2 = new javax.swing.JTextField();
         SepApellido2 = new javax.swing.JSeparator();
-        Registrar = new javax.swing.JPanel();
-        registrar = new javax.swing.JLabel();
         Email = new javax.swing.JPanel();
         email = new javax.swing.JLabel();
         TFemail = new javax.swing.JTextField();
         Sepemail = new javax.swing.JSeparator();
-        Password2 = new javax.swing.JPanel();
-        password2 = new javax.swing.JLabel();
-        PWF2 = new javax.swing.JPasswordField();
-        SepPassword1 = new javax.swing.JSeparator();
+        Registrar = new javax.swing.JPanel();
+        registrar = new javax.swing.JLabel();
         registro1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1070, 720));
 
         fondoRegistro.setBackground(new java.awt.Color(255, 255, 255));
         fondoRegistro.setPreferredSize(new java.awt.Dimension(1070, 720));
-        fondoRegistro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         aliasupdate.setFont(Estilos.getFuenteCuerpo());
         aliasupdate.setText("alias");
-        fondoRegistro.add(aliasupdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, -1, -1));
-
-        Password.setBackground(new java.awt.Color(255, 255, 255));
-
-        password.setFont(Estilos.getFuenteCuerpo());
-        password.setText("Password *");
-        password.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                passwordMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                passwordMouseExited(evt);
-            }
-        });
-
-        PWF1.setFont(Estilos.getFuenteCuerpo());
-        PWF1.setForeground(new java.awt.Color(204, 204, 204));
-        PWF1.setText("********");
-        PWF1.setBorder(null);
-        PWF1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                PWF1MousePressed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout PasswordLayout = new javax.swing.GroupLayout(Password);
-        Password.setLayout(PasswordLayout);
-        PasswordLayout.setHorizontalGroup(
-            PasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PasswordLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(PasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(SepPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
-                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PWF1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        PasswordLayout.setVerticalGroup(
-            PasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PasswordLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(password)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PWF1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addComponent(SepPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        fondoRegistro.add(Password, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, -1, -1));
-
-        Alias.setBackground(new java.awt.Color(255, 255, 255));
-
-        alias.setFont(Estilos.getFuenteCuerpo());
-        alias.setText("Alias");
-        alias.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                aliasMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                aliasMouseExited(evt);
-            }
-        });
-
-        TFalias.setFont(Estilos.getFuenteCuerpo());
-        TFalias.setForeground(new java.awt.Color(204, 204, 204));
-        TFalias.setText("Inserte su alias");
-        TFalias.setBorder(null);
-        TFalias.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                TFaliasMousePressed(evt);
-            }
-        });
-        TFalias.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TFaliasActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout AliasLayout = new javax.swing.GroupLayout(Alias);
-        Alias.setLayout(AliasLayout);
-        AliasLayout.setHorizontalGroup(
-            AliasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AliasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(AliasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TFalias, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
-                    .addComponent(SepAlias)
-                    .addGroup(AliasLayout.createSequentialGroup()
-                        .addComponent(alias, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        AliasLayout.setVerticalGroup(
-            AliasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(AliasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(alias)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TFalias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SepAlias, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        fondoRegistro.add(Alias, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, -1, 70));
 
         Nombre.setBackground(new java.awt.Color(255, 255, 255));
+        Nombre.setOpaque(false);
+        Nombre.setPreferredSize(new java.awt.Dimension(291, 72));
 
         nombre.setFont(Estilos.getFuenteCuerpo());
         nombre.setText("Nombre *");
@@ -216,11 +112,9 @@ public class Cambio extends javax.swing.JPanel {
             .addGroup(NombreLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(NombreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TFnombre, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+                    .addComponent(TFnombre, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
                     .addComponent(SepNombre)
-                    .addGroup(NombreLayout.createSequentialGroup()
-                        .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(nombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         NombreLayout.setVerticalGroup(
@@ -229,18 +123,170 @@ public class Cambio extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(nombre)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TFnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TFnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SepNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(SepNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        fondoRegistro.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, -1, 70));
+        Alias.setBackground(new java.awt.Color(255, 255, 255));
+        Alias.setOpaque(false);
+
+        alias.setFont(Estilos.getFuenteCuerpo());
+        alias.setText("Alias");
+        alias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                aliasMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                aliasMouseExited(evt);
+            }
+        });
+
+        TFalias.setFont(Estilos.getFuenteCuerpo());
+        TFalias.setForeground(new java.awt.Color(204, 204, 204));
+        TFalias.setText("Inserte su alias");
+        TFalias.setBorder(null);
+        TFalias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                TFaliasMousePressed(evt);
+            }
+        });
+        TFalias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TFaliasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout AliasLayout = new javax.swing.GroupLayout(Alias);
+        Alias.setLayout(AliasLayout);
+        AliasLayout.setHorizontalGroup(
+            AliasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AliasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(AliasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TFalias)
+                    .addComponent(SepAlias)
+                    .addComponent(alias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        AliasLayout.setVerticalGroup(
+            AliasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(AliasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(alias)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TFalias, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SepAlias, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        Password2.setBackground(new java.awt.Color(255, 255, 255));
+        Password2.setOpaque(false);
+        Password2.setPreferredSize(new java.awt.Dimension(291, 72));
+
+        password2.setFont(Estilos.getFuenteCuerpo());
+        password2.setText("Confirmar Password *");
+        password2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                password2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                password2MouseExited(evt);
+            }
+        });
+
+        PWF2.setFont(Estilos.getFuenteCuerpo());
+        PWF2.setForeground(new java.awt.Color(204, 204, 204));
+        PWF2.setText("********");
+        PWF2.setBorder(null);
+        PWF2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                PWF2MousePressed(evt);
+            }
+        });
+        PWF2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PWF2ActionPerformed(evt);
+            }
+        });
+
+        SepPassword1.setAlignmentY(0.1F);
+
+        javax.swing.GroupLayout Password2Layout = new javax.swing.GroupLayout(Password2);
+        Password2.setLayout(Password2Layout);
+        Password2Layout.setHorizontalGroup(
+            Password2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Password2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(Password2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(SepPassword1)
+                    .addComponent(password2, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+                    .addComponent(PWF2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        Password2Layout.setVerticalGroup(
+            Password2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(Password2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(password2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(PWF2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SepPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        Password.setBackground(new java.awt.Color(255, 255, 255));
+        Password.setOpaque(false);
+
+        PWF1.setFont(Estilos.getFuenteCuerpo());
+        PWF1.setForeground(new java.awt.Color(204, 204, 204));
+        PWF1.setText("********");
+        PWF1.setBorder(null);
+        PWF1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                PWF1MousePressed(evt);
+            }
+        });
+
+        password.setFont(Estilos.getFuenteCuerpo());
+        password.setText("Password *");
+        password.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                passwordMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                passwordMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PasswordLayout = new javax.swing.GroupLayout(Password);
+        Password.setLayout(PasswordLayout);
+        PasswordLayout.setHorizontalGroup(
+            PasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PasswordLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(PasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(SepPassword)
+                    .addComponent(PWF1, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+                    .addComponent(password, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        PasswordLayout.setVerticalGroup(
+            PasswordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PasswordLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(password)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PWF1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(SepPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         Apellido1.setBackground(new java.awt.Color(255, 255, 255));
+        Apellido1.setOpaque(false);
 
         apellido1.setFont(Estilos.getFuenteCuerpo());
-        apellido1.setText("1º Apellido *");
+        apellido1.setText("Primer Apellido *");
         apellido1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 apellido1MouseEntered(evt);
@@ -272,12 +318,9 @@ public class Cambio extends javax.swing.JPanel {
             .addGroup(Apellido1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(Apellido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TFapellido1, javax.swing.GroupLayout.DEFAULT_SIZE, 406, Short.MAX_VALUE)
-                    .addGroup(Apellido1Layout.createSequentialGroup()
-                        .addGroup(Apellido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(apellido1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SepApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(apellido1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TFapellido1, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+                    .addComponent(SepApellido1))
                 .addContainerGap())
         );
         Apellido1Layout.setVerticalGroup(
@@ -286,18 +329,16 @@ public class Cambio extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(apellido1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TFapellido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SepApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(TFapellido1, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(SepApellido1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        fondoRegistro.add(Apellido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, -1, 70));
-
         Apellido2.setBackground(new java.awt.Color(255, 255, 255));
+        Apellido2.setOpaque(false);
 
         apellido2.setFont(Estilos.getFuenteCuerpo());
-        apellido2.setText("2º Apellido ");
+        apellido2.setText("Segundo Apellido");
         apellido2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 apellido2MouseEntered(evt);
@@ -329,12 +370,9 @@ public class Cambio extends javax.swing.JPanel {
             .addGroup(Apellido2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(Apellido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TFapellido2, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE)
-                    .addGroup(Apellido2Layout.createSequentialGroup()
-                        .addGroup(Apellido2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(apellido2, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SepApellido2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(TFapellido2, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
+                    .addComponent(SepApellido2)
+                    .addComponent(apellido2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         Apellido2Layout.setVerticalGroup(
@@ -343,47 +381,13 @@ public class Cambio extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(apellido2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TFapellido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SepApellido2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(TFapellido2, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(SepApellido2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-
-        fondoRegistro.add(Apellido2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 210, -1, 70));
-
-        Registrar.setBackground(Estilos.getColorPanel());
-        Registrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Registrar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                RegistrarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                RegistrarMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                RegistrarMouseExited(evt);
-            }
-        });
-
-        registrar.setFont(Estilos.getFuenteCuerpo());
-        registrar.setForeground(new java.awt.Color(255, 255, 255));
-        registrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        registrar.setText("ACTUALIZAR");
-
-        javax.swing.GroupLayout RegistrarLayout = new javax.swing.GroupLayout(Registrar);
-        Registrar.setLayout(RegistrarLayout);
-        RegistrarLayout.setHorizontalGroup(
-            RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(registrar, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-        );
-        RegistrarLayout.setVerticalGroup(
-            RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(registrar, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
-        );
-
-        fondoRegistro.add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 560, 190, 50));
 
         Email.setBackground(new java.awt.Color(255, 255, 255));
+        Email.setOpaque(false);
 
         email.setFont(Estilos.getFuenteCuerpo());
         email.setText("Email *");
@@ -418,11 +422,9 @@ public class Cambio extends javax.swing.JPanel {
             .addGroup(EmailLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(EmailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(TFemail)
+                    .addComponent(TFemail, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
                     .addComponent(Sepemail)
-                    .addGroup(EmailLayout.createSequentialGroup()
-                        .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 40, Short.MAX_VALUE)))
+                    .addComponent(email, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         EmailLayout.setVerticalGroup(
@@ -431,64 +433,40 @@ public class Cambio extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(email)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TFemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Sepemail, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(TFemail, javax.swing.GroupLayout.DEFAULT_SIZE, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(Sepemail, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        fondoRegistro.add(Email, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, -1, 70));
-
-        Password2.setBackground(new java.awt.Color(255, 255, 255));
-
-        password2.setFont(Estilos.getFuenteCuerpo());
-        password2.setText("Confirmar Password *");
-        password2.addMouseListener(new java.awt.event.MouseAdapter() {
+        Registrar.setBackground(Estilos.getColorPanel());
+        Registrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Registrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                RegistrarMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                password2MouseEntered(evt);
+                RegistrarMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                password2MouseExited(evt);
+                RegistrarMouseExited(evt);
             }
         });
 
-        PWF2.setFont(Estilos.getFuenteCuerpo());
-        PWF2.setForeground(new java.awt.Color(204, 204, 204));
-        PWF2.setText("********");
-        PWF2.setBorder(null);
-        PWF2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                PWF2MousePressed(evt);
-            }
-        });
+        registrar.setFont(Estilos.getFuenteCuerpo());
+        registrar.setForeground(new java.awt.Color(255, 255, 255));
+        registrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        registrar.setText("ACTUALIZAR");
 
-        SepPassword1.setAlignmentY(0.1F);
-
-        javax.swing.GroupLayout Password2Layout = new javax.swing.GroupLayout(Password2);
-        Password2.setLayout(Password2Layout);
-        Password2Layout.setHorizontalGroup(
-            Password2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Password2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(Password2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(SepPassword1)
-                    .addComponent(password2, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
-                    .addComponent(PWF2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        javax.swing.GroupLayout RegistrarLayout = new javax.swing.GroupLayout(Registrar);
+        Registrar.setLayout(RegistrarLayout);
+        RegistrarLayout.setHorizontalGroup(
+            RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(registrar, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
         );
-        Password2Layout.setVerticalGroup(
-            Password2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Password2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(password2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PWF2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SepPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+        RegistrarLayout.setVerticalGroup(
+            RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(registrar, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
         );
-
-        fondoRegistro.add(Password2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, -1));
 
         registro1.setFont(Estilos.getFuenteCuerpo());
         registro1.setText("CAMBIA TUS DATOS");
@@ -500,7 +478,64 @@ public class Cambio extends javax.swing.JPanel {
                 registro1MouseExited(evt);
             }
         });
-        fondoRegistro.add(registro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
+
+        javax.swing.GroupLayout fondoRegistroLayout = new javax.swing.GroupLayout(fondoRegistro);
+        fondoRegistro.setLayout(fondoRegistroLayout);
+        fondoRegistroLayout.setHorizontalGroup(
+            fondoRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoRegistroLayout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addGroup(fondoRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoRegistroLayout.createSequentialGroup()
+                        .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(169, 169, 169)
+                        .addComponent(Apellido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(163, 163, 163))
+                    .addGroup(fondoRegistroLayout.createSequentialGroup()
+                        .addGroup(fondoRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(fondoRegistroLayout.createSequentialGroup()
+                                .addGroup(fondoRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(Password2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Alias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(169, 169, 169)
+                                .addGroup(fondoRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Apellido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Registrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(fondoRegistroLayout.createSequentialGroup()
+                                .addComponent(registro1)
+                                .addGap(160, 160, 160)
+                                .addComponent(aliasupdate)))
+                        .addGap(209, 209, 209))))
+        );
+        fondoRegistroLayout.setVerticalGroup(
+            fondoRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(fondoRegistroLayout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addGroup(fondoRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(aliasupdate)
+                    .addComponent(registro1))
+                .addGap(34, 34, 34)
+                .addGroup(fondoRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Apellido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(fondoRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(fondoRegistroLayout.createSequentialGroup()
+                        .addComponent(Apellido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)
+                        .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(fondoRegistroLayout.createSequentialGroup()
+                        .addComponent(Password2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)
+                        .addComponent(Alias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)
+                        .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(70, 70, 70)
+                .addComponent(Registrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(109, 109, 109))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -514,37 +549,29 @@ public class Cambio extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void PWF1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PWF1MousePressed
-        if (String.valueOf(PWF1.getPassword()).equals("********")) {
-            PWF1.setText("");
-            PWF1.setForeground(Color.black);
-        }
-        if (String.valueOf(PWF2.getPassword()).isEmpty()) {
-            PWF2.setText("********");
-            PWF2.setForeground(Color.black);
-        }
-        if (TFalias.getText().isEmpty()) {
-            TFalias.setText("Inserte su alias");
-            TFalias.setForeground(Color.gray);
-        }
-        if (TFnombre.getText().isEmpty()) {
-            TFnombre.setText("Inserte su nombre");
-            TFnombre.setForeground(Color.gray);
-        }
-        if (TFapellido1.getText().isEmpty()) {
-            TFapellido1.setText("Inserte su primer apellido");
-            TFapellido1.setForeground(Color.gray);
-        }
-        if (TFapellido2.getText().isEmpty()) {
-            TFapellido2.setText("Inserte su segundo apellido");
-            TFapellido2.setForeground(Color.gray);
-        }
-        if (TFemail.getText().isEmpty()) {
-            TFemail.setText("ejemplo@ejemplo.com");
-            TFemail.setForeground(Color.gray);
-        }
+    private void registro1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registro1MouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_registro1MouseExited
 
-    }//GEN-LAST:event_PWF1MousePressed
+    private void registro1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registro1MouseEntered
+        // TODO add your handling code here:
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("cambia_datos");
+        }
+    }//GEN-LAST:event_registro1MouseEntered
+
+    private void RegistrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarMouseExited
+        Registrar.setBackground(Estilos.getColorPanel());
+        Configuracion.parar();
+    }//GEN-LAST:event_RegistrarMouseExited
+
+    private void RegistrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarMouseEntered
+        Registrar.setBackground(Estilos.getColorSobreBoton());
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("actualizar");
+        }
+    }//GEN-LAST:event_RegistrarMouseEntered
 
     private void RegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarMouseClicked
 
@@ -619,20 +646,46 @@ public class Cambio extends javax.swing.JPanel {
         Main.getCuerpo().revalidate();
         Main.getCuerpo().repaint();
 
-
     }//GEN-LAST:event_RegistrarMouseClicked
 
-    private void RegistrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarMouseEntered
-        Registrar.setBackground(Estilos.getColorSobreBoton());
-        if (Configuracion.isSonido()) {
-            Configuracion.sonar("actualizar");
-        }
-    }//GEN-LAST:event_RegistrarMouseEntered
+    private void TFemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFemailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TFemailActionPerformed
 
-    private void RegistrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarMouseExited
-        Registrar.setBackground(Estilos.getColorPanel());
+    private void TFemailMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFemailMousePressed
+        if (TFemail.getText().equals("ejemplo@ejemplo.com")) {
+            TFemail.setText("");
+            TFemail.setForeground(Color.gray);
+        }
+        if (String.valueOf(PWF1.getPassword()).isEmpty()) {
+            PWF1.setText("********");
+            PWF1.setForeground(Color.gray);
+        }
+        if (String.valueOf(PWF2.getPassword()).isEmpty()) {
+            PWF2.setText("********");
+            PWF2.setForeground(Color.gray);
+        }
+
+        if (TFnombre.getText().isEmpty()) {
+            TFnombre.setText("Inserte su nombre");
+            TFnombre.setForeground(Color.gray);
+        }
+        if (TFapellido2.getText().isEmpty()) {
+            TFapellido2.setText("Inserte su segundo apellido");
+            TFapellido2.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_TFemailMousePressed
+
+    private void emailMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emailMouseExited
+        // TODO add your handling code here:
         Configuracion.parar();
-    }//GEN-LAST:event_RegistrarMouseExited
+    }//GEN-LAST:event_emailMouseExited
+
+    private void emailMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emailMouseEntered
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("email");
+        }
+    }//GEN-LAST:event_emailMouseEntered
 
     private void TFapellido2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFapellido2ActionPerformed
         // TODO add your handling code here:
@@ -671,6 +724,17 @@ public class Cambio extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_TFapellido2MousePressed
 
+    private void apellido2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apellido2MouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_apellido2MouseExited
+
+    private void apellido2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apellido2MouseEntered
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("apellido2");
+        }
+    }//GEN-LAST:event_apellido2MouseEntered
+
     private void TFapellido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFapellido1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TFapellido1ActionPerformed
@@ -707,6 +771,17 @@ public class Cambio extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_TFapellido1MousePressed
 
+    private void apellido1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apellido1MouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_apellido1MouseExited
+
+    private void apellido1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apellido1MouseEntered
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("apellido1");
+        }
+    }//GEN-LAST:event_apellido1MouseEntered
+
     private void TFnombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFnombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TFnombreActionPerformed
@@ -738,6 +813,17 @@ public class Cambio extends javax.swing.JPanel {
             TFemail.setForeground(Color.gray);
         }
     }//GEN-LAST:event_TFnombreMousePressed
+
+    private void nombreMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreMouseExited
+        // TODO add your handling code here:
+        Configuracion.parar();
+    }//GEN-LAST:event_nombreMouseExited
+
+    private void nombreMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreMouseEntered
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("nombre");
+        }
+    }//GEN-LAST:event_nombreMouseEntered
 
     private void TFaliasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFaliasActionPerformed
         // TODO add your handling code here:
@@ -771,33 +857,16 @@ public class Cambio extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_TFaliasMousePressed
 
-    private void TFemailMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFemailMousePressed
-        if (TFemail.getText().equals("ejemplo@ejemplo.com")) {
-            TFemail.setText("");
-            TFemail.setForeground(Color.gray);
-        }
-        if (String.valueOf(PWF1.getPassword()).isEmpty()) {
-            PWF1.setText("********");
-            PWF1.setForeground(Color.gray);
-        }
-        if (String.valueOf(PWF2.getPassword()).isEmpty()) {
-            PWF2.setText("********");
-            PWF2.setForeground(Color.gray);
-        }
-
-        if (TFnombre.getText().isEmpty()) {
-            TFnombre.setText("Inserte su nombre");
-            TFnombre.setForeground(Color.gray);
-        }
-        if (TFapellido2.getText().isEmpty()) {
-            TFapellido2.setText("Inserte su segundo apellido");
-            TFapellido2.setForeground(Color.gray);
-        }
-    }//GEN-LAST:event_TFemailMousePressed
-
-    private void TFemailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TFemailActionPerformed
+    private void aliasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aliasMouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_TFemailActionPerformed
+        Configuracion.parar();
+    }//GEN-LAST:event_aliasMouseExited
+
+    private void aliasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aliasMouseEntered
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("alias");
+        }
+    }//GEN-LAST:event_aliasMouseEntered
 
     private void PWF2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PWF2MousePressed
         if (String.valueOf(PWF2.getPassword()).equals("********")) {
@@ -831,28 +900,10 @@ public class Cambio extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_PWF2MousePressed
 
-    private void registro1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registro1MouseEntered
-        // TODO add your handling code here:
-        if (Configuracion.isSonido()) {
-            Configuracion.sonar("cambia_datos");
-        }
-    }//GEN-LAST:event_registro1MouseEntered
-
-    private void registro1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registro1MouseExited
+    private void password2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_password2MouseExited
         // TODO add your handling code here:
         Configuracion.parar();
-    }//GEN-LAST:event_registro1MouseExited
-
-    private void passwordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMouseEntered
-        if (Configuracion.isSonido()) {
-            Configuracion.sonar("contrasena");
-        }
-    }//GEN-LAST:event_passwordMouseEntered
-
-    private void passwordMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMouseExited
-        // TODO add your handling code here:
-        Configuracion.parar();
-    }//GEN-LAST:event_passwordMouseExited
+    }//GEN-LAST:event_password2MouseExited
 
     private void password2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_password2MouseEntered
         if (Configuracion.isSonido()) {
@@ -860,65 +911,51 @@ public class Cambio extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_password2MouseEntered
 
-    private void password2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_password2MouseExited
-        // TODO add your handling code here:
-        Configuracion.parar();
-    }//GEN-LAST:event_password2MouseExited
-
-    private void aliasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aliasMouseEntered
-        if (Configuracion.isSonido()) {
-            Configuracion.sonar("alias");
+    private void PWF1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PWF1MousePressed
+        if (String.valueOf(PWF1.getPassword()).equals("********")) {
+            PWF1.setText("");
+            PWF1.setForeground(Color.black);
         }
-    }//GEN-LAST:event_aliasMouseEntered
-
-    private void aliasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aliasMouseExited
-        // TODO add your handling code here:
-        Configuracion.parar();
-    }//GEN-LAST:event_aliasMouseExited
-
-    private void nombreMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreMouseEntered
-        if (Configuracion.isSonido()) {
-            Configuracion.sonar("nombre");
+        if (String.valueOf(PWF2.getPassword()).isEmpty()) {
+            PWF2.setText("********");
+            PWF2.setForeground(Color.black);
         }
-    }//GEN-LAST:event_nombreMouseEntered
-
-    private void nombreMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nombreMouseExited
-        // TODO add your handling code here:
-        Configuracion.parar();
-    }//GEN-LAST:event_nombreMouseExited
-
-    private void apellido1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apellido1MouseEntered
-        if (Configuracion.isSonido()) {
-            Configuracion.sonar("apellido1");
+        if (TFalias.getText().isEmpty()) {
+            TFalias.setText("Inserte su alias");
+            TFalias.setForeground(Color.gray);
         }
-    }//GEN-LAST:event_apellido1MouseEntered
-
-    private void apellido1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apellido1MouseExited
-        // TODO add your handling code here:
-        Configuracion.parar();
-    }//GEN-LAST:event_apellido1MouseExited
-
-    private void apellido2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apellido2MouseEntered
-        if (Configuracion.isSonido()) {
-            Configuracion.sonar("apellido2");
+        if (TFnombre.getText().isEmpty()) {
+            TFnombre.setText("Inserte su nombre");
+            TFnombre.setForeground(Color.gray);
         }
-    }//GEN-LAST:event_apellido2MouseEntered
-
-    private void apellido2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_apellido2MouseExited
-        // TODO add your handling code here:
-        Configuracion.parar();
-    }//GEN-LAST:event_apellido2MouseExited
-
-    private void emailMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emailMouseEntered
-        if (Configuracion.isSonido()) {
-            Configuracion.sonar("email");
+        if (TFapellido1.getText().isEmpty()) {
+            TFapellido1.setText("Inserte su primer apellido");
+            TFapellido1.setForeground(Color.gray);
         }
-    }//GEN-LAST:event_emailMouseEntered
+        if (TFapellido2.getText().isEmpty()) {
+            TFapellido2.setText("Inserte su segundo apellido");
+            TFapellido2.setForeground(Color.gray);
+        }
+        if (TFemail.getText().isEmpty()) {
+            TFemail.setText("ejemplo@ejemplo.com");
+            TFemail.setForeground(Color.gray);
+        }
+    }//GEN-LAST:event_PWF1MousePressed
 
-    private void emailMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_emailMouseExited
+    private void passwordMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMouseExited
         // TODO add your handling code here:
         Configuracion.parar();
-    }//GEN-LAST:event_emailMouseExited
+    }//GEN-LAST:event_passwordMouseExited
+
+    private void passwordMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMouseEntered
+        if (Configuracion.isSonido()) {
+            Configuracion.sonar("contrasena");
+        }
+    }//GEN-LAST:event_passwordMouseEntered
+
+    private void PWF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PWF2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PWF2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
