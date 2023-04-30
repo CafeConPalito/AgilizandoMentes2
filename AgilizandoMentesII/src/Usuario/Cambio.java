@@ -34,7 +34,6 @@ public class Cambio extends javax.swing.JPanel {
     private void initComponents() {
 
         fondoRegistro = new javax.swing.JPanel();
-        aliasupdate = new javax.swing.JLabel();
         Nombre = new javax.swing.JPanel();
         nombre = new javax.swing.JLabel();
         TFnombre = new javax.swing.JTextField();
@@ -65,15 +64,14 @@ public class Cambio extends javax.swing.JPanel {
         Sepemail = new javax.swing.JSeparator();
         Registrar = new javax.swing.JPanel();
         registrar = new javax.swing.JLabel();
-        registro1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        Titulo = new javax.swing.JLabel();
+        aliasupdate = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1070, 720));
 
         fondoRegistro.setBackground(new java.awt.Color(255, 255, 255));
         fondoRegistro.setPreferredSize(new java.awt.Dimension(1070, 720));
-
-        aliasupdate.setFont(Estilos.getFuenteCuerpo());
-        aliasupdate.setText("alias");
 
         Nombre.setBackground(new java.awt.Color(255, 255, 255));
         Nombre.setOpaque(false);
@@ -440,6 +438,7 @@ public class Cambio extends javax.swing.JPanel {
 
         Registrar.setBackground(Estilos.getColorPanel());
         Registrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Registrar.setPreferredSize(new java.awt.Dimension(190, 50));
         Registrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 RegistrarMouseClicked(evt);
@@ -461,38 +460,57 @@ public class Cambio extends javax.swing.JPanel {
         Registrar.setLayout(RegistrarLayout);
         RegistrarLayout.setHorizontalGroup(
             RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(registrar, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+            .addComponent(registrar, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
         );
         RegistrarLayout.setVerticalGroup(
             RegistrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(registrar, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+            .addComponent(registrar, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        registro1.setFont(Estilos.getFuenteCuerpo());
-        registro1.setText("CAMBIA TUS DATOS");
-        registro1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                registro1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                registro1MouseExited(evt);
-            }
-        });
+        jPanel2.setBackground(Estilos.getColorPanel());
+
+        Titulo.setFont(Estilos.getFuenteCuerpo());
+        Titulo.setForeground(Estilos.getColorFuentePanel());
+        Titulo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        Titulo.setText("Cambia tus datos");
+
+        aliasupdate.setFont(Estilos.getFuenteCuerpo());
+        aliasupdate.setForeground(Estilos.getColorFuentePanel());
+        aliasupdate.setText("alias");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 242, Short.MAX_VALUE)
+                .addComponent(aliasupdate, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(Titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(222, Short.MAX_VALUE)))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(aliasupdate, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(Titulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout fondoRegistroLayout = new javax.swing.GroupLayout(fondoRegistro);
         fondoRegistro.setLayout(fondoRegistroLayout);
         fondoRegistroLayout.setHorizontalGroup(
             fondoRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoRegistroLayout.createSequentialGroup()
-                .addGap(110, 110, 110)
                 .addGroup(fondoRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fondoRegistroLayout.createSequentialGroup()
-                        .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(169, 169, 169)
-                        .addComponent(Apellido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(163, 163, 163))
-                    .addGroup(fondoRegistroLayout.createSequentialGroup()
+                        .addGap(110, 110, 110)
                         .addGroup(fondoRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(fondoRegistroLayout.createSequentialGroup()
+                                .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(169, 169, 169)
+                                .addComponent(Apellido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(fondoRegistroLayout.createSequentialGroup()
                                 .addGroup(fondoRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(Password2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -502,21 +520,18 @@ public class Cambio extends javax.swing.JPanel {
                                 .addGroup(fondoRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Apellido2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Registrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(fondoRegistroLayout.createSequentialGroup()
-                                .addComponent(registro1)
-                                .addGap(160, 160, 160)
-                                .addComponent(aliasupdate)))
-                        .addGap(209, 209, 209))))
+                                    .addComponent(Registrar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(fondoRegistroLayout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(209, 209, 209))
         );
         fondoRegistroLayout.setVerticalGroup(
             fondoRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fondoRegistroLayout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addGroup(fondoRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(aliasupdate)
-                    .addComponent(registro1))
-                .addGap(34, 34, 34)
+                .addGap(66, 66, 66)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
                 .addGroup(fondoRegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Apellido1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -532,9 +547,9 @@ public class Cambio extends javax.swing.JPanel {
                         .addComponent(Alias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(22, 22, 22)
                         .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(70, 70, 70)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addComponent(Registrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(109, 109, 109))
+                .addGap(116, 116, 116))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -548,18 +563,6 @@ public class Cambio extends javax.swing.JPanel {
             .addComponent(fondoRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void registro1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registro1MouseExited
-        // TODO add your handling code here:
-        Configuracion.parar();
-    }//GEN-LAST:event_registro1MouseExited
-
-    private void registro1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registro1MouseEntered
-        // TODO add your handling code here:
-        if (Configuracion.isSonido()) {
-            Configuracion.sonar("cambia_datos");
-        }
-    }//GEN-LAST:event_registro1MouseEntered
 
     private void RegistrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarMouseExited
         Registrar.setBackground(Estilos.getColorPanel());
@@ -981,16 +984,17 @@ public class Cambio extends javax.swing.JPanel {
     private javax.swing.JTextField TFapellido2;
     private javax.swing.JTextField TFemail;
     private javax.swing.JTextField TFnombre;
+    private javax.swing.JLabel Titulo;
     private javax.swing.JLabel alias;
     private javax.swing.JLabel aliasupdate;
     private javax.swing.JLabel apellido1;
     private javax.swing.JLabel apellido2;
     private javax.swing.JLabel email;
     private javax.swing.JPanel fondoRegistro;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel nombre;
     private javax.swing.JLabel password;
     private javax.swing.JLabel password2;
     private javax.swing.JLabel registrar;
-    private javax.swing.JLabel registro1;
     // End of variables declaration//GEN-END:variables
 }
