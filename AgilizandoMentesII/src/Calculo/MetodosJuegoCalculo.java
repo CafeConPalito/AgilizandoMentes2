@@ -28,6 +28,7 @@ public class MetodosJuegoCalculo {
     private int intentos = 25;
     private static int penalizacion;
 
+
     /**
      * inicializa los dos valores numéricos y el signo para crear una
      * operación(pregunta)

@@ -24,7 +24,7 @@ public class MetodosAlumnoBBDD {
      * @param dni DNI del usuario
      * @param email email del usuario
      * @param curso Curso del usuario
-     * @return Array de objetos ObjetoAlumnoBBDD
+     * @return ArrayList de objetos ObjetoAlumnoBBDD
      */
     public static ArrayList selectAlumnos(Connection con, String usuario, String alias, String nombre, String apellido1, String apellido2, String dni, String email, String curso) {
 

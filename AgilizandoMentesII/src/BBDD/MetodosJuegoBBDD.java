@@ -22,6 +22,7 @@ public class MetodosJuegoBBDD {
      * @param aciertos se pasan los aciertos del jugador
      * @param tiempo_partida se pasan los segundos como entero
      * @param nombreJuego nombre del juego
+     * @param nivel Nivel del juego
      */
     public static void insertResultado(Connection con, int aciertos, int tiempo_partida, String nombreJuego, int nivel) {
         PreparedStatement ps = null;
@@ -64,9 +65,10 @@ public class MetodosJuegoBBDD {
      * Busca en la BBDD las mejores 5 partidas del jugador y las ordena de mejor
      * a peor 1º por puntos luego por tiempo.
      *
-     * @param con
-     * @param nombreJuego
-     * @return ArrayList con las 5 mejores partidas del jugador
+     * @param con Conexion con la BBDD
+     * @param nombreJuego Nombre del Juego
+     * @param nivel Nivel del Juego
+     * @return ArrayList con las 5 mejores partidas del jugador en ese nivel
      */
     public static ArrayList selectJugadorMejoresPartidas(Connection con, String nombreJuego ,int nivel) {
 
@@ -101,10 +103,10 @@ public class MetodosJuegoBBDD {
     /**
      * Busca en la BBDD las ultimas 5 partidas de el jugador
      *
-     * @param con
-     * @param nombreJuego
-     * @param nivel
-     * @return ArrayList con las 5 ultimas partidas del jugador
+     * @param con Conexion con la BBDD
+     * @param nombreJuego Nombre del Juego
+     * @param nivel Nivel del Juego
+     * @return ArrayList con las 5 ultimas partidas del jugador en ese nivel
      */
     public static ArrayList selectJugadorUltimasPartidas(Connection con, String nombreJuego,int nivel) {
         PreparedStatement ps = null;
@@ -141,9 +143,10 @@ public class MetodosJuegoBBDD {
      * Busca en la BBDD las 5 mejores puntuaciones de todos los jugadores en el
      * nivel del Usuario
      *
-     * @param con
-     * @param nombreJuego
-     * @return ArrayList con los 5 mejores calificados
+     * @param con Conexion con la BBDD
+     * @param nombreJuego Nombre del Juego
+     * @param nivel Nivel del Juego
+     * @return ArrayList con los 5 mejores calificados de todos los Jugadores en ese nivel
      */
     public static ArrayList selectClasificacion(Connection con, String nombreJuego, int nivel) {
 
@@ -175,7 +178,13 @@ public class MetodosJuegoBBDD {
 
         return lista;
     }
-
+    /**
+     * Busca en la BBDD el total de partidas del Jugador en ese nivel
+     * @param con Conexion a la Base de datos
+     * @param nombreJuego Nombre del Juego
+     * @param nivel nivel del Juego
+     * @return Devuelve String con la cantidad de partidas jugadas en ese nivel
+     */
     public static String totalPartidas(Connection con, String nombreJuego, int nivel) {
         String totalPartidas = "0";
 
@@ -204,6 +213,13 @@ public class MetodosJuegoBBDD {
         return totalPartidas;
     }
 
+    /**
+     * Busca en la BBDD la media de aciertos del Jugador en ese nivel
+     * @param con Conexion a la BBDD
+     * @param nombreJuego nombre del juego
+     * @param nivel nivel del juego
+     * @return Devuelve un String con la media de aciertos del Jugador
+     */
     public static String mediaAciertos(Connection con, String nombreJuego, int nivel) {
         String mediaAciertos = "0";
 

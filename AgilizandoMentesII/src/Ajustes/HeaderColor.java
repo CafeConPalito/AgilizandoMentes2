@@ -18,6 +18,18 @@ public class HeaderColor extends DefaultTableCellRenderer {
         setOpaque(true);
     }
 
+    /**
+     * Este metodo Override permite modificar el estilo de las tablas, en este
+     * caso modifica el color del Header a Verde y el Texto a Blanco
+     *
+     * @param table
+     * @param value
+     * @param selected
+     * @param focused
+     * @param row
+     * @param column
+     * @return devuelve el estilo de un jTable modificado.
+     */
     @Override
     public Component getTableCellRendererComponent(JTable table, Object value, boolean selected, boolean focused, int row, int column) {
         super.getTableCellRendererComponent(table, value, selected, focused, row, column);
