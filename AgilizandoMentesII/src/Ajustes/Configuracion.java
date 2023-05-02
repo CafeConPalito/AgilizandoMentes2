@@ -58,13 +58,13 @@ public class Configuracion {
                 clip.start();
               
             }catch(FileNotFoundException ex){
-                 Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+                 //Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
             }catch (UnsupportedAudioFileException ex) {
-                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+                //Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
-                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+                //Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
             } catch (LineUnavailableException ex) {
-                Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
+                //Logger.getLogger(Ajustes.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
     /**
