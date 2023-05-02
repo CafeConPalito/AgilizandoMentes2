@@ -1,0 +1,59 @@
+docker run --rm -it -p 6001:21 -v /home/gutierrezramiro/cafeweb/ -p 4559-4564:4559-4564 -e FTP_USER=ftp -e FTP_PASSWORD=ftp docker.io/panubo/vsftpd:latest
+
+docker run --rm -it \
+-e FTP_USER=panubo -e FTP_PASSWORD_HASH='$6$XWpu...DwK1' \
+-v /home/gutierrezramiro/cafeweb/:/etc/ssl/certs/vsftpd.crt:ro \
+-v /home/gutierrezramiro/cafeweb/:/etc/ssl/private/vsftpd.key:ro \
+docker.io/panubo/vsftpd vsftpd /etc/vsftpd_ssl.conf
+
+
+docker run -d -p 6000:21 -p 65500-65515:65500-65515 -v /tmp:/var/ftp:ro metabrainz/docker-anon-ftp
+
+
+
+
+docker run -d \
+    -p 6000:21 \
+    -p 21000-21010:21000-21010 \
+    -e USERS="daniel|1234|/Users/ftp_path|10000" \
+    -e ADDRESS=localhost \
+    -e TLS_CERT="/etc/letsencrypt/live/vds2291318.my-ihor.ru/fullchain.pem" \
+    -e TLS_KEY="/etc/letsencrypt/live/vds2291318.my-ihor.ru/privkey.pem" \
+    -v /home/gutierrezramiro/cafeweb/:/Users/ftp_path \
+    delfer/alpine-ftp-server
+
+docker run -d \
+    --name ftp \
+    -p 21:21 \
+    -p 21000-21010:21000-21010 \
+    -e USERS="one|1234" \
+    -e ADDRESS=ftp.site.domain \
+    -e TLS_CERT="/etc/letsencrypt/live/vds2291318.my-ihor.ru/fullchain.pem" \
+    -e TLS_KEY="/etc/letsencrypt/live/vds2291318.my-ihor.ru/privkey.pem" \
+    delfer/alpine-ftp-server
+
+
+
+
+-----
+mkdir -p /etc/letsencrypt
+
+docker run -it --rm \
+    -p 80:80 \
+    -v "/etc/letsencrypt:/etc/letsencrypt" \
+    certbot/certbot certonly \
+    --standalone \
+    --preferred-challenges http \
+    -n --agree-tos \
+    --email i@delfer.ru 
+    -d localhost
+
+docker run -d \
+    --name ftp \
+    -p 21:21 \
+    -p 21000-21010:21000-21010 \
+    -e USERS="one|1234" \
+    -e ADDRESS=ftp.site.domain \
+    -e TLS_CERT="/etc/letsencrypt/live/vds2291318.my-ihor.ru/fullchain.pem" \
+    -e TLS_KEY="/etc/letsencrypt/live/vds2291318.my-ihor.ru/privkey.pem" \
+    delfer/alpine-ftp-server
