@@ -60,11 +60,18 @@
                                       <Component id="Nombre" min="-2" max="-2" attributes="0"/>
                                       <Component id="Alias" alignment="0" max="32767" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="169" pref="169" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="Apellido2" min="-2" max="-2" attributes="0"/>
-                                      <Component id="Email" min="-2" max="-2" attributes="0"/>
-                                      <Component id="Registrar" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="Email" min="-2" max="-2" attributes="0"/>
+                                              <Component id="Registrar" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
+                                          <Component id="Apellido2" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
@@ -89,23 +96,27 @@
                       <Component id="Apellido1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="Password2" max="32767" attributes="0"/>
+                      <Component id="Apellido2" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="Email" max="32767" attributes="0"/>
+                      <Component id="Alias" max="32767" attributes="0"/>
+                  </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="Apellido2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                          <Component id="Email" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="Nombre" min="-2" pref="79" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="Password2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                          <Component id="Alias" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                          <Component id="Nombre" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="148" max="-2" attributes="0"/>
+                          <Component id="Registrar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="72" max="32767" attributes="0"/>
-                  <Component id="Registrar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -142,9 +153,9 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="nombre" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="TFnombre" min="-2" pref="28" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="SepNombre" min="-2" pref="10" max="-2" attributes="0"/>
+                      <Component id="TFnombre" min="-2" pref="24" max="-2" attributes="0"/>
+                      <EmptySpace pref="24" max="32767" attributes="0"/>
+                      <Component id="SepNombre" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -212,9 +223,9 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="alias" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="TFalias" pref="28" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="SepAlias" min="-2" pref="10" max="-2" attributes="0"/>
+                      <Component id="TFalias" min="-2" pref="22" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="SepAlias" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -284,10 +295,10 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="password2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="8" max="32767" attributes="0"/>
-                      <Component id="PWF2" min="-2" pref="26" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="SepPassword1" min="-2" pref="10" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="PWF2" min="-2" pref="16" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="SepPassword1" min="-2" pref="8" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -358,8 +369,8 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="password" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="PWF1" min="-2" pref="26" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="PWF1" min="-2" pref="20" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="SepPassword" min="-2" pref="10" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -567,9 +578,9 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="email" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="TFemail" pref="22" max="32767" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="Sepemail" min="-2" pref="10" max="-2" attributes="0"/>
+                      <Component id="TFemail" min="-2" pref="28" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="Sepemail" min="-2" pref="4" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

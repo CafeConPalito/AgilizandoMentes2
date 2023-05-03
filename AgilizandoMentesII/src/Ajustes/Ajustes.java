@@ -94,7 +94,7 @@ public class Ajustes extends javax.swing.JPanel {
         background.add(sonido, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, -1, -1));
 
         aplicar.setBackground(Estilos.getColorPanel());
-        aplicar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        aplicar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         aplicar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 aplicarMouseClicked(evt);
@@ -131,13 +131,13 @@ public class Ajustes extends javax.swing.JPanel {
         web.setFont(Estilos.getFuenteCuerpo());
         web.setForeground(Estilos.getColorFuenteRegistroLogin());
         web.setText("cafeconpalito.com");
-        web.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        web.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         web.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 webMouseClicked(evt);
             }
         });
-        background.add(web, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 500, -1, -1));
+        background.add(web, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 550, -1, -1));
 
         idioma.setFont(Estilos.getFuenteCuerpo());
         idioma.setText("Idioma");
