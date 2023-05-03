@@ -183,3 +183,79 @@ Select dentro de la aplicación:
 SELECT mediaAciertos FROM estadisticas_calculo where jugador = (select id_usuario from usuario where nombre_usuario='Cbarrios') and nivel = 4;
 
 
+-- Clase MetodosRegistro
+
+-- Método comprobarDNI
+/* Comprueba si el DNI contiene 8 numeros y Una letra mayuscula, pasado desde el registro y que no existe en la BBDD
+Devuelve un Booleano 
+Select dentro de la aplicación:
+"String selectDNI = "select dni from persona where dni = ?";*/
+select dni from persona where dni = '12345678T';
+
+-- Método comprobrarEmail
+/* Comprueba si el Email tiene los parametros correctos (caracteres + "@" +dominio + "." ), pasado desde el registro y que no existe en la BBDD 
+Devuelve un Booleano
+Select dentro de la aplicación:
+"String selectEmail = "select email from persona where email = ?";*/
+select email from persona where email = '123@asd.es';
+
+-- Método comprobrarAlias
+/* Comprueba si el alias no esta vacio, pasado desde el registro y que no existe en la BBDD:
+Devuelve un Booleano
+Select dentro de la aplicación:
+String selectAlias = "select alias from usuario where alias = ?";*/
+select alias from usuario where alias = 'AliasDaniel';
+
+-- Método comprobarNombreUsuario
+/* Comprueba que el nombre de usuario no esta vacio, pasado desde el registro y que no existe en la BBDD
+Devuelve un Booleano
+Select dentro de la aplicación:
+String selectNombreUsuario = "select nombre_usuario from usuario where nombre_usuario = ?";*/
+select nombre_usuario from usuario where nombre_usuario = 'Despinosa';
+
+-- Método registrarUsuario
+/* Compuesto de un Select para saber el Id-usuario al registrarlo y 3 Inserts para añadir la información del usuario en todas las tablas necesarias para el registro
+String select = "select id_usuario from usuario where nombre_usuario = ?";
+String insert1 = "insert into usuario(nombre_usuario,contrasena,alias) values (?,md5(?),?)";
+String insert2 = "insert into persona(id_usuario,nombre,apellido1,apellido2,dni,email,curso,fecha_naci,profesor) values (?,?,?,?,?,?,?,?,?)";
+String insert3 = "insert into ajuste(usuario,tamaño,idioma,sonido) values (?,?,?,?)";;
+Para añadir el usuario se realizaria en el siguiente orden:*/
+insert into usuario(nombre_usuario,contrasena,alias) values ('AlumnoPrueba',md5(12345),'AliasAlumPrueba');
+select id_usuario from usuario where nombre_usuario = 'AlumnoPrueba';
+insert into persona(id_usuario,nombre,apellido1,apellido2,dni,email,curso,fecha_naci,profesor) values 
+((select id_usuario from usuario where nombre_usuario = 'AlumnoPrueba'),'nombrePru','apellidoPru','Apellido2Prue','12345678X','email@prueba.es',1,20230503,0);
+insert into ajuste(usuario,tamaño,idioma,sonido) values ((select id_usuario from usuario where nombre_usuario = 'AlumnoPrueba'),2,'Espanol',0);
+
+
+-- Clase MetodosUpdateBBDD
+
+-- metodo updatePassword
+/* Metodo para actualizar la contraseña del usuario en la BBDD
+Select dentro de la aplicación:
+String insert1 = "update usuario set contrasena=md5(?) where id_usuario=" + Usuario.getIdUsuario(); */
+SET @IDUSUARIO = (select id_usuario from usuario where nombre_usuario = 'AlumnoPrueba');
+update usuario set contrasena=md5('password') where id_usuario=@IDUSUARIO;
+
+-- metodo updateAlias
+/* Metodo para actualizar la contraseña del usuario en la BBDD
+Select dentro de la aplicación:
+String insert1 = "update usuario set alias=? where id_usuario=" + Usuario.getIdUsuario();*/
+update usuario set alias='Pepito' where id_usuario = @IDUSUARIO;
+
+-- metodo updateApellido1
+/* Metodo para actualizar el primer apellido del usuario
+Select dentro de la aplicación:
+String insert1 = "update persona set apellido1=? where id_usuario=" + Usuario.getIdUsuario();*/
+update persona set apellido1='CambioApellido' where (select id_usuario from usuario where nombre_usuario = 'AlumnoPrueba');
+
+-- metodo updateApellido2
+/* Metodo para actualizar el segundo apellido del usuario
+Select dentro de la aplicación:
+String insert1 = "update persona set apellido2=? where id_usuario=" + Usuario.getIdUsuario();*/
+update persona set apellido2='CambioApellido2' where (select id_usuario from usuario where nombre_usuario = 'AlumnoPrueba');
+
+-- metodo updateEmail
+/* Metodo para actualizar el email del usuario
+Select dentro de la aplicación:
+String insert1 = "update persona set email=? where id_usuario=" + Usuario.getIdUsuario();*/
+update persona set email='pruebacorreo@email.es' where id_usuario=(select id_usuario from usuario where nombre_usuario = 'AlumnoPrueba');
