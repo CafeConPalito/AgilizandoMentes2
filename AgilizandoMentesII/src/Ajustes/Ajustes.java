@@ -3,6 +3,10 @@ package Ajustes;
 import BBDD.MetodosAjustesBBDD;
 import Main.Main;
 import java.awt.Color;
+import java.awt.Desktop;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public class Ajustes extends javax.swing.JPanel {
     
@@ -54,7 +58,7 @@ public class Ajustes extends javax.swing.JPanel {
         sonido = new javax.swing.JLabel();
         aplicar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        tamano = new javax.swing.JLabel();
+        web = new javax.swing.JLabel();
         idioma = new javax.swing.JLabel();
         selectidioma = new javax.swing.JComboBox<>();
         texto = new javax.swing.JSlider();
@@ -62,6 +66,8 @@ public class Ajustes extends javax.swing.JPanel {
         Si = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
         bienvenido1 = new javax.swing.JLabel();
+        tamano1 = new javax.swing.JLabel();
+        version1 = new javax.swing.JLabel();
         jPanelFondo = new javax.swing.JPanel();
         Fondo = new javax.swing.JLabel();
 
@@ -122,17 +128,16 @@ public class Ajustes extends javax.swing.JPanel {
 
         background.add(aplicar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 340, 130, -1));
 
-        tamano.setFont(Estilos.getFuenteCuerpo());
-        tamano.setText("Tamaño del texto");
-        tamano.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                tamanoMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                tamanoMouseExited(evt);
+        web.setFont(Estilos.getFuenteCuerpo());
+        web.setForeground(Estilos.getColorFuenteRegistroLogin());
+        web.setText("cafeconpalito.com");
+        web.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        web.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                webMouseClicked(evt);
             }
         });
-        background.add(tamano, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
+        background.add(web, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 500, -1, -1));
 
         idioma.setFont(Estilos.getFuenteCuerpo());
         idioma.setText("Idioma");
@@ -213,6 +218,22 @@ public class Ajustes extends javax.swing.JPanel {
 
         background.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 460, 40));
 
+        tamano1.setFont(Estilos.getFuenteCuerpo());
+        tamano1.setText("Tamaño del texto");
+        tamano1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                tamano1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                tamano1MouseExited(evt);
+            }
+        });
+        background.add(tamano1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
+
+        version1.setFont(Estilos.getFuenteCuerpo());
+        version1.setText("Version: 1.0.5");
+        background.add(version1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 500, -1, -1));
+
         add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jPanelFondo.setBackground(Estilos.getColorPanelBlanco());
@@ -278,14 +299,6 @@ public class Ajustes extends javax.swing.JPanel {
         valortexto.setText(Integer.toString(texto.getValue()));
     }//GEN-LAST:event_textoStateChanged
 
-    private void tamanoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tamanoMouseEntered
-
-        //CONFIGURACION PARA ACTIVAR SONIDO
-        if (Configuracion.isSonido()) {
-            Configuracion.sonar("tamaño_texto");
-        }
-    }//GEN-LAST:event_tamanoMouseEntered
-
     private void idiomaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idiomaMouseEntered
 
         //CONFIGURACION PARA ACTIVAR SONIDO
@@ -314,10 +327,6 @@ public class Ajustes extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_SiMouseEntered
 
-    private void tamanoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tamanoMouseExited
-        Configuracion.parar();
-    }//GEN-LAST:event_tamanoMouseExited
-
     private void idiomaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_idiomaMouseExited
         Configuracion.parar();
     }//GEN-LAST:event_idiomaMouseExited
@@ -329,6 +338,25 @@ public class Ajustes extends javax.swing.JPanel {
     private void SiMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SiMouseExited
         Configuracion.parar();
     }//GEN-LAST:event_SiMouseExited
+
+    private void tamano1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tamano1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tamano1MouseEntered
+
+    private void tamano1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tamano1MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tamano1MouseExited
+
+    private void webMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_webMouseClicked
+        // TODO add your handling code here:
+         try {
+            Desktop.getDesktop().browse(new URI("http://192.168.24.16:8082/"));
+        } catch (IOException ex) {
+            //System.err.println("Ha ocurrido una IOException");
+        } catch (URISyntaxException ex) {
+            //System.err.println("No ha encontrado la URL");
+        }
+    }//GEN-LAST:event_webMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -344,8 +372,10 @@ public class Ajustes extends javax.swing.JPanel {
     private javax.swing.JPanel jPanelFondo;
     private javax.swing.JComboBox<String> selectidioma;
     private javax.swing.JLabel sonido;
-    private javax.swing.JLabel tamano;
+    private javax.swing.JLabel tamano1;
     private javax.swing.JSlider texto;
     private javax.swing.JLabel valortexto;
+    private javax.swing.JLabel version1;
+    private javax.swing.JLabel web;
     // End of variables declaration//GEN-END:variables
 }
