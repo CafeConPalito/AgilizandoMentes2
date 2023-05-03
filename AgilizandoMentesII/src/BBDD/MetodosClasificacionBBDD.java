@@ -15,7 +15,7 @@ public class MetodosClasificacionBBDD {
 
 
     /**
-     * Metodo para sacar los datos de las clasificaciones en los juegos
+     * Metodo para obtener los datos de las clasificaciones en los juegos
      * @param con Conexion a la base de datos
      * @param nombre nombre del usuario
      * @param apellido1 1º Apellido de usuario
