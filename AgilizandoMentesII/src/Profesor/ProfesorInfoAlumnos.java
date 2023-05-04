@@ -393,12 +393,12 @@ public class ProfesorInfoAlumnos extends javax.swing.JPanel {
                 .addComponent(cu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(TFCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(SepUsuario7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(SepUsuario7, javax.swing.GroupLayout.DEFAULT_SIZE, 18, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        datos.add(curso, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 168, -1, 70));
+        datos.add(curso, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 168, -1, 80));
 
         DNI.setBackground(new java.awt.Color(255, 255, 255));
         DNI.addMouseListener(new java.awt.event.MouseAdapter() {
