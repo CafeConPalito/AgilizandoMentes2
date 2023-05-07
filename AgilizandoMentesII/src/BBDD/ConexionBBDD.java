@@ -48,7 +48,7 @@ public class ConexionBBDD {
             }*/
             
         } catch (SQLException ex) {
-            System.err.println("problemas de coneccion\n" + ex.toString());
+            System.err.println("problemas de conexión\n" + ex.toString());
         } catch (ClassNotFoundException e) {
             System.err.println(e.toString());
         }
