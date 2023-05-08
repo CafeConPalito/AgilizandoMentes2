@@ -1,0 +1,11 @@
+Para poder ejecutar el programa en local:
+
+1.- Crea una base de datos con las siguientes características:
+	nombre: BBDD
+	usuario: root
+	Contraseña: 1234
+2.- Ejecuta el query Create_table que se encuentra en la carpeta BBDD del reto.
+3.- Del código del programa, en el paquete BBDD, modifica el fichero ConexionBBDD.java:
+	Descomenta la línea de la Ip local.
+	Comenta la línea de la Ip del servidor externo.
+4.- Regístrate un usuario e inicia sesión.
