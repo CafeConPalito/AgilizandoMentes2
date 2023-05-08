@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"Ajustes"},{"l":"All Packages","url":"allpackages-index.html"},{"l":"Alumno"},{"l":"BBDD"},{"l":"Calculadora"},{"l":"Calculo"},{"l":"Euclides"},{"l":"Login"},{"l":"Main"},{"l":"Profesor"},{"l":"RestoDiv"},{"l":"Tiempo"},{"l":"Usuario"}]
